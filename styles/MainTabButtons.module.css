@@ -16,3 +16,11 @@
     border:none;
     outline: none;
 }
+
+.MainTabButtonActive{
+    background-color: #FAFAFA;
+    color: #00BB1E;
+    font-size: x-large;
+    border:none;
+    outline: none;
+}

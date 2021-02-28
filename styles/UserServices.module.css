@@ -20,6 +20,19 @@
     border-color: #026ED2;
 }
 
+.TabButtonActive{
+    color: white;
+    background-color: #026ED2;
+    min-width: 20%;
+    font-size:medium;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    border-radius: 100px;
+    outline: none;
+    border-style: solid;
+    border-color: #026ED2;
+}
+
 /*MAIN SEARCH BAR*/
 .SearchBarContainer{
     width: 100vw;
