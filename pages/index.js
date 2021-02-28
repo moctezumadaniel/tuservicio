@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import UserServicesMenuButtons from './User_services_tab/User_services_menu_buttons'
+import UserServicesTab from './User_services_tab'
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -8,7 +8,7 @@ export default function Home() {
         <title>Celer</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <UserServicesMenuButtons/>
+      <UserServicesTab/>
     </div>
   )
 }

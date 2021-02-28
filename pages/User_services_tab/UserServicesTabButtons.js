@@ -1,5 +1,5 @@
-import styles from '../../../styles/UserServices.module.css'
-function UserServicesMenuButtons(){
+import styles from '../../styles/UserServices.module.css'
+function UserServicesTabButtons(){
     return(
         <div className={styles.TabButtonsContainer}>
             <button className={styles.TabButtons}>Reservaciones</button>
@@ -9,4 +9,4 @@ function UserServicesMenuButtons(){
     );
 }
 
-export default UserServicesMenuButtons
+export default UserServicesTabButtons
