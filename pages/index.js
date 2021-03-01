@@ -4,7 +4,7 @@ import UserServicesTab from './User_services_tab'
 import MainTabButtons from './Main_tab_buttons'
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div scroll="no" className={styles.container}>
       <Head>
         <title>Celer</title>
         <link rel="icon" href="/favicon.ico" />
