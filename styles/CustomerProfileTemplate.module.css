@@ -1,0 +1,13 @@
+.TopBarContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 150px;
+}
+
+.MoreInformationContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 40px;
+}
