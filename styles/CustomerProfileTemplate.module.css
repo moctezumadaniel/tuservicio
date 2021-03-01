@@ -1,9 +1,12 @@
+/*INFORMATION THAT WILL DISPLAY AT THE TOP OF THE PROFILES*/
 .TopBarContainer {
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 150px;
 }
+
+/*SCORE OF THE SERVICES AND BUTTONS TO DISPLAY MORE INFORMATION*/
 
 .MoreInformationContainer{
     display: flex;
@@ -12,6 +15,18 @@
     height: 40px;
     margin-bottom: 1.5vh;
 }
+
+.BriefDescription{
+    margin-right: 10px;
+    margin-left: 10px;
+    justify-content: center;
+    text-align: center;
+    text-justify: center;
+    margin-bottom: 20px;
+
+}
+
+/*TAB BUTTONS FOR THE MAIN INFORMATION OF THE SERVICES*/
 
 .TabButtonsContainer{
     display: flex;

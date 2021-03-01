@@ -4,11 +4,15 @@ function MoreInformation (){
     const directionDescription = "Dirección";
     const serviceScore = "5 stars";
     const moreInformationDescription = "Información"
+    const briefDescription = "Esta es una breve descripcion del servicio que no debera exeder de 120 letras"
     return(
-        <div className={styles.MoreInformationContainer}>   
-            <button>{directionDescription}</button>
-            <div>{serviceScore}</div>
-            <button>{moreInformationDescription}</button>
+        <div>
+            <div className={styles.MoreInformationContainer}>   
+                <button>{directionDescription}</button>
+                <div>{serviceScore}</div>
+                <button>{moreInformationDescription}</button>
+            </div>
+            <div className={styles.BriefDescription}>{briefDescription}</div>
         </div>
     )
 }
