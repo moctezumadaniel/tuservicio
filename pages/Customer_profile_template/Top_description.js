@@ -6,9 +6,9 @@ function TopBar(){
     const phoneCallDescription = "LLAMAR 7712624988"
     return(
         <div className={styles.TopBarContainer}>
-            <button >{sendMessageDescription}</button>
+            <button className={styles.MessageButton}>{sendMessageDescription}</button>
             <image>{profileImage}</image>
-            <button>{phoneCallDescription}</button>
+            <button className={styles.PhoneCallButton}>{phoneCallDescription}</button>
         </div>
     )
 }

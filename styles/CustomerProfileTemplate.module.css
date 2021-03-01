@@ -5,7 +5,22 @@
     align-items: center;
     height: 150px;
 }
+.MessageButton{
+    background-color: #FAFAFA;
+    color:#026ED2;
+    outline: none;
+    border: none;
+    font-size: large;
+    
+}
 
+.PhoneCallButton{
+    background-color: #FAFAFA;
+    color:#026ED2;
+    outline: none;
+    border: none;
+    font-size: large;
+}
 /*SCORE OF THE SERVICES AND BUTTONS TO DISPLAY MORE INFORMATION*/
 
 .MoreInformationContainer{
@@ -24,6 +39,22 @@
     text-justify: center;
     margin-bottom: 20px;
 
+}
+
+.AddressButton{
+    background-color: #FAFAFA;
+    color: #C67802;
+    outline: none;
+    border: none;
+    font-size: large;
+}
+
+.MoreInformationButton{
+    background-color: #FAFAFA;
+    color: #C67802;
+    outline: none;
+    border: none;
+    font-size: large;
 }
 
 /*TAB BUTTONS FOR THE MAIN INFORMATION OF THE SERVICES*/
