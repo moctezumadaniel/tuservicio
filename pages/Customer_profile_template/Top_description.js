@@ -9,7 +9,7 @@ function TopBar(){
         <div>
             <div className={styles.TopBarContainer}>
                 <button className={styles.MessageButton}>{sendMessageDescription}</button>
-                <image>{profileImage}</image>
+                <image className={styles.ProfileImage}>{profileImage}</image>
                 <button className={styles.PhoneCallButton}>{phoneCallDescription}</button>
             </div>
             <div className={styles.CustomerName}>{CustomerName}</div>

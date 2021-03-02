@@ -3,7 +3,7 @@ import styles from '../../styles/CustomerProfileTemplate.module.css'
 function MoreInformation (){
     const directionDescription = "Dirección";
     const serviceScore = "5 stars";
-    const moreInformationDescription = "Mas información"
+    const moreInformationDescription = "+ Información"
     const briefDescription = "Esta es una breve descripcion del servicio que no debera exeder de 120 letras"
     return(
         <div>
