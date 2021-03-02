@@ -102,12 +102,18 @@
 }
 /*SERVICES TAB AND ITS CORRESPONDENT ITEMS*/
 
+.ServicesMainContainer{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
+}
+
 .ServiceItemContainer{
     display: flex;
     flex-direction: row;
     background-color: white;
-    min-width: 300px;
-    max-width: 500px;
+    width: 500px;
     max-height: 200px;
     padding: 10px;
     border-radius: 10px;
