@@ -97,3 +97,27 @@
     border-style: solid;
     border-color: #026ED2;
 }
+/*SERVICES TAB AND ITS CORRESPONDENT ITEMS*/
+
+.ServiceItemContainer{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    min-width: 300px;
+    max-width: 500px;
+    max-height: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    
+}
+
+.ServiceMainInfo{
+    width: 30%;
+    margin-right: 10px;
+}
+
+.ServiceComplementInfo{
+    width: 65%;
+}
