@@ -131,7 +131,7 @@
     width: 65%;
 }
 
-/*REVIEW CONTAINER AND ITEMS*/
+/*REVIEWS CONTAINER AND ITEMS*/
 .ReviewsMainContainer{
     display: flex;
     flex-wrap: wrap;
@@ -148,7 +148,7 @@
     padding: 10px;
     border-radius: 10px;
     margin: 10px;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .MainReviewContainer{
@@ -157,4 +157,45 @@
     justify-content: space-around;
     margin-bottom: 5px;
     font-weight: bold;
+}
+
+/*BOOKING CONTAINER AND ITEMS*/
+
+.BookingMainContainer{
+    margin-top: 10px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.BookingItemContainer{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: white;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.ItemSchedule{
+    width: 35%;
+}
+
+.ItemDescription{
+    width: 35%;
+    font-size:medium;
+}
+
+.BookingButton{
+    width: 20%;
+    outline: none;
+    color: #026ED2;
+    font-size: large;
+    border: none;
+    background-color: white;
 }
