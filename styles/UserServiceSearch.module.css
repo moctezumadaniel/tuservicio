@@ -1,0 +1,44 @@
+.ServiceSearchMainContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+/*ITEM PREVIEW*/
+
+.PreviewMainContainer{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    width: 500px;
+    max-height: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.ImageAndScoreContainer{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-right: 10px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.ServiceInformation{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+
+.ServiceTodaySchedule{
+    color: #00BB1E;
+}
+
+.ServiceDescription{
+    font-size: small;
+}
+

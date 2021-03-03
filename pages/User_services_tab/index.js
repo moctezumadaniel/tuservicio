@@ -1,12 +1,12 @@
 import UserServicesTabButtons from './UserServicesTabButtons'
 import UserSearch from './UserSearch'
-import UserServicePreview from '../User_service_preview';
+import ServicesSearch from './ServicesSearch';
 function UserServicesTab(){
     return(
         <div>
             <UserSearch/>
            <UserServicesTabButtons/>
-           <UserServicePreview/>
+           <ServicesSearch/>
         </div>
     );
 }
