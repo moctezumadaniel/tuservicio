@@ -189,13 +189,15 @@
 .ItemDescription{
     width: 35%;
     font-size:medium;
+    color: #2D2D2D;
 }
 
 .BookingButton{
-    width: 20%;
+    min-width: 20%;
+    max-width: 25%;
     outline: none;
     color: #026ED2;
-    font-size: large;
+    font-size: medium;
     border: none;
     background-color: white;
 }
