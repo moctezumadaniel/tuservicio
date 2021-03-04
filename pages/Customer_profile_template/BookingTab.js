@@ -1,7 +1,7 @@
 import styles from '../../styles/CustomerProfileTemplate.module.css'
 
 import BookingItem from './BookingItem'
-
+import BookingModal from './BookingModal'
 function BookingTab (){
     return(
         <div className={styles.BookingMainContainer}>
@@ -21,6 +21,7 @@ function BookingTab (){
             <BookingItem/>
             <BookingItem/>
             <BookingItem/>
+            <BookingModal/>
         </div>
     )
 }

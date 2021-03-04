@@ -234,3 +234,60 @@
     width: 200px;
     padding:5px;
 }
+
+/*BOOKING MODAL*/
+.BookingModalMain{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    top:0;
+    left: 0;
+    position: fixed;
+}
+
+.BookingModal{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    position: fixed;
+    top: 25vh;
+    right: 25vw;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    padding-bottom: 0;
+    vertical-align: middle;
+    font-size: large;
+}
+
+.BookingModalButtons{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.BookingModalCancel{
+    width: 50%;
+    padding:5px;
+    font-size: larger;
+    background-color: white;
+    color: #F40000;
+    border: none;
+    outline: none;
+    margin-right: 20px;
+}
+
+.BookingModalConfirm{
+    width: 50%;
+    padding:5px;
+    font-size: larger;
+    background-color: white;
+    color: #00BB1E;
+    border: none;
+    outline: none;
+}
