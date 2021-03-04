@@ -99,6 +99,21 @@
     border-style: solid;
     border-color: #026ED2;
 }
+
+.AddReviewContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 40px;
+}
+
+.AddReviewButton{
+    color: #026ED2;
+    background-color: #FAFAFA;
+    outline: none;
+    border: none;
+    font-size: large;
+}
 /*SERVICES TAB AND ITS CORRESPONDENT ITEMS*/
 
 .ServicesMainContainer{
@@ -161,7 +176,7 @@
 /*BOOKING CONTAINER AND ITEMS*/
 
 .BookingMainContainer{
-    margin-top: 10px;
+    margin-top: 1px;
     width: 100vw;
     display: flex;
     flex-direction: column;
