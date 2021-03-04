@@ -4,6 +4,7 @@ import TabButtons from './TabButtons'
 import ServicesTab from './ServicesTab'
 import ReviewsTab from './ReviewsTab'
 import BookingTab from './BookingTab'
+import CloseButton from './CloseButton'
 function CustomerProfileTemplate (){
     return(
         <div>
@@ -13,6 +14,7 @@ function CustomerProfileTemplate (){
             {/*<ServicesTab/>*/}
             {/*<ReviewsTab/>*/}
             <BookingTab/>
+            <CloseButton/>
 
         </div>
     )

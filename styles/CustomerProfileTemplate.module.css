@@ -217,3 +217,20 @@
     border: none;
     background-color: white;
 }
+
+/*BUTTON TO CLOSE PROFILE*/
+
+.CloseButton{
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    font-size: larger;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 1px;
+    margin-left: 5px;
+    background-color: #F40000;
+    color: white;
+    width: 200px;
+    padding:5px;
+}
