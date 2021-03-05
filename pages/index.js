@@ -3,7 +3,7 @@ import {createStore} from 'redux'
 import rootReducer from '../redux/reducers'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import UserServicesTab from './User_services_tab'
+import UserServicesTab from '../components/User_services_tab'
 import MainTabButtons from './Main_tab_buttons'
 import CustomerProfileTemplate from './Customer_profile_template'
 

@@ -12,3 +12,5 @@ export const servicesTabSelectedReducer = (state = 'Search', action)=>{
             return state;
     }
 }
+
+export default servicesTabSelectedReducer

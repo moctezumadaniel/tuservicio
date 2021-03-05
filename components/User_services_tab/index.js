@@ -1,9 +1,9 @@
 import UserServicesTabButtons from './UserServicesTabButtons'
 import UserSearch from './UserSearch'
-import ServicesSearch from './ServicesSearch';
-import UserPreviousServices from './UserPreviousServices'
-import UserReservations from './UserReservations'
-import UserFavouriteServices from './UserFavouriteServices'
+import ServicesSearch from '../../pages/User_services_tab/ServicesSearch';
+import UserPreviousServices from '../../pages/User_services_tab/UserPreviousServices'
+import UserReservations from '../../pages/User_services_tab/UserReservations'
+import UserFavouriteServices from '../../pages/User_services_tab/UserFavouriteServices'
 
 import { useSelector, useDispatch } from 'react-redux';
 function UserServicesTab(){
