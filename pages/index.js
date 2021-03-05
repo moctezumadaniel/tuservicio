@@ -16,9 +16,9 @@ export default function Home() {
           <title>Celer</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <CustomerProfileTemplate/>
-        {/*<UserServicesTab/>*/}
-        {/*<MainTabButtons/>*/}
+        {/*<CustomerProfileTemplate/>*/}
+        <UserServicesTab/>
+        <MainTabButtons/>
       </div>
     </Provider>
   )

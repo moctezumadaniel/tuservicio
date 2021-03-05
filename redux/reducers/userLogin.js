@@ -1,4 +1,4 @@
-const userLoginReducer = (state = false, action)=>{
+export const userLoginReducer = (state = false, action)=>{
     switch (action.type){
         case "USER_LOGGED":
             return true;
@@ -6,5 +6,3 @@ const userLoginReducer = (state = false, action)=>{
             return state;
     }
 }
-
-export default userLoginReducer
