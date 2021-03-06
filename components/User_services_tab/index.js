@@ -5,10 +5,12 @@ import UserPreviousServices from '../../pages/User_services_tab/UserPreviousServ
 import UserReservations from '../../pages/User_services_tab/UserReservations'
 import UserFavouriteServices from '../../pages/User_services_tab/UserFavouriteServices'
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 function UserServicesTab(){
     const currentTab = useSelector(state=>state.userServicesTab)
+    const currentGlobalTab = useSelector(state=>state.globalTab)
     return(
+        currentGlobalTab === 'Services' ?
         <div>
             <UserSearch/>
            <UserServicesTabButtons/>
@@ -30,6 +32,7 @@ function UserServicesTab(){
            :""}
            
         </div>
+        :""
     );
 }
 
