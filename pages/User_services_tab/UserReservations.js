@@ -1,7 +1,9 @@
+import styles from '../../styles/UserServices.module.css'
+
 function UserReservations(){
-    const defaultPage = "AÚN NO TIENES RESERVACIONES"
+    const defaultPage = "Aún no tienes reservaciones"
     return(
-        <div>
+        <div className={styles.UserReservationsContainer}>
             {defaultPage}
         </div>
     )

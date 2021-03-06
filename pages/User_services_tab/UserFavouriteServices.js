@@ -1,7 +1,8 @@
+import styles from '../../styles/UserServices.module.css'
 function UserFavouriteServices(){
-    const defaultPage = "AÚN NO HAS AGREGADO SERVICIOS FAVORITOS"
+    const defaultPage = "Aún no has agregado servicios favoritos."
     return(
-        <div>
+        <div className={styles.UserFavouritesContainer}>
             {defaultPage}
         </div>
     )
