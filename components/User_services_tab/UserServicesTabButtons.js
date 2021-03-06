@@ -1,8 +1,11 @@
 import styles from '../../styles/UserServices.module.css'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {changeToReservations, changeToFavourites, changeToPrevious} from '../../redux/actions/UserServicesTab'
+
+
 function UserServicesTabButtons(){
     const dispatch = useDispatch();
+    const tabActive = useSelector(state=>state.userServicesTab)
 
     function handleReservationsButton(){
         dispatch(changeToReservations())
@@ -17,17 +20,20 @@ function UserServicesTabButtons(){
     return(
         <div className={styles.TabButtonsContainer}>
 
-            <button className={styles.TabButtonActive}
+            <button 
+            className={tabActive === 'Reservations'? styles.TabButtonsActive : styles.TabButtons}
             onClick={handleReservationsButton}>
                 Reservaciones
             </button>
 
-            <button className={styles.TabButtons}
+            <button 
+            className={tabActive === 'Previous'? styles.TabButtonsActive : styles.TabButtons}
             onClick={handlePreviousButton}>
                 Anteriores
             </button>
 
-            <button className={styles.TabButtons}
+            <button 
+            className={tabActive === 'Favourites'? styles.TabButtonsActive : styles.TabButtons}
             onClick={handleFavouritesButton}>
                 Favoritos
             </button>

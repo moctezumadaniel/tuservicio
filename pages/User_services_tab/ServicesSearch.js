@@ -1,6 +1,6 @@
 import styles from '../../styles/UserServiceSearch.module.css'
 
-import UserServicePreview from '../../pages/User_service_preview';
+import UserServicePreview from '../User_service_preview';
 
 function ServicesSearch (){
     return(
