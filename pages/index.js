@@ -5,6 +5,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import UserServicesTab from '../components/User_services_tab'
 import MainTabButtons from '../components/Main_tab_buttons'
+import PreferencesTab from '../components/Preferences_tab'
 import CustomerProfileTemplate from './Customer_profile_template'
 
 const store = createStore (rootReducer)
@@ -18,6 +19,7 @@ export default function Home() {
         </Head>
         {/*<CustomerProfileTemplate/>*/}
         <UserServicesTab/>
+        <PreferencesTab/>
         <MainTabButtons/>
       </div>
     </Provider>
