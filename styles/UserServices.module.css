@@ -43,9 +43,10 @@
     
 }
 .SearchBar{
-    min-width: 75vw;
+    width: 75vw;
+    height: 50px;
     background-color: white;
-    font-size: larger;
+    font-size: medium;
     border-radius: 5px;
     padding:1vh;
     outline: none;

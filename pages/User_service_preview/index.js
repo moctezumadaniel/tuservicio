@@ -12,7 +12,7 @@ function UserServicePreview(){
                 <div>{score}</div>
             </div>
             <div className={styles.ServiceInformation}>
-                <div>{name}</div>
+                <div className={styles.ServiceName}>{name}</div>
                 <div className={styles.ServiceTodaySchedule}>{todaySchedule}</div>
                 <div className={styles.ServiceDescription}>{description}</div>
             </div>

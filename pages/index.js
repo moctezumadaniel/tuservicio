@@ -15,7 +15,7 @@ export default function Home() {
       <div scroll="no" className={styles.container}>
         <Head>
           <title>Celer</title>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/celer.png" />
         </Head>
         {/*<CustomerProfileTemplate/>*/}
         <UserServicesTab/>

@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    padding-bottom: 50px;
 }
 /*ITEM PREVIEW*/
 
@@ -34,11 +35,18 @@
     width: 55%;
 }
 
+.ServiceName{
+    font-size: large;
+    font-weight: 700;
+}
+
 .ServiceTodaySchedule{
     color: #00BB1E;
+    margin-bottom: 5px;
 }
 
 .ServiceDescription{
-    font-size: small;
+    font-size:medium;
+    font-weight: 400;
 }
 
