@@ -19,6 +19,9 @@
     border-style: solid;
     border-color: #026ED2;
 }
+.TabButtons:hover{
+    cursor: pointer;
+}
 
 .TabButtonsActive{
     color: white;
@@ -31,6 +34,9 @@
     outline: none;
     border-style: solid;
     border-color: #026ED2;
+}
+.TabButtonsActive:hover{
+    cursor: pointer;
 }
 
 /*MAIN SEARCH BAR*/
@@ -75,6 +81,9 @@
     font-size: larger;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
     outline: none;
+}
+.SearchButton:hover{
+    cursor: pointer;
 }
 
 /*USER RESERVATIONS TAB*/

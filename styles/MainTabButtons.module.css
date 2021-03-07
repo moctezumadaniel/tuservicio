@@ -17,7 +17,9 @@
     border:none;
     outline: none;
 }
-
+.MainTabButton:hover{
+    cursor: pointer;
+}
 .MainTabButtonActive{
     background-color: #FAFAFA;
     color: #00BB1E;
