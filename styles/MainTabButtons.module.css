@@ -13,6 +13,7 @@
 }
 
 .MainTabButton{
+    background-color: white;
     color: black;
     font-size: x-large;
     border:none;
@@ -22,6 +23,7 @@
     cursor: pointer;
 }
 .MainTabButtonActive{
+    background-color: white;
     color: #00BB1E;
     font-size: x-large;
     border:none;
