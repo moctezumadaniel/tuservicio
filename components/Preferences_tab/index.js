@@ -12,8 +12,14 @@ function PreferencesTab (){
     const email = 'ejemplocorreo@ejemplo.com';
     const emailButton = 'CAMBIAR CORREO'
     const passwordDescription = 'Contraseña';
-    const password = '*********************'
-    const paswordButton = 'CAMBIAR CONTRASEÑA'
+    const password = '*********************';
+    const paswordButton = 'CAMBIAR CONTRASEÑA';
+    const reviewsTitle = 'Reseñas';
+    const reviewsDescription = 'Aqui estan las reseñas que has compartido';
+    const reviewsButton = 'ABRIR RESEÑAS';
+    const feedbackTitle = 'Problemas y comentarios';
+    const feedbackDescription = 'Aqui estan los comentarios y problemas sobre Celer.mx que nos has enviado';
+    const feedbackButton = 'ABRIR PROBLEMAS Y COMENTARIOS';
 
     return(
         currentGlobalTab === 'Preferences' ? 
@@ -43,6 +49,18 @@ function PreferencesTab (){
                 <button className={styles.ItemButton}>{paswordButton}</button>
             </div>
 
+            <div className={styles.PreferenceItem}>
+                <div className={styles.ItemHeader}>{reviewsTitle}</div>
+                <div className={styles.ItemDescription}>{reviewsDescription}</div>
+                <button className={styles.ItemButton}>{reviewsButton}</button>
+            </div>
+
+            <div className={styles.PreferenceItem}>
+                <div className={styles.ItemHeader}>{feedbackTitle}</div>
+                <div className={styles.ItemDescription}>{feedbackDescription}</div>
+                <button className={styles.ItemButton}>{feedbackButton}</button>
+            </div>
+            
         </div>
         :""
     )
