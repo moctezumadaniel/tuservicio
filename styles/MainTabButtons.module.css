@@ -1,5 +1,6 @@
 .MainTabButtonsContainer{
     width: 100vw;
+    min-height: 35px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -15,7 +16,7 @@
 .MainTabButton{
     background-color: white;
     color: black;
-    font-size: x-large;
+    font-size: larger;
     border:none;
     outline: none;
 }
@@ -25,7 +26,7 @@
 .MainTabButtonActive{
     background-color: white;
     color: #00BB1E;
-    font-size: x-large;
+    font-size: larger;
     border:none;
     outline: none;
 }

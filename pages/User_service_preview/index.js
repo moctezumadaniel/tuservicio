@@ -1,5 +1,5 @@
 import styles from '../../styles/UserServiceSearch.module.css'
-function UserServicePreview(){
+export default function UserServicePreview(){
     const image = "Imagen de perfil";
     const name = "Nombre del servicio";
     const score = "5 star";
@@ -20,4 +20,23 @@ function UserServicePreview(){
     )
 }
 
-export default UserServicePreview
+/*export async function getServerSideProps(context){
+    const { db } = await connectToDatabase();
+    
+    const data = await db.collection("customers_public_data").toArray();
+   
+
+    const properties = data.map(property=>{
+        return{
+            image:property.profileImage,
+            name:property.name,
+            score: property.score,
+            todaySchedule:property.schedule,
+            description: property.description
+        }
+    })
+    
+    return{
+        props: {properties}
+    }
+}*/

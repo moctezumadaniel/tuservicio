@@ -9,3 +9,9 @@ export const changeGlobalToPreferences = ()=>{
         type:'CHANGE_GLOBAL_TO_PREFERENCES'
     }
 }
+
+export const changeGlobalToMessages = ()=>{
+    return{
+        type: 'CHANGE_GLOBAL_TO_MESSAGES'
+    }
+}

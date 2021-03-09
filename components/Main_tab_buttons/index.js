@@ -1,6 +1,6 @@
 import styles from '../../styles/MainTabButtons.module.css'
 import {useSelector, useDispatch} from 'react-redux'
-import {changeGlobalToServices, changeGlobalToPreferences} from '../../redux/actions/GlobalTab'
+import {changeGlobalToServices, changeGlobalToPreferences, changeGlobalToMessages} from '../../redux/actions/GlobalTab'
 function MainTabButtons (){
     const currentTab = useSelector(state=>state.globalTab);
     const dispatch = useDispatch();
@@ -11,6 +11,9 @@ function MainTabButtons (){
     function handlePreferencesPress(){
         dispatch(changeGlobalToPreferences())
     }
+    function handleMessagesPress(){
+        dispatch(changeGlobalToMessages())
+    }
     return(
         <div className={styles.MainTabButtonsContainer}>
 
@@ -19,11 +22,16 @@ function MainTabButtons (){
                 Servicios
             </button>
 
+            <button className={currentTab === 'Messages' ? styles.MainTabButtonActive : styles.MainTabButton}
+            onClick={handleMessagesPress}>
+                Mensajes
+            </button>
+
             <button className={currentTab === 'Preferences' ? styles.MainTabButtonActive : styles.MainTabButton}
             onClick={handlePreferencesPress}>
                 Preferencias
             </button>
-
+            
         </div>
     )
 }
