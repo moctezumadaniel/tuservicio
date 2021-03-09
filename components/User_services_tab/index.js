@@ -1,6 +1,6 @@
 import UserServicesTabButtons from './UserServicesTabButtons'
 import UserSearch from './UserSearch'
-import ServicesSearch from '../../pages/User_services_tab/ServicesSearch';
+import UserServiceSearch from '../Services_search';
 import UserPreviousServices from '../../pages/User_services_tab/UserPreviousServices'
 import UserReservations from '../../pages/User_services_tab/UserReservations'
 import UserFavouriteServices from '../../pages/User_services_tab/UserFavouriteServices'
@@ -16,7 +16,7 @@ function UserServicesTab(){
            <UserServicesTabButtons/>
 
            {currentTab === 'Search'?
-            <ServicesSearch/>
+            <UserServiceSearch/>
            :""}
 
            {currentTab === 'Reservations'?

@@ -21,7 +21,7 @@ function BookingTab (){
             <BookingItem/>
             <BookingItem/>
             <BookingItem/>
-            <BookingModal/>
+            {/*<BookingModal/>*/}
         </div>
     )
 }
