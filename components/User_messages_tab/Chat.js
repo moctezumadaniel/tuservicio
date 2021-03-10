@@ -1,5 +1,7 @@
 import {useDispatch} from 'react-redux'
 import {changeMessagesTabToList} from '../../redux/actions/UserMessagesTab'
+import CustomerMessage from './CustomerMessage'
+import UserMessage from './UserMessage'
 import styles from '../../styles/UserMessages.module.css'
 function Chat (){
     const addServiceToFavorites = 'Añadir a favoritos'
@@ -18,7 +20,22 @@ function Chat (){
                <button className={styles.ReportButton}>{reportService}</button>
            </div>
            <div className={styles.MessagesMainContainer}>
-                MENSAJES
+                <CustomerMessage/>
+                <UserMessage/>
+                <CustomerMessage/>
+                <UserMessage/>
+                <CustomerMessage/>
+                <UserMessage/>
+                <CustomerMessage/>
+                <UserMessage/>
+                <CustomerMessage/>
+                <UserMessage/>
+                <CustomerMessage/>
+                <UserMessage/>
+                <CustomerMessage/>
+                <UserMessage/>
+                <CustomerMessage/>
+                <UserMessage/>
            </div>
            <div className={styles.BottomContainer}>
                <input className={styles.MessageInput}
