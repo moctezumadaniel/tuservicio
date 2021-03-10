@@ -1,27 +1,28 @@
 import {useDispatch} from 'react-redux'
 import {changeMessagesTabToList} from '../../redux/actions/UserMessagesTab'
+import styles from '../../styles/UserMessages.module.css'
 function Chat (){
-    const addServiceToFavorites = 'AÑADIR A FAVORITOS'
+    const addServiceToFavorites = 'Añadir a favoritos'
     const profileImage = 'IMAGEN DE PERFIL'
-    const reportService = 'REPORTAR SERVICIO'
-    const closeChat = 'CERRAR ESTA CONVERSACIÓN'
+    const reportService = 'Reportar servicio'
+    const placeholder = 'Escribe aqui tu mensaje'
     const dispatch = useDispatch()
     function handleCloseChat(){
         dispatch(changeMessagesTabToList())
     }
    return(
-       <div>
-           <div>
-               <button>{addServiceToFavorites}</button>
-               <div>{profileImage}</div>
-               <button>{reportService}</button>
+       <div className={styles.ChatMainContainer}>
+           <div className={styles.ChatHeader}>
+               <button className={styles.FavouriteButton}>{addServiceToFavorites}</button>
+               <div className={styles.ChatHeaderImage}>{profileImage}</div>
+               <button className={styles.ReportButton}>{reportService}</button>
            </div>
-           <div>
+           <div className={styles.MessagesMainContainer}>
                 MENSAJES
            </div>
-           <div>
-               <input/>
-               <button onClick={handleCloseChat}>{closeChat}</button>
+           <div className={styles.BottomContainer}>
+               <input className={styles.MessageInput}
+               placeholder={placeholder}/>
            </div>
        </div>
    ) 
