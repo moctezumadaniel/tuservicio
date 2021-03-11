@@ -16,6 +16,46 @@
     padding: 10px;
 }
 
+.ChangePlatformToCustomer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    color: #00BB1E;
+    border: solid;
+    border-color: #00BB1E;
+    text-align: center;
+    font-size: x-large;
+    user-select: none;
+
+}
+.ChangePlatformToCustomer:hover{
+    cursor: pointer;
+}
+.ChangePlatformToUser{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    color: #026ED2;
+    border: solid;
+    border-color: #026ED2;
+    text-align: center;
+    font-size: x-large;
+    user-select: none;
+
+}
+.ChangePlatformToUser:hover{
+    cursor: pointer;
+}
 .ItemHeader{
     font-size: x-large;
     font-weight: bold;
@@ -34,4 +74,8 @@
     background-color: white;
     color: #026ED2;
     align-self: flex-end;
+}
+
+.ItemButton:hover{
+    cursor: pointer;
 }

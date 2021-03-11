@@ -1,7 +1,10 @@
 import styles from '../../styles/Preferences.module.css'
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
+import {changePlatformToCustomer, changePlatformToUser} from '../../redux/actions/PlatformType'
 function PreferencesTab (){
     const currentGlobalTab = useSelector(state=>state.globalTab)
+    const currentPlatform = useSelector(state=>state.platformType)
+    const dispatch = useDispatch()
     const nameDescription = 'Nombre';
     const name = 'Nombre Completo del Usuario';
     const nameButton = 'CAMBIAR NOMBRE'
@@ -20,11 +23,30 @@ function PreferencesTab (){
     const feedbackTitle = 'Problemas y comentarios';
     const feedbackDescription = 'Aqui estan los comentarios y problemas sobre Celer.mx que nos has enviado';
     const feedbackButton = 'ABRIR PROBLEMAS Y COMENTARIOS';
-
+    const changeToCustomerDescription = 'Cambiar a proveedor de servicios';
+    const changeToUserDescription = 'Cambiar a cliente de servicios'
+    function handleChangeToCustomerPress(){
+        dispatch(changePlatformToCustomer())
+    }
+    function handleChangeToUserPress(){
+        dispatch(changePlatformToUser())
+    }
     return(
         currentGlobalTab === 'Preferences' ? 
         <div className={styles.PreferencesMainContaner}>
-
+            {
+            currentPlatform === 'User'?
+            <div className={styles.ChangePlatformToCustomer}
+            onClick={handleChangeToCustomerPress}>
+                {changeToCustomerDescription}
+            </div>
+            :
+            <div className={styles.ChangePlatformToUser}
+            onClick={handleChangeToUserPress}>
+                {changeToUserDescription}
+            </div>
+            }
+            
             <div className={styles.PreferenceItem}>
                 <div className={styles.ItemHeader}>{nameDescription}</div>
                 <div className={styles.ItemDescription}>{name}</div>
@@ -60,7 +82,7 @@ function PreferencesTab (){
                 <div className={styles.ItemDescription}>{feedbackDescription}</div>
                 <button className={styles.ItemButton}>{feedbackButton}</button>
             </div>
-            
+              
         </div>
         :""
     )
