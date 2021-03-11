@@ -30,3 +30,13 @@
     border:none;
     outline: none;
 }
+.MainCloseChat{
+    background-color: white;
+    color: #F40000;
+    font-size: larger;
+    border:none;
+    outline: none;
+}
+.MainCloseChat:hover{
+    cursor: pointer;
+}
