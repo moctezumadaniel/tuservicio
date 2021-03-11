@@ -5,6 +5,7 @@ import {userLoginReducer} from './userLogin'
 import {globalTabReducer} from './globalTab'
 import {userMessagesTabReducer} from './userMessagesTab'
 import {userServiceSearchTabReducer} from './userServiceSearchTab'
+import {CustomerServiceDashboardTabReducer} from './customerServiceDashboard'
 const rootReducer = combineReducers({
     platformType:platformTypeReducer,
     userLogin: userLoginReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
     globalTab:globalTabReducer,
     userMessagesTab:userMessagesTabReducer,
     userServiceSearchTab: userServiceSearchTabReducer,
+    customerDashboardTab:CustomerServiceDashboardTabReducer,
 })
 
 export default rootReducer

@@ -1,0 +1,38 @@
+/*TAB BUTTONS*/
+.TabButtonsCantainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
+    background-color: #FAFAFA;
+}
+
+.TabButton{
+    color: #026ED2;
+    background-color: white;
+    min-width: 20%;
+    font-size:medium;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    border-radius: 100px;
+    outline: none;
+    border-style: solid;
+    border-color: #026ED2;
+}
+
+.TabButton:hover{
+    cursor: pointer;
+}
+
+.TabButtonActive{
+    color: white;
+    background-color: #026ED2;
+    min-width: 20%;
+    font-size:medium;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    border-radius: 100px;
+    outline: none;
+    border-style: solid;
+    border-color: #026ED2;
+}

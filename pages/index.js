@@ -3,11 +3,9 @@ import {createStore} from 'redux'
 import rootReducer from '../redux/reducers'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import UserServicesTab from '../components/User_services_tab'
 import MainTabButtons from '../components/Main_tab_buttons'
-import PreferencesTab from '../components/Preferences_tab'
 import CustomerProfileTemplate from './Customer_profile_template'
-import UserMessagesTab from '../components/User_messages_tab';
+import AppMainContainer from '../components/App_main_container';
 
 const store = createStore (rootReducer)
 export default function Home() {
@@ -19,9 +17,7 @@ export default function Home() {
           <link rel="icon" href="/celer.png" />
         </Head>
         {/*<CustomerProfileTemplate/>*/}
-        <UserServicesTab/>
-        <PreferencesTab/>
-        <UserMessagesTab/>
+        <AppMainContainer/>
         <MainTabButtons/>
       </div>
     </Provider>
