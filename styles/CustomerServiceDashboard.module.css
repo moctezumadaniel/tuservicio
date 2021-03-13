@@ -133,3 +133,68 @@
     margin-bottom: 10px;
 
 }
+
+/*LIST OF SERVICES*/
+.ListOfServicesContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.ServicesMainContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    width: 100vw;
+}
+.AddServiceButton{
+    margin-top: 15px;
+    margin-bottom: 5px;
+    align-self: center;
+    background-color: #FAFAFA;
+    color: #026ED2;
+    outline: none;
+    border: none;
+    width:auto;
+    font-size: medium;
+}
+.AddServiceButton:hover{
+    cursor: pointer;
+}
+.ServicesTitle{
+    align-self: center;
+    font-size: x-large;
+    font-weight: 600;
+}
+.ServicesMainContainer{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
+}
+
+.ServiceItemContainer{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    width: 500px;
+    max-height: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+    
+}
+
+.ServiceMainInfo{
+    width: 30%;
+    margin-right: 10px;
+}
+.ServiceTitle{
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.ServiceComplementInfo{
+    width: 65%;
+}
