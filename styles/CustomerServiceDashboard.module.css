@@ -36,3 +36,55 @@
     border-style: solid;
     border-color: #026ED2;
 }
+
+/*SERVICE INFORMATION*/
+.ServiceInformationTabContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 150px;
+}
+.ServiceInformationContainer{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: 10px;
+}
+
+
+.informationTitle{
+    font-size: x-large;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.InformationContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+
+}
+.InformationContainer:hover{
+    cursor: pointer;
+}
+.ImageInformation{
+    width: 30%;
+}
+.Information{
+    width: 65%;
+}
+.ServiceName{
+    font-size: larger;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.PhoneNumber{
+    margin-bottom: 5px;   
+}
+.Schedule{
+    margin-bottom: 5px;
+}
