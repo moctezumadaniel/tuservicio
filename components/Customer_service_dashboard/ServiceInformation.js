@@ -6,7 +6,7 @@ function ServiceInformation (){
     const serviceSchedule = "8:00 a 16:00"
     const serviceDescription = "Descripcion corta del servicio Descripcion corta del servicio Descripcion corta del servicio Descripcion corta del servicio Descripcion corta del ServiceInformation"
     return(
-        <div className={styles.ServiceInformationTabContainer}>
+        
             <div className={styles.ServiceInformationContainer}>
                 <div className={styles.informationTitle}>{title}</div>
                 <div className={styles.InformationContainer}>
@@ -18,7 +18,7 @@ function ServiceInformation (){
                     </div>
                 </div>
             </div>
-        </div>
+        
 
     )
 }

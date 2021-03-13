@@ -36,14 +36,15 @@
     border-style: solid;
     border-color: #026ED2;
 }
+/*MAIN CONTAINER OF THE PROFILE DASHBOARD TAB*/
 
-/*SERVICE INFORMATION*/
 .ServiceInformationTabContainer{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     margin-bottom: 150px;
 }
+/*SERVICE INFORMATION PREVIEW*/
 .ServiceInformationContainer{
     display: flex;
     flex-direction: column;
@@ -61,6 +62,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-content: space-around;
     align-content: center;
     border-radius: 10px;
     background-color: white;
@@ -87,4 +89,47 @@
 }
 .Schedule{
     margin-bottom: 5px;
+}
+
+/*SERVICE CONTACT AND MORE PREVIEW*/
+
+.ContactAndMoreContainer{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: 10px;
+}
+
+.ContactAndMoreTitle{
+    font-size: x-large;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.ContactAndMoreContent{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+
+}
+.ContactAndMoreContent:hover{
+    cursor: pointer;
+}
+
+.PhoneNumber{
+    margin-bottom: 5px;
+    font-size: larger;
+    font-weight: 600;
+}
+
+.Address{
+    margin-bottom: 10px;
+}
+
+.MoreInfo{
+    margin-bottom: 10px;
+
 }
