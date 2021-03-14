@@ -1,7 +1,9 @@
+import styles from '../../../styles/CustomerServiceDashboard.module.css'
+import CurrentReservations from './CurrentReservations'
 function ServiceReservations (){
     return(
-        <div>
-            ESTA ES LA PANTALLA DE RESERVACIONES
+        <div className={styles.ServiceReservationsContainer}>
+            <CurrentReservations/>
         </div>
     )
 }
