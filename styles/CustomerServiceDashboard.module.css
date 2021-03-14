@@ -254,3 +254,36 @@
 
     }
 }
+/*CREATE NEW RESERVATION*/
+.NewReservationContainer{
+    display: flex;
+    flex-direction: column;
+}
+.NewReservationTitle{
+    font-size: x-large;
+    font-weight: 600;
+}
+.NewReservationForm{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+}
+.DateTitle{
+    font-weight: 600;
+}
+.TimeTitle{
+    font-weight: 600;
+
+}
+.TimeFormContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+@media(max-width:500px){
+    .NewReservationForm{
+        flex-direction: column;
+    }
+}
+
