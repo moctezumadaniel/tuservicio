@@ -1,4 +1,10 @@
 import styles from '../../../styles/CustomerServiceDashboard.module.css'
+import {GrList} from 'react-icons/gr'
+import {AiOutlineCalculator} from 'react-icons/ai'
+import {IoReceiptOutline} from 'react-icons/io5'
+import {BsTools} from 'react-icons/bs'
+import {FaPeopleCarry} from 'react-icons/fa'
+import {GiReceiveMoney} from 'react-icons/gi'
 function ServiceTools (){
     const orders = 'ORDENES';
     const calculator = 'CALCULADORA';
@@ -9,27 +15,27 @@ function ServiceTools (){
     return(
         <div className={styles.ToolBarContainer}>
             <div className={styles.ToolItem}>
-                <div className={styles.ToolIcon}></div>
+                <GrList className={styles.ToolIcon}/>
                 <div className={styles.ToolDescription}>{orders}</div>
             </div>
             <div className={styles.ToolItem}>
-                <div className={styles.ToolIcon}></div>
+                <AiOutlineCalculator className={styles.ToolIcon}/>
                 <div className={styles.ToolDescription}>{calculator}</div>
             </div>
             <div className={styles.ToolItem}>
-                <div className={styles.ToolIcon}></div>
+                <IoReceiptOutline className={styles.ToolIcon}/>
                 <div className={styles.ToolDescription}>{tickets}</div>
             </div>
             <div className={styles.ToolItem}>
-                <div className={styles.ToolIcon}></div>
+                <BsTools className={styles.ToolIconExpenses}/>
                 <div className={styles.ToolDescription}>{expenses}</div>
             </div>
             <div className={styles.ToolItem}>
-                <div className={styles.ToolIcon}></div>
+                <FaPeopleCarry className={styles.ToolIcon}/>
                 <div className={styles.ToolDescription}>{customersAndProviders}</div>
             </div>
             <div className={styles.ToolItem}>
-                <div className={styles.ToolIcon}></div>
+                <GiReceiveMoney className={styles.ToolIcon}/>
                 <div className={styles.ToolDescription}>{charge}</div>
             </div>
         </div>
