@@ -58,21 +58,29 @@
     font-weight: 600;
     margin-bottom: 10px;
 }
+
+.InformationItemTitle{
+    font-size: larger;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
 .InformationContainer{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     align-content: space-around;
     align-content: center;
     border-radius: 10px;
     background-color: white;
     padding: 10px;
+    margin: 5px;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 
 }
 .InformationContainer:hover{
     cursor: pointer;
 }
+
 .ImageInformation{
     width: 30%;
 }
@@ -90,6 +98,20 @@
 .Schedule{
     margin-bottom: 5px;
 }
+.editItemButton{
+    font-size: medium;
+    display: flex;
+    width: fit-content;
+    align-self: flex-end;
+    color: #026ED2;
+    background-color: white;
+    outline: none;
+    border: none;
+}
+.editItemButton:hover{
+    cursor: pointer;
+}
+
 
 /*SERVICE CONTACT AND MORE PREVIEW*/
 
@@ -106,6 +128,12 @@
     margin-bottom: 10px;
 }
 
+.ContactAndMoreItemTitle{
+    font-size: larger;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
 .ContactAndMoreContent{
     display: flex;
     flex-direction: column;
@@ -113,6 +141,7 @@
     background-color: white;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
     padding: 10px;
+    margin: 5px;
 
 }
 .ContactAndMoreContent:hover{
@@ -122,7 +151,6 @@
 .PhoneNumber{
     margin-bottom: 5px;
     font-size: larger;
-    font-weight: 600;
 }
 
 .Address{
