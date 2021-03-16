@@ -327,7 +327,21 @@
         align-self: auto;
     }
 }
+/*AUTOMATING RESERVATIONS MENU*/
+.ConfigureReservationTitle{
+    margin-top: 15px;
+    font-size: x-large;
+    font-weight: 600;
+}
+.ConfigureReservationItem{
+    background-color: white;
+    border-radius: 10px;
+    margin: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 
+}
 /*TOOL BAR*/
 
 .ToolBarContainer{

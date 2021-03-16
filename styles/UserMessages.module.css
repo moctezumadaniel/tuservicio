@@ -24,7 +24,7 @@
     min-height: 100px;
     background-color: white;
     border-radius: 10px;
-    margin: 10px;
+    margin: 5px;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
     user-select: none;
 }
@@ -75,20 +75,21 @@
     position: fixed;
     width: 100vw;
     height: 80px;
-    background-color: #FAFAFA;
+    background-color: white;
 }
 
 .ChatHeaderImage{
     min-width: 80px;
     margin-left: 10px;
     margin-right: 10px;
+    background-color: white;
 }
 
 .FavouriteButton{
     font-size: medium;
     outline: none;
     border: none;
-    background-color: #FAFAFA;
+    background-color: white;
     color: #00BB1E;
 }
 
@@ -96,7 +97,7 @@
     font-size: medium;
     outline: none;
     border: none;
-    background-color: #FAFAFA;
+    background-color: white;
     color: #f40000;
 }
 

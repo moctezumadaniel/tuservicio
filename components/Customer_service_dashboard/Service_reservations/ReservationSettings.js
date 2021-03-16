@@ -1,3 +1,4 @@
+import styles from '../../../styles/CustomerServiceDashboard.module.css'
 function ReservationSettings (){
     const workdays = 'Dias laborales';
     const monday = 'Lunes';
@@ -12,8 +13,8 @@ function ReservationSettings (){
     const manualTime = 'Ecribir hora'
     return(
         <div>
-            Reservaciones automaticas
-            <div>
+            <div className={styles.ConfigureReservationTitle}>Reservaciones automaticas</div>
+            <div className={styles.ConfigureReservationItem}>
                 SELECCIONA EL DIA O DIAS
                 <select>
                     <option value='workdays'>{workdays}</option>
@@ -26,12 +27,12 @@ function ReservationSettings (){
                     <option value='sunday'>{sunday}</option>
                 </select>
             </div>
-            <div>
+            <div className={styles.ConfigureReservationItem}>
                 TIPO DE RESERVACIONES
                 <button>Horarios manuales</button>
                 <button>Horarios fijos automaticos</button>
             </div>
-            <div>
+            <div className={styles.ConfigureReservationItem}>
                 DESDE 
                 <select>
                     <option value='openingTime'>{openingTime}</option>
@@ -43,7 +44,7 @@ function ReservationSettings (){
                     <option value='manualClosingTime'>{manualTime}</option>
                 </select>
             </div>
-            <div>
+            <div className={styles.ConfigureReservationItem}>
                 PERIODO DE LAS RESERVACIONES <br/>
                 CADA<input type='tel' min="1" max="1440"/>
             </div>
