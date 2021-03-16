@@ -9,11 +9,11 @@ function CreateReservation (){
         <div className={styles.NewReservationContainer}>
             <div className={styles.NewReservationTitle}>{title}</div>
             <div className={styles.NewReservationForm}>
-                <div>
+                <div className={styles.DateForm}>
                     <div className={styles.DateTitle}>{date}</div>
                     <input type='date'/>
                 </div>
-                <div>
+                <div className={styles.ScheduleForm}>
                     <div className={styles.TimeTitle}>{schedule}</div>
                     <div className={styles.TimeFormContainer}>
                         <div>
@@ -24,7 +24,7 @@ function CreateReservation (){
                         </div>
                     </div>
                 </div>
-                <button>{confirm}</button>
+                <button className={styles.ConfirmReservationButton}>{confirm}</button>
             </div>
         </div>
     )

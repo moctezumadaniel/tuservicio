@@ -285,11 +285,46 @@
 .TimeFormContainer{
     display: flex;
     flex-direction: row;
+
+}
+.DateForm{
+    background-color: white;
+    padding:10px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    margin: 5px;
+
+}
+.ScheduleForm{
+    background-color: white;
+    padding:10px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    margin: 5px;
+
 }
 
-@media(max-width:500px){
+.ConfirmReservationButton{
+    color: #026ED2;
+    font-size: large;
+    height: fit-content;
+    align-self: center;
+    border: solid;
+    padding: 5px;
+    margin: 5px;
+    border-width: 2px;
+    border-color: #026ED2;
+    border-radius: 10px;
+    background-color: white;
+    outline: none;
+}
+
+@media(max-width:600px){
     .NewReservationForm{
         flex-direction: column;
+    }
+    .ConfirmReservationButton{
+        align-self: auto;
     }
 }
 
