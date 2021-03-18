@@ -4,7 +4,7 @@ import ServiceInformation from './ServiceInformation'
 import ServiceContactAndMoreInfo from './ServiceContactAndMoreInfo'
 import styles from '../../styles/CustomerServiceDashboard.module.css'
 import ServiceReservations from './Service_reservations'
-import ServiceTools from './Service_tools'
+import CustomerTools from './Customer_tools'
 import ServicesList from './ServicesList'
 function CustomerServiceDashboard (){
     const currentGlobalTab = useSelector(state=>state.globalTab)
@@ -21,7 +21,7 @@ function CustomerServiceDashboard (){
             </div>
             :currentTab === 'Reservations'?
             <ServiceReservations/>
-            :<ServiceTools/>}   
+            :<CustomerTools/>}   
         </div>
         :""
     )

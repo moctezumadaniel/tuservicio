@@ -5,7 +5,13 @@ import {IoReceiptOutline} from 'react-icons/io5'
 import {BsTools} from 'react-icons/bs'
 import {FaPeopleCarry} from 'react-icons/fa'
 import {GiReceiveMoney} from 'react-icons/gi'
-function ServiceTools (){
+import {useDispatch} from 'react-redux'
+import {changeToolToOrders} from '../../../redux/actions/CustomerActiveTool'
+function ServiceToolsButtons (){
+    const dispatch = useDispatch()
+    function handleOrderPress(){
+        dispatch(changeToolToOrders())
+    }
     const orders = 'ORDENES';
     const calculator = 'CALCULADORA';
     const tickets = 'NOTAS DE VENTA';
@@ -14,7 +20,8 @@ function ServiceTools (){
     const charge = 'COBRAR';
     return(
         <div className={styles.ToolBarContainer}>
-            <div className={styles.ToolItem}>
+            <div className={styles.ToolItem}
+            onClick={handleOrderPress}>
                 <GrList className={styles.ToolIcon}/>
                 <div className={styles.ToolDescription}>{orders}</div>
             </div>
@@ -39,6 +46,7 @@ function ServiceTools (){
                 <div className={styles.ToolDescription}>{charge}</div>
             </div>
         </div>
+        
     )
 }
-export default ServiceTools
+export default ServiceToolsButtons
