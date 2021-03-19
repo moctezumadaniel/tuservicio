@@ -1,5 +1,12 @@
 import styles from '../../styles/CustomerTools.module.css'
+import {useDispatch} from 'react-redux';
+import {changeOrdersToolToOrder} from '../../redux/actions/OrdersTool'
 function OrdersDashboard (){
+    const dispatch = useDispatch()
+    function handleNewOrderPress(){
+        dispatch(changeOrdersToolToOrder())
+    }
+
     const addButton = '+ Crear nueva orden'
     const editionTitle = 'En edición'
     const pendingTitle = 'Pendientes'
@@ -14,9 +21,12 @@ function OrdersDashboard (){
     const pendingOrderDescription = 'Descripcion corta de la orden'
     const seeEditButton = 'Ver o editar'
     const doneOrderButton = 'Orden atendida'
+
+
     return(
     <div className={styles.ordersMainContainer}>
-        <button className={styles.NewOrderButton}>{addButton}</button>
+        <button className={styles.NewOrderButton}
+        onClick={handleNewOrderPress}>{addButton}</button>
 {/*LISTA DE ORDENES EN EDICIÓN*/}
         <div className={styles.Titles}>{editionTitle}</div>
         <div className={styles.EditingItemContainer}>

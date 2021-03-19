@@ -2,10 +2,15 @@ import styles from '../../styles/MainTabButtons.module.css'
 import {useSelector, useDispatch} from 'react-redux'
 import {changeGlobalToServices, changeGlobalToPreferences, changeGlobalToMessages} from '../../redux/actions/GlobalTab'
 import {changeMessagesTabToList} from '../../redux/actions/UserMessagesTab'
+import {changeToolToNone} from '../../redux/actions/CustomerActiveTool'
+import {changeOrdersToolToDashboard} from '.././../redux/actions/OrdersTool'
 function MainTabButtons (){
     const currentTab = useSelector(state=>state.globalTab);
+    const currentCustomerTool = useSelector(state=>state.customerActiveTool)
+    const currentOrdersToolTab = useSelector(state=>state.ordersTool)
     const messagesStatus = useSelector(state=>state.userMessagesTab)
-    const closeChatDescription = "< SALIR"
+    const closeDescription = "< SALIR"
+    const goBackDescription = "< ATRAS"
     const dispatch = useDispatch();
 
     function handleServicesPress(){
@@ -20,20 +25,37 @@ function MainTabButtons (){
     function handleCloseChatPress(){
         dispatch(changeMessagesTabToList())
     }
-
+    function handleCloseToolPress(){
+        dispatch(changeToolToNone())
+    }
+    function handleGoBackToOrders(){
+        dispatch(changeOrdersToolToDashboard())
+    }
+    
     return(
         <div className={styles.MainTabButtonsContainer}>
-
+            {(currentOrdersToolTab === 'Order' && currentCustomerTool !== 'None')?
+            <button className={styles.MainCloseChat}
+            onClick={handleGoBackToOrders}>
+                {goBackDescription}
+            </button>
+            :currentCustomerTool !== 'None'?
+            <button className={styles.MainCloseChat}
+            onClick={handleCloseToolPress}>
+                {closeDescription}
+            </button>
+            :
             <button className={currentTab === 'Services' ? styles.MainTabButtonActive : styles.MainTabButton}
             onClick={handleServicesPress}>
                 Servicios
             </button>
+            }
 
             {
             (messagesStatus === 'Chat' && currentTab === 'Messages')?
             <button className={styles.MainCloseChat}
             onClick={handleCloseChatPress}>
-                {closeChatDescription}
+                {closeDescription}
             </button>
             :
             <button className={currentTab === 'Messages' ? styles.MainTabButtonActive : styles.MainTabButton}
