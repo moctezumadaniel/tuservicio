@@ -1,9 +1,8 @@
+import OrdersDashboard from "./Dashboard"
+
 function OrdersTool (){
-    const addButton = 'Crear nueva orden'
     return(
-        <div>
-            <button>{addButton}</button>
-        </div>
+        <OrdersDashboard/>
     )
 }
 export default OrdersTool

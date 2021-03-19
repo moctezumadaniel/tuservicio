@@ -1,0 +1,134 @@
+/*ORDERS TOOL*/
+.ordersMainContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: space-around;
+    width: 100vw;
+    padding-top: 10px;
+    padding-bottom: 150px;
+}
+.NewOrderButton{
+    display: flex;
+    width: 300px;
+    justify-content: center;
+    align-self: center;
+    color: #026ED2;
+    background-color: white;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: larger;
+    border-radius: 10px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+.NewOrderButton:hover{
+    cursor: pointer;
+}
+
+.Titles{
+    font-size: x-large;
+    font-weight: 600;
+    margin: 10px;
+}
+
+.EditingItemContainer{
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+.ItemEditingContainer{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    justify-content: center;
+    align-self: center;
+    background-color: white;
+    border: none;
+    outline: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: large;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+.OrderIdentifier{
+    font-weight: 600;
+}
+.ButtonsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 5px;
+}
+
+.ContinueEditiingButton{
+    color: #026ED2;
+    background-color: white;
+    outline: none;
+    border: none;
+    user-select: none;
+
+}
+.ContinueEditiingButton:hover{
+    cursor: pointer;
+}
+
+.DeleteEditingItem{
+    color: #F40000;
+    background-color: white;
+    outline: none;
+    border: none;
+    user-select: none;
+
+}
+.DeleteEditingItem:hover{
+    cursor: pointer;
+}
+.PendingItemContainer{
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+.ItemPendingContainer{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    justify-content: center;
+    align-self: center;
+    background-color: white;
+    border: none;
+    outline: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: large;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+.SeeOrEditButton{
+    color: #026ED2;
+    background-color: white;
+    outline: none;
+    border: none;
+    user-select: none;
+}
+.SeeOrEditButton:hover{
+    cursor: pointer;
+}
+
+.OrderDoneButton{
+    color: #00BB1E;
+    background-color: white;
+    outline: none;
+    border: none;
+    user-select: none;
+
+}
+.OrderDoneButton:hover{
+    cursor: pointer;
+}
