@@ -1,6 +1,7 @@
 import styles from '../../styles/Preferences.module.css'
 import {useSelector, useDispatch} from 'react-redux'
 import {changePlatformToCustomer, changePlatformToUser} from '../../redux/actions/PlatformType'
+import {customerLogout} from '../../redux/actions/LoginsAndLogouts'
 function PreferencesTab (){
     const currentGlobalTab = useSelector(state=>state.globalTab)
     const currentPlatform = useSelector(state=>state.platformType)
@@ -29,7 +30,8 @@ function PreferencesTab (){
         dispatch(changePlatformToCustomer())
     }
     function handleChangeToUserPress(){
-        dispatch(changePlatformToUser())
+        dispatch(changePlatformToUser(),
+        dispatch(customerLogout()))
     }
     return(
         currentGlobalTab === 'Preferences' ? 

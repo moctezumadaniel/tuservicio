@@ -14,6 +14,8 @@ export const customerActiveToolReducer = (state= 'None', action)=>{
             return 'CustomersProviders';
         case 'CHANGE_TOOL_TO_CHARGE':
             return 'Charge';
+        case 'CUSTOMER_LOGOUT':
+            return 'None';
         default:
             return state;
     }

@@ -8,6 +8,7 @@ function MainTabButtons (){
     const currentTab = useSelector(state=>state.globalTab);
     const currentCustomerTool = useSelector(state=>state.customerActiveTool)
     const currentOrdersToolTab = useSelector(state=>state.ordersTool)
+    const currentServiceDashboardTab = useSelector(state=>state.customerDashboardTab)
     const messagesStatus = useSelector(state=>state.userMessagesTab)
     const closeDescription = "< SALIR"
     const goBackDescription = "< ATRAS"
@@ -34,12 +35,12 @@ function MainTabButtons (){
     
     return(
         <div className={styles.MainTabButtonsContainer}>
-            {(currentOrdersToolTab === 'Order' && currentCustomerTool !== 'None')?
+            {(currentTab === 'Services' && currentServiceDashboardTab === 'Tools' && currentOrdersToolTab === 'Order' && currentCustomerTool !== 'None')?
             <button className={styles.MainCloseChat}
             onClick={handleGoBackToOrders}>
                 {goBackDescription}
             </button>
-            :currentCustomerTool !== 'None'?
+            :(currentTab === 'Services' && currentServiceDashboardTab === 'Tools'&& currentCustomerTool !== 'None')?
             <button className={styles.MainCloseChat}
             onClick={handleCloseToolPress}>
                 {closeDescription}
