@@ -132,3 +132,82 @@
 .OrderDoneButton:hover{
     cursor: pointer;
 }
+.OrderContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    padding-top: 10px;
+    padding-bottom: 150px;
+}
+/*ORDER - ORDERS TOOL*/
+.OrderTitle{
+    font-size: x-large;
+    font-weight: 600;
+    align-self: center;
+}
+.NewOrderItemInput{
+    width: 95vw;
+    height: 300px;
+    font-size: large;
+    height:auto;
+    resize: none;
+    justify-self: center;
+    align-self: center;
+    padding: 10px;
+    min-height: 130px;
+}
+.OrderItemContainer{
+    justify-self: center;
+    align-self: center;
+    width: 95vw;
+    margin-top: 10px;
+    
+}
+
+.OrderItemDescription{
+    background-color: white;
+    padding: 10px;
+    font-size: larger;
+
+}
+
+.OrderAmounthContainer{
+    display: flex;
+    justify-content: flex-end;
+}
+.DecreaseItemAmounth{
+    color: #f40000;
+    background-color: #FAFAFA;
+    border: solid 2px #f40000;
+    outline: none;
+    border-radius: 100px;
+    width: 50px;
+    padding: 0;
+    font-size: xx-large;
+
+}
+
+.IncreaseItemAmounth{
+    color: #00BB1E;
+    background-color: #FAFAFA;
+    border: solid 2px #00BB1E;
+    outline: none;
+    border-radius: 100px;
+    width: 50px;
+    padding: 0;
+    font-size: xx-large;
+}
+.ItemAmounth{
+    font-size: x-large;
+    background-color: white;
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-right: 5px;
+    margin-left: 5px;
+
+}
+@media(max-width:600px){
+    .OrderAmounthContainer{
+        justify-content: center;
+    }
+}
