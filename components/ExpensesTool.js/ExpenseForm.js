@@ -1,3 +1,4 @@
+import styles from '../../styles/ExpensesTool.module.css'
 import {useDispatch} from 'react-redux';
 import {changeExpenseToolToDashboard} from '../../redux/actions/ExpenseTool'
 function ExpenseForm(){
@@ -11,17 +12,19 @@ function ExpenseForm(){
         dispatch(changeExpenseToolToDashboard())
     }
     return(
-        <div>
-            <div>
-                <input type='date' placeholder={selectDateButton}/>
-                <input type='number' placeholder={amounthInput}/>
+        <div className={styles.ExpenseFormMainContainer}>
+            <div className={styles.DateAmounthContainer}>
+                <input type='date' placeholder={selectDateButton} className={styles.DateExpenseInput}/>
+                <input type='number' placeholder={amounthInput} className={styles.AmounthExpenseInput}/>
             </div>
 
-            <div>
+            <div className={styles.ExpenseFormButtonsContainer}>
                 <button
-                onClick={handleSavePress}>{saveOrderButton}</button>
-                <button>{shareOrderButton}</button>
+                onClick={handleSavePress}
+                className={styles.SaveButton}>{saveOrderButton}</button>
+                <button className={styles.ShareButton}>{shareOrderButton}</button>
             </div>
+            <textarea className={styles.ExpenseTextArea}/>
         </div>
     )
 }

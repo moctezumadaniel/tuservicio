@@ -1,3 +1,4 @@
+/*EXPENSE DASHBOARD*/
 .ExpensesToolMainContainer{
     display: flex;
     flex-direction: column;
@@ -130,4 +131,89 @@
 }
 .OpenEditItemButton:hover{
     cursor: pointer;
+}
+
+/*EXPENSE FORM*/
+.ExpenseFormMainContainer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.DateAmounthContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+.DateExpenseInput{
+    margin-top: 10px;
+    padding: 10px;
+    width: 400px;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+
+
+}
+
+.AmounthExpenseInput{
+    margin-top: 10px;
+    padding: 10px;
+    width: 400px;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.ExpenseFormButtonsContainer{
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-around;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.SaveButton{
+    border: none;
+    outline: none;
+    background-color: #FAFAFA;
+    color: #00BB1E;
+}
+.SaveButton:hover{
+    cursor: pointer;
+}
+.ShareButton{
+    border: none;
+    outline: none;
+    background-color: #FAFAFA;
+    color: #026ED2;
+}
+.ShareButton:hover{
+    cursor: pointer;
+}
+
+.ExpenseTextArea{
+    font-family: sans-serif;
+    font-size: large;
+    resize: none;
+    border: none;
+    outline: none;
+    display: flex;
+    flex: 1;
+    margin-top: 20px;
+    padding: 20px;
+    padding-bottom: 60px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
+
 }
