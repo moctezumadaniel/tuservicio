@@ -1,10 +1,16 @@
 import OrdersTool from "../../OrdersTool";
-
+import {useSelector} from 'react-redux'
+import ExpensesTool from "../../ExpensesTool.js";
 function Tools (){
-    return(
-        <div>
-            <OrdersTool/>
-        </div>
-    )
+    const currentTool = useSelector(state=>state.customerActiveTool)
+    switch(currentTool){
+        case 'Orders':
+            return(<OrdersTool/>);
+        case 'Expenses':
+            return(<ExpensesTool/>);
+        default:
+            return ""
+        
+    }
 }
 export default Tools
