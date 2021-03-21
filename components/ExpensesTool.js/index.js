@@ -1,80 +1,16 @@
-import styles from '../../styles/ExpensesTool.module.css'
+import ExpenseForm from "./ExpenseForm";
+import OrdersDashboard from "./OrdersDashboard";
+import {useSelector} from 'react-redux';
 function ExpensesTool (){
-    const registerExpenseButton = '+ Registrar nuevo gasto'
-    const customExpensesRange = 'Seleccionar periodo personalizado'
-    const dateRangeSelected = 'Marzo 2021'
-    const dateRangeTotalDescription = 'Gastos totales:'
-    const dateRangeTotal = '$25,000'
-    const shareReportButton = 'Descargar / Compartir reporte de gastos'
-    const expenseItemDate = '23 de Marzo'
-    const expenseItemAmounth = '$12,500'
-    const expenseItemDescription = 'Ejemplo de descripcion del servicio Ejemplo de descripcion del servicio Ejemplo de descripcion del servicio'
-    const openEditItemButton = 'VER O EDITAR'
-    return(
-        <div className={styles.ExpensesToolMainContainer}>
-            <button className={styles.RegisterExpenseButton}>{registerExpenseButton}</button>
-            <button className={styles.CustomDateRangeButton}>{customExpensesRange}</button>
-            <div className={styles.DateRangeSelected}>{dateRangeSelected}</div>
-            
-            <div className={styles.GrandTotalContainer}>
-                <div className={styles.GrandTotalDescription}>{dateRangeTotalDescription}</div>
-                <div className={styles.GrandTotal}>{dateRangeTotal}</div>
-            </div>
-
-            <button className={styles.ShareReportButton}>{shareReportButton}</button>
-            
-{/*LIST OF EXPENSES*/}
-            <div className={styles.ListOfExpensesContainer}>
-              
-                <div className={styles.ExpenseItemContainer}>
-                    <div className={styles.ExpenseMainInformation}>
-                        <div>{expenseItemDate}</div>
-                        <div>{expenseItemAmounth}</div>
-                    </div>
-                    <div>{expenseItemDescription}</div>
-                    <button className={styles.OpenEditItemButton}>{openEditItemButton}</button>
-                </div>
-
-                <div className={styles.ExpenseItemContainer}>
-                    <div className={styles.ExpenseMainInformation}>
-                        <div>{expenseItemDate}</div>
-                        <div>{expenseItemAmounth}</div>
-                    </div>
-                    <div>{expenseItemDescription}</div>
-                    <button className={styles.OpenEditItemButton}>{openEditItemButton}</button>
-                </div>
-
-                <div className={styles.ExpenseItemContainer}>
-                    <div className={styles.ExpenseMainInformation}>
-                        <div>{expenseItemDate}</div>
-                        <div>{expenseItemAmounth}</div>
-                    </div>
-                    <div>{expenseItemDescription}</div>
-                    <button className={styles.OpenEditItemButton}>{openEditItemButton}</button>
-                </div>
-
-                <div className={styles.ExpenseItemContainer}>
-                    <div className={styles.ExpenseMainInformation}>
-                        <div>{expenseItemDate}</div>
-                        <div>{expenseItemAmounth}</div>
-                    </div>
-                    <div>{expenseItemDescription}</div>
-                    <button className={styles.OpenEditItemButton}>{openEditItemButton}</button>
-                </div>
-
-                <div className={styles.ExpenseItemContainer}>
-                    <div className={styles.ExpenseMainInformation}>
-                        <div>{expenseItemDate}</div>
-                        <div>{expenseItemAmounth}</div>
-                    </div>
-                    <div>{expenseItemDescription}</div>
-                    <button className={styles.OpenEditItemButton}>{openEditItemButton}</button>
-                </div>
-                
-            </div>
-            
-
-        </div>
-    )
+    const currentTab = useSelector(state=>state.expensesTool)
+        switch(currentTab){
+            case 'Dashboard':
+                return <OrdersDashboard/>
+            case 'Expense':
+                return <ExpenseForm/>;
+            default:
+                return<OrdersDashboard/>
+        }
+        
 }
 export default ExpensesTool

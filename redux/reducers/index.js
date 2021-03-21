@@ -8,6 +8,7 @@ import {userServiceSearchTabReducer} from './userServiceSearchTab'
 import {CustomerServiceDashboardTabReducer} from './customerServiceDashboard'
 import {customerActiveToolReducer} from './customerActiveTool'
 import {ordersToolReducer} from './ordersTool'
+import {expensesToolReducer} from './expensesTool'
 const rootReducer = combineReducers({
     platformType:platformTypeReducer,
     userLogin: userLoginReducer,
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
     customerDashboardTab:CustomerServiceDashboardTabReducer,
     customerActiveTool:customerActiveToolReducer,
     ordersTool:ordersToolReducer,
+    expensesTool:expensesToolReducer,
 })
 
 export default rootReducer
