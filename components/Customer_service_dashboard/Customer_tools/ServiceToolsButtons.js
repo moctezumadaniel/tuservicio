@@ -5,6 +5,8 @@ import {IoReceiptOutline} from 'react-icons/io5'
 import {BsTools} from 'react-icons/bs'
 import {FaPeopleCarry} from 'react-icons/fa'
 import {GiReceiveMoney} from 'react-icons/gi'
+import {IoIosPeople} from "react-icons/io";
+import {FaRegChartBar} from 'react-icons/fa'
 import {useDispatch} from 'react-redux'
 import {changeToolToExpenses, changeToolToOrders} from '../../../redux/actions/CustomerActiveTool'
 function ServiceToolsButtons (){
@@ -19,7 +21,9 @@ function ServiceToolsButtons (){
     const calculator = 'CALCULADORA';
     const tickets = 'NOTAS DE VENTA';
     const expenses = 'GASTOS';
-    const customersAndProviders = 'CLIENTES Y PROVEEDORES';
+    const customers = 'CLIENTES';
+    const providers = 'PROVEEDORES'
+    const finance = 'MIS FINANZAS'
     const charge = 'COBRAR';
     return(
         <div className={styles.ToolBarContainer}>
@@ -42,9 +46,20 @@ function ServiceToolsButtons (){
                 <div className={styles.ToolDescription}>{expenses}</div>
             </div>
             <div className={styles.ToolItem}>
-                <FaPeopleCarry className={styles.ToolIcon}/>
-                <div className={styles.ToolDescription}>{customersAndProviders}</div>
+                <IoIosPeople className={styles.ToolIcon}/>
+                <div className={styles.ToolDescription}>{customers}</div>
             </div>
+
+            <div className={styles.ToolItem}>
+                <FaPeopleCarry className={styles.ToolIcon}/>
+                <div className={styles.ToolDescription}>{providers}</div>
+            </div>
+
+            <div className={styles.ToolItem}>
+                <FaRegChartBar className={styles.ToolIcon}/>
+                <div className={styles.ToolDescription}>{finance}</div>
+            </div>
+
             <div className={styles.ToolItem}>
                 <GiReceiveMoney className={styles.ToolIcon}/>
                 <div className={styles.ToolDescription}>{charge}</div>
