@@ -1,7 +1,10 @@
 function CustomerCredit (){
     return(
         <div>
-        ESTE ES EL COMPONENTE PARA REGISTRAR LOS CREDITOS DE LOS CLIENTES
+            <input type='text'/>
+            <input type='date'/>
+            <input type='number'/>
+            <textarea/>
         </div>
     )
 }

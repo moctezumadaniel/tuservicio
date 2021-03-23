@@ -1,5 +1,14 @@
 import styles from '../../styles/CustomersTool.module.css'
+import {useDispatch} from 'react-redux'
+import {changeCustomersToolToCredit, changeCustomersToolToPayment} from '../../redux/actions/CustomersTool'
 function CustomersToolDashboard (){
+    const dispatch = useDispatch()
+    function handleAddPaymentPress(){
+        dispatch(changeCustomersToolToPayment())
+    }
+    function handleAddCreditPress(){
+        dispatch(changeCustomersToolToCredit())
+    }
     const searchCustomer = 'Escribe el nombre del cliente';
     const newPayment = '+ Cobro';
     const newCredit = '+ Crédito';
@@ -23,8 +32,13 @@ function CustomersToolDashboard (){
             className={styles.CustomersSearch}/>
 
             <div className={styles.AddButtonsContainer}>
-                <button className={styles.AddPaymentButton}>{newPayment}</button>
-                <button className={styles.AddCreditButton}>{newCredit}</button>
+
+                <button className={styles.AddPaymentButton}
+                onClick={handleAddPaymentPress}>{newPayment}</button>
+
+                <button className={styles.AddCreditButton}
+                onClick={handleAddCreditPress}>{newCredit}</button>
+                
             </div>
 {/*LIST OF CUSTOMERS OR CUSTOMER*/}
             <div>

@@ -5,11 +5,13 @@ import {changeMessagesTabToList} from '../../redux/actions/UserMessagesTab'
 import {changeToolToNone} from '../../redux/actions/CustomerActiveTool'
 import {changeOrdersToolToDashboard} from '.././../redux/actions/OrdersTool'
 import {changeExpenseToolToDashboard} from '../../redux/actions/ExpenseTool'
+import {changeCustomersToolToDashboard} from '../../redux/actions/CustomersTool'
 function MainTabButtons (){
     const currentTab = useSelector(state=>state.globalTab);
     const currentCustomerTool = useSelector(state=>state.customerActiveTool)
     const currentOrdersToolTab = useSelector(state=>state.ordersTool)
     const currentExpensesToolTab = useSelector(state=>state.expensesTool)
+    const currentCustomersTab = useSelector(state=>state.customersTool)
     const currentServiceDashboardTab = useSelector(state=>state.customerDashboardTab)
     const messagesStatus = useSelector(state=>state.userMessagesTab)
     const closeDescription = "< SALIR"
@@ -37,6 +39,9 @@ function MainTabButtons (){
     function handleGoBackToExpenses(){
         dispatch(changeExpenseToolToDashboard())
     }
+    function handleGoBackToCustomers(){
+        dispatch(changeCustomersToolToDashboard())
+    }
     
     return(
         <div className={styles.MainTabButtonsContainer}>
@@ -48,6 +53,11 @@ function MainTabButtons (){
             :(currentTab === 'Services' && currentServiceDashboardTab === 'Tools' && currentExpensesToolTab === 'Expense' && currentCustomerTool !== 'None')?
             <button className={styles.MainCloseChat}
             onClick={handleGoBackToExpenses}>
+                {goBackDescription}
+            </button>
+            :(currentTab === 'Services' && currentServiceDashboardTab === 'Tools' && currentCustomersTab !== 'Dashboard' && currentCustomerTool !== 'None')?
+            <button className={styles.MainCloseChat}
+            onClick={handleGoBackToCustomers}>
                 {goBackDescription}
             </button>
             :(currentTab === 'Services' && currentServiceDashboardTab === 'Tools'&& currentCustomerTool !== 'None')?
