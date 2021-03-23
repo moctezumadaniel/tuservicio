@@ -28,9 +28,15 @@ export const changeToolToExpenses = ()=>{
     }
 }
 
-export const changeToolToCustomersProviders = ()=>{
+export const changeToolToCustomers = ()=>{
     return{
-        type: 'CHANGE_TOOL_TO_CUSTOMERS_AND_PROVIDERS'
+        type: 'CHANGE_TOOL_TO_CUSTOMERS'
+    }
+}
+
+export const changeToolToProviders = ()=>{
+    return{
+        type: 'CHANGE_TOOL_TO_PROVIDERS'
     }
 }
 

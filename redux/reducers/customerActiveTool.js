@@ -10,8 +10,10 @@ export const customerActiveToolReducer = (state= 'None', action)=>{
             return 'Receipts';
         case 'CHANGE_TOOL_TO_EXPENSES':
             return 'Expenses';
-        case 'CHANGE_TOOL_TO_CUSTOMERS_AND_PROVIDERS':
-            return 'CustomersProviders';
+        case 'CHANGE_TOOL_TO_CUSTOMERS':
+            return 'Customers';
+        case 'CHANGE_TOOL_TO_PROVIDERS':
+            return 'Providers'
         case 'CHANGE_TOOL_TO_CHARGE':
             return 'Charge';
         case 'CUSTOMER_LOGOUT':
