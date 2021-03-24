@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    padding-bottom: 150px;
     
 }
 
@@ -139,4 +140,92 @@
 }
 .OpenEditButton:hover{
     cursor: pointer;
+}
+
+/*CREDIT FORM*/
+.CreditFormContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.CustomerNameInput{
+    width: 95%;
+    align-self: center;
+    outline: none;
+    border: none;
+    background-color: white;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.SecondaryInputsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.DateInput{
+    width: 300px;
+    margin: 5px;
+    background-color: white;
+    border:none;
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+
+}
+.AmounthInput{
+    width: 300px;
+    margin: 5px;
+    background-color: white;
+    border:none;
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+
+}
+.SecondaryButtonsContainer{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.TextAreaForm{
+    font-family: sans-serif;
+    font-size: large;
+    flex: 1;
+    outline: none;
+    border: none;
+    padding: 20px;
+    padding-bottom: 150px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.SaveCreditButton{
+    border: none;
+    outline: none;
+    background: none;
+    color: #C67802;
+}
+.SavePaymentButton{
+    border: none;
+    outline: none;
+    background: none;
+    color: #00BB1E;
+}
+.ShareButton{
+    border: none;
+    outline: none;
+    background: none;
+    color: #026ED2;
 }
