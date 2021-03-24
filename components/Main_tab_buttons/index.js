@@ -6,12 +6,14 @@ import {changeToolToNone} from '../../redux/actions/CustomerActiveTool'
 import {changeOrdersToolToDashboard} from '.././../redux/actions/OrdersTool'
 import {changeExpenseToolToDashboard} from '../../redux/actions/ExpenseTool'
 import {changeCustomersToolToDashboard} from '../../redux/actions/CustomersTool'
+import {changeProvidersToolToDashboard} from '../../redux/actions/ProvidersTool'
 function MainTabButtons (){
     const currentTab = useSelector(state=>state.globalTab);
     const currentCustomerTool = useSelector(state=>state.customerActiveTool)
     const currentOrdersToolTab = useSelector(state=>state.ordersTool)
     const currentExpensesToolTab = useSelector(state=>state.expensesTool)
     const currentCustomersTab = useSelector(state=>state.customersTool)
+    const currentProvidersTab = useSelector(state=>state.providersTool)
     const currentServiceDashboardTab = useSelector(state=>state.customerDashboardTab)
     const messagesStatus = useSelector(state=>state.userMessagesTab)
     const closeDescription = "< SALIR"
@@ -42,12 +44,20 @@ function MainTabButtons (){
     function handleGoBackToCustomers(){
         dispatch(changeCustomersToolToDashboard())
     }
+    function handleGoBackToProviders(){
+        dispatch(changeProvidersToolToDashboard())
+    }
     
     return(
         <div className={styles.MainTabButtonsContainer}>
             {(currentTab === 'Services' && currentServiceDashboardTab === 'Tools' && currentOrdersToolTab === 'Order' && currentCustomerTool !== 'None')?
             <button className={styles.MainCloseChat}
             onClick={handleGoBackToOrders}>
+                {goBackDescription}
+            </button>
+            :(currentTab === 'Services' && currentServiceDashboardTab === 'Tools' && currentProvidersTab !== 'Dashboard' && currentCustomerTool !== 'None')?
+            <button className={styles.MainCloseChat}
+            onClick={handleGoBackToProviders}>
                 {goBackDescription}
             </button>
             :(currentTab === 'Services' && currentServiceDashboardTab === 'Tools' && currentExpensesToolTab === 'Expense' && currentCustomerTool !== 'None')?

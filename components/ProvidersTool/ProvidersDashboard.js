@@ -9,8 +9,8 @@ function ProvidersDashboard(){
     function handleNewPaymentPress(){
         dispatch(changeProvidersToolToPayment())
     }
-    const searchProvider = 'Escribe el nombre del cliente';
-    const newPayment = '+ Cobro';
+    const searchProvider = 'Escribe el nombre del proveedor';
+    const newPayment = '+ Pago';
     const newCredit = '+ Crédito';
     const providerName = 'Nombre Completo del Proveedor';
     const grandTotalCreditDescription = 'Deuda pendiente:';

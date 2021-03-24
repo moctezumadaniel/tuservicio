@@ -34,7 +34,7 @@
     outline: none;
     border: none;
     background-color: white;
-    color: #00BB1E;
+    color: #C67802;
     font-size: large;
     width: 135px;
     border-radius: 10px;
@@ -44,13 +44,14 @@
 .AddPaymentButton{
     cursor: pointer;
 }
+
 .AddCreditButton{
     display: flex;
     justify-content: center;
     outline: none;
     border: none;
     background-color: white;
-    color: #C67802;
+    color: #00BB1E;
     font-size: large;
     width: 135px;
     border-radius: 10px;
@@ -117,11 +118,11 @@
 }
 
 .PaymentAmounth{
-    color: #00BB1E;
+    color: #C67802;
 }
 
 .CreditAmounth{
-    color: #C67802;
+    color: #00BB1E;
 }
 
 .OpenEditButtonContainer{
@@ -215,13 +216,13 @@
     border: none;
     outline: none;
     background: none;
-    color: #C67802;
+    color: #00BB1E;
 }
 .SavePaymentButton{
     border: none;
     outline: none;
     background: none;
-    color: #00BB1E;
+    color: #C67802;
 }
 .ShareButton{
     border: none;
