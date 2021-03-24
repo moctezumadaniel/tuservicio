@@ -1,6 +1,8 @@
 import styles from '../../../styles/CustomerServiceDashboard.module.css'
 import {useDispatch} from 'react-redux'
-import {changeCustomerProfileFormToPhoneNumber} from '../../../redux/actions/CustomerProfileForms'
+import {
+    changeCustomerProfileFormToPhoneNumber,
+    changeCustomerProfileFormToAddress} from '../../../redux/actions/CustomerProfileForms'
 function ServiceContactAndMoreInfo (){
     const dispatch = useDispatch();
     const contactAndMoreTitle = 'Contacto y más detalles'
@@ -15,6 +17,9 @@ function ServiceContactAndMoreInfo (){
     const editItemButton = 'Cambiar'
     function handlePhoneNumberPress(){
         dispatch(changeCustomerProfileFormToPhoneNumber())
+    }
+    function handleAddressPress(){
+        dispatch(changeCustomerProfileFormToAddress())
     }
     return(
         
@@ -33,7 +38,8 @@ function ServiceContactAndMoreInfo (){
                 <div className={styles.ContactAndMoreContent}>
                     <div className={styles.ContactAndMoreItemTitle}>{addressTitle}</div>
                     <div className={styles.Address}>{addressDescription}</div>
-                    <button className={styles.editItemButton}>{editItemButton}</button>
+                    <button className={styles.editItemButton}
+                    onClick={handleAddressPress}>{editItemButton}</button>
                 </div>
 
                 <div className={styles.ContactAndMoreContent}>
