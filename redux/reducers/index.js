@@ -10,6 +10,7 @@ import {customerActiveToolReducer} from './customerActiveTool'
 import {ordersToolReducer} from './ordersTool'
 import {expensesToolReducer} from './expensesTool'
 import {customersToolReducer} from './customersTool'
+import {providersToolReducer} from './providersTool'
 const rootReducer = combineReducers({
     platformType:platformTypeReducer,
     userLogin: userLoginReducer,
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
     ordersTool:ordersToolReducer,
     expensesTool:expensesToolReducer,
     customersTool:customersToolReducer,
+    providersTool:providersToolReducer,
 })
 
 export default rootReducer

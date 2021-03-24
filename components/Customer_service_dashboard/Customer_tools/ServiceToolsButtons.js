@@ -8,7 +8,7 @@ import {GiReceiveMoney} from 'react-icons/gi'
 import {IoIosPeople} from "react-icons/io";
 import {FaRegChartBar} from 'react-icons/fa'
 import {useDispatch} from 'react-redux'
-import {changeToolToExpenses, changeToolToOrders, changeToolToCustomers} from '../../../redux/actions/CustomerActiveTool'
+import {changeToolToExpenses, changeToolToOrders, changeToolToCustomers, changeToolToProviders} from '../../../redux/actions/CustomerActiveTool'
 function ServiceToolsButtons (){
     const dispatch = useDispatch()
     function handleOrderPress(){
@@ -19,6 +19,9 @@ function ServiceToolsButtons (){
     }
     function handleCustomersPress(){
         dispatch(changeToolToCustomers())
+    }
+    function handleProvidersPress(){
+        dispatch(changeToolToProviders())
     }
     const orders = 'ORDENES';
     const calculator = 'CALCULADORA';
@@ -54,7 +57,8 @@ function ServiceToolsButtons (){
                 <div className={styles.ToolDescription}>{customers}</div>
             </div>
 
-            <div className={styles.ToolItem}>
+            <div className={styles.ToolItem}
+            onClick={handleProvidersPress}>
                 <FaPeopleCarry className={styles.ToolIcon}/>
                 <div className={styles.ToolDescription}>{providers}</div>
             </div>

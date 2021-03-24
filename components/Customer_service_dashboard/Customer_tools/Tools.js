@@ -2,6 +2,7 @@ import OrdersTool from "../../OrdersTool";
 import {useSelector} from 'react-redux'
 import ExpensesTool from "../../ExpensesTool.js";
 import CustomersTool from "../../CustomersTool";
+import ProvidersTool from "../../ProvidersTool";
 function Tools (){
     const currentTool = useSelector(state=>state.customerActiveTool)
     switch(currentTool){
@@ -10,7 +11,9 @@ function Tools (){
         case 'Expenses':
             return(<ExpensesTool/>);
         case 'Customers':
-            return(<CustomersTool/>)
+            return(<CustomersTool/>);
+        case 'Providers':
+            return(<ProvidersTool/>);
         default:
             return ""
         
