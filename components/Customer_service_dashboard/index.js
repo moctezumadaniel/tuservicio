@@ -9,10 +9,14 @@ import ServicesList from './ServicesList'
 function CustomerServiceDashboard (){
     const currentGlobalTab = useSelector(state=>state.globalTab)
     const currentTab = useSelector(state=>state.customerDashboardTab)
+    const currentTool = useSelector(state=>state.customerActiveTool)
     return(
         currentGlobalTab === 'Services'?
         <div>
-            <ServiceTabButtons/>
+            {currentTool === 'None'?
+                <ServiceTabButtons/>
+            :""}
+            
             {currentTab === 'Profile' ?
             <div className={styles.ServiceInformationTabContainer}>
                 <ServiceInformation/>
