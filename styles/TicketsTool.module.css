@@ -1,0 +1,73 @@
+.TicketsToolMainContainer{
+    width: 100vw;
+    padding-bottom: 150px;
+}
+.TicketItemContainer{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 10px;
+}
+.TicketDescription{
+    padding: 10px;
+    font-size: large;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
+
+}
+.TicketAmounth{
+    min-width: 40%;
+    justify-items: center;
+    font-size: larger;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    align-self:flex-end;
+    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
+
+}
+.NewItemTitle{
+    font-size: x-large;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.InputTicketItemContainer{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 10px;
+}
+
+.InputTicketDescription{
+    padding: 10px;
+    font-size: large;
+    background-color: white;
+    border-radius: 10px;
+    border:none;
+    resize: none;
+    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
+    outline-color: #026ED2;
+}
+
+.InputTicketAmounth{
+    width: 100%;
+    justify-items: center;
+    font-size: larger;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    align-self:flex-end;
+    border:none;
+    outline-color: #026ED2;
+    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
+
+}
