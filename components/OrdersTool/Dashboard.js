@@ -1,4 +1,4 @@
-import styles from '../../styles/CustomerTools.module.css'
+import styles from '../../styles/OrdersTool.module.css'
 import {useDispatch} from 'react-redux';
 import {changeOrdersToolToOrder} from '../../redux/actions/OrdersTool'
 function OrdersDashboard (){
