@@ -2,6 +2,13 @@
     width: 100vw;
     padding-bottom: 150px;
 }
+.TicketTitle{
+    font-size: xx-large;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
 .TicketItemContainer{
     width: 100vw;
     display: flex;
@@ -48,6 +55,8 @@
 .InputTicketDescription{
     padding: 10px;
     font-size: large;
+    font-family: sans-serif;
+    text-align: center;
     background-color: white;
     border-radius: 10px;
     border:none;
@@ -61,6 +70,7 @@
     justify-items: center;
     font-size: larger;
     text-align: center;
+    font-family: sans-serif;
     background-color: white;
     border-radius: 10px;
     margin-top: 10px;
