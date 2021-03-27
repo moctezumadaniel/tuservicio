@@ -5,6 +5,7 @@ function ReceiptsTool(){
     const newItemTitle = 'Nuevo concepto'
     const newDescriptionPlaceholder = 'Escribe la descripción del nuevo concepto';
     const newAmounthPlaceholder = 'Escribe el monto del nuevo concepto'
+    const addConceptButton = 'AGREGAR'
     return(
         <div className={styles.TicketsToolMainContainer}>
             <div className={styles.TicketTitle}>
@@ -28,6 +29,7 @@ function ReceiptsTool(){
                 placeholder={newDescriptionPlaceholder}/>
                 <input type='number' className={styles.InputTicketAmounth}
                 placeholder={newAmounthPlaceholder}/>
+                <button className={styles.AddItemButton}>{addConceptButton}</button>
             </div>
 
         </div>
