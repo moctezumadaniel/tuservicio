@@ -160,6 +160,7 @@
     display: flex;
     justify-content: center;
 }
+
 .SaveOrderButton{
     background-color: #FAFAFA;
     color:#00BB1E;
@@ -168,6 +169,9 @@
     font-size: large;
     margin-bottom: 15px;
     
+}
+.SaveOrderButton:hover{
+    cursor: pointer;
 }
 .OrderItemContainer{
     padding: 10px;
@@ -204,6 +208,9 @@
     outline: none;
     background: white;
 }
+.IncreaseDecreaseButtons{
+    cursor: pointer;
+}
 .IncreaseDecreaseButtons:hover{
     cursor: pointer;
 }
@@ -216,6 +223,9 @@
     width: fit-content;
     align-self: center;
     font-size: large;
+}
+.DeleteItemButton:hover{
+    cursor: pointer;
 }
 
 .OrderItemForm{
@@ -239,6 +249,7 @@
     margin-bottom: 10px;
     background-color: white;
     resize: none;
+    text-align: center;
     box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
 
 }
@@ -251,6 +262,7 @@
     outline-color: #026ED2;
     margin-bottom: 10px;
     background-color: white;
+    text-align: center;
     box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
 }
 .SaveNewItemButton{
@@ -259,6 +271,21 @@
     background-color: #026ED2;
     color: white;
     border-radius: 5px;
-    padding: 10px;
+    padding: 5px;
     font-size: large;
+}
+.SaveNewItemButton:hover{
+    cursor: pointer;
+}
+.AmounthOrderInput:focus::placeholder{
+    color: transparent;
+}
+.DescriptionOrderInput:focus::placeholder{
+    color: transparent;
+}
+@media(min-width:550px){
+    .SaveNewItemButton{
+        width: 500px;
+        align-self: center;
+    }
 }

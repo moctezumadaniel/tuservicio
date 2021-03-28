@@ -91,12 +91,17 @@
     font-size: large;
     margin-top: 10px;
     padding: 5px;
-    border-radius: 100px;
+    border-radius: 5px;
 }
 .AddItemButton:hover{
     cursor: pointer;
 }
-
+.InputTicketAmounth:focus::placeholder{
+    color: transparent;
+}
+.InputTicketDescription:focus::placeholder{
+    color: transparent;
+}
 @media(min-width:550px){
     .AddItemButton{
         width: 500px;

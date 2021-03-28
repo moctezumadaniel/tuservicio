@@ -9,6 +9,8 @@ function Order(){
     const itemDescription = 'Descripcion del articulo, servicio o cualquier cosa para lo que el cliente utilice las ordenes'
     const itemAmounth = '999'
     const newItemTitle = 'Nuevo concepto'
+    const newDescriptionPlaceholder = 'Escribe la descripción'
+    const newAmounthPlaceholder = 'Escribe la cantidad'
     const addItemButton = 'AGREGAR'
     return(
        <div className={styles.OrderFormMainContainer}>
@@ -50,8 +52,10 @@ function Order(){
             {/*NEW ITEM FORM */}
             <div className={styles.OrderItemForm}>
                 <div className={styles.NewItemTitle}>{newItemTitle}</div>
-                <textarea className={styles.DescriptionOrderInput}/>
-                <input type='number' className={styles.AmounthOrderInput}/>
+                <textarea className={styles.DescriptionOrderInput}
+                placeholder={newDescriptionPlaceholder}/>
+                <input type='number' className={styles.AmounthOrderInput}
+                placeholder={newAmounthPlaceholder}/>
                 <button className={styles.SaveNewItemButton}>{addItemButton}</button>
             </div>
        </div>
