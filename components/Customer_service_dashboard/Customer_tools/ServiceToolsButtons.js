@@ -49,9 +49,9 @@ function ServiceToolsButtons (){
                 <AiOutlineCalculator className={styles.ToolIcon}/>
                 <div className={styles.ToolDescription}>{calculator}</div>
             </div>
-            <div className={styles.ToolItem}>
-                <IoReceiptOutline className={styles.ToolIcon}
-                onClick={handleReceiptsPress}/>
+            <div className={styles.ToolItem}
+            onClick={handleReceiptsPress}>
+                <IoReceiptOutline className={styles.ToolIcon}/>
                 <div className={styles.ToolDescription}>{tickets}</div>
             </div>
             <div className={styles.ToolItem}

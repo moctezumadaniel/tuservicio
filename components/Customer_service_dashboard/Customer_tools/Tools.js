@@ -4,7 +4,7 @@ import ExpensesTool from "../../ExpensesTool.js";
 import CustomersTool from "../../CustomersTool";
 import ProvidersTool from "../../ProvidersTool";
 import CalculatorTool from "../../CalculatorTool";
-import ReceiptsTool from "../../ReceiptsTool";
+import TicketsTool from "../../TicketsTool";
 function Tools (){
     const currentTool = useSelector(state=>state.customerActiveTool)
     switch(currentTool){
@@ -19,7 +19,7 @@ function Tools (){
         case 'Calculator':
             return(<CalculatorTool/>);
         case 'Receipts':
-            return (<ReceiptsTool/>);
+            return (<TicketsTool/>);
         default:
             return ""
         

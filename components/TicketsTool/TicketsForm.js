@@ -1,5 +1,5 @@
 import styles from '../../styles/TicketsTool.module.css'
-function ReceiptsTool(){
+function TicketForm(){
     const ticketTitle = 'Nota '
     const ticketNumber = '38-19032021'
     const newItemTitle = 'Nuevo concepto'
@@ -35,4 +35,4 @@ function ReceiptsTool(){
         </div>
     )
 }
-export default ReceiptsTool
+export default TicketForm
