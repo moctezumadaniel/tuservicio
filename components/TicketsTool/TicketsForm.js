@@ -2,6 +2,7 @@ import styles from '../../styles/TicketsTool.module.css'
 function TicketForm(){
     const ticketTitle = 'Nota '
     const ticketNumber = '38-19032021'
+    const saveTicketButton = 'GUARDAR'
     const newItemTitle = 'Nuevo concepto'
     const deleteItemButton = 'Eliminar'
     const newDescriptionPlaceholder = 'Escribe la descripción del nuevo concepto';
@@ -14,6 +15,9 @@ function TicketForm(){
         <div className={styles.TicketsToolMainContainer}>
             <div className={styles.TicketTitle}>
                 {ticketTitle}{ticketNumber}
+            </div>
+            <div className={styles.TicketSaveButtonContainer}>
+                <button className={styles.SaveTicketButton}>{saveTicketButton}</button>
             </div>
 {/*DATE AND NAME OF THE CUSTOMER */}
             <div className={styles.TicketDateCustomerContainer}>

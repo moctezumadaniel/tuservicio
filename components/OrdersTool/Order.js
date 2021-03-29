@@ -3,6 +3,7 @@ import styles from '../../styles/OrdersTool.module.css'
 function Order(){
     const orderDescription = 'Orden '
     const orderNumber = '38-19/03/2019'
+    const descriptionPlaceholder = 'Escribe la descripción'
     const saveOrderButton = 'GUARDAR'
     const deleteItem = 'Eliminar'
     const inputPlaceholder = 'Escribe aqui el nuevo concepto' 
@@ -19,7 +20,12 @@ function Order(){
             <div className={styles.SaveOrderButtonContainer}>
                 <button className={styles.SaveOrderButton}>{saveOrderButton}</button>
             </div>
-            
+{/*DATE AND NAME OF THE CUSTOMER */}
+            <div className={styles.OrderDateDescriptionContainer}>
+                <input type='date' className={styles.OrderDateInput}/>
+                <input type='text' className={styles.OrderDescriptionInput}
+                placeholder={descriptionPlaceholder}/>
+            </div>
             {/*LIST OF ITEMS ADDED */}
             <div >
 

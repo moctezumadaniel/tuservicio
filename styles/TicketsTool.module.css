@@ -88,6 +88,20 @@
     margin-top: 5px;
     margin-bottom: 10px;
 }
+.TicketSaveButtonContainer{
+    display: flex;
+    justify-content: center;
+}
+.SaveTicketButton{
+    background-color: transparent;
+    color: #00BB1E;
+    border: none;
+    outline: none;
+    font-size: larger;
+}
+.SaveTicketButton:hover{
+    cursor: pointer;
+}
 .TicketDateCustomerContainer{
     display: flex;
     flex-wrap: wrap;
