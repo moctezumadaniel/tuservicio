@@ -1,16 +1,25 @@
 import styles from '../../styles/TicketsTool.module.css'
+import {useDispatch} from 'react-redux'
+import {changeTicketsToolToTicket} from '../../redux/actions/TicketsTool'
 function TicketsDashboard (){
+    const dispatch = useDispatch()
+
     const addTicketButton = '+ Agregar nota de venta';
     const TicketsTitle = 'Notas de venta';
     const TicketNumber = '35-19/03/2021';
     const TicketGrandTotal = '$25,000'
     const TicketsShortDescription = 'Descripcion corta de los conceptos dentro de la nota de venta'
     const openEditTicket = 'VER O EDITAR'
+
+    function handleNewTicketPress(){
+        dispatch(changeTicketsToolToTicket())
+    }
     return(
         <div className={styles.TicketsDashboardMainContainer}>
 {/*BUTTON TO ADD TICKET */}
             <div className={styles.AddTicketButtonContainer}>
-                <button className={styles.AddTicketButton}>
+                <button className={styles.AddTicketButton}
+                onClick={handleNewTicketPress}>
                     {addTicketButton}
                 </button>
             </div>

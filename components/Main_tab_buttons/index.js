@@ -7,6 +7,8 @@ import {changeOrdersToolToDashboard} from '.././../redux/actions/OrdersTool'
 import {changeExpenseToolToDashboard} from '../../redux/actions/ExpenseTool'
 import {changeCustomersToolToDashboard} from '../../redux/actions/CustomersTool'
 import {changeProvidersToolToDashboard} from '../../redux/actions/ProvidersTool'
+import {changeTicketsToolToDashboard} from '../../redux/actions/TicketsTool'
+
 function MainTabButtons (){
     const currentTab = useSelector(state=>state.globalTab);
     const currentCustomerTool = useSelector(state=>state.customerActiveTool)
@@ -14,6 +16,7 @@ function MainTabButtons (){
     const currentExpensesToolTab = useSelector(state=>state.expensesTool)
     const currentCustomersTab = useSelector(state=>state.customersTool)
     const currentProvidersTab = useSelector(state=>state.providersTool)
+    const currentTicketsTab = useSelector(state=>state.ticketsTool)
     const currentServiceDashboardTab = useSelector(state=>state.customerDashboardTab)
     const messagesStatus = useSelector(state=>state.userMessagesTab)
     const closeDescription = "< SALIR"
@@ -47,7 +50,9 @@ function MainTabButtons (){
     function handleGoBackToProviders(){
         dispatch(changeProvidersToolToDashboard())
     }
-    
+    function handleGoBackToTickets(){
+        dispatch(changeTicketsToolToDashboard())
+    }
     return(
         <div className={styles.MainTabButtonsContainer}>
             {(currentTab === 'Services' && currentServiceDashboardTab === 'Tools' && currentOrdersToolTab === 'Order' && currentCustomerTool !== 'None')?
@@ -68,6 +73,11 @@ function MainTabButtons (){
             :(currentTab === 'Services' && currentServiceDashboardTab === 'Tools' && currentCustomersTab !== 'Dashboard' && currentCustomerTool !== 'None')?
             <button className={styles.MainCloseChat}
             onClick={handleGoBackToCustomers}>
+                {goBackDescription}
+            </button>
+            :(currentTab === 'Services' && currentServiceDashboardTab === 'Tools' && currentTicketsTab !== 'Dashboard' && currentCustomerTool !== 'None')?
+            <button className={styles.MainCloseChat}
+            onClick={handleGoBackToTickets}>
                 {goBackDescription}
             </button>
             :(currentTab === 'Services' && currentServiceDashboardTab === 'Tools'&& currentCustomerTool !== 'None')?

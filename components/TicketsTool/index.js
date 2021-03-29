@@ -7,7 +7,9 @@ function TicketsTool (){
         case 'Dashboard':
             return <TicketsDashboard/>;
         case 'Ticket':
-            return <TicketForm/>
+            return <TicketForm/>;
+        default:
+            return <TicketsDashboard/>;
     }   
     
 }
