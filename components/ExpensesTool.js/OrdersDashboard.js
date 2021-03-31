@@ -19,8 +19,10 @@ function OrdersDashboard (){
     }
     return(
         <div className={styles.ExpensesToolMainContainer}>
-            <button className={styles.RegisterExpenseButton}
-            onClick={handleNewExpensePress}>{registerExpenseButton}</button>
+            <div className={styles.RegisterExpenseContainer}>
+                <button className={styles.RegisterExpenseButton}
+                onClick={handleNewExpensePress}>{registerExpenseButton}</button>
+            </div>
             <button className={styles.CustomDateRangeButton}>{customExpensesRange}</button>
             <div className={styles.DateRangeSelected}>{dateRangeSelected}</div>
             
@@ -39,7 +41,7 @@ function OrdersDashboard (){
                         <div>{expenseItemDate}</div>
                         <div>{expenseItemAmounth}</div>
                     </div>
-                    <div>{expenseItemDescription}</div>
+                    <div className={styles.ExpenseDescription}>{expenseItemDescription}</div>
                     <button className={styles.OpenEditItemButton}>{openEditItemButton}</button>
                 </div>
 
@@ -48,7 +50,7 @@ function OrdersDashboard (){
                         <div>{expenseItemDate}</div>
                         <div>{expenseItemAmounth}</div>
                     </div>
-                    <div>{expenseItemDescription}</div>
+                    <div className={styles.ExpenseDescription}>{expenseItemDescription}</div>
                     <button className={styles.OpenEditItemButton}>{openEditItemButton}</button>
                 </div>
 
@@ -57,7 +59,7 @@ function OrdersDashboard (){
                         <div>{expenseItemDate}</div>
                         <div>{expenseItemAmounth}</div>
                     </div>
-                    <div>{expenseItemDescription}</div>
+                    <div className={styles.ExpenseDescription}>{expenseItemDescription}</div>
                     <button className={styles.OpenEditItemButton}>{openEditItemButton}</button>
                 </div>
 
@@ -66,7 +68,7 @@ function OrdersDashboard (){
                         <div>{expenseItemDate}</div>
                         <div>{expenseItemAmounth}</div>
                     </div>
-                    <div>{expenseItemDescription}</div>
+                    <div className={styles.ExpenseDescription}>{expenseItemDescription}</div>
                     <button className={styles.OpenEditItemButton}>{openEditItemButton}</button>
                 </div>
 
@@ -75,9 +77,11 @@ function OrdersDashboard (){
                         <div>{expenseItemDate}</div>
                         <div>{expenseItemAmounth}</div>
                     </div>
-                    <div>{expenseItemDescription}</div>
+                    <div className={styles.ExpenseDescription}>{expenseItemDescription}</div>
                     <button className={styles.OpenEditItemButton}>{openEditItemButton}</button>
                 </div>
+
+                
                 
             </div>
             

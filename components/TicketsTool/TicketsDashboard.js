@@ -34,7 +34,7 @@ function TicketsDashboard (){
                             <div className={styles.TicketNumberPreview}>{TicketNumber}</div>
                             <div className={styles.TicketAmounthPreview}>{TicketGrandTotal}</div>
                         </div>
-                        <div>
+                        <div className={styles.TicketPreviewDescription}>
                             {TicketsShortDescription}
                         </div>
                         <div className={styles.OpenEditTicketContainer}>
@@ -47,7 +47,7 @@ function TicketsDashboard (){
                             <div className={styles.TicketNumberPreview}>{TicketNumber}</div>
                             <div className={styles.TicketAmounthPreview}>{TicketGrandTotal}</div>
                         </div>
-                        <div>
+                        <div className={styles.TicketPreviewDescription}>
                             {TicketsShortDescription}
                         </div>
                         <div className={styles.OpenEditTicketContainer}>
@@ -60,7 +60,7 @@ function TicketsDashboard (){
                             <div className={styles.TicketNumberPreview}>{TicketNumber}</div>
                             <div className={styles.TicketAmounthPreview}>{TicketGrandTotal}</div>
                         </div>
-                        <div>
+                        <div className={styles.TicketPreviewDescription}>
                             {TicketsShortDescription}
                         </div>
                         <div className={styles.OpenEditTicketContainer}>
@@ -73,13 +73,28 @@ function TicketsDashboard (){
                             <div className={styles.TicketNumberPreview}>{TicketNumber}</div>
                             <div className={styles.TicketAmounthPreview}>{TicketGrandTotal}</div>
                         </div>
-                        <div>
+                        <div className={styles.TicketPreviewDescription}>
                             {TicketsShortDescription}
                         </div>
                         <div className={styles.OpenEditTicketContainer}>
                             <button className={styles.OpenEditTicket}>{openEditTicket}</button>
                         </div>
                     </div>
+
+                    <div className={styles.TicketPreviewContainer}>
+                        <div className={styles.TicketPreviewNumberAmounthContainer}>
+                            <div className={styles.TicketNumberPreview}>{TicketNumber}</div>
+                            <div className={styles.TicketAmounthPreview}>{TicketGrandTotal}</div>
+                        </div>
+                        <div className={styles.TicketPreviewDescription}>
+                            {TicketsShortDescription}
+                        </div>
+                        <div className={styles.OpenEditTicketContainer}>
+                            <button className={styles.OpenEditTicket}>{openEditTicket}</button>
+                        </div>
+                    </div>
+
+                    
 
                 </div>
             </div>

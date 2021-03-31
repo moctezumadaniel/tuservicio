@@ -51,7 +51,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 .TicketNumberPreview{
     font-size: large;
@@ -62,12 +62,18 @@
     font-size: large;
     font-weight: 600;
 }
+.TicketPreviewDescription{
+    font-size: large;
+    font-family: sans-serif;
+}
 .OpenEditTicketContainer{
     display: flex;
     justify-content: center;
     margin-top: 10px;
 }
 .OpenEditTicket{
+    font-size: medium;
+    font-family: sans-serif;
     outline: none;
     border:none;
     background-color: white;
