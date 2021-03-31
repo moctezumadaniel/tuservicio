@@ -93,6 +93,8 @@
     align-content: space-around;
 }
 .CustomerPaymentItemContainer{
+    font-size: large;
+    font-family: sans-serif;
     width: 400px;
     padding: 10px;
     background-color: white;
@@ -102,6 +104,8 @@
 }
 
 .CustomerCreditItemContainer{
+    font-size: large;
+    font-family: sans-serif;
     width: 400px;
     padding: 10px;
     background-color: white;
@@ -153,6 +157,8 @@
 }
 
 .CustomerNameInput{
+    font-size: large;
+    font-family: sans-serif;
     width: 95%;
     align-self: center;
     outline: none;
@@ -171,6 +177,8 @@
     justify-content: space-around;
 }
 .DateInput{
+    font-size: large;
+    font-family: sans-serif;
     width: 300px;
     margin: 5px;
     background-color: white;
@@ -182,6 +190,8 @@
 
 }
 .AmounthInput{
+    font-size: large;
+    font-family: sans-serif;
     width: 300px;
     margin: 5px;
     background-color: white;

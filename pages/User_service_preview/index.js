@@ -1,3 +1,4 @@
+/*import {connectToDatabase} from '../../middleware/mongodb'*/
 import styles from '../../styles/UserServiceSearch.module.css'
 export default function UserServicePreview(){
     const image = "Imagen de perfil";
@@ -5,7 +6,6 @@ export default function UserServicePreview(){
     const score = "5 star";
     const todaySchedule = "8:00 a 16:00" /*Green when is open at the moment of the search*/
     const description = "Este es un ejemplo de la descripcion corta de un servicio que no deberá exedor de 140 caracteres"
-    
     return(
         <div className={styles.PreviewMainContainer}>
             <div className={styles.ImageAndScoreContainer}>
@@ -24,20 +24,13 @@ export default function UserServicePreview(){
 /*export async function getServerSideProps(context){
     const { db } = await connectToDatabase();
     
-    const data = await db.collection("customers_public_data").toArray();
+    const data = await db.collection("customers_public_data").find({}).limit(20).toArray()
    
 
-    const properties = data.map(property=>{
-        return{
-            image:property.profileImage,
-            name:property.name,
-            score: property.score,
-            todaySchedule:property.schedule,
-            description: property.description
-        }
-    })
+    const properties = JSON.parse(JSON.stringify(data));
+
     
     return{
-        props: {properties}
+        props: {properties:properties}
     }
 }*/
