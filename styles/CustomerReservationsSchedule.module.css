@@ -1,93 +1,91 @@
 /*GLOBAL*/
 .MainContainer{
+    margin-top: 10px;
     width: 100vw;
     padding: 10px;
-    margin-top: 10px;
-
 }
 /*TITLE*/
 .TitleContainer{
-    width: 100%;
     display: flex;
-    justify-content: center;
     font-size: x-large;
     font-weight: 600;
+    justify-content: center;
 }
-.AddReservationContainer{
-    width: 100%;
+.AddScheduleContainer{
+    margin-top: 10px;
     display: flex;
     justify-content: center;
 }
-.AddReservationButton{
-    border: none;
+.AddScheduleButton{
     outline: none;
+    border:none;
     background-color: #FAFAFA;
     color: #026ED2;
-    margin-top: 5px;
 }
-.AddReservationButton{
+.AddScheduleButton{
     cursor: pointer;
 }
-/*LIST OF RESERVATIONS*/
-.ListOfReservationsContainer{
-    width: 100%;
+/*DAYS SELECTION*/
+.DaysSelectionContainer{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding-top: 10px;
+    justify-content: center;
+    margin-top: 10px;
 }
-
-.ReservationItem{
-    width: 400px;
+.DaysSelection{
+    outline: none;
+    border:none;
     background-color: white;
-    border-color: gray;
-    border-radius: 10px;
+    width: 400px;
+    font-size: medium;
     padding: 10px;
-    margin:5px;
+    border-radius: 10px;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
-
-.ItemSchedule{
+/*SCHEDULE LIST*/
+.ScheduleListContainer{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    justify-content: space-evenly;
+}
+.ScheduleItem{
+    width: 400px;
+    background-color: white;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+.ScheduleTimeContainer{
     display: flex;
     justify-content: center;
-    font-size: medium;
     font-weight: 600;
 }
-.ItemCustomerName{
+.ScheduleDescription{
     margin-top: 5px;
     display: flex;
     justify-content: center;
-    
 }
-.ItemDescription{
-    margin-top: 5px;
-    display: flex;
-    justify-content: center;
-    text-align:center;
-}
-.ReservationItemButtonsContainer{
+.ScheduleButtonsContainer{
     margin-top: 5px;
     display: flex;
     justify-content: space-around;
-    align-content: space-around;
 }
-.EditReservationButton{
-    border: none;
+.EditItemSchedule{
     outline: none;
-    background-color: white;
-    color: #C67802;
-    margin-top: 5px;
-}
-.EditReservationButton:hover{
-    cursor: pointer;
-}
-.AttendedReservationButton{
     border: none;
-    outline: none;
     background-color: white;
     color: #026ED2;
-    margin-top: 5px;
 }
-.AttendedReservationButton{
+.EditItemSchedule:hover{
+    cursor: pointer;
+}
+.DeleteSchedule{
+    outline: none;
+    border: none;
+    background-color: white;
+    color: #f40000;
+}
+.DeleteSchedule{
     cursor: pointer;
 }

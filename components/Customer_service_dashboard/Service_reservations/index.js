@@ -1,13 +1,13 @@
 import styles from '../../../styles/CustomerServiceDashboard.module.css'
 import CreateReservation from './CreateReservation'
 import CurrentReservations from './CurrentReservations'
-import ReservationSettings from './ReservationSettings'
+import ReservationsSchedule from './ReservationsSchedule'
 function ServiceReservations (){
     return(
         <div className={styles.ServiceReservationsContainer}>
             <CreateReservation/>
             <CurrentReservations/>
-            <ReservationSettings/>
+            <ReservationsSchedule/>
         </div>
     )
 }

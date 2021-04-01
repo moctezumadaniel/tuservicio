@@ -230,6 +230,10 @@
 .ServiceComplementInfo{
     width: 65%;
 }
+/*RESERVATIONS TAB*/
+.ServiceReservationsContainer{
+    padding-bottom:150px ;
+}
 /*TOOL BAR*/
 
 .ToolBarContainer{
