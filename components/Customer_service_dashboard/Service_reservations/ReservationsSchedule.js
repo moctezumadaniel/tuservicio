@@ -2,7 +2,7 @@ import styles from '../../../styles/CustomerReservationsSchedule.module.css'
 function ReservationsSchedule (){
     const title = 'Lista de horarios';
     const addSchedule = 'AGREGAR HORARIO'
-    const workdays = 'Dias laborales';
+    const workdays = 'Dias laborales'; /*GET THEM FROM THE USER INFORMATION*/ 
     const monday = 'Lunes';
     const tuesday = 'Martes';
     const wednesday = 'Miercoles';
@@ -25,6 +25,14 @@ function ReservationsSchedule (){
 {/*DAY/S SELECTION */}
             <div className={styles.DaysSelectionContainer}>
                 <select className={styles.DaysSelection}>
+                    <option value={workdays}>{workdays}</option>
+                    <option value={monday}>{monday}</option>
+                    <option value={tuesday}>{tuesday}</option>
+                    <option value={wednesday}>{wednesday}</option>
+                    <option value={thursday}>{thursday}</option>
+                    <option value={friday}>{friday}</option>
+                    <option value={saturday}>{saturday}</option>
+                    <option value={sunday}>{sunday}</option>
                     
                 </select>
             </div>
