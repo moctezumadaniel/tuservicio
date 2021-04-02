@@ -8,6 +8,8 @@ function ServiceInformation (){
     const serviceSchedule = "8:00 a 16:00"
     const descriptionTitle = 'Descripción corta'
     const serviceDescription = "Descripcion corta del servicio Descripcion corta del servicio Descripcion corta del servicio Descripcion corta del servicio Descripcion corta del ServiceInformation"
+    const workdaysTitle = "Dias de atención"
+    const workdays = "Lunes, Martes, Miercoles, Viernes, Sabado"
     const editItemButton = 'Cambiar'
     return(
         <div className={styles.ServiceInformationContainer}>
@@ -29,6 +31,12 @@ function ServiceInformation (){
             <div className={styles.InformationContainer}>
                     <div className={styles.InformationItemTitle}>{descriptionTitle}</div>
                     <div>{serviceDescription}</div>
+                    <button className={styles.editItemButton}>{editItemButton}</button>
+            </div>
+
+            <div className={styles.InformationContainer}>
+                    <div className={styles.InformationItemTitle}>{workdaysTitle}</div>
+                    <div>{workdays}</div>
                     <button className={styles.editItemButton}>{editItemButton}</button>
             </div>
             
