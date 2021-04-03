@@ -12,7 +12,7 @@ function CustomerProfileForms (){
     const currentForm = useSelector(state=>state.customerProfileForms)
     switch(currentForm){
         case 'None':
-            return <ImageAndName/>;
+            return "";
         case 'ImageAndName':
             return <ImageAndName/>;
         case 'Schedule':
