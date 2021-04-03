@@ -1,11 +1,12 @@
 import {useSelector} from 'react-redux'
 import ServiceTabButtons from './ServiceTabButtons'
-import ServiceInformation from './ServiceInformation'
-import ServiceContactAndMoreInfo from './ServiceContactAndMoreInfo'
+import ServiceInformation from './Customer_profile/ServiceInformation'
+import ServiceContactAndMoreInfo from './Customer_profile/ServiceContactAndMoreInfo'
 import styles from '../../styles/CustomerServiceDashboard.module.css'
 import ServiceReservations from './Service_reservations'
 import CustomerTools from './Customer_tools'
-import ServicesList from './ServicesList'
+import ServicesList from './Customer_profile/ServicesList'
+import ProfileForms from './Customer_profile/Customer_profile_forms'
 function CustomerServiceDashboard (){
     const currentGlobalTab = useSelector(state=>state.globalTab)
     const currentTab = useSelector(state=>state.customerDashboardTab)
@@ -22,6 +23,7 @@ function CustomerServiceDashboard (){
                 <ServiceInformation/>
                 <ServiceContactAndMoreInfo/> 
                 <ServicesList/>
+                <ProfileForms/>
             </div>
             :currentTab === 'Reservations'?
             <ServiceReservations/>

@@ -1,4 +1,4 @@
-import styles from '../../styles/CustomerServiceDashboard.module.css'
+import styles from '../../../styles/CustomerServiceDashboard.module.css'
 function ServicesList(){
     const servicesTitle = "Servicios";
     const addServiceButton = "AÑADIR SERVICIO"

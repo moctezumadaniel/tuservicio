@@ -1,4 +1,4 @@
-import styles from '../../styles/CustomerServiceDashboard.module.css'
+import styles from '../../../styles/CustomerServiceDashboard.module.css'
 function ServiceContactAndMoreInfo (){
     const contactAndMoreTitle = 'Contacto y más detalles'
     const phoneNumberTitle = 'Número de telefono'

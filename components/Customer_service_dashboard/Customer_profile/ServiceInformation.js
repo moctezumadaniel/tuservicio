@@ -1,4 +1,4 @@
-import styles from '../../styles/CustomerServiceDashboard.module.css'
+import styles from '../../../styles/CustomerServiceDashboard.module.css'
 function ServiceInformation (){
     const title = "Información"
     const serviceImageAndNameTitle = 'Imagen y nombre'

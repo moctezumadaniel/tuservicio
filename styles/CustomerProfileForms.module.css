@@ -1,0 +1,28 @@
+/*GLOBAL*/
+.MainContainer{
+    display: flex;
+    top:0;
+    left: 0;
+    bottom: 235px;
+    position:fixed;
+    width: 100vw;
+    height: 100vh;
+}
+.ModalBackground{
+    flex: 1;
+    background-color: black;
+    opacity: 0.30;
+}
+.ModalContainer{
+    bottom: 35px;
+    position: fixed;
+    width: 100vw;
+    height: 300px;
+    min-height: 40%;
+    background-color: white;
+    padding: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 10px 0px 7px rgba(0, 0, 0, 0.25);
+
+}
