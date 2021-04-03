@@ -11,7 +11,7 @@
 .ModalBackground{
     flex: 1;
     background-color: black;
-    opacity: 0.30;
+    opacity: 0.40;
 }
 .ModalContainer{
     display: flex;
@@ -19,16 +19,22 @@
     bottom: 35px;
     position: fixed;
     width: 100vw;
-    background-color: white;
+    background-color: #FAFAFA;
     padding: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-content: center;
     box-shadow: 10px 0px 7px rgba(0, 0, 0, 0.25);
 
+}
+.FullWidthContainer{
+    width: 99vw;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 /*PROFILE IMAGE AND NAME*/
 .ProfileImageFormContainer{
@@ -39,10 +45,10 @@
     justify-self: center;
     height: 150px;
     width: 150px;
-    background-color: #FAFAFA;
+    background-color: white;
     border-radius: 10px;
     margin-bottom: 5px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
 }
 .ProfileImageButtonContainer{
     display: flex;
@@ -51,7 +57,7 @@
 .ProfileImageButton{
     outline: none;
     border:none;
-    background-color: white;
+    background-color: #FAFAFA;
     color: #026ED2;
     font-size: medium;
 }
@@ -75,8 +81,8 @@
     align-self: center;
     text-align: center;
     border-radius: 5px;
-    background-color: #FAFAFA;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    background-color: white;
+    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
     
 }
 @media(max-width:700px){
@@ -93,7 +99,7 @@
     outline: none;
     border: none;
     color: #00BB1E;
-    background-color: white;
+    background-color: #FAFAFA;
     font-size: medium;
     margin-top: 20px;
     margin-bottom: 10px;
@@ -101,3 +107,18 @@
 .ConfirmButton:hover{
     cursor: pointer;
 }
+/*WORKDAYS FORM*/
+.Instructions{
+    font-size: x-large;
+    font-family: sans-serif;
+    margin-bottom: 10px;
+}
+.Workday{
+    font-size: x-large;
+    margin: 10px;
+}
+.WorkdayCheckbox{
+    height: 20px;
+    width: 20px;
+}
+

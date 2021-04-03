@@ -1,6 +1,6 @@
 import styles from '../../../styles/CustomerServiceDashboard.module.css'
 import {useDispatch} from 'react-redux';
-import {changeCustomerProfileFormToImageAndName} from '../../../redux/actions/CustomerProfileForms'
+import {changeCustomerProfileFormToImageAndName, changeCustomerProfileFormToWorkdays} from '../../../redux/actions/CustomerProfileForms'
 function ServiceInformation (){
     const dispatch = useDispatch()
     const title = "Información"
@@ -18,6 +18,10 @@ function ServiceInformation (){
     function handleOpenNameAndImageForm(){
         dispatch(changeCustomerProfileFormToImageAndName())
     }
+
+    function handleOpenWorkdaysForm(){
+        dispatch(changeCustomerProfileFormToWorkdays())
+    }
     return(
         <div className={styles.ServiceInformationContainer}>
             <div className={styles.informationTitle}>{title}</div>
@@ -33,7 +37,8 @@ function ServiceInformation (){
             <div className={styles.InformationContainer}>
                     <div className={styles.InformationItemTitle}>{workdaysTitle}</div>
                     <div>{workdays}</div>
-                    <button className={styles.editItemButton}>{editItemButton}</button>
+                    <button className={styles.editItemButton}
+                    onClick={handleOpenWorkdaysForm}>{editItemButton}</button>
             </div>
             
             <div className={styles.InformationContainer}>
