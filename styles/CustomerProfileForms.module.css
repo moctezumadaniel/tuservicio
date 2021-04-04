@@ -19,7 +19,7 @@
     bottom: 35px;
     position: fixed;
     width: 100vw;
-    background-color: #FAFAFA;
+    background-color: white;
     padding: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -35,6 +35,18 @@
     display: flex;
     justify-content: center;
     align-content: center;
+}
+.ConfirmButton{
+    outline: none;
+    border: none;
+    color: #00BB1E;
+    background-color: #FAFAFA;
+    font-size: medium;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.ConfirmButton:hover{
+    cursor: pointer;
 }
 /*PROFILE IMAGE AND NAME*/
 .ProfileImageFormContainer{
@@ -95,18 +107,7 @@
     justify-content: center;
     align-content: center;
 }
-.ConfirmButton{
-    outline: none;
-    border: none;
-    color: #00BB1E;
-    background-color: #FAFAFA;
-    font-size: medium;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-.ConfirmButton:hover{
-    cursor: pointer;
-}
+
 /*WORKDAYS FORM*/
 .Instructions{
     font-size: x-large;
@@ -120,5 +121,25 @@
 .WorkdayCheckbox{
     height: 20px;
     width: 20px;
+}
+/*SCHEDULE FORM*/
+.ScheduleFormsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.ScheduleContainer{
+    font-size: medium;
+    text-align: center;
+    font-family: sans-serif;
+    margin: 5px;
+}
+.ScheduleDateInput{
+    outline: none;
+    border: none;
+    background-color: #f3f3f3;
+    font-family: sans-serif;
+    border-radius: 10px;
+    padding: 5px;
 }
 

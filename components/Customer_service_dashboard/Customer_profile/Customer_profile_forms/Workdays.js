@@ -4,7 +4,8 @@ import {changeCustomerProfileFormToNone} from '../../../../redux/actions/Custome
 function Workdays (){
     const dispatch = useDispatch();
     function handleCloseForm(){
-        dispatch(changeCustomerProfileFormToNone())
+        dispatch(changeCustomerProfileFormToNone(),
+        console.log('PRESIONADO'))
     }
     const instructions = 'Marca los días que prestas servicios'
     const monday = 'Lunes';
@@ -51,7 +52,8 @@ function Workdays (){
                     className={styles.WorkdayCheckbox}/>{sunday}
                 </label>
                 <div className={styles.FullWidthContainer}>
-                    <button className={styles.ConfirmButton}>{confirmButton}</button>
+                    <button className={styles.ConfirmButton}
+                    onClick={handleCloseForm}>{confirmButton}</button>
                 </div>
             </div>
         </div>

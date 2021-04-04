@@ -1,7 +1,11 @@
 import styles from '../../../styles/CustomerServiceDashboard.module.css'
 import {useDispatch} from 'react-redux';
-import {changeCustomerProfileFormToImageAndName, changeCustomerProfileFormToWorkdays} from '../../../redux/actions/CustomerProfileForms'
-function ServiceInformation (){
+import {
+    changeCustomerProfileFormToImageAndName, 
+    changeCustomerProfileFormToWorkdays,
+    changeCustomerProfileFormToSchedule} from '../../../redux/actions/CustomerProfileForms'
+
+    function ServiceInformation (){
     const dispatch = useDispatch()
     const title = "Información"
     const serviceImageAndNameTitle = 'Imagen y nombre'
@@ -21,6 +25,10 @@ function ServiceInformation (){
 
     function handleOpenWorkdaysForm(){
         dispatch(changeCustomerProfileFormToWorkdays())
+    }
+
+    function handleOpenScheduleForm(){
+        dispatch(changeCustomerProfileFormToSchedule())
     }
     return(
         <div className={styles.ServiceInformationContainer}>
@@ -44,7 +52,8 @@ function ServiceInformation (){
             <div className={styles.InformationContainer}>
                     <div className={styles.InformationItemTitle}>{scheduleTitle}</div>
                     <div className={styles.Schedule}>{serviceSchedule}</div>
-                    <button className={styles.editItemButton}>{editItemButton}</button>
+                    <button className={styles.editItemButton}
+                    onClick={handleOpenScheduleForm}>{editItemButton}</button>
             </div>
 
             <div className={styles.InformationContainer}>
