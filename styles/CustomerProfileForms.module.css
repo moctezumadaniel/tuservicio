@@ -40,7 +40,7 @@
     outline: none;
     border: none;
     color: #00BB1E;
-    background-color: #FAFAFA;
+    background-color: white;
     font-size: medium;
     margin-top: 15px;
     margin-bottom: 5px;
@@ -142,4 +142,17 @@
     border-radius: 10px;
     padding: 5px;
 }
+/*SHORT DESCRIPTION FORM*/
+.ShortDescriptionContainer{
+    font-size: large;
+    font-family: sans-serif;
+    resize: none;
+    width: 95vw;
+    height: 200px;
+    padding: 10px;
+    border:none;
+    outline: none;
+    background-color: #f3f3f3;
+    border-radius: 10px;
 
+}

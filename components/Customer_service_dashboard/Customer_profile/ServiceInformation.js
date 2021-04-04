@@ -3,7 +3,8 @@ import {useDispatch} from 'react-redux';
 import {
     changeCustomerProfileFormToImageAndName, 
     changeCustomerProfileFormToWorkdays,
-    changeCustomerProfileFormToSchedule} from '../../../redux/actions/CustomerProfileForms'
+    changeCustomerProfileFormToSchedule,
+    changeCustomerProfileFormToShortDescription} from '../../../redux/actions/CustomerProfileForms'
 
     function ServiceInformation (){
     const dispatch = useDispatch()
@@ -29,6 +30,9 @@ import {
 
     function handleOpenScheduleForm(){
         dispatch(changeCustomerProfileFormToSchedule())
+    }
+    function handleOpenShortDescriptionForm(){
+        dispatch(changeCustomerProfileFormToShortDescription())
     }
     return(
         <div className={styles.ServiceInformationContainer}>
@@ -59,7 +63,8 @@ import {
             <div className={styles.InformationContainer}>
                     <div className={styles.InformationItemTitle}>{descriptionTitle}</div>
                     <div>{serviceDescription}</div>
-                    <button className={styles.editItemButton}>{editItemButton}</button>
+                    <button className={styles.editItemButton}
+                    onClick={handleOpenShortDescriptionForm}>{editItemButton}</button>
             </div>
             
         </div>
