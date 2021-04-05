@@ -151,8 +151,20 @@
     height: 200px;
     padding: 10px;
     border:none;
-    outline: none;
-    background-color: #f3f3f3;
+    outline-color: #026ED2;
+    background-color: white;
     border-radius: 10px;
 
+}
+/*PHONE NUMBER FORM*/
+.PhoneNumberInput{
+    outline: none;
+    border: none;
+    padding: 10px;
+    background-color: #F3F3F3;
+    font-size: large;
+    border-radius: 100PX;
+    text-align: center;
+    width: 400px;
+    
 }
