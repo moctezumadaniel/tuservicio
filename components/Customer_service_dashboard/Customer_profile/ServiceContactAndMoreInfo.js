@@ -3,7 +3,8 @@ import {useDispatch} from 'react-redux'
 import {
     changeCustomerProfileFormToPhoneNumber,
     changeCustomerProfileFormToAddress,
-    changeCustomerProfileFormToMoreInformation} from '../../../redux/actions/CustomerProfileForms'
+    changeCustomerProfileFormToMoreInformation,
+    changeCustomerProfileFormToServiceImages} from '../../../redux/actions/CustomerProfileForms'
 function ServiceContactAndMoreInfo (){
     const dispatch = useDispatch();
     const contactAndMoreTitle = 'Contacto y más detalles'
@@ -24,6 +25,9 @@ function ServiceContactAndMoreInfo (){
     }
     function handleMoreInformationPress(){
         dispatch(changeCustomerProfileFormToMoreInformation())
+    }
+    function handleServiceImagesPress() {
+        dispatch(changeCustomerProfileFormToServiceImages())
     }
     return(
         
@@ -56,7 +60,8 @@ function ServiceContactAndMoreInfo (){
                 <div className={styles.ContactAndMoreContent}>
                     <div className={styles.ContactAndMoreItemTitle}>{imagesTitle}</div>
                     <div>{images}</div>
-                    <button className={styles.editItemButton}>{editItemButton}</button>
+                    <button className={styles.editItemButton}
+                    onClick={handleServiceImagesPress}>{editItemButton}</button>
                 </div>
                 
 
