@@ -5,6 +5,10 @@ import {changeCustomerProfileFormToNone} from '../../../../redux/actions/Custome
 function AddService (){
     const dispatch = useDispatch()
     const addImageLabel = "Agregar Imágen"
+    const namePlaceholder = "Escribe nombre del servicio"
+    const pricePlaceholder = "Escribe el precio del servicio"
+    const descriptionPlaceholder = "Escribe una descripcion corta del servicio"
+    const confirmButton = "ACEPTAR"
     function handleCloseForm(){
         dispatch(changeCustomerProfileFormToNone())
     }
@@ -28,10 +32,17 @@ function AddService (){
                 </label>
                 {/*NAME AND PRICE INPUTS */}
                 <div className={styles.ServiceNamePriceDescription}>
-                    <input type='text' className={styles.ServiceNamePriceDescriptionInput}/>
-                    <input type='number' className={styles.ServiceNamePriceDescriptionInput}/>
+                    <input type='text' className={styles.ServiceNamePriceDescriptionInput}
+                    placeholder={namePlaceholder}/>
+                    <input type='number' className={styles.ServiceNamePriceDescriptionInput}
+                    placeholder={pricePlaceholder}/>
                 </div>
-                <textarea className={styles.ServiceDescription} placeholder="placeholder"/>
+                <textarea className={styles.ServiceDescription}
+                placeholder={descriptionPlaceholder}/>
+                <div className={styles.ServiceFormContainer}>
+                    <button className={styles.ConfirmButton}
+                    onClick={handleCloseForm}>{confirmButton}</button>
+                </div>
                 
             </div>
         </div>
