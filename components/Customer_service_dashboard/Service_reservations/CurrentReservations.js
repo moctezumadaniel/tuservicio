@@ -1,5 +1,8 @@
 import styles from '../../../styles/CustomerPendingReservations.module.css'
+import {useDispatch} from 'react-redux'
+import {changeCustomerReservationsFormToAddReservation} from '../../../redux/actions/CustomerReservationsForms'
 function CurrentReservations(){
+    const dispatch = useDispatch()
     const title = 'Por atender';
     const addReservation = 'AGREGAR RESERVACIÓN'
     const schedule = '21 de Marzo de 8:00am a 8:30am';
@@ -7,13 +10,17 @@ function CurrentReservations(){
     const description = 'Descripcion corta del motivo de la reservacion';
     const configureButton = 'EDITAR'
     const doneButton = 'ATENDIDA'
+    function handleAddReservationPress(){
+        dispatch(changeCustomerReservationsFormToAddReservation())
+    }
     return(
         <div className={styles.MainContainer}>
 {/*TITLE AND BUTTON TO ADD MANUAL RESERVATION */}
             <div className={styles.TitleContainer}>{title}</div>
 
             <div className={styles.AddReservationContainer}>
-                <button className={styles.AddReservationButton}>{addReservation}</button>
+                <button className={styles.AddReservationButton}
+                onClick={handleAddReservationPress}>{addReservation}</button>
             </div>
 
 {/*LIST OF PENDING RESERVATIONS */}

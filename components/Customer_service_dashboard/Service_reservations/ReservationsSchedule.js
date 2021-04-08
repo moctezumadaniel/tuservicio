@@ -1,5 +1,8 @@
 import styles from '../../../styles/CustomerReservationsSchedule.module.css'
+import {useDispatch} from 'react-redux'
+import {changeCustomerReservationsFormToAddSchedule} from '../../../redux/actions/CustomerReservationsForms'
 function ReservationsSchedule (){
+    const dispatch = useDispatch()
     const title = 'Lista de horarios';
     const addSchedule = 'AGREGAR HORARIO'
     const workdays = 'Dias laborales'; /*GET THEM FROM THE USER INFORMATION*/ 
@@ -14,12 +17,16 @@ function ReservationsSchedule (){
     const description = 'Descripcion corta del motivo de la reservacion';
     const editItem = 'EDITAR';
     const deleteItem = 'ELIMINAR'
+    function handleAddAchedule(){
+        dispatch(changeCustomerReservationsFormToAddSchedule())
+    }
     return(
         <div className={styles.MainContainer}>
 {/*SCHEDULE TITLE */}
             <div className={styles.TitleContainer}>{title}</div>
             <div className={styles.AddScheduleContainer}>
-                <button className={styles.AddScheduleButton}>{addSchedule}</button>
+                <button className={styles.AddScheduleButton}
+                onClick={handleAddAchedule}>{addSchedule}</button>
             </div>
 
 {/*DAY/S SELECTION */}

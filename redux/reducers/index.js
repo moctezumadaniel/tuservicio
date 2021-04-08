@@ -13,6 +13,7 @@ import {customersToolReducer} from './customersTool'
 import {providersToolReducer} from './providersTool'
 import {ticketsToolReducer} from './ticketsTool'
 import {customerProfileFormsReducer} from './customerProfileForms'
+import {customerReservationsFormsReducer} from './customerReservationsForms'
 const rootReducer = combineReducers({
     platformType:platformTypeReducer,
     userLogin: userLoginReducer,
@@ -28,6 +29,7 @@ const rootReducer = combineReducers({
     providersTool:providersToolReducer,
     ticketsTool:ticketsToolReducer,
     customerProfileForms:customerProfileFormsReducer,
+    customerReservationsForms:customerReservationsFormsReducer,
 })
 
 export default rootReducer
