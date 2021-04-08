@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import {changeCustomerProfileFormToNone} from '../../../../redux/actions/CustomerProfileForms'
 function ShortDescription (){
     const dispatch = useDispatch()
+    const shortDescriptionPlaceholder = 'Escribe una descripcion corta sobre tu negocio'
     const confirmButton = 'ACEPTAR'
     function handleCloseForm(){
         dispatch(changeCustomerProfileFormToNone())
@@ -15,7 +16,8 @@ function ShortDescription (){
 
             <div className={styles.ModalContainer}>
                 <div>
-                    <textarea className={styles.ShortDescriptionContainer}/>
+                    <textarea className={styles.ShortDescriptionContainer}
+                    placeholder={shortDescriptionPlaceholder}/>
                 </div>
                 <div className={styles.FullWidthContainer}>
                     <button onClick={handleCloseForm}

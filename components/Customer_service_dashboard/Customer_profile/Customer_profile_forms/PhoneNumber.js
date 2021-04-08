@@ -4,6 +4,7 @@ import {changeCustomerProfileFormToNone} from '../../../../redux/actions/Custome
 
 function PhoneNumber(){
     const dispatch = useDispatch();
+    const phoneNumberPlaceholder = 'Escribe el teléfono de tu negocio'
     const confirmButton = 'ACEPTAR';
     function handleCloseForm (){
         dispatch(changeCustomerProfileFormToNone())
@@ -15,7 +16,8 @@ function PhoneNumber(){
 
             <div className={styles.ModalContainer}>
                 
-                    <input type="tel" className={styles.PhoneNumberInput}/>
+                    <input type="tel" className={styles.PhoneNumberInput}
+                    placeholder={phoneNumberPlaceholder}/>
                
                 
                     <button className={styles.ConfirmButton}>{confirmButton}</button>

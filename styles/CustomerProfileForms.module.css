@@ -98,6 +98,15 @@
         width: 95vw;
     }
 }
+.ProfileName::placeholder{
+    color: #026ED2;
+    font-size: large;
+    font-family: sans-serif;
+    text-align: center;
+}
+.ProfileName:focus::placeholder{
+    color: transparent;
+}
 .ConformButtonContainer{
     display: flex;
     justify-content: center;
@@ -161,6 +170,15 @@
 
 
 }
+.ShortDescriptionContainer::placeholder{
+    color: #026ED2;
+    font-size: large;
+    font-family: sans-serif;
+    text-align: center;
+}
+.ShortDescriptionContainer:focus::placeholder{
+    color: transparent;
+}
 /*PHONE NUMBER FORM*/
 .PhoneNumberInput{
     outline: none;
@@ -172,6 +190,15 @@
     text-align: center;
     width: 400px;
     
+}
+.PhoneNumberInput::placeholder{
+    color: #026ED2;
+    font-size: large;
+    font-family: sans-serif;
+    text-align: center;
+}
+.PhoneNumberInput:focus::placeholder{
+    color: transparent;
 }
 /*ADDRESS NUMBER FORM*/
 .AddresInput{
@@ -194,6 +221,15 @@
         height: 100px;
     }
 }
+.AddresInput::placeholder{
+    color: #026ED2;
+    font-size: large;
+    font-family: sans-serif;
+    text-align: center;
+}
+.AddresInput:focus::placeholder{
+    color: transparent;
+}
 /*MORE INFORMATION FORM*/
 .MoreInformationInput{
     resize: none;
@@ -201,14 +237,22 @@
     border: none;
     background-color: #F3F3F3;
     width: 100%;
-    height:75vh;
+    height:300px;
     padding: 10px;
     border-radius: 20px;
     font-size: large;
     font-family: sans-serif;
 
 }
-
+.MoreInformationInput::placeholder{
+    color: #026ED2;
+    font-size: large;
+    font-family: sans-serif;
+    text-align: center;
+}
+.MoreInformationInput:focus::placeholder{
+    color: transparent;
+}
 /*ADD SERVICE*/
 .ServiceImageInput{
     width: 0.1px;

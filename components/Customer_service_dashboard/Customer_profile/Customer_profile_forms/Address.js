@@ -4,6 +4,7 @@ import {changeCustomerProfileFormToNone} from '../../../../redux/actions/Custome
 
 function Address (){
     const dispatch = useDispatch()
+    const addressPlaceholder = "Escribe la dirección de tu negocio"
     const confirmButton = 'ACEPTAR'
     function handleCloseForm(){
         dispatch(changeCustomerProfileFormToNone())
@@ -15,7 +16,8 @@ function Address (){
             </div>
             
             <div className={styles.ModalContainer}>
-                <textarea className={styles.AddresInput}/>
+                <textarea className={styles.AddresInput}
+                placeholder={addressPlaceholder}/>
                 <button className={styles.ConfirmButton}>{confirmButton}</button>
             </div>
         </div>

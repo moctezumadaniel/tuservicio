@@ -4,6 +4,7 @@ import {changeCustomerProfileFormToNone} from '../../../../redux/actions/Custome
 function ImageAndName (){
     const profileImage = 'IMAGEN DE PERFIL';
     const changeImageButton = 'Cambiar imágen'
+    const serviceName = 'Escribe el nombre de tu servicio'
     const confirmButton = 'ACEPTAR'
     const dispatch = useDispatch()
 
@@ -23,7 +24,7 @@ function ImageAndName (){
                     </div>
                 </div>
                 <div className={styles.ProfileNameContainer}>
-                    <input type='text' className={styles.ProfileName}/>
+                    <input type='text' className={styles.ProfileName} placeholder={serviceName}/>
                 </div>
                 <div className={styles.ConformButtonContainer}>
                     <button className={styles.ConfirmButton}>{confirmButton}</button>

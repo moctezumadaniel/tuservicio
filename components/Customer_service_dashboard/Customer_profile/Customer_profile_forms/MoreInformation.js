@@ -4,6 +4,7 @@ import {changeCustomerProfileFormToNone} from '../../../../redux/actions/Custome
 
 function MoreInformation (){
     const dispatch = useDispatch()
+    const moreInformationPlaceholder = "Escribe sin límite todo lo que quieras que tus clientes sepan de tu negocio"
     const confirmButton = 'ACEPTAR'
     function handleCloseForm(){
         dispatch(changeCustomerProfileFormToNone())
@@ -15,7 +16,8 @@ function MoreInformation (){
             </div>
 
             <div className={styles.ModalContainer}>
-                <textarea className={styles.MoreInformationInput}/>
+                <textarea className={styles.MoreInformationInput}
+                placeholder={moreInformationPlaceholder}/>
                 <button className={styles.ConfirmButton}
                 onClick={handleCloseForm}>{confirmButton}</button>
             </div>
