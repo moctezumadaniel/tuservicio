@@ -1,0 +1,48 @@
+/*GLOBAL*/
+.MainContainer{
+    display: flex;
+    top:0;
+    left: 0;
+    bottom: 235px;
+    position:fixed;
+    width: 100vw;
+    height: 100vh;
+}
+.ModalBackground{
+    flex: 1;
+    background-color: black;
+    opacity: 0.40;
+}
+.ModalContainer{
+    display: flex;
+    flex-wrap: wrap;
+    bottom: 35px;
+    position: fixed;
+    width: 100vw;
+    background-color: white;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    justify-content: space-evenly;
+    box-shadow: 10px 0px 7px rgba(0, 0, 0, 0.25);
+
+}
+.FullWidthContainer{
+    width: 99vw;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.ConfirmButton{
+    outline: none;
+    border: none;
+    color: #00BB1E;
+    background-color: white;
+    font-size: medium;
+    margin-top: 10px;
+}
+.ConfirmButton:hover{
+    cursor: pointer;
+}
