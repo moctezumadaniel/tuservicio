@@ -99,7 +99,7 @@
     }
 }
 .ProfileName::placeholder{
-    color: #026ED2;
+    color: #424242;
     font-size: large;
     font-family: sans-serif;
     text-align: center;
@@ -171,7 +171,7 @@
 
 }
 .ShortDescriptionContainer::placeholder{
-    color: #026ED2;
+    color: #424242;
     font-size: large;
     font-family: sans-serif;
     text-align: center;
@@ -192,7 +192,7 @@
     
 }
 .PhoneNumberInput::placeholder{
-    color: #026ED2;
+    color: #424242;
     font-size: large;
     font-family: sans-serif;
     text-align: center;
@@ -222,7 +222,7 @@
     }
 }
 .AddresInput::placeholder{
-    color: #026ED2;
+    color: #424242;
     font-size: large;
     font-family: sans-serif;
     text-align: center;
@@ -245,7 +245,7 @@
 
 }
 .MoreInformationInput::placeholder{
-    color: #026ED2;
+    color: #424242;
     font-size: large;
     font-family: sans-serif;
     text-align: center;
@@ -304,7 +304,7 @@
 .ServiceNamePriceDescriptionInput::placeholder{
     text-align: center;
     vertical-align: middle;
-    color: #026ED2;
+    color: #424242;
 }
 .ServiceNamePriceDescriptionInput:focus::placeholder{
     color: transparent;
@@ -325,7 +325,7 @@
 .ServiceDescription::placeholder{
     text-align: center;
     vertical-align: middle;
-    color: #026ED2;
+    color: #424242;
 }
 .ServiceDescription:focus::placeholder{
     color: transparent;
