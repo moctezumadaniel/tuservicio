@@ -103,3 +103,39 @@
         width: fit-content;
     }
 }
+/*ADD SCHEDULE*/
+.ListOfDaysContainer{
+    outline: none;
+    border: none;
+    background-color: #F3F3F3;
+    padding: 10px;
+    width: 300px;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    margin: 10px;
+}
+.ScheduleTimeTitle{
+    text-align: center;
+    font-size: large;
+}
+.ScheduleTimeInput{
+    outline: none;
+    border: none;
+    padding: 5px;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    text-align: center;
+    font-family: sans-serif;
+}
+.ConfirmScheduleContainer{
+    display: flex;
+    justify-content: center;
+    width: 95vw;
+}
+@media (min-width:700px) {
+    .ConfirmScheduleContainer{
+        width: fit-content;
+    }
+}
