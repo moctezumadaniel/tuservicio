@@ -10,6 +10,7 @@
     justify-content: center;
 }
 .AddTicketButton{
+    width: 500px;
     align-self: center;
     font-size: larger;
     width: 500px;
@@ -43,6 +44,8 @@
     padding: 10px;
     border-radius: 10px;
     margin: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     background-color: white;
     box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
 
@@ -125,7 +128,7 @@
     border-radius: 10px;
     border: none;
     outline: none;
-    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 }
 .TicketNameInput{
     font-family: sans-serif;
@@ -137,7 +140,7 @@
     border-radius: 10px;
     border: none;
     outline: none;
-    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 }
 .TicketNameInput:focus::placeholder{
     color: transparent;
@@ -162,7 +165,7 @@
     font-size: large;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 
 }
 .ItemAmounthDescription{
@@ -181,7 +184,7 @@
     margin-top: 10px;
     padding: 10px;
     align-self:flex-end;
-    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 
 }
 .DeleteItemButton{
@@ -196,6 +199,9 @@
     align-self: center;
     margin: 10px;
 
+}
+.DeleteItemButton:hover{
+    cursor: pointer;
 }
 .NewItemTitle{
     font-size: x-large;
@@ -216,11 +222,10 @@
     font-size: large;
     font-family: sans-serif;
     text-align: center;
-    background-color: white;
+    background-color: #F3F3F3;
     border-radius: 10px;
     border:none;
     resize: none;
-    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
     outline-color: #026ED2;
 }
 
@@ -230,14 +235,20 @@
     font-size: larger;
     text-align: center;
     font-family: sans-serif;
-    background-color: white;
+    background-color: #F3F3F3;
     border-radius: 10px;
     margin-top: 10px;
     padding: 10px;
     align-self:flex-end;
     border:none;
     outline-color: #026ED2;
-    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
+
+}
+.InputTicketAmounth::placeholder{
+    color: #424242;
+}
+.InputTicketDescription::placeholder{
+    color: #424242;
 
 }
 .AddItemButton{
@@ -250,7 +261,7 @@
     font-size: large;
     margin-top: 10px;
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 100px;
 }
 .AddItemButton:hover{
     cursor: pointer;
