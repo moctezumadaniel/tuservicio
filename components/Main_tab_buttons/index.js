@@ -8,7 +8,8 @@ import {changeExpenseToolToDashboard} from '../../redux/actions/ExpenseTool'
 import {changeCustomersToolToDashboard} from '../../redux/actions/CustomersTool'
 import {changeProvidersToolToDashboard} from '../../redux/actions/ProvidersTool'
 import {changeTicketsToolToDashboard} from '../../redux/actions/TicketsTool'
-
+import {changeCustomerProfileFormToNone} from '../../redux/actions/CustomerProfileForms'
+import {changeCustomerReservationsFormToNone} from '../../redux/actions/CustomerReservationsForms'
 function MainTabButtons (){
     const currentTab = useSelector(state=>state.globalTab);
     const currentCustomerTool = useSelector(state=>state.customerActiveTool)
@@ -18,9 +19,12 @@ function MainTabButtons (){
     const currentProvidersTab = useSelector(state=>state.providersTool)
     const currentTicketsTab = useSelector(state=>state.ticketsTool)
     const currentServiceDashboardTab = useSelector(state=>state.customerDashboardTab)
+    const currentProfileForm = useSelector(state=>state.customerProfileForms)
+    const currentReservationForm = useSelector(state=>state.customerReservationsForms)
     const messagesStatus = useSelector(state=>state.userMessagesTab)
     const closeDescription = "< SALIR"
     const goBackDescription = "< ATRAS"
+    const closeForm = 'CERRAR'
     const dispatch = useDispatch();
 
     function handleServicesPress(){
@@ -53,9 +57,25 @@ function MainTabButtons (){
     function handleGoBackToTickets(){
         dispatch(changeTicketsToolToDashboard())
     }
+    function handleCloseProfileForm(){
+        dispatch(changeCustomerProfileFormToNone())
+    }
+    function handleCloseReservationsForm(){
+        dispatch(changeCustomerReservationsFormToNone())
+    }
     return(
         <div className={styles.MainTabButtonsContainer}>
-            {(currentTab === 'Services' && currentServiceDashboardTab === 'Tools' && currentOrdersToolTab === 'Order' && currentCustomerTool !== 'None')?
+            {(currentTab === 'Services' && currentServiceDashboardTab === 'Profile' && currentProfileForm !== 'None')?
+            <button className={styles.MainCloseChat}
+            onClick={handleCloseProfileForm}>
+                {closeForm}
+            </button>
+            :(currentTab === 'Services' && currentServiceDashboardTab === 'Reservations' && currentReservationForm !== 'None')?
+            <button className={styles.MainCloseChat}
+            onClick={handleCloseReservationsForm}>
+                {closeForm}
+            </button>
+            :(currentTab === 'Services' && currentServiceDashboardTab === 'Tools' && currentOrdersToolTab === 'Order' && currentCustomerTool !== 'None')?
             <button className={styles.MainCloseChat}
             onClick={handleGoBackToOrders}>
                 {goBackDescription}
