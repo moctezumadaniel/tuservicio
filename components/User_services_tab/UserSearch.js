@@ -4,17 +4,15 @@ import {changeToSearch} from '../../redux/actions/UserServicesTab'
 function UserSearch(){
     const dispatch = useDispatch()
     const placeholder = "Escribe el servicio que necesites"
+    const serachButton = "Buscar"
     function handleSearchButton (){
         dispatch(changeToSearch())
     }
     return(
         <div className={styles.SearchBarContainer}>
-            <input className={styles.SearchBar}type="text" placeholder={placeholder}/>
-            
+            <input className={styles.SearchBar}type="search" placeholder={placeholder}/>
             <button className={styles.SearchButton}
-            onClick={handleSearchButton}>
-                Buscar
-            </button>
+            onClick={handleSearchButton}>{serachButton}</button>
         </div>
     )
 }
