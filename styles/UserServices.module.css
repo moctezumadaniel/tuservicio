@@ -46,6 +46,7 @@
     justify-content: center;
     padding-right: 10px;
     padding-left: 10px;
+    padding-top: 5px;
 }
 .SearchBarContainer{
     display: flex;
@@ -53,7 +54,7 @@
     padding: 5px;
     margin-top: 5px;
     margin-bottom: 10px;
-    border-radius: 100px;
+    border-radius: 10px;
     background-color: white;
     justify-content: center;
     align-self: center;
@@ -62,24 +63,36 @@
 
 }
 .SearchBar{
-    height: 30px;
+    height: 40px;
     width: 90%;
     background-color: transparent;
     font-size: medium;
     padding:5px;
     padding-right:5px;
-    padding-left: 20px;
+    padding-left: 15px;
     outline: none;
-    text-align: center;
+    text-align: left;
     border:none;
+    font-size: large;
 
 }
 
 
 .SearchBar::placeholder{
-    align-self: center;
-    justify-self: center;
+    align-self: left;
+    justify-self: left;
     
+}
+
+@media (max-width:400px) {
+    .SearchBar::placeholder{
+        font-size: medium;
+    }
+}
+@media (max-width:359px) {
+    .SearchBar::placeholder{
+        font-size: small;
+    }
 }
 .SearchBar:focus::placeholder{
     color: transparent;
