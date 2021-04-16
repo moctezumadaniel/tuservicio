@@ -1,4 +1,5 @@
 import styles from '../../../styles/UserPreviousServices.module.css'
+import Image from 'next/image'
 function UserPreviousServices(){
     const defaultPage = 'Aún no tienes servicios previos'
     const image = "Imagen de perfil";
@@ -13,7 +14,7 @@ function UserPreviousServices(){
             {/*PREVIOUS SERVICE */}
             <div className={styles.PreviewMainContainer}>
                 <div className={styles.ImageAndScoreContainer}>
-                    <image>{image}</image>
+                    <Image src='/celerPerfil.png' width={80} height={80}/>
                     <div>{score}</div>
                 </div>
                 <div className={styles.ServiceInformation}>
@@ -26,7 +27,7 @@ function UserPreviousServices(){
             {/*PREVIOUS SERVICE */}
             <div className={styles.PreviewMainContainer}>
                 <div className={styles.ImageAndScoreContainer}>
-                    <image>{image}</image>
+                    <Image src='/celerPerfil.png' width={80} height={80}/>
                     <div>{score}</div>
                 </div>
                 <div className={styles.ServiceInformation}>
@@ -39,7 +40,7 @@ function UserPreviousServices(){
             {/*PREVIOUS SERVICE */}
             <div className={styles.PreviewMainContainer}>
                 <div className={styles.ImageAndScoreContainer}>
-                    <image>{image}</image>
+                    <Image src='/celerPerfil.png' width={80} height={80}/>
                     <div>{score}</div>
                 </div>
                 <div className={styles.ServiceInformation}>
@@ -52,7 +53,7 @@ function UserPreviousServices(){
             {/*PREVIOUS SERVICE */}
             <div className={styles.PreviewMainContainer}>
                 <div className={styles.ImageAndScoreContainer}>
-                    <image>{image}</image>
+                    <Image src='/celerPerfil.png' width={80} height={80}/>
                     <div>{score}</div>
                 </div>
                 <div className={styles.ServiceInformation}>
@@ -65,7 +66,7 @@ function UserPreviousServices(){
             {/*PREVIOUS SERVICE */}
             <div className={styles.PreviewMainContainer}>
                 <div className={styles.ImageAndScoreContainer}>
-                    <image>{image}</image>
+                    <Image src='/celerPerfil.png' width={80} height={80}/>
                     <div>{score}</div>
                 </div>
                 <div className={styles.ServiceInformation}>
@@ -78,7 +79,7 @@ function UserPreviousServices(){
             {/*PREVIOUS SERVICE */}
             <div className={styles.PreviewMainContainer}>
                 <div className={styles.ImageAndScoreContainer}>
-                    <image>{image}</image>
+                    <Image src='/celerPerfil.png' width={80} height={80}/>
                     <div>{score}</div>
                 </div>
                 <div className={styles.ServiceInformation}>
@@ -87,6 +88,20 @@ function UserPreviousServices(){
                     <div className={styles.ServiceDescription}>{description}</div>
                 </div>
             </div>
+
+            {/*PREVIOUS SERVICE */}
+            <div className={styles.PreviewMainContainer}>
+                <div className={styles.ImageAndScoreContainer}>
+                    <Image src='/celerPerfil.png' width={80} height={80}/>
+                    <div>{score}</div>
+                </div>
+                <div className={styles.ServiceInformation}>
+                    <div className={styles.ServiceName}>{name}</div>
+                    <div className={styles.ServiceTodaySchedule}>{todaySchedule}</div>
+                    <div className={styles.ServiceDescription}>{description}</div>
+                </div>
+            </div>
+            
         </div>
     )
 }

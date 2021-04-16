@@ -1,6 +1,7 @@
 import styles from '../../styles/UserMessages.module.css'
 import {changeMessagesToChat} from '../../redux/actions/UserMessagesTab'
 import {useDispatch} from 'react-redux'
+import Image from 'next/image'
 function ChatProfilePreview (){
     const profileImage = 'IMAGEN DE PERFIL'
     const name = 'Nombre del servicio'
@@ -12,7 +13,7 @@ function ChatProfilePreview (){
     return(
         <div className={styles.ChatContainer} onClick={handleChatPress}>
 
-            <div className={styles.ChatImage}>{profileImage}</div>
+            <Image src='/celerPerfil.png' height={80} width={80}/>
 
             <div className={styles.ChatDescription}>
                 <div className={styles.ChatName}>{name}</div>

@@ -3,6 +3,7 @@ import {changeMessagesTabToList} from '../../redux/actions/UserMessagesTab'
 import CustomerMessage from './CustomerMessage'
 import UserMessage from './UserMessage'
 import styles from '../../styles/UserMessages.module.css'
+import Image from 'next/image'
 function Chat (){
     const addServiceToFavorites = 'Añadir a favoritos'
     const profileImage = 'IMAGEN DE PERFIL'
@@ -16,7 +17,7 @@ function Chat (){
        <div className={styles.ChatMainContainer}>
            <div className={styles.ChatHeader}>
                <button className={styles.FavouriteButton}>{addServiceToFavorites}</button>
-               <div className={styles.ChatHeaderImage}>{profileImage}</div>
+               <Image className={styles.ChatHeaderImage} src='/celerPerfil.png' width={80} height={80}/>
                <button className={styles.ReportButton}>{reportService}</button>
            </div>
            <div className={styles.MessagesMainContainer}>

@@ -1,5 +1,6 @@
 /*import {connectToDatabase} from '../../middleware/mongodb'*/
 import styles from '../../styles/UserServiceSearch.module.css'
+import Image from 'next/image'
 export default function UserServicePreview(){
     const image = "Imagen de perfil";
     const name = "Nombre del servicio";
@@ -9,7 +10,7 @@ export default function UserServicePreview(){
     return(
         <div className={styles.PreviewMainContainer}>
             <div className={styles.ImageAndScoreContainer}>
-                <image>{image}</image>
+                <Image src='/celerPerfil.png' width={80} height={80}/>
                 <div>{score}</div>
             </div>
             <div className={styles.ServiceInformation}>
