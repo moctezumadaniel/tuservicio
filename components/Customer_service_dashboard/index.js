@@ -11,6 +11,7 @@ function CustomerServiceDashboard (){
     const currentGlobalTab = useSelector(state=>state.globalTab)
     const currentTab = useSelector(state=>state.customerDashboardTab)
     const currentTool = useSelector(state=>state.customerActiveTool)
+    window.scrollTo(0,0)
     return(
         currentGlobalTab === 'Services'?
         <div>
