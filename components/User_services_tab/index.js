@@ -5,10 +5,11 @@ import UserPreviousServices from './User_services_tabs/UserPreviousServices'
 import UserReservations from './User_services_tabs/UserReservations'
 import UserFavouriteServices from './User_services_tabs/UserFavouriteServices'
 import { useSelector } from 'react-redux';
+import {useEffect} from 'react'
 function UserServicesTab(){
     const currentTab = useSelector(state=>state.userServicesTab)
     const currentGlobalTab = useSelector(state=>state.globalTab)
-    window.scrollTo(0,0)
+    useEffect(()=>window.scrollTo(0,0))
 
     return(
         currentGlobalTab === 'Services' ?
