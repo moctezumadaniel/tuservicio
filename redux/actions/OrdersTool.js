@@ -9,3 +9,31 @@ export const changeOrdersToolToOrder = ()=>{
         type:'CHANGE_ORDERS_TOOL_TO_ORDER'
     }
 }
+
+export const changeCustomerOrderFormDate=(date)=>{
+    return{
+        type:'CHANGE_CUSTOMER_ORDER_FORM_DATE',
+        date
+    }
+}
+
+export const changeCustomerOrderFormDescription=(description)=>{
+    return{
+        type:'CHANGE_CUSTOMER_ORDER_FORM_DATE',
+        description
+    }
+}
+
+export const changeCustomerOrderFormNewItemDescription=(description)=>{
+    return{
+        type:'CHANGE_CUSTOMER_ORDER_FORM_NEW_ITEM_DESCRIPTION',
+        description
+    }
+}
+
+export const changeCustomerOrderFormNewItemAmounth=(amounth)=>{
+    return{
+        type:'CHANGE_CUSTOMER_ORDER_FORM_NEW_ITEM_AMOUNTH',
+        amounth
+    }
+}
