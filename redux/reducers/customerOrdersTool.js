@@ -22,6 +22,9 @@ export const customerOrderToolFormReducer = (state = initialForm, action)=>{
         case 'CHANGE_CUSTOMER_ORDER_FORM_NEW_ITEM_AMOUNTH':
             state.newItem.amounth = action.amounth;
             return state;
+        case 'ADD_ITEM_TO_CUSTOMER_ORDER_FORM':
+            state.items.push(state.newItem);
+            state.newItem = {};
         default:
             return state;
     }

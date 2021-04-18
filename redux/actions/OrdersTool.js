@@ -37,3 +37,9 @@ export const changeCustomerOrderFormNewItemAmounth=(amounth)=>{
         amounth
     }
 }
+
+export const addItemToCustomerOrderForm = () =>{
+    return{
+        type:'ADD_ITEM_TO_CUSTOMER_ORDER_FORM'
+    }
+}
