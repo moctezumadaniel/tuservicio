@@ -19,7 +19,7 @@ export const changeCustomerOrderFormDate=(date)=>{
 
 export const changeCustomerOrderFormDescription=(description)=>{
     return{
-        type:'CHANGE_CUSTOMER_ORDER_FORM_DATE',
+        type:'CHANGE_CUSTOMER_ORDER_FORM_DESCRIPTION',
         description
     }
 }
@@ -40,6 +40,6 @@ export const changeCustomerOrderFormNewItemAmounth=(amounth)=>{
 
 export const addItemToCustomerOrderForm = () =>{
     return{
-        type:'ADD_ITEM_TO_CUSTOMER_ORDER_FORM'
+        type:'ADD_ITEM_TO_CUSTOMER_ORDER_FORM',
     }
 }

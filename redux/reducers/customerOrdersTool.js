@@ -1,30 +1,32 @@
 const initialForm = 
 {
-'date':'',
-'description':'',
-'items':{},
-'newItem':{
-    'description':'',
-    'amounth':''
-    }
+date:'',
+description:'',
+newItemDescription:'',
+newItemAmounth:'',
+items:{}
 }
 export const customerOrderToolFormReducer = (state = initialForm, action)=>{
     switch(action.type){
         case 'CHANGE_CUSTOMER_ORDER_FORM_DATE':
-            state.date = action.date;
-            return state;
+            return {...state,date:action.date}
         case 'CHANGE_CUSTOMER_ORDER_FORM_DESCRIPTION':
-            state.description = action.description;
-            return state;
+            return {...state,description:action.description}
         case 'CHANGE_CUSTOMER_ORDER_FORM_NEW_ITEM_DESCRIPTION':
-            state.newItem.description = action.description;
-            return state;
+            return {...state,newItemDescription:action.description};
         case 'CHANGE_CUSTOMER_ORDER_FORM_NEW_ITEM_AMOUNTH':
-            state.newItem.amounth = action.amounth;
-            return state;
-        case 'ADD_ITEM_TO_CUSTOMER_ORDER_FORM':
-            state.items.push(state.newItem);
-            state.newItem = {};
+            return {...state,newItemAmounth:action.amounth};
+        case 'ADD_ITEM_TO_CUSTOMER_ORDER_FORM':{
+            const newItem = {
+                description:state.newItemDescription,
+                amounth:state.newItemAmounth}
+            return {
+                ...state,
+                items:{...state.items,[new Date()]:newItem},
+                newItemDescription:'',
+                newItemAmounth:''
+            }
+        }
         default:
             return state;
     }

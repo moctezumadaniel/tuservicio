@@ -2,14 +2,18 @@ import styles from '../../styles/OrdersTool.module.css'
 import {useSelector, useDispatch} from 'react-redux'
 import 
 {changeCustomerOrderFormDate,
-changeCustomerOrderFormDescription} from '../../redux/actions/OrdersTool'
+changeCustomerOrderFormDescription,
+changeCustomerOrderFormNewItemDescription,
+changeCustomerOrderFormNewItemAmounth,
+addItemToCustomerOrderForm} from '../../redux/actions/OrdersTool'
 function Order(){
-    const items = useSelector(state=>state.customerOrderToolForm.items)
-    console.log(items)
-    const orderDate = useSelector(state=>state.customerOrderToolForm.newItem.date)
+    const orderDate = useSelector(state=>state.customerOrderToolForm.date)
+    const order = useSelector(state=>state.customerOrderToolForm)
     console.log(orderDate)
-    const orderDescription = useSelector(state=>state.customerOrderToolForm.newItem.description)
+    const orderDescription = useSelector(state=>state.customerOrderToolForm.description)
     console.log(orderDescription)
+    const newItemDescription = useSelector(state=>state.customerOrderToolForm.newItemDescription)
+    const newItemAmounth = useSelector(state=>state.customerOrderToolForm.newItemAmounth)
     const orderNumber = '38-19/03/2019'
     const descriptionPlaceholder = 'Escribe la descripción'
     const saveOrderButton = 'GUARDAR'
@@ -21,6 +25,7 @@ function Order(){
     const newDescriptionPlaceholder = 'Escribe la descripción'
     const newAmounthPlaceholder = 'Escribe la cantidad'
     const addItemButton = 'AGREGAR'
+    console.log(order)
     const dispatch = useDispatch()
     const handleDateChange = event=>{
         dispatch(changeCustomerOrderFormDate(event.target.value))
@@ -28,10 +33,19 @@ function Order(){
     const handleDescriptionChange = event =>{
         dispatch(changeCustomerOrderFormDescription(event.target.value))
     }
+    const handleNewItemDescriptionChange = event =>{
+        dispatch(changeCustomerOrderFormNewItemDescription(event.target.value))
+    }
+    const handleNewItemAmounthChange = event =>{
+        dispatch(changeCustomerOrderFormNewItemAmounth(event.target.value))
+    }
+    function handleAddItemPress(){
+        dispatch(addItemToCustomerOrderForm())
+    } 
     return(
        <div className={styles.OrderFormMainContainer}>
            {/*TITLE AND SAVE BUTTON */}
-           <div className={styles.OrderFormTitle}>{orderDescription}{orderNumber}</div>
+           <div className={styles.OrderFormTitle}>{orderNumber}</div>
             <div className={styles.SaveOrderButtonContainer}>
                 <button className={styles.SaveOrderButton}>{saveOrderButton}</button>
             </div>
@@ -41,8 +55,9 @@ function Order(){
                 onChange={handleDateChange}
                 value={orderDate}/>
                 <input type='text' className={styles.OrderDescriptionInput}
-                placeholder={descriptionPlaceholder}
-                onChange={handleDescriptionChange}/>
+                placeholder={orderDescription}
+                onChange={handleDescriptionChange}
+                placeholder={descriptionPlaceholder}/>
             </div>
             {/*LIST OF ITEMS ADDED */}
             <div >
@@ -76,11 +91,22 @@ function Order(){
             {/*NEW ITEM FORM */}
             <div className={styles.OrderItemForm}>
                 <div className={styles.NewItemTitle}>{newItemTitle}</div>
+
                 <textarea className={styles.DescriptionOrderInput}
-                placeholder={newDescriptionPlaceholder}/>
+                placeholder={newDescriptionPlaceholder}
+                onChange={handleNewItemDescriptionChange}
+                value={newItemDescription}/>
+
                 <input type='number' className={styles.AmounthOrderInput}
-                placeholder={newAmounthPlaceholder}/>
-                <button className={styles.SaveNewItemButton}>{addItemButton}</button>
+                placeholder={newAmounthPlaceholder}
+                onChange={handleNewItemAmounthChange}
+                value={newItemAmounth}/>
+                
+                {newItemDescription !== "" || newItemAmounth !== "" ?
+                <button className={styles.SaveNewItemButton}
+                onClick={handleAddItemPress}
+                >{addItemButton}</button>
+                :''}
             </div>
             <div>{orderDate}{orderDescription}</div>
        </div>
