@@ -6,6 +6,7 @@ changeCustomerOrderFormDescription,
 changeCustomerOrderFormNewItemDescription,
 changeCustomerOrderFormNewItemAmounth,
 addItemToCustomerOrderForm} from '../../redux/actions/OrdersTool'
+import { render } from 'react-dom'
 function Order(){
     const orderDate = useSelector(state=>state.customerOrderToolForm.date)
     const order = useSelector(state=>state.customerOrderToolForm)
@@ -60,33 +61,7 @@ function Order(){
                 placeholder={descriptionPlaceholder}/>
             </div>
             {/*LIST OF ITEMS ADDED */}
-            <div >
-
-                <div className={styles.OrderItemContainer}>
-                    <div className={styles.OrderItemDescrription}>{itemDescription}</div>
-                    <div className={styles.ItemAmounthDeleteContainer}>
-                        <button className={styles.DeleteItemButton}>{deleteItem}</button>
-                        <div className={styles.ItemAmounthContainer}>
-                            <button className={styles.IncreaseDecreaseButtons}>-</button>
-                            <div>{itemAmounth}</div>
-                            <button className={styles.IncreaseDecreaseButtons}>+</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div className={styles.OrderItemContainer}>
-                    <div className={styles.OrderItemDescrription}>{itemDescription}</div>
-                    <div className={styles.ItemAmounthDeleteContainer}>
-                        <button className={styles.DeleteItemButton}>{deleteItem}</button>
-                        <div className={styles.ItemAmounthContainer}>
-                            <button className={styles.IncreaseDecreaseButtons}>-</button>
-                            <div>{itemAmounth}</div>
-                            <button className={styles.IncreaseDecreaseButtons}>+</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            
 
             {/*NEW ITEM FORM */}
             <div className={styles.OrderItemForm}>
@@ -114,3 +89,23 @@ function Order(){
 }
 export default Order
 
+{/*function ListOfItems (){
+    const orderItems = useSelector(state=>state.customerOrderToolForm.items)
+    return(
+        
+        <div>
+            <div className={styles.OrderItemContainer}>
+                <div className={styles.OrderItemDescrription}>{item.description}</div>
+                <div className={styles.ItemAmounthDeleteContainer}>
+                    <button className={styles.DeleteItemButton}>{deleteItem}</button>
+                    <div className={styles.ItemAmounthContainer}>
+                        <button className={styles.IncreaseDecreaseButtons}>-</button>
+                        <div>{item.amounth}</div>
+                        <button className={styles.IncreaseDecreaseButtons}>+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        )
+    
+}*/}
