@@ -1,4 +1,13 @@
 import styles from '../../styles/TicketsTool.module.css'
+import {useDispatch, useSelector} from 'react-redux'
+import 
+{
+    changeCustomerTicketFormDate,
+    changeCustomerTicketFormName,
+    changeCustomerTicketFormNewItemDescription,
+    changeCustomerTicketFormNewItemAmounth,
+    addItemToCustomerTicketForm,
+} from '../../redux/actions/CustomerTicketsTool'
 function TicketForm(){
     const ticketTitle = 'Nota '
     const ticketNumber = '38-19032021'
@@ -11,6 +20,29 @@ function TicketForm(){
     const namePlaceholder = 'Escribe el nombre del cliente'
     const grandTotalTitle = 'Total'
     const grandTotal = '$25,000'
+
+    const dispatch = useDispatch()
+    const handleTicketDateChange = event =>{
+        dispatch(changeCustomerTicketFormDate(event.target.value))
+    }
+    const handleCustomerNameChange = event =>{
+        dispatch(changeCustomerTicketFormName(event.target.value))
+    }
+    const handleNewDescriptionChange = event =>{
+        dispatch(changeCustomerTicketFormNewItemDescription(event.target.value))
+    }
+    const handleNewAmounthChange = event =>{
+        dispatch(changeCustomerTicketFormNewItemAmounth(event.target.value))
+    }
+    function handleAddItemPress (){
+        dispatch(addItemToCustomerTicketForm())
+    }
+
+    const ticketDate = useSelector(state=>state.customerTicketsToolForm.date)
+    const ticketName = useSelector(state=>state.customerTicketsToolForm.name)
+    const newItemDescription = useSelector(state=>state.customerTicketsToolForm.newItemDescription)
+    const newItemAmounth = useSelector(state=>state.customerTicketsToolForm.newItemAmounth)
+
     return(
         <div className={styles.TicketsToolMainContainer}>
             <div className={styles.TicketTitle}>
@@ -21,9 +53,11 @@ function TicketForm(){
             </div>
 {/*DATE AND NAME OF THE CUSTOMER */}
             <div className={styles.TicketDateCustomerContainer}>
-                <input type='date' className={styles.TicketDateInput}/>
+                <input type='date' className={styles.TicketDateInput}
+                onChange={handleTicketDateChange}/>
                 <input type='text' className={styles.TicketNameInput}
-                placeholder={namePlaceholder}/>
+                placeholder={namePlaceholder}
+                onChange={handleCustomerNameChange}/>
             </div>
 {/*LIST OF ITEMS ADDED */}
             <div className={styles.TicketItemContainer}>
@@ -38,10 +72,14 @@ function TicketForm(){
             <div className={styles.InputTicketItemContainer}>
                 <div className={styles.NewItemTitle}>{newItemTitle}</div>
                 <textarea className={styles.InputTicketDescription}
-                placeholder={newDescriptionPlaceholder}/>
+                placeholder={newDescriptionPlaceholder}
+                onChange={handleNewDescriptionChange}/>
+
                 <input type='number' className={styles.InputTicketAmounth}
-                placeholder={newAmounthPlaceholder}/>
-                <button className={styles.AddItemButton}>{addConceptButton}</button>
+                placeholder={newAmounthPlaceholder}
+                onChange={handleNewAmounthChange}/>
+                <button className={styles.AddItemButton}
+                onClick={handleAddItemPress}>{addConceptButton}</button>
             </div>
             
 {/*TICKET GRAND TOTAL*/}
