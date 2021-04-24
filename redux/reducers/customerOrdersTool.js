@@ -17,6 +17,7 @@ export const customerOrderToolFormReducer = (state = initialForm, action)=>{
         case 'CHANGE_CUSTOMER_ORDER_FORM_NEW_ITEM_AMOUNTH':
             return {...state,newItemAmounth:action.amounth};
         case 'ADD_ITEM_TO_CUSTOMER_ORDER_FORM':{
+        
             const newItem = {
                 description:state.newItemDescription,
                 amounth:state.newItemAmounth}
