@@ -37,7 +37,6 @@ function ListOfItems (){
                 
             })
         }
-    {console.log(orderItemsKeys)}
         </div>
     )
     
@@ -45,10 +44,7 @@ function ListOfItems (){
 
 function Order(){
     const orderDate = useSelector(state=>state.customerOrderToolForm.date)
-    const order = useSelector(state=>state.customerOrderToolForm)
-    console.log(orderDate)
     const orderDescription = useSelector(state=>state.customerOrderToolForm.description)
-    console.log(orderDescription)
     const newItemDescription = useSelector(state=>state.customerOrderToolForm.newItemDescription)
     const newItemAmounth = useSelector(state=>state.customerOrderToolForm.newItemAmounth)
     const orderNumber = '38-19/03/2019'
@@ -61,7 +57,6 @@ function Order(){
     const newDescriptionPlaceholder = 'Escribe la descripción'
     const newAmounthPlaceholder = 'Escribe la cantidad'
     const addItemButton = 'AGREGAR'
-    console.log(order)
     const dispatch = useDispatch()
     const handleDateChange = event=>{
         dispatch(changeCustomerOrderFormDate(event.target.value))

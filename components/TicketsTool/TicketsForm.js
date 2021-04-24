@@ -8,12 +8,40 @@ import
     changeCustomerTicketFormNewItemAmounth,
     addItemToCustomerTicketForm,
 } from '../../redux/actions/CustomerTicketsTool'
+
+function ListOfConcepts(){
+    const deleteItemButton = 'Eliminar'
+    const ticketItems = useSelector(state=>state.customerTicketsToolForm.items)
+    const ticketItemsKeys = Object.keys(ticketItems)
+    return(
+        <>
+        {
+        
+        ticketItemsKeys
+        .map(item=>{
+            return(
+                <div key={item}>
+                    <div className={styles.TicketItemContainer}>
+                        <div className={styles.TicketDescription}>{ticketItems[item].description}</div>
+                        <div className={styles.ItemAmounthDescription}>
+                            <div className={styles.TicketAmounth}>{ticketItems[item].amounth}</div>
+                            <button className={styles.DeleteItemButton}>{deleteItemButton}</button>
+                        </div>
+                    </div>
+                </div>
+            )
+        })
+        
+        }
+        </>
+    )
+}
+
 function TicketForm(){
     const ticketTitle = 'Nota '
     const ticketNumber = '38-19032021'
     const saveTicketButton = 'GUARDAR'
     const newItemTitle = 'Nuevo concepto'
-    const deleteItemButton = 'Eliminar'
     const newDescriptionPlaceholder = 'Escribe la descripción del nuevo concepto';
     const newAmounthPlaceholder = 'Escribe el monto del concepto'
     const addConceptButton = 'AGREGAR'
@@ -54,36 +82,38 @@ function TicketForm(){
 {/*DATE AND NAME OF THE CUSTOMER */}
             <div className={styles.TicketDateCustomerContainer}>
                 <input type='date' className={styles.TicketDateInput}
-                onChange={handleTicketDateChange}/>
+                onChange={handleTicketDateChange}
+                value={ticketDate}/>
+
                 <input type='text' className={styles.TicketNameInput}
                 placeholder={namePlaceholder}
-                onChange={handleCustomerNameChange}/>
+                onChange={handleCustomerNameChange}
+                value={ticketName}/>
             </div>
-{/*LIST OF ITEMS ADDED */}
-            <div className={styles.TicketItemContainer}>
-                <div className={styles.TicketDescription}>Nueva descripcion del servicio</div>
-                <div className={styles.ItemAmounthDescription}>
-                    <div className={styles.TicketAmounth}>120,000,000,000.24</div>
-                    <button className={styles.DeleteItemButton}>{deleteItemButton}</button>
-                </div>
-            </div>
+
+            <ListOfConcepts/>
 
 {/*NEW ITEM FORM */}
             <div className={styles.InputTicketItemContainer}>
                 <div className={styles.NewItemTitle}>{newItemTitle}</div>
                 <textarea className={styles.InputTicketDescription}
                 placeholder={newDescriptionPlaceholder}
-                onChange={handleNewDescriptionChange}/>
+                onChange={handleNewDescriptionChange}
+                value={newItemDescription}/>
 
                 <input type='number' className={styles.InputTicketAmounth}
                 placeholder={newAmounthPlaceholder}
-                onChange={handleNewAmounthChange}/>
+                onChange={handleNewAmounthChange}
+                value={newItemAmounth}/>
+
+                {newItemDescription !== '' || newItemAmounth !== '' ?
                 <button className={styles.AddItemButton}
                 onClick={handleAddItemPress}>{addConceptButton}</button>
+                :""}
             </div>
             
 {/*TICKET GRAND TOTAL*/}
-<div className={styles.GrandTotalContainer}>
+            <div className={styles.GrandTotalContainer}>
                 <div className={styles.GrandTotalTitle}>{grandTotalTitle}</div>
                 <div className={styles.GrandTotal}>{grandTotal}</div>
             </div>
