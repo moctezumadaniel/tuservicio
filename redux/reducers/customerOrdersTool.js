@@ -4,7 +4,7 @@ date:'',
 description:'',
 newItemDescription:'',
 newItemAmounth:'',
-items:{}
+items:[]
 }
 export const customerOrderToolFormReducer = (state = initialForm, action)=>{
     switch(action.type){
@@ -17,17 +17,26 @@ export const customerOrderToolFormReducer = (state = initialForm, action)=>{
         case 'CHANGE_CUSTOMER_ORDER_FORM_NEW_ITEM_AMOUNTH':
             return {...state,newItemAmounth:action.amounth};
         case 'ADD_ITEM_TO_CUSTOMER_ORDER_FORM':{
-        
-            const newItem = {
+            const newItem ={
+                id:action.date,
                 description:state.newItemDescription,
                 amounth:state.newItemAmounth}
             return {
                 ...state,
-                items:{...state.items,[new Date()]:newItem},
+                items:[...state.items,newItem],
                 newItemDescription:'',
                 newItemAmounth:''
             }
         }
+        case 'REMOVE_ITEM_FROM_CUSTOMER_ORDER_FORM':
+            return{
+                ...state,
+                items:[
+                    ...state.items
+                    .filter((item)=>item.id!==action.id)]
+                
+            }
+
         default:
             return state;
     }

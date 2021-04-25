@@ -6,33 +6,40 @@ changeCustomerOrderFormDate,
 changeCustomerOrderFormDescription,
 changeCustomerOrderFormNewItemDescription,
 changeCustomerOrderFormNewItemAmounth,
-addItemToCustomerOrderForm
+addItemToCustomerOrderForm,
+removeItemFromOrderForm
 } from '../../redux/actions/OrdersTool'
 
 function ListOfItems (){
     const deleteItem = 'Eliminar'
     const orderItems = useSelector(state=>state.customerOrderToolForm.items)
-    const orderItemsKeys = Object.keys(orderItems)
+    const dispatch = useDispatch()
+    function handleDeleteItemPress(id){
+        dispatch(removeItemFromOrderForm(id))
+    }
     return (
         <div>
         {
-            orderItemsKeys
+            orderItems
             .map((item)=>{
 
                 return(
-                <div key={item}>
+                <div key={item.id}>
                     <div className={styles.OrderItemContainer}>
-                        <div className={styles.OrderItemDescrription}>{orderItems[item].description}</div>
+                        <div className={styles.OrderItemDescrription}>{item.description}</div>
                         <div className={styles.ItemAmounthDeleteContainer}>
-                            <button className={styles.DeleteItemButton}>{deleteItem}</button>
+                            <button className={styles.DeleteItemButton}
+                            onClick={()=>handleDeleteItemPress(item.id)}>{deleteItem}</button>
                             <div className={styles.ItemAmounthContainer}>
                                 <button className={styles.IncreaseDecreaseButtons}>-</button>
-                                <div>{orderItems[item].amounth}</div>
+                                <div>{item.amounth}</div>
                                 <button className={styles.IncreaseDecreaseButtons}>+</button>
                             </div>
                         </div>
                     </div>
+                    
                 </div>
+                
                 )
                 
             })
