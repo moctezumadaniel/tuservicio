@@ -4,7 +4,7 @@ date:'',
 name:'',
 newItemDescription:'',
 newItemAmounth:'',
-items:{}
+items:[]
 }
 export const customerTicketsToolFormReducer = (state = initialForm, action)=>{
     switch(action.type){
@@ -18,15 +18,24 @@ export const customerTicketsToolFormReducer = (state = initialForm, action)=>{
             return {...state,newItemAmounth:action.amounth};
         case 'ADD_ITEM_TO_CUSTOMER_TICKET_FORM':{
             const newItem = {
+                id:action.date,
                 description:state.newItemDescription,
                 amounth:state.newItemAmounth}
             return {
                 ...state,
-                items:{...state.items,[new Date()]:newItem},
+                items:[...state.items,newItem],
                 newItemDescription:'',
                 newItemAmounth:''
             }
         }
+        case 'REMOVE_ITEM_FROM_CUSTOMER_TICKET_FORM':
+            return{
+                ...state,
+                items:[
+                    ...state.items
+                    .filter(item=>item.id!==action.id)
+                ]
+            }
         default:
             return state;
     }

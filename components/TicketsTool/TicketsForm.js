@@ -1,31 +1,35 @@
 import styles from '../../styles/TicketsTool.module.css'
 import {useDispatch, useSelector} from 'react-redux'
-import 
-{
-    changeCustomerTicketFormDate,
-    changeCustomerTicketFormName,
-    changeCustomerTicketFormNewItemDescription,
-    changeCustomerTicketFormNewItemAmounth,
-    addItemToCustomerTicketForm,
+import {
+changeCustomerTicketFormDate,
+changeCustomerTicketFormName,
+changeCustomerTicketFormNewItemDescription,
+changeCustomerTicketFormNewItemAmounth,
+addItemToCustomerTicketForm,
+removeItemFromTicketForm
 } from '../../redux/actions/CustomerTicketsTool'
 
 function ListOfConcepts(){
     const deleteItemButton = 'Eliminar'
     const ticketItems = useSelector(state=>state.customerTicketsToolForm.items)
-    const ticketItemsKeys = Object.keys(ticketItems)
+    const dispatch = useDispatch()
+    function handleDeleteItemPress(id){
+        dispatch(removeItemFromTicketForm(id))
+    }
     return(
         <>
         {
         
-        ticketItemsKeys
+        ticketItems
         .map(item=>{
             return(
-                <div key={item}>
+                <div key={item.id}>
                     <div className={styles.TicketItemContainer}>
-                        <div className={styles.TicketDescription}>{ticketItems[item].description}</div>
+                        <div className={styles.TicketDescription}>{item.description}</div>
                         <div className={styles.ItemAmounthDescription}>
-                            <div className={styles.TicketAmounth}>{ticketItems[item].amounth}</div>
-                            <button className={styles.DeleteItemButton}>{deleteItemButton}</button>
+                            <div className={styles.TicketAmounth}>{item.amounth}</div>
+                            <button className={styles.DeleteItemButton}
+                            onClick={()=>handleDeleteItemPress(item.id)}>{deleteItemButton}</button>
                         </div>
                     </div>
                 </div>
@@ -106,7 +110,7 @@ function TicketForm(){
                 onChange={handleNewAmounthChange}
                 value={newItemAmounth}/>
 
-                {newItemDescription !== '' || newItemAmounth !== '' ?
+                {newItemDescription !== '' && newItemAmounth !== '' ?
                 <button className={styles.AddItemButton}
                 onClick={handleAddItemPress}>{addConceptButton}</button>
                 :""}

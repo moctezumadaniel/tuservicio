@@ -26,8 +26,16 @@ export const changeCustomerTicketFormNewItemAmounth = (amounth)=>{
     }
 }
 
-export const addItemToCustomerTicketForm = (amounth)=>{
+export const addItemToCustomerTicketForm = ()=>{
     return{
-        type:'ADD_ITEM_TO_CUSTOMER_TICKET_FORM'
+        type:'ADD_ITEM_TO_CUSTOMER_TICKET_FORM',
+        date: new Date().toString()
+    }
+}
+
+export const removeItemFromTicketForm = (id)=>{
+    return{
+        type:'REMOVE_ITEM_FROM_CUSTOMER_TICKET_FORM',
+        id
     }
 }

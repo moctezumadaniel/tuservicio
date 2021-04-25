@@ -114,7 +114,7 @@ function Order(){
                 onChange={handleNewItemAmounthChange}
                 value={newItemAmounth}/>
                 
-                {newItemDescription !== "" || newItemAmounth !== "" ?
+                {newItemDescription !== "" && newItemAmounth !== "" ?
                 <button className={styles.SaveNewItemButton}
                 onClick={handleAddItemPress}
                 >{addItemButton}</button>
