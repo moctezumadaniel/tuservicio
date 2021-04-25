@@ -28,13 +28,14 @@ function ListOfItems (){
                     <div className={styles.OrderItemContainer}>
                         <div className={styles.OrderItemDescrription}>{item.description}</div>
                         <div className={styles.ItemAmounthDeleteContainer}>
-                            <button className={styles.DeleteItemButton}
-                            onClick={()=>handleDeleteItemPress(item.id)}>{deleteItem}</button>
                             <div className={styles.ItemAmounthContainer}>
                                 <button className={styles.IncreaseDecreaseButtons}>-</button>
                                 <div>{item.amounth}</div>
                                 <button className={styles.IncreaseDecreaseButtons}>+</button>
                             </div>
+                            <button className={styles.DeleteItemButton}
+                            onClick={()=>handleDeleteItemPress(item.id)}>{deleteItem}</button>
+                            
                         </div>
                     </div>
                     
