@@ -74,6 +74,12 @@ function TicketForm(){
     const ticketName = useSelector(state=>state.customerTicketsToolForm.name)
     const newItemDescription = useSelector(state=>state.customerTicketsToolForm.newItemDescription)
     const newItemAmounth = useSelector(state=>state.customerTicketsToolForm.newItemAmounth)
+    /*DATA AND LOGIC TO CALCULATE THE TICKET GRAND TOTAL*/
+    const ticketItems = useSelector(state=>state.customerTicketsToolForm.items)
+    const ticketGrandTotal = 
+        ticketItems
+        .reduce((acumulator, currentValue) => acumulator + parseFloat(currentValue.amounth), 0)
+        .toFixed(2)
 
     return(
         <div className={styles.TicketsToolMainContainer}>
@@ -119,7 +125,7 @@ function TicketForm(){
 {/*TICKET GRAND TOTAL*/}
             <div className={styles.GrandTotalContainer}>
                 <div className={styles.GrandTotalTitle}>{grandTotalTitle}</div>
-                <div className={styles.GrandTotal}>{grandTotal}</div>
+                <div className={styles.GrandTotal}>{"$"+ticketGrandTotal}</div>
             </div>
 
         </div>
