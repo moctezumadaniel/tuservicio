@@ -40,7 +40,9 @@ function ListOfItems (){
                         <div className={styles.ItemAmounthDeleteContainer}>
                             <div className={styles.ItemAmounthContainer}>
                                 <button className={styles.IncreaseDecreaseButtons}>-</button>
-                                <input type='number'
+                                <input 
+                                className={styles.ItemAmounth}
+                                type='number'
                                 value={item.amounth}
                                 onChange={handleChangeOrderItemAmounth(item.id)}/>
                                 <button className={styles.IncreaseDecreaseButtons}>+</button>

@@ -222,12 +222,17 @@
     padding: 10px;
 }
 .OrderItemDescrription{
+    font-family: sans-serif;
+    width: 100%;
     background-color: white;
     font-size: large;
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 10px;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    resize: none;
+    border: none;
+    outline: none;
 
 }
 .ItemAmounthDeleteContainer{
@@ -238,8 +243,8 @@
 }
 
 .ItemAmounthContainer{
+    width: 350px;
     display: flex;
-    min-width: 40%;
     background-color: white;
     justify-content: space-between;
     padding: 10px; 
@@ -248,6 +253,21 @@
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
     margin-bottom: 10px;
 
+}
+.ItemAmounth{
+    font-family: sans-serif;
+    text-align: center;
+    font-size: large;
+    border: none;
+    outline: none;
+}
+@media (max-width:450px) {
+    .ItemAmounthContainer{
+        width: 100%;
+    }
+    .ItemAmounth{
+        width: 80%;
+    }
 }
 .IncreaseDecreaseButtons{
     font-size: x-large;
