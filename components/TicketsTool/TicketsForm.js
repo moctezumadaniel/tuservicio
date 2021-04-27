@@ -45,7 +45,6 @@ function ListOfConcepts(){
                             onClick={()=>handleDeleteItemPress(item.id)}>{deleteItemButton}</button>
                         </div>
                     </div>
-                    {console.log(item)}
                 </div>
             )
         })

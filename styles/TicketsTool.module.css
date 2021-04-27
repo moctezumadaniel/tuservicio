@@ -161,11 +161,15 @@
     padding: 10px;
 }
 .TicketDescription{
+    font-family: sans-serif;
     padding: 10px;
     font-size: large;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    outline: none;
+    resize: none;
 
 }
 .ItemAmounthDescription{
@@ -175,7 +179,8 @@
     flex-wrap: wrap;
 }
 .TicketAmounth{
-    min-width: 40%;
+    font-family: sans-serif;
+    width: 300px;
     justify-items: center;
     font-size: larger;
     text-align: center;
@@ -183,9 +188,15 @@
     border-radius: 10px;
     margin-top: 10px;
     padding: 10px;
-    align-self:flex-end;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    outline: none;
 
+}
+@media (max-width:450px) {
+    .TicketAmounth{
+        width: 100%;
+    }
 }
 .DeleteItemButton{
     font-size: large;
