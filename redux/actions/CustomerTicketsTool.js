@@ -39,3 +39,10 @@ export const removeItemFromTicketForm = (id)=>{
         id
     }
 }
+export const changeTicketItemDescription = (id, description)=>{
+    return{
+        type:'CHANGE_TICKET_FORM_ITEM_DESCRIPTION',
+        id,
+        description
+    }
+}

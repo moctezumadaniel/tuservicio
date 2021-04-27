@@ -6,7 +6,8 @@ changeCustomerTicketFormName,
 changeCustomerTicketFormNewItemDescription,
 changeCustomerTicketFormNewItemAmounth,
 addItemToCustomerTicketForm,
-removeItemFromTicketForm
+removeItemFromTicketForm,
+changeTicketItemDescription
 } from '../../redux/actions/CustomerTicketsTool'
 
 function ListOfConcepts(){
@@ -15,6 +16,9 @@ function ListOfConcepts(){
     const dispatch = useDispatch()
     function handleDeleteItemPress(id){
         dispatch(removeItemFromTicketForm(id))
+    }
+    const handleChangeTicketItemDescription= (id) => (event)=>{
+        dispatch(changeTicketItemDescription(id,event.target.value))
     }
     return(
         <>
@@ -25,13 +29,17 @@ function ListOfConcepts(){
             return(
                 <div key={item.id}>
                     <div className={styles.TicketItemContainer}>
-                        <div className={styles.TicketDescription}>{item.description}</div>
+                        <textarea 
+                        className={styles.TicketDescription}
+                        value={item.description}
+                        onChange={handleChangeTicketItemDescription(item.id)}/>
                         <div className={styles.ItemAmounthDescription}>
                             <div className={styles.TicketAmounth}>{item.amounth}</div>
                             <button className={styles.DeleteItemButton}
                             onClick={()=>handleDeleteItemPress(item.id)}>{deleteItemButton}</button>
                         </div>
                     </div>
+                    {console.log(item)}
                 </div>
             )
         })
