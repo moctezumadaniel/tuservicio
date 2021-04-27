@@ -46,3 +46,10 @@ export const changeTicketItemDescription = (id, description)=>{
         description
     }
 }
+export const changeTicketItemAmounth = (id, amounth)=>{
+    return{
+        type:'CHANGE_TICKET_FORM_ITEM_AMOUNTH',
+        id,
+        amounth
+    }
+}

@@ -7,7 +7,8 @@ changeCustomerTicketFormNewItemDescription,
 changeCustomerTicketFormNewItemAmounth,
 addItemToCustomerTicketForm,
 removeItemFromTicketForm,
-changeTicketItemDescription
+changeTicketItemDescription,
+changeTicketItemAmounth
 } from '../../redux/actions/CustomerTicketsTool'
 
 function ListOfConcepts(){
@@ -19,6 +20,9 @@ function ListOfConcepts(){
     }
     const handleChangeTicketItemDescription= (id) => (event)=>{
         dispatch(changeTicketItemDescription(id,event.target.value))
+    }
+    const handleChangeTicketItemAmounth = (id) => (event) =>{
+        dispatch(changeTicketItemAmounth(id,event.target.value))
     }
     return(
         <>
@@ -34,7 +38,9 @@ function ListOfConcepts(){
                         value={item.description}
                         onChange={handleChangeTicketItemDescription(item.id)}/>
                         <div className={styles.ItemAmounthDescription}>
-                            <div className={styles.TicketAmounth}>{item.amounth}</div>
+                            <input type='number' className={styles.TicketAmounth}
+                            value={item.amounth}
+                            onChange={handleChangeTicketItemAmounth(item.id)}/>
                             <button className={styles.DeleteItemButton}
                             onClick={()=>handleDeleteItemPress(item.id)}>{deleteItemButton}</button>
                         </div>
@@ -82,11 +88,11 @@ function TicketForm(){
     const ticketName = useSelector(state=>state.customerTicketsToolForm.name)
     const newItemDescription = useSelector(state=>state.customerTicketsToolForm.newItemDescription)
     const newItemAmounth = useSelector(state=>state.customerTicketsToolForm.newItemAmounth)
-    /*DATA AND LOGIC TO CALCULATE THE TICKET GRAND TOTAL*/
+/*DATA AND LOGIC TO CALCULATE THE TICKET GRAND TOTAL*/
     const ticketItems = useSelector(state=>state.customerTicketsToolForm.items)
     const ticketGrandTotal = 
         ticketItems
-        .reduce((acumulator, currentValue) => acumulator + parseFloat(currentValue.amounth), 0)
+        .reduce((acumulator, currentValue) => acumulator + parseFloat(currentValue.amounth || 0), 0)
         .toFixed(2)
 
     return(

@@ -37,6 +37,15 @@ export const customerTicketsToolFormReducer = (state = initialForm, action)=>{
                     : item
                 )
             }
+        case 'CHANGE_TICKET_FORM_ITEM_AMOUNTH':
+            return{
+                ...state,
+                items: state.items.map(
+                    item => item.id === action.id ? 
+                    {...item, amounth:action.amounth} 
+                    : item
+                )
+            }
         case 'REMOVE_ITEM_FROM_CUSTOMER_TICKET_FORM':
             return{
                 ...state,
