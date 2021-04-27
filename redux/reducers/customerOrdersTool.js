@@ -28,6 +28,24 @@ export const customerOrderToolFormReducer = (state = initialForm, action)=>{
                 newItemAmounth:''
             }
         }
+        case 'CHANGE_CUSTOMER_ORDER_FORM_ITEM_DESCRIPTION':
+            return{
+                ...state,
+                items: state.items.map(
+                    item => item.id === action.id ? 
+                    {...item, description:action.description} 
+                    : item
+                )
+            }
+        case 'CHANGE_CUSTOMER_ORDER_FORM_ITEM_AMOUNTH':
+            return{
+                ...state,
+                items: state.items.map(
+                    item => item.id === action.id ? 
+                    {...item, amounth:action.amounth} 
+                    : item
+                )
+            }
         case 'REMOVE_ITEM_FROM_CUSTOMER_ORDER_FORM':
             return{
                 ...state,

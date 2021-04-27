@@ -7,7 +7,9 @@ changeCustomerOrderFormDescription,
 changeCustomerOrderFormNewItemDescription,
 changeCustomerOrderFormNewItemAmounth,
 addItemToCustomerOrderForm,
-removeItemFromOrderForm
+removeItemFromOrderForm,
+changeCustomerOrderFormItemAmounth,
+changeCustomerOrderFormItemDescription
 } from '../../redux/actions/OrdersTool'
 
 function ListOfItems (){
@@ -16,6 +18,12 @@ function ListOfItems (){
     const dispatch = useDispatch()
     function handleDeleteItemPress(id){
         dispatch(removeItemFromOrderForm(id))
+    }
+    const handleChangeOrderItemAmounth = (id) => (event)=>{
+        dispatch(changeCustomerOrderFormItemAmounth(id,event.target.value))
+    }
+    const handleChangeOrderItemDescription = (id) => (event)=>{
+        dispatch(changeCustomerOrderFormItemDescription(id,event.target.value))
     }
     return (
         <div>
@@ -26,11 +34,15 @@ function ListOfItems (){
                 return(
                 <div key={item.id}>
                     <div className={styles.OrderItemContainer}>
-                        <div className={styles.OrderItemDescrription}>{item.description}</div>
+                        <textarea className={styles.OrderItemDescrription}
+                        value={item.description}
+                        onChange={handleChangeOrderItemDescription(item.id)}/>
                         <div className={styles.ItemAmounthDeleteContainer}>
                             <div className={styles.ItemAmounthContainer}>
                                 <button className={styles.IncreaseDecreaseButtons}>-</button>
-                                <div>{item.amounth}</div>
+                                <input type='number'
+                                value={item.amounth}
+                                onChange={handleChangeOrderItemAmounth(item.id)}/>
                                 <button className={styles.IncreaseDecreaseButtons}>+</button>
                             </div>
                             <button className={styles.DeleteItemButton}

@@ -51,3 +51,17 @@ export const removeItemFromOrderForm = (id)=>{
         id
     }
 }
+export const changeCustomerOrderFormItemAmounth = (id,amounth)=>{
+    return{
+        type:'CHANGE_CUSTOMER_ORDER_FORM_ITEM_AMOUNTH',
+        id,
+        amounth
+    }
+}
+export const changeCustomerOrderFormItemDescription = (id,description)=>{
+    return{
+        type:'CHANGE_CUSTOMER_ORDER_FORM_ITEM_DESCRIPTION',
+        id,
+        description
+    }
+}
