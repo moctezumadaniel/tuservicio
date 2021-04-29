@@ -12,3 +12,65 @@ export const providersToolReducer = (state = 'Dashboard', action)=>{
             return state;
     }
 }
+
+const initialProviderForm = 
+{
+    customerName:'',
+    date: '',
+    amounth:'',
+    description:''
+}
+
+export const providersToolPaymentFormReducer = (state=initialProviderForm, action) =>{
+    switch(action.type){
+        case 'CHANGE_PROVIDERS_TOOL_PAYMENT_FORM_NAME':
+            return{
+                ...state,
+                customerName:action.name
+            }
+        case 'CHANGE_PROVIDERS_TOOL_PAYMENT_FORM_DATE':
+            return{
+                ...state,
+                date:action.date
+            }
+        case 'CHANGE_PROVIDERS_TOOL_PAYMENT_FORM_AMOUNTH':
+            return{
+                ...state,
+                amounth:action.amounth
+            }
+        case 'CHANGE_PROVIDERS_TOOL_PAYMENT_FORM_DESCRIPTION':
+            return{
+                ...state,
+                description:action.description
+            }
+        default:
+            return state
+    }
+}
+
+export const providersToolCreditFormReducer = (state=initialProviderForm, action) =>{
+    switch(action.type){
+        case 'CHANGE_PROVIDERS_TOOL_CREDIT_FORM_NAME':
+            return{
+                ...state,
+                customerName:action.name
+            }
+        case 'CHANGE_PROVIDERS_TOOL_CREDIT_FORM_DATE':
+            return{
+                ...state,
+                date:action.date
+            }
+        case 'CHANGE_PROVIDERS_TOOL_CREDIT_FORM_AMOUNTH':
+            return{
+                ...state,
+                amounth:action.amounth
+            }
+        case 'CHANGE_PROVIDERS_TOOL_CREDIT_FORM_DESCRIPTION':
+            return{
+                ...state,
+                description:action.description
+            }
+        default:
+            return state
+    }
+}
