@@ -25,49 +25,49 @@ export const changeCustomersToolPaymentFormName = (name) =>{
 
 export const changeCustomersToolPaymentFormDate = (date) =>{
     return{
-        type:'CHANGE_CUSTOMERS_TOOL_PAYMENT_FORM_NAME',
+        type:'CHANGE_CUSTOMERS_TOOL_PAYMENT_FORM_DATE',
         date
     }
 }
 
 export const changeCustomersToolPaymentFormAmounth = (amounth) =>{
     return{
-        type:'CHANGE_CUSTOMERS_TOOL_PAYMENT_FORM_NAME',
+        type:'CHANGE_CUSTOMERS_TOOL_PAYMENT_FORM_AMOUNTH',
         amounth
     }
 }
 
 export const changeCustomersToolPaymentFormDescription = (description) =>{
     return{
-        type:'CHANGE_CUSTOMERS_TOOL_PAYMENT_FORM_NAME',
+        type:'CHANGE_CUSTOMERS_TOOL_PAYMENT_FORM_DESCRIPTION',
         description
     }
 }
 /*CREDIT FORM */
 export const changeCustomersToolCreditFormName = (name) =>{
     return{
-        type:'CHANGE_CUSTOMERS_TOOL_PAYMENT_FORM_NAME',
+        type:'CHANGE_CUSTOMERS_TOOL_CREDIT_FORM_NAME',
         name
     }
 }
 
 export const changeCustomersToolCreditFormDate = (date) =>{
     return{
-        type:'CHANGE_CUSTOMERS_TOOL_PAYMENT_FORM_NAME',
+        type:'CHANGE_CUSTOMERS_TOOL_CREDIT_FORM_DATE',
         date
     }
 }
 
 export const changeCustomersToolCreditFormAmounth = (amounth) =>{
     return{
-        type:'CHANGE_CUSTOMERS_TOOL_PAYMENT_FORM_NAME',
+        type:'CHANGE_CUSTOMERS_TOOL_CREDIT_FORM_AMOUNTH',
         amounth
     }
 }
 
 export const changeCustomersToolCreditFormDescription = (description) =>{
     return{
-        type:'CHANGE_CUSTOMERS_TOOL_PAYMENT_FORM_NAME',
+        type:'CHANGE_CUSTOMERS_TOOL_CREDIT_FORM_DESCRIPTION',
         description
     }
 }
