@@ -14,7 +14,11 @@ import {
     customersToolPaymentFormReducer,
     customersToolCreditFormReducer
 } from './customersTool'
-import { providersToolReducer } from './providersTool'
+import { 
+    providersToolReducer,
+    providersToolPaymentFormReducer,
+    providersToolCreditFormReducer
+} from './providersTool'
 import { ticketsToolReducer } from './ticketsTool'
 import { customerProfileFormsReducer } from './customerProfileForms'
 import { customerReservationsFormsReducer } from './customerReservationsForms'
@@ -35,6 +39,8 @@ const rootReducer = combineReducers({
     customersToolPaymentForm:customersToolPaymentFormReducer,
     customersToolCreditForm:customersToolCreditFormReducer,
     providersTool: providersToolReducer,
+    providersToolPaymentForm:providersToolPaymentFormReducer,
+    providersToolCreditForm:providersToolCreditFormReducer,
     ticketsTool: ticketsToolReducer,
     customerProfileForms: customerProfileFormsReducer,
     customerReservationsForms: customerReservationsFormsReducer,

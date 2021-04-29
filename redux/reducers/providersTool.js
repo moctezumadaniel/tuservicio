@@ -15,7 +15,7 @@ export const providersToolReducer = (state = 'Dashboard', action)=>{
 
 const initialProviderForm = 
 {
-    customerName:'',
+    providerName:'',
     date: '',
     amounth:'',
     description:''
@@ -26,7 +26,7 @@ export const providersToolPaymentFormReducer = (state=initialProviderForm, actio
         case 'CHANGE_PROVIDERS_TOOL_PAYMENT_FORM_NAME':
             return{
                 ...state,
-                customerName:action.name
+                providerName:action.name
             }
         case 'CHANGE_PROVIDERS_TOOL_PAYMENT_FORM_DATE':
             return{
@@ -53,7 +53,7 @@ export const providersToolCreditFormReducer = (state=initialProviderForm, action
         case 'CHANGE_PROVIDERS_TOOL_CREDIT_FORM_NAME':
             return{
                 ...state,
-                customerName:action.name
+                providerName:action.name
             }
         case 'CHANGE_PROVIDERS_TOOL_CREDIT_FORM_DATE':
             return{
