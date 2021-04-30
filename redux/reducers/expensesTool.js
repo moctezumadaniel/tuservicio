@@ -10,3 +10,31 @@ export const expensesToolReducer = (state='Dashboard', action)=>{
             return state;
     }
 } 
+
+/*EXPENSES FORM */
+const initialExpenseForm = {
+    date:'',
+    amounth:'',
+    description:''
+}
+export const expensesToolFormReducer = (state=initialExpenseForm, action) =>{
+    switch(action.type){
+        case 'CHANGE_EXPENSES_TOOL_FORM_DATE':
+            return{
+                ...state,
+                date:action.date
+            }
+        case 'CHANGE_EXPENSES_TOOL_FORM_AMOUNTH':
+            return{
+                ...state,
+                amounth:action.amounth
+            }
+        case 'CHANGE_EXPENSES_TOOL_FORM_DESCRIPTION':
+            return{
+                ...state,
+                description:action.description
+            }
+        default:
+            return state;
+    }
+}

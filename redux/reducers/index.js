@@ -8,7 +8,10 @@ import { userServiceSearchTabReducer } from './userServiceSearchTab'
 import { CustomerServiceDashboardTabReducer } from './customerServiceDashboard'
 import { customerActiveToolReducer } from './customerActiveTool'
 import { ordersToolReducer } from './ordersTool'
-import { expensesToolReducer } from './expensesTool'
+import { 
+    expensesToolReducer,
+    expensesToolFormReducer 
+} from './expensesTool'
 import {
     customersToolReducer,
     customersToolPaymentFormReducer,
@@ -35,6 +38,7 @@ const rootReducer = combineReducers({
     customerActiveTool: customerActiveToolReducer,
     ordersTool: ordersToolReducer,
     expensesTool: expensesToolReducer,
+    expensesToolForm:expensesToolFormReducer,
     customersTool: customersToolReducer,
     customersToolPaymentForm:customersToolPaymentFormReducer,
     customersToolCreditForm:customersToolCreditFormReducer,
