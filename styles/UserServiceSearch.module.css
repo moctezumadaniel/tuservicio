@@ -1,9 +1,10 @@
 .ServiceSearchMainContainer{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     padding-bottom: 150px;
+    padding-top: 10px;
 }
 /*ITEM PREVIEW*/
 
@@ -14,7 +15,7 @@
     width: 500px;
     padding: 10px;
     border-radius: 10px;
-    margin: 10px;
+    margin: 5px;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
     user-select: none;
 }
@@ -25,7 +26,7 @@
 .ImageAndScoreContainer{
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 30%;
     margin-right: 10px;
     align-items: center;
     justify-content: center;
@@ -35,7 +36,7 @@
 .ServiceInformation{
     display: flex;
     flex-direction: column;
-    width: 55%;
+    width: 65%;
 }
 
 .ServiceName{
