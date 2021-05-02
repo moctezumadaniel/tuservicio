@@ -1,34 +1,13 @@
 import styles from '../../styles/CalculatorTool.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 import{
-    addItemToCustomerCalculator,
-    addSignToCustomerCalculatorItem,
-    addNumberToCustomerCalculatorItem
+    writeNumberOrSignInCalculatorToolOperation
 } from '../../redux/actions/CustomerCalculatorTool'
 function CalculatorButtons (){
-    const currentItems = useSelector(state=>state.customerCalculatorTool.items)
+    const currentOperation = useSelector(state=>state.customerCalculatorTool)
     const dispatch = useDispatch()
     const handleButtonPress = event =>{
-        console.log(event.target.value)
         switch(event.target.value){
-            case '0':
-            case '1':
-            case '2':
-            case '3':
-            case '4':
-            case '5':
-            case '6':
-            case '7':
-            case '8':
-            case '9':
-                console.log("numero presionado")
-                break;
-            case '+':
-            case '-':
-            case '*':
-            case '/':
-                console.log("signo presionado")
-                break;
             case 'delete':
                 console.log("eliminar numero")
                 break;
@@ -39,15 +18,21 @@ function CalculatorButtons (){
                 console.log('eliminar toda la operación')
                 break;
             default:
-                console.log('ERROR EN PRESION')
-                break;
+                dispatch(writeNumberOrSignInCalculatorToolOperation(event.target.value))
             
         }
     }
+    const grandTotal = ''
     const deleteButton = '<'
-    const grandTotal = '25,000,000,000'
+    const operationEndIndex = currentOperation.length - 1
+    console.log(currentOperation[currentOperation.length -1])
+    console.log(currentOperation)
+
+
+    
     return(
         <div className={styles.CalculatorButtonsContainer}>
+            <div>{currentOperation}</div>
             <div className={styles.ButtonsRow}>
                 <div className={styles.GrandTotal}>=</div>
                 <div className={styles.GrandTotal}>{grandTotal}</div>
