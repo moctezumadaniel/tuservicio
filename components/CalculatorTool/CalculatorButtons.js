@@ -1,7 +1,9 @@
 import styles from '../../styles/CalculatorTool.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 import{
-    writeNumberOrSignInCalculatorToolOperation
+    writeNumberOrSignInCalculatorToolOperation,
+    deleteLastCharacterInCalculatorToolOperation,
+    deleteAllCalculatorToolOperation
 } from '../../redux/actions/CustomerCalculatorTool'
 function CalculatorButtons (){
     const currentOperation = useSelector(state=>state.customerCalculatorTool)
@@ -9,13 +11,13 @@ function CalculatorButtons (){
     const handleButtonPress = event =>{
         switch(event.target.value){
             case 'delete':
-                console.log("eliminar numero")
+                dispatch(deleteLastCharacterInCalculatorToolOperation())
                 break;
             case 'minimize':
                 console.log('miniminar calculadora')
                 break;
             case 'clear':
-                console.log('eliminar toda la operación')
+                dispatch(deleteAllCalculatorToolOperation())
                 break;
             default:
                 dispatch(writeNumberOrSignInCalculatorToolOperation(event.target.value))

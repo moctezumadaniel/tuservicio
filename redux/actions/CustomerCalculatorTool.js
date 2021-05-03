@@ -4,3 +4,15 @@ export const writeNumberOrSignInCalculatorToolOperation = (numberOrSign) =>{
         numberOrSign
     }
 }
+
+export const deleteLastCharacterInCalculatorToolOperation = () =>{
+    return{
+        type:'DELETE_LAST_CHARACTER_IN_CALCULATOR_TOOL_OPERATION'
+    }
+}
+
+export const deleteAllCalculatorToolOperation = ()=>{
+    return{
+        type:'DELETE_ALL_CALCULATOR_TOOL_OPERATION'
+    }
+}
