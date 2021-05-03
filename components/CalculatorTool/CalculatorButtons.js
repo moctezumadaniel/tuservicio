@@ -18,7 +18,7 @@ function CalculatorButtons (){
                 break;
             case 'clear':
                 dispatch(deleteAllCalculatorToolOperation())
-                break;
+                break;              
             default:
                 dispatch(writeNumberOrSignInCalculatorToolOperation(event.target.value))
             
