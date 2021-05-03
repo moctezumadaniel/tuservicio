@@ -30,10 +30,10 @@ function CalculatorButtons (){
             case '*':
             case '/':
                 const newOperation = operation.substring(0, operation.length -1)
-                result = eval(newOperation)
+                result = parseFloat(eval(newOperation)||0).toFixed(2)
                 break;
             default:
-                result = eval(operation)
+                result = parseFloat(eval(operation)||0).toFixed(2)
                 break;
         }
         return(result)
@@ -42,7 +42,6 @@ function CalculatorButtons (){
     const grandTotal = calculateGrandTotal(currentOperation)
     console.log(grandTotal)
     const deleteButton = '<'
-    const operationEndIndex = currentOperation.length - 1
     console.log(currentOperation[currentOperation.length -1])
     console.log(currentOperation)
 
@@ -50,9 +49,8 @@ function CalculatorButtons (){
     
     return(
         <div className={styles.CalculatorButtonsContainer}>
-            <div>{currentOperation}</div>
-            <div className={styles.ButtonsRow}>
-                <div className={styles.GrandTotal}>=</div>
+            <div className={styles.GrandTotalRow}>
+                <div className={styles.GrandTotalSign}>=</div>
                 <div className={styles.GrandTotal}>{grandTotal}</div>
             </div>
             <div className={styles.ButtonsRow}>
