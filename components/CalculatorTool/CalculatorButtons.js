@@ -22,7 +22,25 @@ function CalculatorButtons (){
             
         }
     }
-    const grandTotal = ''
+    function calculateGrandTotal (operation){
+        let result = '0'
+        switch(operation[operation.length - 1]){
+            case '+':
+            case '-':
+            case '*':
+            case '/':
+                const newOperation = operation.substring(0, operation.length -1)
+                result = eval(newOperation)
+                break;
+            default:
+                result = eval(operation)
+                break;
+        }
+        return(result)
+        
+    }
+    const grandTotal = calculateGrandTotal(currentOperation)
+    console.log(grandTotal)
     const deleteButton = '<'
     const operationEndIndex = currentOperation.length - 1
     console.log(currentOperation[currentOperation.length -1])
