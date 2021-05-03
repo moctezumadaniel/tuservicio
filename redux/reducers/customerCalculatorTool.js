@@ -5,8 +5,8 @@ export const customerCalculatorToolReducer = (state = initialCalculatorState, ac
         case 'WRITE_NUMBER_OR_SIGN_IN_CALCULATOR_TOOL_OPERATION': 
             if(
                 (state + action.numberOrSign).toString().length > 1 && 
-                !parseFloat((state + action.numberOrSign)[(state + action.numberOrSign).length - 1]) && 
-                !parseFloat((state + action.numberOrSign)[(state + action.numberOrSign).length - 2]) &&
+                isNaN((state + action.numberOrSign)[(state + action.numberOrSign).length - 1]) && 
+                isNaN((state + action.numberOrSign)[(state + action.numberOrSign).length - 2]) &&
                 (state + action.numberOrSign)[(state + action.numberOrSign).length - 1] ===
                 (state + action.numberOrSign)[(state + action.numberOrSign).length - 2])
                 {
@@ -14,8 +14,17 @@ export const customerCalculatorToolReducer = (state = initialCalculatorState, ac
                 }
             else if(
                 (state + action.numberOrSign).toString().length > 1 && 
-                !parseFloat((state + action.numberOrSign)[(state + action.numberOrSign).length - 1]) && 
-                !parseFloat((state + action.numberOrSign)[(state + action.numberOrSign).length - 2]) &&
+                action.numberOrSign === '.'&& 
+                isNaN((state + action.numberOrSign)[(state + action.numberOrSign).length - 2]) &&
+                (state + action.numberOrSign)[(state + action.numberOrSign).length - 1] !==
+                (state + action.numberOrSign)[(state + action.numberOrSign).length - 2])
+                {
+                return state
+                }
+            else if(
+                (state + action.numberOrSign).toString().length > 1 && 
+                isNaN((state + action.numberOrSign)[(state + action.numberOrSign).length - 1]) && 
+                isNaN((state + action.numberOrSign)[(state + action.numberOrSign).length - 2]) &&
                 (state + action.numberOrSign)[(state + action.numberOrSign).length - 1] !==
                 (state + action.numberOrSign)[(state + action.numberOrSign).length - 2])
                 {
