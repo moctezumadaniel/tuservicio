@@ -25,6 +25,7 @@ function CalculatorButtons (){
         }
     }
     function calculateGrandTotal (operation){
+        'use strict'
         let result = '0'
         switch(operation[operation.length - 1]){
             case '+':
@@ -44,10 +45,6 @@ function CalculatorButtons (){
     const grandTotal = calculateGrandTotal(currentOperation)
     console.log(grandTotal)
     const deleteButton = '<'
-    console.log(currentOperation[currentOperation.length -1])
-    console.log(currentOperation)
-
-
     
     return(
         <div className={styles.CalculatorButtonsContainer}>

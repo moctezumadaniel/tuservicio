@@ -1,10 +1,14 @@
+.MainCalculatorContainer{
+    display: flex;
+    height: 100vh;
+}
 /*CALCULATOR BUTTONS*/
 .CalculatorButtonsContainer{
     background-color: white;
     width: 100vw;
     bottom: 30px;
     position: fixed;
-    padding-top: 30px;
+    padding-top: 15px;
     border-radius: 10px;
     box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
 
@@ -22,16 +26,19 @@
     align-content: space-around;
     width: 100vw;
     margin-bottom: 20px;
+    user-select: none;
 }
 .GrandTotalSign{
     font-size: xx-large;
     font-weight: 600;
     margin-right: 10px;
+    user-select: none;
 }
 .GrandTotal{
     font-size: xx-large;
     font-weight: 600;
 }
+
 .CleanButton{
     font-size: xx-large;
     font-weight: 600;
@@ -43,6 +50,8 @@
     height: 40px;
     border: none;
     outline: none;
+    user-select: none;
+    cursor: pointer;
 }
 
 .HighlightButton{
@@ -57,14 +66,93 @@
     border: none;
     outline: none;
     border-radius: 10px;
+    user-select: none;
+    cursor: pointer;
+}
+@media (max-width:450px) {
+    .GrandTotalSign{
+        font-size:x-large;
+
+    }
+    .GrandTotal{
+        font-size:x-large;
+    }
+    .ButtonsRow{
+        margin-bottom: 15px;
+    }
+    .CleanButton{
+        font-size: x-large;
+    }
+    .HighlightButton{
+        font-size: x-large;
+
+    }
+}
+@media (max-width:350px) {
+    .GrandTotalSign{
+        font-size:large;
+
+    }
+    .GrandTotal{
+        font-size:large;
+    }
+    .ButtonsRow{
+        margin-bottom: 15px;
+    }
+    .CleanButton{
+        font-size: large;
+    }
+    .HighlightButton{
+        font-size: large;
+
+    }
+}
+@media (max-height:550px) {
+    .GrandTotalSign{
+        font-size:large;
+
+    }
+    .GrandTotal{
+        font-size:large;
+    }
+    .ButtonsRow{
+        margin-bottom: 5px;
+    }
+    .CleanButton{
+        font-size: large;
+    }
+    .HighlightButton{
+        font-size: large;
+
+    }
 }
 /*OPERATION DISPLAY*/
 .OperationContainer{
     display: flex;
-    height: 100%;
+    flex: 1;
     font-family: sans-serif;
     text-align: justify;
+    justify-content:left;
     font-size: xx-large;
     font-weight: 600;
     padding: 10px;
+    word-break: break-all;
+    overflow-y:visible;
 }
+
+@media (max-width:500px) {
+    .OperationContainer{
+        font-size:x-large;
+    }
+}
+@media (max-width:320px) {
+    .OperationContainer{
+        font-size:large;
+    }
+}
+@media (max-height:550px) {
+    .OperationContainer{
+        font-size:large;
+    }
+}
+
