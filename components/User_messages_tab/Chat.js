@@ -6,7 +6,7 @@ import styles from '../../styles/UserMessages.module.css'
 import Image from 'next/image'
 function Chat (){
     const addServiceToFavorites = 'Añadir a favoritos'
-    const profileImage = 'IMAGEN DE PERFIL'
+    const chatName = 'Nombre de la conversación'
     const reportService = 'Reportar servicio'
     const placeholder = 'Escribe aqui tu mensaje'
     const dispatch = useDispatch()
@@ -16,10 +16,14 @@ function Chat (){
    return(
        <div className={styles.ChatMainContainer}>
            <div className={styles.ChatHeader}>
-               <button className={styles.FavouriteButton}>{addServiceToFavorites}</button>
-               <Image className={styles.ChatHeaderImage} src='/celerPerfil.png' width={80} height={80}/>
-               <button className={styles.ReportButton}>{reportService}</button>
+               <div className={styles.ChatImageAndButtonsContainer}>
+                    <button className={styles.FavouriteButton}>{addServiceToFavorites}</button>
+                    <Image className={styles.ChatHeaderImage} src='/celerPerfil.png' width={80} height={80}/>
+                    <button className={styles.ReportButton}>{reportService}</button>
+               </div>
+               <div className={styles.ChatName}>{chatName}</div>
            </div>
+
            <div className={styles.MessagesMainContainer}>
                 <CustomerMessage/>
                 <UserMessage/>

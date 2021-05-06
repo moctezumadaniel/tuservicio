@@ -108,15 +108,23 @@
 }
 .ChatHeader{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     top: 0;
     position: fixed;
     width: 100vw;
-    height: 80px;
     background-color: white;
 
+}
+.ChatImageAndButtonsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    top: 0;
+    width: 100vw;
+    background-color: white;
 }
 
 .ChatHeaderImage{
@@ -124,6 +132,14 @@
     margin-left: 10px;
     margin-right: 10px;
     background-color: white;
+}
+.ChatName{
+    display: flex;
+    font-family: sans-serif;
+    font-size: medium;
+    color: black;
+    text-align: center;
+
 }
 
 .FavouriteButton{
