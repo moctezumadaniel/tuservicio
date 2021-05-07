@@ -24,9 +24,22 @@
     margin: 5px;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
     user-select: none;
+    animation-name: renderPreviousService;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
 }
 .PreviewMainContainer:hover{
     cursor: pointer;
+}
+@keyframes renderPreviousService {
+    from{
+        opacity: 0.1;
+        margin-top: 7px;
+    }
+    to{
+        opacity: 1;
+        margin-top: 5px;
+    }
 }
 
 .ImageAndScoreContainer{
