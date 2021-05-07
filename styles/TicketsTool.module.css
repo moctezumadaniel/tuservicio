@@ -160,6 +160,9 @@
     justify-content: center;
     align-content: center;
     padding: 10px;
+    animation-name: renderTicketItem;
+    animation-timing-function: ease-in-out;
+    animation-duration: 500ms;
 }
 .TicketDescription{
     font-family: sans-serif;
@@ -309,5 +312,11 @@
     from{
         opacity: 0.7;
         margin-top: 10px;
+    }
+}
+@keyframes renderTicketItem {
+    from{
+        opacity: 0.5;
+        margin-top: 5px;
     }
 }

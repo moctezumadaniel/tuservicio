@@ -225,6 +225,9 @@
 }
 .OrderItemContainer{
     padding: 10px;
+    animation-name: renderOrderItem;
+    animation-timing-function: ease-in-out;
+    animation-duration: 500ms;
 }
 .OrderItemDescrription{
     font-family: sans-serif;
@@ -369,6 +372,13 @@
 @keyframes renderItem {
     from{
         opacity: 0.7;
+        margin-top: 5px;
+    }
+}
+
+@keyframes renderOrderItem {
+    from{
+        opacity: 0.5;
         margin-top: 5px;
     }
 }
