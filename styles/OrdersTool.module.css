@@ -41,6 +41,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    animation-name: renderItem;
+    animation-timing-function: ease-in-out;
+    animation-duration: 500ms;
 
 }
 
@@ -99,6 +102,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    animation-name: renderItem;
+    animation-timing-function: ease-in-out;
+    animation-duration: 500ms;
 
 }
 .ItemPendingContainer{
@@ -358,5 +364,11 @@
     .SaveNewItemButton{
         width: 500px;
         align-self: center;
+    }
+}
+@keyframes renderItem {
+    from{
+        opacity: 0.7;
+        margin-top: 5px;
     }
 }

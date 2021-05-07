@@ -46,6 +46,9 @@
     margin: 5px;
     background-color: white;
     box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
+    animation-name: renderItem;
+    animation-timing-function: ease-in-out;
+    animation-duration: 500ms;
 
 }
 .TicketPreviewNumberAmounthContainer{
@@ -300,4 +303,11 @@
 .GrandTotal{
     font-size: x-large;
     font-weight: 600;
+}
+
+@keyframes renderItem {
+    from{
+        opacity: 0.7;
+        margin-top: 10px;
+    }
 }
