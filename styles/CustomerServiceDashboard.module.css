@@ -299,21 +299,16 @@
 
 @keyframes renderItem {
     from{
-        opacity: 0.1;
+        opacity: 0.7;
         margin-top: 10px;
     }
-    to{
-        opacity: 1;
-        margin-top: 5px;
-    }
+
 }
 
 @keyframes renderToolButton {
     from{
-        opacity: 0.1;
+        opacity: 0.7;
         margin-top: 15px;
     }
-    to{
-        opacity: 1;
-    }
+
 }
