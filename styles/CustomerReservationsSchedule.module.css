@@ -57,6 +57,9 @@
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    animation-name: renderItem;
+    animation-timing-function: ease-in-out;
+    animation-duration: 500ms;
 }
 .ScheduleTimeContainer{
     display: flex;
@@ -90,4 +93,15 @@
 }
 .DeleteSchedule{
     cursor: pointer;
+}
+
+@keyframes renderItem {
+    from{
+        opacity: 0.1;
+        margin-top: 10px;
+    }
+    to{
+        opacity: 1;
+        margin-top: 5px;
+    }
 }
