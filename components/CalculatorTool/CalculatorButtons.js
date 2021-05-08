@@ -25,7 +25,6 @@ function CalculatorButtons (){
         }
     }
     function calculateGrandTotal (operation){
-        'use strict'
         let result = '0'
         switch(operation[operation.length - 1]){
             case '+':
