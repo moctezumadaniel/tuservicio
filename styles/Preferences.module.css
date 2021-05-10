@@ -2,8 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-bottom: 150px;
     padding: 5px;
+    padding-bottom: 150px;
 }
 
 .PreferenceItem{
@@ -35,6 +35,7 @@
     text-align: center;
     font-size: x-large;
     user-select: none;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
     animation-name: renderPreference;
     animation-duration: 500ms;
     animation-timing-function: ease-in-out;
@@ -58,6 +59,7 @@
     text-align: center;
     font-size: x-large;
     user-select: none;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
     animation-name: renderPreference;
     animation-duration: 500ms;
     animation-timing-function: ease-in-out;
