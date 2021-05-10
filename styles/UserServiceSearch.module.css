@@ -3,8 +3,11 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding-bottom: 150px;
+    align-content: flex-start;
+    min-height: 100vh;
     padding: 10px;
+    padding-bottom: 150px;
+    
 }
 /*ITEM PREVIEW*/
 

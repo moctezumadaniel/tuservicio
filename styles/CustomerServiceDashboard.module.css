@@ -42,6 +42,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    min-height: 100vh;
     margin-bottom: 150px;
 }
 /*SERVICE INFORMATION PREVIEW*/
@@ -246,13 +247,16 @@
 /*RESERVATIONS TAB*/
 .ServiceReservationsContainer{
     padding-bottom:150px ;
+    min-height: 100vh;
 }
 /*TOOL BAR*/
 
 .ToolBarContainer{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    min-height: 100vh;
+    justify-content: center;
+    align-content:flex-start;
     margin-top: 10px;
     padding-bottom: 150px;
 }

@@ -2,8 +2,10 @@
 .ExpensesToolMainContainer{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    align-content: center;
     width: 100vw;
+    min-height: 100vh;
     padding-bottom: 150px;
 }
 .RegisterExpenseContainer{

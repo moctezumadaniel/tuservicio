@@ -1,6 +1,7 @@
 .TicketsDashboardMainContainer{
     flex-direction: column;
     width: 100vw;
+    min-height: 100vh;
     padding: 10px;
     bottom: 50px;
     padding-bottom: 150px;
@@ -89,6 +90,7 @@
 /*TICKET FORM*/
 .TicketsToolMainContainer{
     width: 100vw;
+    min-height: 100vh;
     padding-bottom: 150px;
 }
 .TicketTitle{

@@ -2,7 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-content: flex-start;
+    min-height: 100vh;
     padding: 5px;
     padding-top: 10px;
     padding-bottom: 150px;
