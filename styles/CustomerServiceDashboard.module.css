@@ -42,6 +42,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-content: flex-start;
     min-height: 100vh;
     margin-bottom: 150px;
 }
@@ -259,6 +260,11 @@
     align-content:flex-start;
     margin-top: 10px;
     padding-bottom: 150px;
+}
+@media (max-width:494px) {
+   .ToolBarContainer{
+        justify-content: space-evenly;
+   }
 }
 
 .ToolItem{
