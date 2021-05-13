@@ -20,3 +20,10 @@ export const changeToSearch = ()=>{
         type: 'CHANGE_TO_SEARCH'
     }
 }
+
+export const changeToServicePage = ()=>{
+    return{
+        type: 'CHANGE_TO_SERVICE_PAGE'
+    }
+}
+

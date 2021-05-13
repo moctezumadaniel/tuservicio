@@ -8,6 +8,8 @@ export const servicesTabSelectedReducer = (state = 'Search', action)=>{
             return 'Favourites';
         case 'CHANGE_TO_SEARCH':
             return 'Search';
+        case 'CHANGE_TO_SERVICE_PAGE':
+            return 'ServicePage';
         default:
             return state;
     }
