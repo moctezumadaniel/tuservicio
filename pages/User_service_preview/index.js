@@ -1,22 +1,21 @@
 /*import {connectToDatabase} from '../../middleware/mongodb'*/
 import styles from '../../styles/UserServiceSearch.module.css'
 import Image from 'next/image'
-import { useDispatch }from 'react-redux'
-import { changeToServicePage } from '../../redux/actions/UserServicesTab'
+// import { useDispatch }from 'react-redux'
+// import { changeToServicePage } from '../../redux/actions/UserServicesTab'
 export default function UserServicePreview(){
     const image = "Imagen de perfil";
     const name = "Nombre del servicio";
     const score = "5 star";
     const todaySchedule = "8:00 a 16:00" /*Green when is open at the moment of the search*/
     const description = "Este es un ejemplo de la descripcion corta de un servicio que no deberá exedor de 140 caracteres"
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
-    function handlePreviewPress(){
-        dispatch(changeToServicePage())
-    }
+    // function handlePreviewPress(){
+    //     dispatch(changeToServicePage())
+    // }
     return(
-        <div className={styles.PreviewMainContainer}
-        onClick={handlePreviewPress}>
+        <div className={styles.PreviewMainContainer}>
             <div className={styles.ImageAndScoreContainer}>
                 <Image src='/celerPerfil.png' width={80} height={80}/>
                 <div>{score}</div>
