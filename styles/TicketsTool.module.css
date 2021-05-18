@@ -21,7 +21,7 @@
     color: #026ED2;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 
 }
 .AddTicketButton:hover{
@@ -46,7 +46,7 @@
     border-radius: 10px;
     margin: 5px;
     background-color: white;
-    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
     animation-name: renderItem;
     animation-timing-function: ease-in-out;
     animation-duration: 500ms;
@@ -239,11 +239,18 @@
     font-size: large;
     font-family: sans-serif;
     text-align: center;
-    background-color: #F3F3F3;
+    background-color: white;
     border-radius: 10px;
-    border:none;
+    border:solid;
+    border-color: gray;
+    border-width: 1px;
     resize: none;
-    outline-color: #026ED2;
+    outline:none;
+}
+.InputTicketDescription:focus{
+    border-color: #026ED2;
+    border-width: 3px;
+
 }
 
 .InputTicketAmounth{
@@ -252,15 +259,23 @@
     font-size: larger;
     text-align: center;
     font-family: sans-serif;
-    background-color: #F3F3F3;
+    background-color: white;
     border-radius: 10px;
     margin-top: 10px;
     padding: 10px;
     align-self:flex-end;
-    border:none;
-    outline-color: #026ED2;
+    border:solid;
+    border-color: gray;
+    border-width: 1px;
+    outline: none;
 
 }
+.InputTicketAmounth:focus{
+    border-color: #026ED2;
+    border-width: 3px;
+
+}
+
 .InputTicketAmounth::placeholder{
     color: #424242;
 }

@@ -318,31 +318,43 @@
     margin-left: 10px;
 }
 .DescriptionOrderInput{
-    border: none;
+    border: solid;
+    border-width: 1px;
+    border-color: gray;
     border-radius: 10px;
     padding: 10px;
     font-size: large;
     font-family: sans-serif;
-    outline-color: #026ED2;
+    outline:none;
     margin-bottom: 10px;
-    background-color: #f3f3f3;
+    background-color: white;
     resize: none;
     text-align: center;
 
+}
+.DescriptionOrderInput:focus{
+    border-color: #026ED2;
+    border-width: 3px;
 }
 .DescriptionOrderInput::placeholder{
     color: #424242;
 }
 .AmounthOrderInput{
-    border: none;
+    border: solid;
+    border-width: 1px;
+    border-color: gray;
     border-radius: 10px;
     padding: 10px;
     font-size: large;
     font-family: sans-serif;
-    outline-color: #026ED2;
+    outline:none;
     margin-bottom: 10px;
-    background-color: #F3F3F3;
+    background-color: white;
     text-align: center;
+}
+.AmounthOrderInput:focus{
+    border-color: #026ED2;
+    border-width: 3px;
 }
 .AmounthOrderInput::placeholder{
     color: #424242;
