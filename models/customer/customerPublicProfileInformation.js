@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
 
-const customerProfileInformationSchema = mongoose.Schema({
+const customerPublicProfileInformationSchema = mongoose.Schema({
     
     //INFORMATION
     image:{type:String},
     name:{type:String, required:true},
     workdays:{type:[String], required:true},
     schedule:{type:[String], required:true},
-    shprtDescription:{type:String},
+    shortDescription:{type:String},
+    rating:Number,
 
     //CONTACT AND MORE DETAILS
     phoneNumber:{type:String},
@@ -67,6 +68,6 @@ const customerProfileInformationSchema = mongoose.Schema({
     }
 })
 
-const CustomerProfileInformation = mongoose.model('CustomerProfileInformation',customerProfileInformationSchema)
+const CustomerPublicProfileInformation = mongoose.model('CustomerPublicProfileInformation',customerPublicProfileInformationSchema)
 
-export default CustomerProfileInformation;
+export default CustomerPublicProfileInformation;
