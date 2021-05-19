@@ -13,7 +13,58 @@ const customerProfileInformationSchema = mongoose.Schema({
     phoneNumber:{type:String},
     address:{type:String},
     moreInformation:{type:String},
-    images:{type:[String]}
+    images:{type:[String]},
+
+    listOfServices:[{
+        title:{type:String, required:true},
+        image:{type:String},
+        price:{type:Number},
+        description:{type:String}
+    }],
+
+    listOfReservations:[{
+        date:Date,
+        customerName:String,
+        description:String
+    }],
+
+    listOfSchedules:{
+        monday:[{
+            start:String,
+            end:String,
+            description:String
+        }],
+        tuesday:[{
+            start:String,
+            end:String,
+            description:String
+        }],
+        wednesday:[{
+            start:String,
+            end:String,
+            description:String
+        }],
+        thursday:[{
+            start:String,
+            end:String,
+            description:String
+        }],
+        friday:[{
+            start:String,
+            end:String,
+            description:String
+        }],
+        saturday:[{
+            start:String,
+            end:String,
+            description:String
+        }],
+        sunday:[{
+            start:String,
+            end:String,
+            description:String
+        }]
+    }
 })
 
 const CustomerProfileInformation = mongoose.model('CustomerProfileInformation',customerProfileInformationSchema)
