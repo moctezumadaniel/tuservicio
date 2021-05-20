@@ -8,7 +8,8 @@ const userInformationSchema = mongoose.Schema({
     reviews:[String],
     problemsAndComments:[String],
     userId:String,
-    customerId:String
+    customerId:String,
+    currentPlatform:String
 })
 
 const UserInformation = mongoose.model('CustomerInformation',userInformationSchema)

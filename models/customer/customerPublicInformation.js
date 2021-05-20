@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const customerPublicProfileInformationSchema = mongoose.Schema({
+const customerPublicInformationSchema = mongoose.Schema({
     
     //INFORMATION
     image:{type:String},
@@ -26,48 +26,57 @@ const customerPublicProfileInformationSchema = mongoose.Schema({
     listOfReservations:[{
         date:Date,
         customerName:String,
-        description:String
+        description:String,
+        state:String
     }],
 
     listOfSchedules:{
         monday:[{
             start:String,
             end:String,
-            description:String
+            description:String,
+            state:String
         }],
         tuesday:[{
             start:String,
             end:String,
-            description:String
+            description:String,
+            state:String
         }],
         wednesday:[{
             start:String,
             end:String,
-            description:String
+            description:String,
+            state:String
         }],
         thursday:[{
             start:String,
             end:String,
-            description:String
+            description:String,
+            state:String
         }],
         friday:[{
             start:String,
             end:String,
-            description:String
+            description:String,
+            state:String
         }],
         saturday:[{
             start:String,
             end:String,
-            description:String
+            description:String,
+            state:String
         }],
         sunday:[{
             start:String,
             end:String,
-            description:String
+            description:String,
+            state:String
+
         }]
     }
 })
 
-const CustomerPublicProfileInformation = mongoose.model('CustomerPublicProfileInformation',customerPublicProfileInformationSchema)
+const CustomerPublicInformation = mongoose.model('CustomerPublicProfileInformation',customerPublicInformationSchema)
 
-export default CustomerPublicProfileInformation;
+export default CustomerPublicInformation;
