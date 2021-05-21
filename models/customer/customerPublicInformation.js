@@ -25,7 +25,8 @@ const customerPublicInformationSchema = mongoose.Schema({
 
     listOfReservations:[{
         date:Date,
-        customerName:String,
+        customerId:String,
+        userId:String,
         description:String,
         state:String
     }],
@@ -35,43 +36,56 @@ const customerPublicInformationSchema = mongoose.Schema({
             start:String,
             end:String,
             description:String,
-            state:String
+            state:String,
+            customerId:String
         }],
         tuesday:[{
             start:String,
             end:String,
             description:String,
-            state:String
+            state:String,
+            customerId:String
+
         }],
         wednesday:[{
             start:String,
             end:String,
             description:String,
-            state:String
+            state:String,
+            customerId:String
+
         }],
         thursday:[{
             start:String,
             end:String,
             description:String,
-            state:String
+            state:String,
+            customerId:String
+
         }],
         friday:[{
             start:String,
             end:String,
             description:String,
-            state:String
+            state:String,
+            customerId:String
+
         }],
         saturday:[{
             start:String,
             end:String,
             description:String,
-            state:String
+            state:String,
+            customerId:String
+
         }],
         sunday:[{
             start:String,
             end:String,
             description:String,
-            state:String
+            state:String,
+            customerId:String
+
 
         }]
     }
