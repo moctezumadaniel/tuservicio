@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const customerPublicInformationSchema = mongoose.Schema({
     
+    customerId:String,
     //INFORMATION
     image:{type:String},
     name:{type:String, required:true},

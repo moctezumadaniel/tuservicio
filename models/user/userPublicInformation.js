@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 
 const userPublicInformationSchema = mongoose.Schema({
     //All the strings are ids to update the reservations and services
+    userId:String,
     reservations:[String],
     previousServices:[String],
     favoriteServices:[String]
