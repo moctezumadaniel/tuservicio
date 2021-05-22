@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 
 const customerInformationSchema = mongoose.Schema({
     //ORDERS TOOL
+    customerId:String,
     orders:[{
         ticketNumber:String,
         date:Date,
