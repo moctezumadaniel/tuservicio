@@ -30,3 +30,18 @@ export const deleteCustomerExpense = (customerId, expensetId, done) =>{
         })
     })
 }
+
+export const updateCustomerExpense = (customerId, expense, done) =>{
+    CustomerInformation.find({"customerId":customerId}), (err, data)=>{
+        if(err) console.log(err)
+        data.expenses.filter(
+            i => i._id !== expense._id
+        )
+        data.expenses.push(expense)
+        data.save((err,dataUpdated)=>{
+            if(err) console.log(err)
+            done(null, dataUpdated)
+        })
+
+    }
+}

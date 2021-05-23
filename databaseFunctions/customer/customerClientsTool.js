@@ -30,3 +30,18 @@ export const deleteCustomerClientOperation = (customerId, operationId, done) =>{
         })
     })
 }
+
+export const updateCustomerClientOperation = (customerId, operation, done) =>{
+    CustomerInformation.find({"customerId":customerId}), (err, data)=>{
+        if(err) console.log(err)
+        data.customers.filter(
+            i => i._id !== operation._id
+        )
+        data.customers.push(operation)
+        data.save((err,dataUpdated)=>{
+            if(err) console.log(err)
+            done(null, dataUpdated)
+        })
+
+    }
+}
