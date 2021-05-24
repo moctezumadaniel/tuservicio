@@ -6,8 +6,11 @@ const customerPublicInformationSchema = mongoose.Schema({
     //INFORMATION
     image:{type:String},
     name:{type:String, required:true},
-    workdays:{type:[String], required:true},
-    schedule:{type:[String], required:true},
+    workdays:[{type:String, required:true}],
+    schedule:[{
+        day:{type:String, required: true},
+        start:{type:String, required: true}
+    }],
     shortDescription:{type:String},
     rating:Number,
 
