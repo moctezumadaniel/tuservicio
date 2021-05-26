@@ -11,7 +11,7 @@
 .ModalBackground{
     flex: 1;
     background-color: black;
-    opacity: 0.40;
+    opacity: 0.60;
 }
 .ModalContainer{
     display: flex;
@@ -28,6 +28,11 @@
     justify-content: space-evenly;
     box-shadow: 10px 0px 7px rgba(0, 0, 0, 0.25);
 
+}
+@media (max-height:500px) {
+    .ModalContainer{
+        padding-bottom: 10px;
+    }
 }
 .FullWidthContainer{
     width: 99vw;
@@ -133,11 +138,18 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+
 .ScheduleContainer{
     font-size: medium;
     text-align: center;
     font-family: sans-serif;
     margin: 5px;
+}
+@media (max-height:500px) {
+    .ScheduleContainer{
+        font-size: small;
+        margin: 1px;
+    }
 }
 .ScheduleDateInput{
     outline: none;
@@ -320,6 +332,11 @@
     height: 220px;
     font-family: sans-serif;
     font-size: large;
+}
+@media (max-height:600px) {
+    .ServiceDescription{
+        max-height: 120px;
+    }
 }
 
 .ServiceDescription::placeholder{
