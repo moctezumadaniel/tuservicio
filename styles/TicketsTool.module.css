@@ -241,16 +241,10 @@
     text-align: center;
     background-color: white;
     border-radius: 10px;
-    border:solid;
-    border-color: gray;
-    border-width: 1px;
+    border: none;
     resize: none;
     outline:none;
-}
-.InputTicketDescription:focus{
-    border-color: #026ED2;
-    border-width: 3px;
-
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 }
 
 .InputTicketAmounth{
@@ -264,15 +258,9 @@
     margin-top: 10px;
     padding: 10px;
     align-self:flex-end;
-    border:solid;
-    border-color: gray;
-    border-width: 1px;
+    border: none;
     outline: none;
-
-}
-.InputTicketAmounth:focus{
-    border-color: #026ED2;
-    border-width: 3px;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 
 }
 

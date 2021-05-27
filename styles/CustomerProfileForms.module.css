@@ -19,7 +19,7 @@
     bottom: 35px;
     position: fixed;
     width: 100vw;
-    background-color: white;
+    background-color: #F3F3F3;
     padding: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -44,7 +44,7 @@
     outline: none;
     border: none;
     color: #00BB1E;
-    background-color: white;
+    background-color: transparent;
     font-size: medium;
     margin-top: 10px;
 }
@@ -60,9 +60,10 @@
     justify-self: center;
     height: 150px;
     width: 150px;
-    background-color: #F3F3F3;
+    background-color: white;
     border-radius: 10px;
     margin-bottom: 5px;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 }
 .ProfileImageButtonContainer{
     display: flex;
@@ -71,7 +72,7 @@
 .ProfileImageButton{
     outline: none;
     border:none;
-    background-color: white;
+    background-color: transparent;
     color: #026ED2;
     font-size: medium;
 }
@@ -95,7 +96,8 @@
     align-self: center;
     text-align: center;
     border-radius: 100px;
-    background-color: #F3F3F3;
+    background-color: white;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
     
 }
 @media(max-width:700px){
@@ -154,10 +156,11 @@
 .ScheduleDateInput{
     outline: none;
     border: none;
-    background-color: #f3f3f3;
+    background-color: white;
     font-family: sans-serif;
     border-radius: 10px;
     padding: 5px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 }
 @media (max-width:300px) {
     .ScheduleDateInput{
@@ -178,7 +181,7 @@
     outline: none;
     background-color: white;
     border-radius: 20px;
-    background-color: #F3F3F3;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 
 
 }
@@ -196,11 +199,12 @@
     outline: none;
     border: none;
     padding: 10px;
-    background-color: #F3F3F3;
+    background-color: white;
     font-size: large;
     border-radius: 100PX;
     text-align: center;
     width: 400px;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
     
 }
 .PhoneNumberInput::placeholder{
@@ -224,8 +228,9 @@
     font-size: large;
     text-align: center;
     justify-content: center;
-    background-color: #F3F3F3;
+    background-color: white;
     border-radius: 20px;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 
 }
 @media (min-width:500px) {
@@ -247,13 +252,14 @@
     resize: none;
     outline: none;
     border: none;
-    background-color: #F3F3F3;
+    background-color: white;
     width: 100%;
     height:300px;
     padding: 10px;
     border-radius: 20px;
     font-size: large;
     font-family: sans-serif;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 
 }
 .MoreInformationInput::placeholder{
@@ -281,10 +287,11 @@
     justify-self: center;
     height: 150px;
     width: 150px;
-    background-color: #F3F3F3;
+    background-color: white;
     border-radius: 10px;
     margin-bottom: 5px;
     justify-content: center;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 }
 .ServiceImage{
     cursor: pointer;
@@ -307,11 +314,12 @@
     margin-top: 10px;
     outline: none;
     border: none;
-    background-color: #F3F3F3;
+    background-color: white;
     border-radius: 100px;
     font-family: sans-serif;
     font-size: large;
     text-align: center;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 }
 .ServiceNamePriceDescriptionInput::placeholder{
     text-align: center;
@@ -322,7 +330,7 @@
     color: transparent;
 }
 .ServiceDescription{
-    background-color: #F3F3F3;
+    background-color: white;
     outline: none;
     border: none;
     margin-top: 10px;
@@ -332,6 +340,7 @@
     height: 220px;
     font-family: sans-serif;
     font-size: large;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 }
 @media (max-height:600px) {
     .ServiceDescription{

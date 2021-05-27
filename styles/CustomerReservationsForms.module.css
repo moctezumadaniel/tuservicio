@@ -19,7 +19,7 @@
     bottom: 35px;
     position: fixed;
     width: 100vw;
-    background-color: white;
+    background-color: #f3f3f3;
     padding: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -39,7 +39,7 @@
     outline: none;
     border: none;
     color: #00BB1E;
-    background-color: white;
+    background-color: transparent;
     font-size: medium;
     margin-top: 10px;
 }
@@ -63,30 +63,33 @@
     outline: none;
     border: none;
     padding: 5px;
-    background-color: #F3F3F3;
+    background-color: white;
     border-radius: 20px;
     text-align: center;
     font-family: sans-serif;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 }
 .ReservationScheduleInput{
     outline: none;
     border: none;
     padding: 5px;
-    background-color: #F3F3F3;
+    background-color: white;
     border-radius: 10px;
     text-align: center;
     font-family: sans-serif;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 }
 .ReservationNameInput{
     width: 95vw;
     outline: none;
     border: none;
     padding: 5px;
-    background-color: #F3F3F3;
+    background-color: white;
     border-radius: 10px;
     text-align: center;
     font-family: sans-serif;
     font-size: large;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 }
 @media (min-width:400px) {
     .ReservationNameInput{
@@ -105,9 +108,10 @@
 }
 /*ADD SCHEDULE*/
 .ListOfDaysContainer{
+    font-size: medium;
     outline: none;
     border: none;
-    background-color: #F3F3F3;
+    background-color: white;
     padding: 10px;
     width: 300px;
     border-radius: 10px;
@@ -115,6 +119,7 @@
     justify-content: center;
     align-content: center;
     margin: 10px;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 }
 .ScheduleTimeTitle{
     text-align: center;
@@ -124,10 +129,11 @@
     outline: none;
     border: none;
     padding: 5px;
-    background-color: #F3F3F3;
+    background-color: white;
     border-radius: 10px;
     text-align: center;
     font-family: sans-serif;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 }
 .ConfirmScheduleContainer{
     display: flex;
