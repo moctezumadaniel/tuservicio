@@ -1,4 +1,5 @@
 import styles from '../../../styles/UserReservations.module.css'
+import {UserLogin} from '../../User_login'
 function UserReservations (){
     
     return(
@@ -18,6 +19,8 @@ function ListOfUserReservations(){
     const configureButton = 'CANCELAR'
     const doneButton = 'CONTACTAR'
     return(
+        <>
+        <UserLogin/>
         <div className={styles.ListOfReservationsContainer}>
             {/*<div className={styles.DefaultPageTitle}>{defaultPage}</div>*/}
             {/*RESERVATION ITEM */}
@@ -133,5 +136,6 @@ function ListOfUserReservations(){
             </div>
 
         </div>
+        </>
     )
 }

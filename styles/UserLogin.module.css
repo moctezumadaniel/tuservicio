@@ -1,0 +1,37 @@
+.LoginMainContainer{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    justify-content: center;
+    align-content: center;
+}
+
+.TitleContainer{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.LoginButtonContainer{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.LoginButton{
+    width: 500px;
+    border:solid #00BB1E;
+    border-radius: 10px;
+    outline: transparent;
+    background-color: white;
+    color: #00BB1E;
+    font-size: x-large;
+    padding: 10px;
+}
+
+.LoginButton:hover{
+    cursor:pointer;
+}
