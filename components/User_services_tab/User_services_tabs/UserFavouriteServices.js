@@ -1,5 +1,6 @@
 import styles from '../../../styles/UserFavouriteServices.module.css'
 import Image from 'next/image'
+import { UserLogin } from '../../User_login'
 function UserFavouriteServices(){
     const defaultPage = 'Aún no tienes servicios favoritos'
     const image = "Imagen de perfil";
@@ -9,6 +10,8 @@ function UserFavouriteServices(){
     const description = "Este es un ejemplo de la descripcion corta de un servicio que no deberá exedor de 140 caracteres"
     
     return(
+        <>
+        <UserLogin/>
         <div className={styles.ServiceSearchMainContainer}>
             {/*<div>{defaultPage}</div>*/}
             {/*PREVIOUS SERVICE */}
@@ -91,6 +94,7 @@ function UserFavouriteServices(){
 
             
         </div>
+        </>
     )
 }
 export default UserFavouriteServices

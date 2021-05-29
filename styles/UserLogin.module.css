@@ -1,7 +1,9 @@
 .LoginMainContainer{
     display: flex;
     flex-direction: column;
-    width: 95%;
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
     justify-content: center;
     align-content: center;
 }
@@ -20,7 +22,6 @@
     justify-content: center;
     align-content: center;
 }
-
 .LoginButton{
     width: 500px;
     border:solid #00BB1E;

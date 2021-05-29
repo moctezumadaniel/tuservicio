@@ -2,6 +2,7 @@ import styles from '../../styles/Preferences.module.css'
 import {useSelector, useDispatch} from 'react-redux'
 import {changePlatformToCustomer, changePlatformToUser} from '../../redux/actions/PlatformType'
 import {customerLogout} from '../../redux/actions/LoginsAndLogouts'
+import { useAuth0 } from '@auth0/auth0-react'
 function PreferencesTab (){
     const currentGlobalTab = useSelector(state=>state.globalTab)
     const currentPlatform = useSelector(state=>state.platformType)
@@ -26,6 +27,8 @@ function PreferencesTab (){
     const feedbackButton = 'ABRIR PROBLEMAS Y COMENTARIOS';
     const changeToCustomerDescription = 'Cambiar a proveedor de servicios';
     const changeToUserDescription = 'Cambiar a cliente de servicios'
+    const LogoutDescription = "Cerrar sesión"
+    const { logout } = useAuth0()
     function handleChangeToCustomerPress(){
         dispatch(changePlatformToCustomer())
     }
@@ -83,6 +86,11 @@ function PreferencesTab (){
                 <div className={styles.ItemHeader}>{feedbackTitle}</div>
                 <div className={styles.ItemDescription}>{feedbackDescription}</div>
                 <button className={styles.ItemButton}>{feedbackButton}</button>
+            </div>
+
+            <div className={styles.LogoutButton}
+            onClick={()=>logout()}>
+                {LogoutDescription}
             </div>
               
         </div>

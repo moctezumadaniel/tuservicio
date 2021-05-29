@@ -6,10 +6,12 @@ export function ButtonUserLogin (){
     const { loginWithRedirect } = useAuth0();
     const buttonDescription = "Accede a tú cuenta o crea una"
     return(
+        <div className={styles.LoginMainContainer}>
             <div className={styles.LoginButtonContainer}>
                 <button className={styles.LoginButton}
                 onClick={()=>loginWithRedirect()}>{buttonDescription}</button>
             </div>
+        </div>
     )
 }
 

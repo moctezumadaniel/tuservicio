@@ -1,5 +1,6 @@
 import styles from '../../../styles/UserPreviousServices.module.css'
 import Image from 'next/image'
+import { UserLogin } from '../../User_login'
 function UserPreviousServices(){
     const defaultPage = 'Aún no tienes servicios previos'
     const image = "Imagen de perfil";
@@ -9,6 +10,8 @@ function UserPreviousServices(){
     const description = "Este es un ejemplo de la descripcion corta de un servicio que no deberá exedor de 140 caracteres"
     
     return(
+        <>
+        <UserLogin/>
         <div className={styles.ServiceSearchMainContainer}>
             {/*<div>{defaultPage}</div>*/}
             {/*PREVIOUS SERVICE */}
@@ -103,6 +106,7 @@ function UserPreviousServices(){
             </div>
             
         </div>
+        </>
     )
 }
 export default UserPreviousServices
