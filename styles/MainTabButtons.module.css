@@ -40,3 +40,15 @@
 .MainCloseChat:hover{
     cursor: pointer;
 }
+
+@media (max-width:319px) {
+    .MainTabButton{
+        font-size:medium;
+    }
+    .MainTabButtonActive{
+        font-size:medium;
+    }
+    .MainCloseChat{
+        font-size: medium;
+    }
+}

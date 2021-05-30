@@ -322,3 +322,11 @@
     }
 
 }
+@media (max-width:319px) {
+    .TabButton{
+        font-size: small;
+    }
+    .TabButtonActive{
+        font-size: small;
+    }
+}

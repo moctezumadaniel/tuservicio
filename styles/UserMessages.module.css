@@ -254,3 +254,15 @@
     border-bottom: 10px solid transparent;
     border-left: 10px solid black; 
 }
+
+@media (max-height:600px) {
+    .ChatImageAndButtonsContainer{
+        display: none;
+    }
+    .ChatName{
+        margin-top: 10px;
+    }
+    .MessagesMainContainer{
+        padding-top:30px
+    }
+}

@@ -158,3 +158,14 @@
     padding: 20px;
     padding-top: 50px;
 }
+@media (max-width:319px) {
+    .TabButtons{
+        font-size: small;
+    }
+    .TabButtonsActive{
+        font-size: small;
+    }
+    .SearchButton{
+        font-size: small;
+    }
+}
