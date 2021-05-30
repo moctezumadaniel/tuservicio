@@ -2,7 +2,9 @@ import styles from '../../styles/Preferences.module.css'
 import {useSelector, useDispatch} from 'react-redux'
 import {changePlatformToCustomer, changePlatformToUser} from '../../redux/actions/PlatformType'
 import {customerLogout} from '../../redux/actions/LoginsAndLogouts'
-import { useAuth0 } from '@auth0/auth0-react'
+import { UserLogin } from '../../components/User_login'
+import { useAuth0, User } from '@auth0/auth0-react'
+
 function PreferencesTab (){
     const currentGlobalTab = useSelector(state=>state.globalTab)
     const currentPlatform = useSelector(state=>state.platformType)
@@ -29,6 +31,7 @@ function PreferencesTab (){
     const changeToUserDescription = 'Cambiar a cliente de servicios'
     const LogoutDescription = "Cerrar sesión"
     const { logout } = useAuth0()
+    const { isAuthenticated } = useAuth0()
     function handleChangeToCustomerPress(){
         dispatch(changePlatformToCustomer())
     }
@@ -37,7 +40,7 @@ function PreferencesTab (){
         dispatch(customerLogout()))
     }
     return(
-        currentGlobalTab === 'Preferences' ? 
+        currentGlobalTab === 'Preferences' && isAuthenticated ?
         <div className={styles.PreferencesMainContaner}>
             {
             currentPlatform === 'User'?
@@ -94,6 +97,8 @@ function PreferencesTab (){
             </div>
               
         </div>
+        :currentGlobalTab === 'Preferences'?
+        <UserLogin/>
         :""
     )
 }

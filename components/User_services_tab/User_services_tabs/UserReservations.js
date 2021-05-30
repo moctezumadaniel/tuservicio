@@ -1,5 +1,6 @@
 import styles from '../../../styles/UserReservations.module.css'
 import {UserLogin} from '../../User_login'
+import { useAuth0 } from '@auth0/auth0-react'
 function UserReservations (){
     
     return(
@@ -12,6 +13,7 @@ function UserReservations (){
 export default UserReservations
 
 function ListOfUserReservations(){
+    const {isAuthenticated} = useAuth0()
     const defaultPage = "Aún no tienes reservaciones"
     const schedule = '21 de Marzo de 8:00am a 8:30am';
     const customer = 'Nombre Completo del Cliente'
@@ -20,7 +22,8 @@ function ListOfUserReservations(){
     const doneButton = 'CONTACTAR'
     return(
         <>
-        <UserLogin/>
+        {!isAuthenticated?
+        <UserLogin/>:
         <div className={styles.ListOfReservationsContainer}>
             {/*<div className={styles.DefaultPageTitle}>{defaultPage}</div>*/}
             {/*RESERVATION ITEM */}
@@ -136,6 +139,7 @@ function ListOfUserReservations(){
             </div>
 
         </div>
+        }
         </>
     )
 }
