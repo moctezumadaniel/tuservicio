@@ -14,7 +14,7 @@ export default function Home() {
     <Auth0Provider
     domain="danielmoctezuma.us.auth0.com"
     clientId="lIyLMie9a90fQfzV7kbLpt3xeR5HqbMo"
-    redirectUri={"http://localhost:3000"}
+    redirectUri={"http://localhost:3000"||"https://celer.vercel.app"}
     audience="https://danielmoctezuma.us.auth0.com/api/v2/"
     scope="read:current_user update:current_user_metadata">
       <Provider store={store}>
