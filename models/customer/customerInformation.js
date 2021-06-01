@@ -49,6 +49,4 @@ const customerInformationSchema = mongoose.Schema({
     }]
 })
 
-const CustomerInformation = mongoose.model('customerInformation',customerInformationSchema)
-
-export default CustomerInformation
+module.exports = mongoose.model('CustomerInformation',customerInformationSchema)

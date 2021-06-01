@@ -1,4 +1,18 @@
 import UserInformation from '../../models/user/userInformation'
+export const getOrCreateUser = (userId,done)=>{
+    if(userId){
+        UserInformation.find({"userId":userId}, (err, data)=>{
+             if(err) console.log(err);
+             done(data)           
+        })
+    }else{
+        UserInformation.create({"userId":userId}, (err, data)=>{
+            if(err) console.log(err);
+            done(data)
+        })
+    }
+}
+
 
 export const changeUserName = (userId, newName, done) =>{
     UserInformation.find({"userId":userId}, (err, data)=>{

@@ -12,6 +12,4 @@ const userInformationSchema = mongoose.Schema({
     currentPlatform:String
 })
 
-const UserInformation = mongoose.model('CustomerInformation',userInformationSchema)
-
-export default UserInformation
+module.exports = mongoose.model('UserInformation',userInformationSchema)
