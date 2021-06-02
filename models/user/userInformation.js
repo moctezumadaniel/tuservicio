@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const userInformationSchema = mongoose.Schema({
+const userInformationSchema = new mongoose.Schema({
     name:String,
     phone:String,
     email:String,
@@ -12,4 +12,5 @@ const userInformationSchema = mongoose.Schema({
     currentPlatform:String
 })
 
-module.exports = mongoose.model('UserInformation',userInformationSchema)
+const UserInformation = mongoose.model('UserInformation',userInformationSchema);
+module.exports = UserInformation

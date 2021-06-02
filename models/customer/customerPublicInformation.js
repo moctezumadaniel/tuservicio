@@ -47,4 +47,5 @@ const customerPublicInformationSchema = mongoose.Schema({
     
 })
 
-module.exports = mongoose.model('CustomerPublicProfileInformation',customerPublicInformationSchema)
+const CustomerPublicProfileInformation = mongoose.model('CustomerPublicProfileInformation',customerPublicInformationSchema)
+module.exports = CustomerPublicProfileInformation

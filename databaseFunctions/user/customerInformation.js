@@ -1,4 +1,5 @@
-import UserInformation from '../../models/user/userInformation'
+const UserInformation = require('../../models/user/userInformation')
+
 export const getOrCreateUser = (userId,done)=>{
     if(userId){
         UserInformation.find({"userId":userId}, (err, data)=>{

@@ -49,4 +49,5 @@ const customerInformationSchema = mongoose.Schema({
     }]
 })
 
-module.exports = mongoose.model('CustomerInformation',customerInformationSchema)
+const CustomerInformation = mongoose.model('CustomerInformation',customerInformationSchema)
+module.exports = CustomerInformation
