@@ -1,6 +1,6 @@
-import connectDB from '../../middleware/mongodb'
-import UserInformation from '../../models/user/userInformation'
-export default async function(req, res){
+import connectDB from '../../../middleware/mongodb'
+import UserInformation from '../../../models/user/userInformation'
+export default async function getCreateUserInformation(req, res){
     const { method } = req;
     await connectDB()
     const userId = req.body.user
