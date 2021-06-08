@@ -15,9 +15,8 @@ function AppMainContainer (){
     useEffect(async()=>{
         if(user){
             const res = await axios.get('api/user/getCreateUserInformation',{
-                method:"GET",
                 params:{
-                    user:user.sub
+                    user:"test"
                 }
             })
 
@@ -25,8 +24,6 @@ function AppMainContainer (){
             setUserData(userInformation)
         }
     },[])
-    console.log(user)
-    console.log(userData)
     return(
         currentPlatform === 'Customer'&& isAuthenticated?
         <AppCustomerContainer/>

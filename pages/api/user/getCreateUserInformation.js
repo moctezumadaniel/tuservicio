@@ -1,8 +1,7 @@
 import connectDB from '../../../middleware/mongodb'
 import UserInformation from '../../../models/user/userInformation'
 export default async function getCreateUserInformation(req, res){
-    const { method } = req;
-    await connectDB()
+    connectDB()
     const userId = req.params.user
             try{
                 const user = await UserInformation.find({"userId":userId});
@@ -17,7 +16,4 @@ export default async function getCreateUserInformation(req, res){
             }catch (error) {
                 res.status(400).json({ success: false })
             }
-            console.log(user)
-            console.log(userId)
-   
 }

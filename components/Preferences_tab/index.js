@@ -31,7 +31,7 @@ function PreferencesTab (){
     const changeToUserDescription = 'Cambiar a cliente de servicios'
     const LogoutDescription = "Cerrar sesión"
     const { logout } = useAuth0()
-    const { isAuthenticated } = useAuth0()
+    const { isAuthenticated, isLoading } = useAuth0()
     function handleChangeToCustomerPress(){
         dispatch(changePlatformToCustomer())
     }
@@ -40,7 +40,7 @@ function PreferencesTab (){
         dispatch(customerLogout()))
     }
     return(
-        currentGlobalTab === 'Preferences' && isAuthenticated ?
+        currentGlobalTab === 'Preferences' && isAuthenticated && !isLoading?
         <div className={styles.PreferencesMainContaner}>
             {
             currentPlatform === 'User'?

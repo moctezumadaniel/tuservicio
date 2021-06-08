@@ -13,7 +13,7 @@ function UserReservations (){
 export default UserReservations
 
 function ListOfUserReservations(){
-    const {isAuthenticated} = useAuth0()
+    const {isAuthenticated, isLoading} = useAuth0()
     const defaultPage = "Aún no tienes reservaciones"
     const schedule = '21 de Marzo de 8:00am a 8:30am';
     const customer = 'Nombre Completo del Cliente'
@@ -22,7 +22,7 @@ function ListOfUserReservations(){
     const doneButton = 'CONTACTAR'
     return(
         <>
-        {!isAuthenticated?
+        {!isAuthenticated && !isLoading?
         <UserLogin/>:
         <div className={styles.ListOfReservationsContainer}>
             {/*<div className={styles.DefaultPageTitle}>{defaultPage}</div>*/}

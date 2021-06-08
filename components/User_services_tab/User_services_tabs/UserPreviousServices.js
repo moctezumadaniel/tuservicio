@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { UserLogin } from '../../User_login'
 import { useAuth0 } from '@auth0/auth0-react'
 function UserPreviousServices(){
-    const {isAuthenticated} = useAuth0()
+    const {isAuthenticated, isLoading} = useAuth0()
     const defaultPage = 'Aún no tienes servicios previos'
     const image = "Imagen de perfil";
     const name = "Nombre del servicio";
@@ -13,7 +13,7 @@ function UserPreviousServices(){
     
     return(
         <>
-        {!isAuthenticated?
+        {!isAuthenticated && !isLoading?
         <UserLogin/>:
         <div className={styles.ServiceSearchMainContainer}>
             {/*<div>{defaultPage}</div>*/}

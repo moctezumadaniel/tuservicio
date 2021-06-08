@@ -6,7 +6,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import {UserLogin} from '../../components/User_login'
 
 function UserMessagesTab (){
-    const { isAuthenticated } = useAuth0()
+    const { isAuthenticated, isLoading } = useAuth0()
     const currentTab = useSelector(state=>state.userMessagesTab)
     const globalTab = useSelector(state=>state.globalTab)
     if(isAuthenticated){
@@ -19,7 +19,7 @@ function UserMessagesTab (){
         </div>
         :""
     )}
-    else if(!isAuthenticated && globalTab ==='Messages'){
+    else if(!isAuthenticated && !isLoading && globalTab ==='Messages'){
         return(
             <UserLogin/>
         )

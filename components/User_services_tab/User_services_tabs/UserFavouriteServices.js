@@ -4,7 +4,7 @@ import { UserLogin } from '../../User_login'
 import { useAuth0 } from '@auth0/auth0-react'
 
 function UserFavouriteServices(){
-    const {isAuthenticated} = useAuth0()
+    const {isAuthenticated, isLoading} = useAuth0()
     const defaultPage = 'Aún no tienes servicios favoritos'
     const image = "Imagen de perfil";
     const name = "Nombre del servicio";
@@ -14,7 +14,7 @@ function UserFavouriteServices(){
     
     return(
         <>
-        {!isAuthenticated?
+        {!isAuthenticated && !isLoading?
         <UserLogin/>:
         <div className={styles.ServiceSearchMainContainer}>
             {/*<div>{defaultPage}</div>*/}

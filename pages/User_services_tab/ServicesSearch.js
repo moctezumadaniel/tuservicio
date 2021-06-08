@@ -4,10 +4,10 @@ import UserServicePreview from '../User_service_preview';
 import { useAuth0 } from '@auth0/auth0-react'
 
 function ServicesSearch (){
-    const { isAuthenticated } = useAuth0()
+    const { isAuthenticated, isLoading } = useAuth0()
     return(
         <>
-        {!isAuthenticated?
+        {!isAuthenticated && !isLoading?
         <ButtonUserLogin/>
         :""}
         <div className={styles.ServiceSearchMainContainer}>
