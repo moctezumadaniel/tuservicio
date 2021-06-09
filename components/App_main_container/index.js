@@ -9,21 +9,18 @@ import axios from 'axios'
 
 function AppMainContainer (){
     const [userData, setUserData] = useState(null)
-    const { isAuthenticated } = useAuth0()
-    const { user } = useAuth0() || ""
+    const { isAuthenticated, isLoading,user } = useAuth0()
     const currentPlatform = useSelector(state=>state.platformType)
-    useEffect(async()=>{
-        if(user){
-            const res = await axios.get('api/user/getCreateUserInformation',{
-                params:{
-                    user:"test"
-                }
+    useEffect(async ()=>{
+        isAuthenticated ?
+            await axios.get(`api/user/getCreateUserInformation`,{
+                params:user.sub 
             })
-
-            const userInformation = res.json()
-            setUserData(userInformation)
-        }
+            .then(response => setUserData(response))
+            .catch(error => console.log(error))
+        :"SOPA DE MAZAPAN"
     },[])
+    console.log(userData || "sin informacion")
     return(
         currentPlatform === 'Customer'&& isAuthenticated?
         <AppCustomerContainer/>
