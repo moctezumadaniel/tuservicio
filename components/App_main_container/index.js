@@ -11,14 +11,14 @@ function AppMainContainer (){
     const [userData, setUserData] = useState(null)
     const { isAuthenticated, isLoading,user } = useAuth0()
     const currentPlatform = useSelector(state=>state.platformType)
-    useEffect(async ()=>{
-        isAuthenticated ?
-            await axios.get(`api/user/getCreateUserInformation`,{
-                params:user.sub 
+    useEffect(()=>{
+            axios.get(`api/user/getCreateUserInformation`,{
+                params:{
+                    user:user.sub || ""
+                }
             })
             .then(response => setUserData(response))
             .catch(error => console.log(error))
-        :"SOPA DE MAZAPAN"
     },[])
     console.log(userData || "sin informacion")
     return(
