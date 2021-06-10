@@ -14,13 +14,14 @@ function AppMainContainer (){
     useEffect(()=>{
             axios.get(`api/user/getCreateUserInformation`,{
                 params:{
-                    user:user.sub || ""
+                    user:user
                 }
             })
             .then(response => setUserData(response))
             .catch(error => console.log(error))
     },[])
-    console.log(userData || "sin informacion")
+    console.log(user)
+    console.log(userData)
     return(
         currentPlatform === 'Customer'&& isAuthenticated?
         <AppCustomerContainer/>
