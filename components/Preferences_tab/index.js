@@ -3,11 +3,12 @@ import {useSelector, useDispatch} from 'react-redux'
 import {changePlatformToCustomer, changePlatformToUser} from '../../redux/actions/PlatformType'
 import {customerLogout} from '../../redux/actions/LoginsAndLogouts'
 import { UserLogin } from '../../components/User_login'
-import { useAuth0, User } from '@auth0/auth0-react'
+import { useAuth0 } from '@auth0/auth0-react'
 
 function PreferencesTab (){
     const currentGlobalTab = useSelector(state=>state.globalTab)
     const currentPlatform = useSelector(state=>state.platformType)
+    const userPreferences = useSelector(state => state.userInformation)
     const dispatch = useDispatch()
     const nameDescription = 'Nombre';
     const name = 'Nombre Completo del Usuario';
@@ -57,19 +58,19 @@ function PreferencesTab (){
             
             <div className={styles.PreferenceItem}>
                 <div className={styles.ItemHeader}>{nameDescription}</div>
-                <div className={styles.ItemDescription}>{name}</div>
+                <div className={styles.ItemDescription}>{userPreferences.name}</div>
                 <button className={styles.ItemButton}>{nameButton}</button>
             </div>
 
             <div className={styles.PreferenceItem}>
                 <div className={styles.ItemHeader}>{phoneNumberDescription}</div>
-                <div className={styles.ItemDescription}>{phoneNumber}</div>
+                <div className={styles.ItemDescription}>{userPreferences.phoneNumber}</div>
                 <button className={styles.ItemButton}>{phoneNumberButton}</button>
             </div>
 
             <div className={styles.PreferenceItem}>
                 <div className={styles.ItemHeader}>{emailDesciption}</div>
-                <div className={styles.ItemDescription}>{email}</div>
+                <div className={styles.ItemDescription}>{userPreferences.email}</div>
                 <button className={styles.ItemButton}>{emailButton}</button>
             </div>
 
