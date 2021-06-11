@@ -25,6 +25,8 @@ export const userInformationReducer = (state=initialUserInformation, action) =>{
                 ...state,
                 email:action.email
             }
+        case 'LOAD_ALL_USER_INFORMATION':
+            return action.data
         default:
             return state;
         

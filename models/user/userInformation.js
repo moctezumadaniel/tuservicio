@@ -3,11 +3,14 @@ var findOrCreate = require('mongoose-findorcreate')
 
 const userInformationSchema = new mongoose.Schema({
     name:String,
-    phone:String,
+    phoneNumber:String,
     email:String,
     password:String,
     reviews:[String],
-    problemsAndComments:[String],
+    issuesAndComments:[String],
+    reservations:[String],
+    previousServices:[String],
+    favoriteServices:[String],
     userId:String,
     customerId:String,
     currentPlatform:String

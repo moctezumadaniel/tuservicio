@@ -1,27 +1,30 @@
 import AppUserContainer from "../App_user_container";
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import AppCustomerContainer from "../App_customer_container";
 import { useAuth0 } from '@auth0/auth0-react'
-import connectDB from '../../middleware/mongodb'
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { loadAllUserInformation } from '../../redux/actions/UserInformation'
 import axios from 'axios'
 
 
 function AppMainContainer (){
-    const [userData, setUserData] = useState(null)
+    const dispatch = useDispatch()
     const { isAuthenticated, isLoading,user } = useAuth0()
     const currentPlatform = useSelector(state=>state.platformType)
+    const userInformation = useSelector(state => state.userInformation)
+    function setUserInformationState(data){
+        dispatch(loadAllUserInformation(data))
+    }
     useEffect(()=>{
             axios.get(`api/user/getCreateUserInformation`,{
                 params:{
                     user:user
                 }
             })
-            .then(response => setUserData(response))
+            .then(response => setUserInformationState(response.data))
             .catch(error => console.log(error))
     },[])
-    console.log(user)
-    console.log(userData)
+    console.log(userInformation)
     return(
         currentPlatform === 'Customer'&& isAuthenticated?
         <AppCustomerContainer/>

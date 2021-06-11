@@ -18,3 +18,10 @@ export const changeUserInformationEmail = (email) =>{
         email
     }
 }
+
+export const loadAllUserInformation = (data) =>{
+    return{
+        type:'LOAD_ALL_USER_INFORMATION',
+        data
+    }
+}
