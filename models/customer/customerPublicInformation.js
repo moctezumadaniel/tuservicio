@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+var findOrCreate = require('mongoose-findorcreate')
 
 const customerPublicInformationSchema = mongoose.Schema({
     
@@ -47,5 +48,6 @@ const customerPublicInformationSchema = mongoose.Schema({
     
 })
 
+customerPublicInformationSchema.plugin(findOrCreate);
 const CustomerPublicProfileInformation = mongoose.model('CustomerPublicProfileInformation',customerPublicInformationSchema)
 module.exports = CustomerPublicProfileInformation
