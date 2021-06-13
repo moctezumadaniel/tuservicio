@@ -17,7 +17,7 @@ function AppUserContainer (){
         dispatch(loadAllUserInformation(data))
     }
     useEffect(()=>{ 
-        if(isAuthenticated && !isLoading){
+        if(isAuthenticated && !isLoading && user){
             axios.get(`api/user/getCreateUserInformation`,{
                 params:{
                     user:user.sub
@@ -28,7 +28,6 @@ function AppUserContainer (){
             
         }
     },[])
-    console.log(user.sub)
     console.log(userInformation)
     return(
         <div>

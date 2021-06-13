@@ -27,12 +27,19 @@ function AppCustomerContainer(){
         }
     },[])
     console.log(customerData)
-    return(
+    if(customerData){
+        return(
         <div>
             <CustomerServiceDashboard/>
             <UserMessagesTab/>
             <PreferencesTab/>
         </div>
-    )
+    )}else{
+        return(
+            <div>
+                CARGANDO
+            </div>
+        )
+    }
 }
 export default AppCustomerContainer

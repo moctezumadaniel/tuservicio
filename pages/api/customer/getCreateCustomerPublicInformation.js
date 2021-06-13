@@ -12,7 +12,7 @@ export default async function handler(req, res) {
             workdays:[],
             schedule:[],
             shortDescription:"Escribe una descripcion corta de tu negocio",
-            rating:Number,
+            rating:"",
         
             //CONTACT AND MORE DETAILS
             phoneNumber:"No has establecido el teléfono de tu servicio",
