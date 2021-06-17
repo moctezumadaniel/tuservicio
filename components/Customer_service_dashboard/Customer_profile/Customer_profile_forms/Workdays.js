@@ -1,11 +1,31 @@
 import styles from '../../../../styles/CustomerProfileForms.module.css'
-import {useDispatch} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {changeCustomerProfileFormToNone} from '../../../../redux/actions/CustomerProfileForms'
+import { changeCustomerPublicInformationWorkdays } from '../../../../redux/actions/CustomerPublicInformation'
+import axios from 'axios'
+import { useState } from 'react';
 function Workdays (){
+    const customerInformation = useSelector(state => state.CustomerPublicInformation)
+    const [temporalWorkdays, setTemporalWorkdays] = useState(customerInformation.workdays)
     const dispatch = useDispatch();
     function handleCloseForm(){
         dispatch(changeCustomerProfileFormToNone(),
         console.log('PRESIONADO'))
+    }
+
+    function updateCustomerWorkdays(workdays){
+        axios.patch(`api/customer/updateCustomerWorkdays`,{
+            params:{
+                customerId:customerInformation.customerId,
+                workdays
+            }
+        })
+        .then(response =>{
+            if(response.success){
+                dispatch(changeCustomerPublicInformationWorkdays(temporalWorkdays))
+            }
+        })
+        .catch(error => console.log(error))
     }
     const instructions = 'Marca los días que prestas servicios'
     const monday = 'Lunes';
