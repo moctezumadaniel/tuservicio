@@ -18,3 +18,17 @@ export const changeCustomerPublicInformationWorkdays = (workdays) =>{
         workdays
     }
 }
+
+export const changeCustomerPublicInformationSchedule = (schedule) =>{
+    return{
+        type: 'CHANGE_CUSTOMER_PUBLIC_INFORMATION_SCHEDULE',
+        schedule
+    }
+}
+
+export const changeCustomerPublicInformationShortDesciption = (shortDescription) =>{
+    return{
+        type:'CHANGE_CUSTOMER_PUBLIC_INFORMATION_SHORT_DESCRIPTION',
+        shortDescription
+    }
+}

@@ -1,7 +1,14 @@
 import styles from '../../../../styles/CustomerProfileForms.module.css'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {changeCustomerProfileFormToNone} from '../../../../redux/actions/CustomerProfileForms'
+import { changeCustomerPublicInformationSchedule } from '../../../../redux/actions/CustomerPublicInformation'
+import { useState } from 'react'
+import axios from 'axios'
+
+
 function Schedule (){
+    const customerInformation = useSelector(state => state.CustomerPublicInformation)
+    const [temporalSchedule, setTemporalSchedule] = useState(customerInformation.schedule)
     const dispatch = useDispatch();
     const toConector = ' a '
     const workdays = 'Dias de atención de:'
@@ -15,6 +22,20 @@ function Schedule (){
     const confirmButton = 'ACEPTAR'
     function handleCloseForm (){
         dispatch(changeCustomerProfileFormToNone())
+    }
+    function updateCustomerSchedule(schedule){
+        axios.patch(`api/customer/updateCustomerSchedule`,{
+            params:{
+                userId:customerInformation.userId,
+                schedule
+            }
+        })
+        .then(response => {
+            if(response.success){
+                dispatch(changeCustomerPublicInformationSchedule(temporalSchedule))
+            }
+        })
+        .catch(error => console.log(error))
     }
     return(
         <div className={styles.MainContainer}>
