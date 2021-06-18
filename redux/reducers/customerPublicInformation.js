@@ -22,6 +22,21 @@ export const customerPublicInformationReducer = (state="", action)=>{
                 ...state,
                 shortDescription:action.shortDescription
             }
+        case 'CHANGE_CUSTOMER_PUBLIC_INFORMATION_PHONE_NUMBER':
+            return{
+                ...state,
+                phoneNumber:action.phoneNumber
+            }
+        case 'CHANGE_CUSTOMER_PUBLIC_INFORMATION_ADDRESS':
+            return{
+                ...state,
+                address:action.address
+            }
+        case 'CHANGE_CUSTOMER_PUBLIC_INFORMATION_MORE_INFORMATION':
+            return{
+                ...state,
+                moreInformation:action.moreInformation
+            }
         default:
             return state
     }

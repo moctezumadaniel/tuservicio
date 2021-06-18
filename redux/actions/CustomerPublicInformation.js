@@ -32,3 +32,24 @@ export const changeCustomerPublicInformationShortDesciption = (shortDescription)
         shortDescription
     }
 }
+
+export const changeCustomerPublicInformationPhoneNumber = (phoneNumber) =>{
+    return{
+        type: 'CHANGE_CUSTOMER_PUBLIC_INFORMATION_PHONE_NUMBER',
+        phoneNumber
+    }
+}
+
+export const changeCustomerPublicInformationAddress = (address) =>{
+    return{
+        type: 'CHANGE_CUSTOMER_PUBLIC_INFORMATION_ADDRESS',
+        address
+    }
+}
+
+export const changeCustomerPublicInformationMoreInformation = (moreInformation) =>{
+    return{
+        type:'CHANGE_CUSTOMER_PUBLIC_INFORMATION_MORE_INFORMATION',
+        moreInformation
+    }
+}
