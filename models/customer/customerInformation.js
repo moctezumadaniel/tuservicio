@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+var findOrCreate = require('mongoose-findorcreate')
 
 const customerInformationSchema = mongoose.Schema({
     //ORDERS TOOL
@@ -48,6 +49,6 @@ const customerInformationSchema = mongoose.Schema({
         description:String
     }]
 })
-
+customerInformationSchema.plugin(findOrCreate)
 const CustomerInformation = mongoose.model('CustomerInformation',customerInformationSchema)
 module.exports = CustomerInformation
