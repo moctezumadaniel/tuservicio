@@ -5,7 +5,6 @@ import EmailForm from './EmailForm'
 import PasswordForm from './PasswordForm'
 function PreferencesForms(){
     const currentForm = useSelector(state => state.userPreferencesForms)
-    console.log(currentForm)
     switch(currentForm){
         case 'Name':
             return <UserNameForm/>

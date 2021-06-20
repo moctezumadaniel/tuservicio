@@ -75,3 +75,83 @@
         width: 95vw;
     }
 }
+
+/*PHONE NUMBER*/
+.PhoneNumber{
+    outline: none;
+    border: none;
+    font-size: large;
+    font-family: sans-serif;
+    width: 400px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    border-radius: 100px;
+    background-color: white;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
+    
+}
+@media(max-width:700px){
+    .PhoneNumber{
+        width: 95vw;
+    }
+}
+
+/*EMAIL*/
+.Email{
+    outline: none;
+    border: none;
+    font-size: large;
+    font-family: sans-serif;
+    width: 400px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    border-radius: 100px;
+    background-color: white;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
+    
+}
+@media(max-width:700px){
+    .Email{
+        width: 95vw;
+    }
+}
+
+/*PASSWORD*/
+.PasswordsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+    width: 100vw;
+}
+.Password{
+    outline: none;
+    border: none;
+    font-size: large;
+    font-family: sans-serif;
+    width: 100%;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 10px;
+    justify-self: center;
+    align-self: center;
+    border-radius: 100px;
+    background-color: white;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
+    
+}
+@media(min-width:1300px){
+    .Password{
+        width: 400px;
+    }
+}
+

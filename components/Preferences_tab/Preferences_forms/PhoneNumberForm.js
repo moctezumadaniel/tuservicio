@@ -4,6 +4,7 @@ import { changeUserPreferencesFormToNone } from '../../../redux/actions/UserPref
 
 
 function PhoneNumberForm(){
+    const phoneNumberPlaceholder = 'Escribe tu número de teléfono'
     const dispatch = useDispatch()
     function closeForm (){
         dispatch(changeUserPreferencesFormToNone())
@@ -14,7 +15,9 @@ function PhoneNumberForm(){
             <div className={styles.ModalBackground}
             onClick={()=>closeForm()}></div>
             <div className={styles.ModalContainer}>
-
+                <input type="text" className={styles.PhoneNumber}
+                placeholder={phoneNumberPlaceholder}/>
+                <button className={styles.ConfirmButton}>{confirmButton}</button>
             </div>
         </div>
     )

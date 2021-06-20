@@ -4,6 +4,7 @@ import { changeUserPreferencesFormToNone } from '../../../redux/actions/UserPref
 
 
 function EmailForm(){
+    const emailPlaceholder = 'Escribe tu correo electrónico'
     const dispatch = useDispatch()
     function closeForm (){
         dispatch(changeUserPreferencesFormToNone())
@@ -14,7 +15,9 @@ function EmailForm(){
             <div className={styles.ModalBackground}
             onClick={()=>closeForm()}></div>
             <div className={styles.ModalContainer}>
-
+                <input type="text" className={styles.Email}
+                placeholder={emailPlaceholder}/>
+                <button className={styles.ConfirmButton}>{confirmButton}</button>
             </div>
         </div>
     )

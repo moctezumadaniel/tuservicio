@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux'
 import styles from '../../../styles/UserPreferencesForms.module.css'
 import { changeUserPreferencesFormToNone } from '../../../redux/actions/UserPreferencesForms'
 function UserNameForm(){
+    const userNamePlaceholder = 'Escribe tu nombre completo'
     const dispatch = useDispatch()
     function closeForm (){
         dispatch(changeUserPreferencesFormToNone())
@@ -12,7 +13,8 @@ function UserNameForm(){
             <div className={styles.ModalBackground}
             onClick={()=>closeForm()}></div>
             <div className={styles.ModalContainer}>
-                <input type="text" className={styles.UserName}/>
+                <input type="text" className={styles.UserName}
+                placeholder={userNamePlaceholder}/>
                 <button className={styles.ConfirmButton}>{confirmButton}</button>
             </div>
         </div>
