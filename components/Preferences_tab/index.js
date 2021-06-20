@@ -1,9 +1,16 @@
 import styles from '../../styles/Preferences.module.css'
 import {useSelector, useDispatch} from 'react-redux'
 import {changePlatformToCustomer, changePlatformToUser} from '../../redux/actions/PlatformType'
+import {
+    changeUserPreferencesFormToName,
+    changeUserPreferencesFormToPhoneNumber,
+    changeUserPreferencesFormToEmailForm,
+    changeUserPreferencesFormToPassword
+} from '../../redux/actions/UserPreferencesForms'
 import {customerLogout} from '../../redux/actions/LoginsAndLogouts'
 import { UserLogin } from '../../components/User_login'
 import { useAuth0 } from '@auth0/auth0-react'
+import PreferencesForms from './Preferences_forms'
 
 function PreferencesTab (){
     const currentGlobalTab = useSelector(state=>state.globalTab)
@@ -40,8 +47,23 @@ function PreferencesTab (){
         dispatch(changePlatformToUser(),
         dispatch(customerLogout()))
     }
+
+    function openUserNameForm (){
+        dispatch(changeUserPreferencesFormToName())
+    }
+    function openPhoneNumberForm (){
+        dispatch(changeUserPreferencesFormToPhoneNumber())
+    }
+    function openEmailForm (){
+        dispatch(changeUserPreferencesFormToEmailForm())
+    }
+    function openPasswordForm (){
+        dispatch(changeUserPreferencesFormToPassword())
+    }
+
     return(
         currentGlobalTab === 'Preferences' && isAuthenticated && !isLoading?
+        <>
         <div className={styles.PreferencesMainContaner}>
             {
             currentPlatform === 'User'?
@@ -59,25 +81,29 @@ function PreferencesTab (){
             <div className={styles.PreferenceItem}>
                 <div className={styles.ItemHeader}>{nameDescription}</div>
                 <div className={styles.ItemDescription}>{userPreferences.name}</div>
-                <button className={styles.ItemButton}>{nameButton}</button>
+                <button className={styles.ItemButton}
+                onClick={()=>openUserNameForm()}>{nameButton}</button>
             </div>
 
             <div className={styles.PreferenceItem}>
                 <div className={styles.ItemHeader}>{phoneNumberDescription}</div>
                 <div className={styles.ItemDescription}>{userPreferences.phoneNumber}</div>
-                <button className={styles.ItemButton}>{phoneNumberButton}</button>
+                <button className={styles.ItemButton}
+                onClick={()=>openPhoneNumberForm()}>{phoneNumberButton}</button>
             </div>
 
             <div className={styles.PreferenceItem}>
                 <div className={styles.ItemHeader}>{emailDesciption}</div>
                 <div className={styles.ItemDescription}>{userPreferences.email}</div>
-                <button className={styles.ItemButton}>{emailButton}</button>
+                <button className={styles.ItemButton}
+                onClick={()=>openEmailForm()}>{emailButton}</button>
             </div>
 
             <div className={styles.PreferenceItem}>
                 <div className={styles.ItemHeader}>{passwordDescription}</div>
                 <div className={styles.ItemDescription}>{password}</div>
-                <button className={styles.ItemButton}>{paswordButton}</button>
+                <button className={styles.ItemButton}
+                onClick={()=>openPasswordForm()}>{paswordButton}</button>
             </div>
 
             <div className={styles.PreferenceItem}>
@@ -96,8 +122,9 @@ function PreferencesTab (){
             onClick={()=>logout()}>
                 {LogoutDescription}
             </div>
-              
         </div>
+        <PreferencesForms/>
+        </>
         :currentGlobalTab === 'Preferences'?
         <UserLogin/>
         :""

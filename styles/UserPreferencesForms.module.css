@@ -1,0 +1,77 @@
+/*GLOBAL*/
+.MainContainer{
+    display: flex;
+    top:0;
+    left: 0;
+    bottom: 235px;
+    position:fixed;
+    width: 100vw;
+    height: 100vh;
+}
+.ModalBackground{
+    flex: 1;
+    background-color: black;
+    opacity: 0.60;
+}
+.ModalContainer{
+    display: flex;
+    flex-wrap: wrap;
+    bottom: 35px;
+    position: fixed;
+    width: 100vw;
+    background-color: #FAFAFA;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    justify-content: space-evenly;
+    box-shadow: 10px 0px 7px rgba(0, 0, 0, 0.25);
+
+}
+@media (max-height:500px) {
+    .ModalContainer{
+        padding-bottom: 10px;
+    }
+}
+.FullWidthContainer{
+    width: 99vw;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.ConfirmButton{
+    outline: none;
+    border: none;
+    color: #00BB1E;
+    background-color: transparent;
+    font-size: medium;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.ConfirmButton:hover{
+    cursor: pointer;
+}
+/*USER NAME*/
+.UserName{
+    outline: none;
+    border: none;
+    font-size: large;
+    font-family: sans-serif;
+    width: 400px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    border-radius: 100px;
+    background-color: white;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
+    
+}
+@media(max-width:700px){
+    .UserName{
+        width: 95vw;
+    }
+}
