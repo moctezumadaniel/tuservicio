@@ -131,15 +131,15 @@ function MainTabButtons (){
             }
 
             {
-            currentPreferenceForm === 'None'?
-            <button className={currentTab === 'Preferences' ? styles.MainTabButtonActive : styles.MainTabButton}
-            onClick={handlePreferencesPress}>
-                Preferencias
-            </button>
-            :
+            (currentPreferenceForm !== 'None' && currentTab === 'Preferences')?
             <button className={styles.MainCloseChat}
             onClick={handleClosePreferenceForm}>
                 {closeDescription}
+            </button>
+            :
+            <button className={currentTab === 'Preferences' ? styles.MainTabButtonActive : styles.MainTabButton}
+            onClick={handlePreferencesPress}>
+                Preferencias
             </button>
              } 
             

@@ -1,13 +1,24 @@
 import styles from '../../../styles/UserPreferencesForms.module.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { changeUserPreferencesFormToNone } from '../../../redux/actions/UserPreferencesForms'
+import { useState } from 'react'
 
 
 function EmailForm(){
+    const initialEmailPlaceholder = 'No has establecido tu correo'
     const emailPlaceholder = 'Escribe tu correo electrónico'
+    const userInformation = useSelector(state => state.userInformation)
+    const [temporalEmail, setTemporalEmail] = useState(
+        userInformation.email !== initialEmailPlaceholder ?
+        userInformation.email
+        :""
+    )
     const dispatch = useDispatch()
     function closeForm (){
         dispatch(changeUserPreferencesFormToNone())
+    }
+    function updateTemporalEmail(event){
+        setTemporalEmail(event.target.value)
     }
     const confirmButton = 'ACEPTAR'
     return(
@@ -16,7 +27,9 @@ function EmailForm(){
             onClick={()=>closeForm()}></div>
             <div className={styles.ModalContainer}>
                 <input type="text" className={styles.Email}
-                placeholder={emailPlaceholder}/>
+                placeholder={emailPlaceholder}
+                value={temporalEmail}
+                onChange={updateTemporalEmail}/>
                 <button className={styles.ConfirmButton}>{confirmButton}</button>
             </div>
         </div>
