@@ -49,5 +49,6 @@ const customerPublicInformationSchema = mongoose.Schema({
 })
 
 customerPublicInformationSchema.plugin(findOrCreate);
-const CustomerPublicProfileInformation = mongoose.model('CustomerPublicProfileInformation',customerPublicInformationSchema)
+const CustomerPublicProfileInformation = mongoose.models.CustomerPublicProfileInformation
+    || mongoose.model('CustomerPublicProfileInformation',customerPublicInformationSchema)
 module.exports = CustomerPublicProfileInformation

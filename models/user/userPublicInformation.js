@@ -8,5 +8,6 @@ const userPublicInformationSchema = new mongoose.Schema({
     favoriteServices:[String]
 })
 
-const UserPublicInformation = mongoose.model('UserPublicInformation',userPublicInformationSchema)
+const UserPublicInformation = mongoose.models.UserPublicInformation 
+    || mongoose.model('UserPublicInformation',userPublicInformationSchema)
 module.exports = UserPublicInformation

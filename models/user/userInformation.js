@@ -16,5 +16,6 @@ const userInformationSchema = new mongoose.Schema({
     currentPlatform:String
 })
 userInformationSchema.plugin(findOrCreate);
-const UserInformation = mongoose.models.UserInformation ||mongoose.model('UserInformation',userInformationSchema);
+const UserInformation = mongoose.models.UserInformation 
+    || mongoose.model('UserInformation',userInformationSchema);
 module.exports = UserInformation

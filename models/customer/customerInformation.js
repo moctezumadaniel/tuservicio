@@ -50,5 +50,6 @@ const customerInformationSchema = mongoose.Schema({
     }]
 })
 customerInformationSchema.plugin(findOrCreate)
-const CustomerInformation = mongoose.model('CustomerInformation',customerInformationSchema)
+const CustomerInformation = mongoose.models.CustomerInformation 
+    || mongoose.model('CustomerInformation',customerInformationSchema)
 module.exports = CustomerInformation

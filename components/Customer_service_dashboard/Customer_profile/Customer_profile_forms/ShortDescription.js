@@ -5,7 +5,8 @@ import { changeCustomerPublicInformationShortDesciption } from '../../../../redu
 import { useState } from 'react';
 import axios from 'axios'
 function ShortDescription (){
-    const customerInformation = useSelector(state => state.CustomerPublicInformation)
+    const customerInformation = useSelector(state => state.customerPublicInformation)
+    const [shortDescriptionUpdating, setShortDescriptionUpdating] = useState(false)
     const [temporalShortDescription, setTemporalShortDescription ] = useState(customerInformation.shortDescription)
     const dispatch = useDispatch()
     const shortDescriptionPlaceholder = 'Escribe una descripcion corta sobre tu negocio'
@@ -13,20 +14,23 @@ function ShortDescription (){
     function handleCloseForm(){
         dispatch(changeCustomerProfileFormToNone())
     }
-
-    function updateCustomerShortDescription(shortDescription){
+    function updateTemporalShortDescription(event){
+        setTemporalShortDescription(event.target.value)
+    }
+    function updateCustomerShortDescription(customerId,shortDescription){
+        setShortDescriptionUpdating(true)
         axios.patch(`api/customer/updateCustomerShortDescription`,{
-            params:{
-                userId:customerInformation.userId,
+                customerId,
                 shortDescription
-            }
         })
         .then(response => {
-            if(response.success){
-                dispatch(changeCustomerPublicInformationShortDesciption(temporalShortDescription))
+            if(response){
+                dispatch(changeCustomerPublicInformationShortDesciption(response.data.shortDescription))
+                console.log(response)
             }
         })
         .catch(error => console.log(error))
+        setShortDescriptionUpdating(false)
     }
     return(
         <div className={styles.MainContainer}>
@@ -35,14 +39,22 @@ function ShortDescription (){
             </div>
 
             <div className={styles.ModalContainer}>
+                {!shortDescriptionUpdating ?
+                <>
                 <div>
                     <textarea className={styles.ShortDescriptionContainer}
+                    value={temporalShortDescription}
+                    onChange={updateTemporalShortDescription}
                     placeholder={shortDescriptionPlaceholder}/>
                 </div>
                 <div className={styles.FullWidthContainer}>
                     <button onClick={handleCloseForm}
-                    className={styles.ConfirmButton}>{confirmButton}</button>
+                    className={styles.ConfirmButton}
+                    onClick={()=>updateCustomerShortDescription(customerInformation.customerId,temporalShortDescription)}>
+                        {confirmButton}</button>
                 </div>
+                </>
+                :""}   
             </div>
 
         </div>
