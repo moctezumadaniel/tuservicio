@@ -24,14 +24,12 @@ function UserNameForm(){
     function updateUserName(userId, newName){
         setUserNameUpdating(true)
         axios.patch(`api/user/updateUserName`,{
-            params:{
                userId,
                newName 
-            }
         })
         .then(response => {
             if(response.data){
-                //dispatch(changeUserInformationName(temporalUserName))
+                dispatch(changeUserInformationName(response.data.name))
                 console.log(response)
             }
         })
