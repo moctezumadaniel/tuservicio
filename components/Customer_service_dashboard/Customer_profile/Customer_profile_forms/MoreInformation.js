@@ -6,7 +6,8 @@ import { useState } from 'react'
 import axios from 'axios'
 
 function MoreInformation (){
-    const customerInformation = useSelector(state => state.CustomerPublicInformation)
+    const customerInformation = useSelector(state => state.customerPublicInformation)
+    const [updatingMoreInformation, setUpdatingMoreInformation] = useState(false)
     const [temporalMoreInformation, setTemporalMoreInformation] = useState(customerInformation.moreInformation)
     const dispatch = useDispatch()
     const moreInformationPlaceholder = "Escribe sin límite todo lo que quieras que tus clientes sepan de tu negocio"
@@ -14,16 +15,19 @@ function MoreInformation (){
     function handleCloseForm(){
         dispatch(changeCustomerProfileFormToNone())
     }
-    function updateCustomerMoreInformation(moreInformation){
+    function updateTemporalMoreInformation(event){
+        setTemporalMoreInformation(event.target.value)
+    }
+    function updateCustomerMoreInformation(customerId,moreInformation){
+        setUpdatingMoreInformation(true)
         axios.patch(`api/customer/updateCustomerMoreInformation`,{
-            params:{
-                customerId:customerInformation.customerId,
-                moreInformation
-            }
+            customerId,
+            moreInformation
         })
         .then(response =>{
-            if(response.success){
-                dispatch(changeCustomerPublicInformationMoreInformation(temporalMoreInformation))
+            if(response.data){
+                dispatch(changeCustomerPublicInformationMoreInformation(response.data.moreInformation))
+                console.log(response)
             }
         })
         .catch(error => console.log(error))
@@ -35,10 +39,15 @@ function MoreInformation (){
             </div>
 
             <div className={styles.ModalContainer}>
+                
                 <textarea className={styles.MoreInformationInput}
-                placeholder={moreInformationPlaceholder}/>
+                placeholder={moreInformationPlaceholder}
+                value={temporalMoreInformation}
+                onChange={updateTemporalMoreInformation}/>
+
                 <button className={styles.ConfirmButton}
-                onClick={handleCloseForm}>{confirmButton}</button>
+                onClick={()=>updateCustomerMoreInformation(customerInformation.customerId, temporalMoreInformation)}>{confirmButton}</button>
+
             </div>
         
         </div>

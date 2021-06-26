@@ -5,7 +5,8 @@ import { changeCustomerPublicInformationAddress } from '../../../../redux/action
 import { useState } from 'react'
 import axios from 'axios'
 function Address (){
-    const customerInformation = useSelector(state => state.CustomerPublicInformation)
+    const customerInformation = useSelector(state => state.customerPublicInformation)
+    const [updatingAddress, setUpdatingAddress] = useState(false)
     const [temporalAddress, setTemporalAddress] = useState(customerInformation.address)
     const dispatch = useDispatch()
     const addressPlaceholder = "Escribe la dirección de tu negocio"
@@ -13,20 +14,23 @@ function Address (){
     function handleCloseForm(){
         dispatch(changeCustomerProfileFormToNone())
     }
-
-    function updateCustomerAddress(address){
+    function updateTemporalAdress(event){
+        setTemporalAddress(event.target.value)
+    }
+    function updateCustomerAddress(customerId,address){
+        setUpdatingAddress(true)
         axios.patch(`api/customer/updateCustomerAddress`,{
-            params:{
-                customerId:customerInformation.customerId,
-                address
-            }
+            customerId,
+            address
         })
         .then(response =>{
-            if(response.success){
-                dispatch(changeCustomerPublicInformationAddress(temporalAddress))
+            if(response.data){
+                dispatch(changeCustomerPublicInformationAddress(response.data.address))
+                console.log(response)
             }
         })
         .catch(error => console.log(error))
+        setUpdatingAddress(false)
     }
     return(
         <div className={styles.MainContainer}>
@@ -35,9 +39,17 @@ function Address (){
             </div>
             
             <div className={styles.ModalContainer}>
+
                 <textarea className={styles.AddresInput}
-                placeholder={addressPlaceholder}/>
-                <button className={styles.ConfirmButton}>{confirmButton}</button>
+                placeholder={addressPlaceholder}
+                value={temporalAddress}
+                onChange={updateTemporalAdress}/>
+
+                <button className={styles.ConfirmButton}
+                onClick={()=>updateCustomerAddress(customerInformation.customerId, temporalAddress)}>
+                    {confirmButton}
+                </button>
+
             </div>
         </div>
     )

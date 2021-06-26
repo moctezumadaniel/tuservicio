@@ -5,7 +5,8 @@ import { changeCustomerPublicInformationPhoneNumber } from '../../../../redux/ac
 import axios from 'axios'
 import { useState } from 'react'
 function PhoneNumber(){
-    const customerInformation = useSelector(state => state.CustomerPublicInformation)
+    const customerInformation = useSelector(state => state.customerPublicInformation)
+    const [updatingPhoneNumber, setUpdatingPhoneNUmber] = useState(false)
     const [temporalPhoneNumber, setTemporalPhoneNumber] = useState(customerInformation.phoneNumber)
     const dispatch = useDispatch();
     const phoneNumberPlaceholder = 'Escribe el teléfono de tu negocio'
@@ -13,20 +14,23 @@ function PhoneNumber(){
     function handleCloseForm (){
         dispatch(changeCustomerProfileFormToNone())
     }
-
-    function updateCustomerPhoneNumber(phoneNumber){
+    function updateTemporalPhoneNumber(event){
+        setTemporalPhoneNumber(event.target.value)
+    }
+    function updateCustomerPhoneNumber(customerId,phoneNumber){
+        setUpdatingPhoneNUmber(true)
         axios.patch(`api/customer/updateCustomerPhoneNumber`,{
-            params:{
-                customerId:customerInformation.customerId,
-                phoneNumber
-            }
+            customerId,
+            phoneNumber
         })
         .then(response => {
-            if(response.success){
-                dispatch(changeCustomerPublicInformationPhoneNumber(temporalPhoneNumber))
+            if(response.data){
+                dispatch(changeCustomerPublicInformationPhoneNumber(response.data.phoneNumber))
+                console.log(response)
             }
         })
         .catch(error => console.log(error))
+        setUpdatingPhoneNUmber(false)
     }
     return(
         <div className={styles.MainContainer}>
@@ -34,13 +38,21 @@ function PhoneNumber(){
             onClick={handleCloseForm}></div>
 
             <div className={styles.ModalContainer}>
-                
-                    <input type="tel" className={styles.PhoneNumberInput}
-                    placeholder={phoneNumberPlaceholder}/>
-               
-                
-                    <button className={styles.ConfirmButton}>{confirmButton}</button>
+
+                {!updatingPhoneNumber ?
+                <>
+                <input type="tel" className={styles.PhoneNumberInput}
+                placeholder={phoneNumberPlaceholder}
+                value={temporalPhoneNumber}
+                onChange={updateTemporalPhoneNumber}/>
+        
             
+                <button className={styles.ConfirmButton}
+                onClick={()=>updateCustomerPhoneNumber(customerInformation.customerId, temporalPhoneNumber)}>
+                    {confirmButton}
+                </button>
+                </>
+                :""}
             </div>
         </div>
     )
