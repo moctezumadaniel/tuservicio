@@ -40,8 +40,7 @@ export const customerPublicInformationReducer = (state="", action)=>{
         case 'CHANGE_CUSTOMER_PUBLIC_INFORMATION_WORKDAYS':
             return{
                 ...state,
-                workdays:
-                    Object.defineProperty(...state.workdays, action.day, {value:action.checked})    
+                workdays:action.workdays    
                 
             }
         default:

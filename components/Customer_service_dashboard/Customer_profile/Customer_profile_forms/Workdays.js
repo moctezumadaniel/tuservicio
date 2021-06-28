@@ -13,16 +13,15 @@ function Workdays (){
         console.log('PRESIONADO'))
     }
 
-    function updateCustomerWorkdays(workdays){
+    function updateCustomerWorkdays(customerId,workdays){
         axios.patch(`api/customer/updateCustomerWorkdays`,{
-            params:{
-                customerId:customerInformation.customerId,
-                workdays
-            }
+            customerId,
+            workdays
         })
         .then(response =>{
-            if(response.success){
-                dispatch(changeCustomerPublicInformationWorkdays(temporalWorkdays))
+            if(response.data){
+                dispatch(changeCustomerPublicInformationWorkdays(response.data.workdays))
+                console.log(response)
             }
         })
         .catch(error => console.log(error))
@@ -40,9 +39,11 @@ function Workdays (){
     const handleChackboxPress=(event)=>{
         const day = event.target.value
         const checked = event.target.checked
-        dispatch(changeCustomerPublicInformationWorkdays(day,checked))
+        setTemporalWorkdays({...temporalWorkdays, [day]: checked})
+        console.log(checked)
+        console.log(day)
     }
-    console.log(customerInformation.workdays)
+    console.log(temporalWorkdays)
     return(
         <div className={styles.MainContainer}>
             <div className={styles.ModalBackground}
@@ -50,44 +51,52 @@ function Workdays (){
             </div>
             <div className={styles.ModalContainer}>
                 <label className={styles.Workday}>
-                    <input type="checkbox" value='monday' 
-                    checked={customerInformation.workdays.monday}
+                    <input type="checkbox" value='monday'
+                    checked={temporalWorkdays.monday} 
                     onChange={(event)=>handleChackboxPress(event)}
                     className={styles.WorkdayCheckbox}/>{monday}
                 </label>
                 <label className={styles.Workday}>
                     <input type="checkbox" value='tuesday'
-                    checked={customerInformation.workdays.tuesday}
+                    checked={temporalWorkdays.tuesday}
+                    onChange={(event)=>handleChackboxPress(event)}
                     className={styles.WorkdayCheckbox}/>{tuesday}
                 </label>
                 <label className={styles.Workday}>
                     <input type="checkbox" value='wednesday'
-                    checked={customerInformation.workdays.wednesday}
+                    checked={temporalWorkdays.wednesday}
+                    onChange={(event)=>handleChackboxPress(event)}
                     className={styles.WorkdayCheckbox}/>{wednesday}
                 </label>
                 <label className={styles.Workday}>
                     <input type="checkbox" value='thursday'
-                    checked={customerInformation.workdays.thursday}
+                    checked={temporalWorkdays.thursday}
+                    onChange={(event)=>handleChackboxPress(event)}
                     className={styles.WorkdayCheckbox}/>{thursday}
                 </label>
                 <label className={styles.Workday}>
                     <input type="checkbox" value='friday'
-                    checked={customerInformation.workdays.friday}
+                    checked={temporalWorkdays.friday}
+                    onChange={(event)=>handleChackboxPress(event)}
                     className={styles.WorkdayCheckbox}/>{friday}
                 </label>
                 <label className={styles.Workday}>
                     <input type="checkbox" value='saturday'
-                    checked={customerInformation.workdays.saturday}
+                    checked={temporalWorkdays.saturday}
+                    onChange={(event)=>handleChackboxPress(event)}
                     className={styles.WorkdayCheckbox}/>{saturday}
                 </label>
                 <label className={styles.Workday}>
                     <input type="checkbox" value='sunday'
-                    checked={customerInformation.workdays.sunday}
+                    checked={temporalWorkdays.sunday}
+                    onChange={(event)=>handleChackboxPress(event)}
                     className={styles.WorkdayCheckbox}/>{sunday}
                 </label>
                 <div className={styles.FullWidthContainer}>
                     <button className={styles.ConfirmButton}
-                    onClick={handleCloseForm}>{confirmButton}</button>
+                    onClick={()=>updateCustomerWorkdays(customerInformation.customerId,temporalWorkdays)}>
+                        {confirmButton}
+                    </button>
                 </div>
             </div>
         </div>
