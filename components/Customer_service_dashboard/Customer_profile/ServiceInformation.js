@@ -34,6 +34,23 @@ import {
     function handleOpenShortDescriptionForm(){
         dispatch(changeCustomerProfileFormToShortDescription())
     }
+    const currentWorkdays = () =>{
+        let textToDisplay = ""
+        if(userInformation.workdays){
+            Object.keys(userInformation.workdays)
+            .forEach(i => {
+                if(userInformation.workdays.i){
+                    textToDisplay += i + ", "
+                }
+            })
+        }
+        if(!textToDisplay){
+            return "No has establecido ningún día de atención"
+        }else return textToDisplay
+        
+    }
+    const currentSchedule = () => "Función pendiente"
+    
     return(
         <div className={styles.ServiceInformationContainer}>
             <div className={styles.informationTitle}>{title}</div>
@@ -48,14 +65,14 @@ import {
 
             <div className={styles.InformationContainer}>
                     <div className={styles.InformationItemTitle}>{workdaysTitle}</div>
-                    <div>{userInformation.workdays}</div>
+                    <div>{currentWorkdays()}</div>
                     <button className={styles.editItemButton}
                     onClick={handleOpenWorkdaysForm}>{editItemButton}</button>
             </div>
             
             <div className={styles.InformationContainer}>
                     <div className={styles.InformationItemTitle}>{scheduleTitle}</div>
-                    <div className={styles.Schedule}>{userInformation.schedule}</div>
+                    <div className={styles.Schedule}>{currentSchedule()}</div>
                     <button className={styles.editItemButton}
                     onClick={handleOpenScheduleForm}>{editItemButton}</button>
             </div>

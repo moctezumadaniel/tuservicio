@@ -12,10 +12,11 @@ export const changeCustomerPublicInformationName = (name) =>{
     }
 }
 
-export const changeCustomerPublicInformationWorkdays = (workdays) =>{
+export const changeCustomerPublicInformationWorkdays = (day, checked) => {
     return{
         type:'CHANGE_CUSTOMER_PUBLIC_INFORMATION_WORKDAYS',
-        workdays
+        day,
+        checked
     }
 }
 
