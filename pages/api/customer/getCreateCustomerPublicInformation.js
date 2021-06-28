@@ -43,7 +43,7 @@ export default async function handler(req, res) {
                     opening:"",
                     closing:""
                 },
-                saturday:{
+                sunday:{
                     opening:"",
                     closing:""
                 },

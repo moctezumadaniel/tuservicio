@@ -4,8 +4,8 @@ import CustomerPublicInformation from '../../../models/customer/customerPublicIn
 export default async function updateCustomerShortDescription(req, res){
     const { customerId } = req.body;
     const { shortDescription } = req.body
-    const filter = { customerId:customerId }
-    const update = { shortDescription:shortDescription }
+    const filter = { customerId: customerId }
+    const update = { shortDescription: shortDescription }
     await connectDB()
 
     try{

@@ -2,16 +2,18 @@ import connectDB from '../../../middleware/mongodb'
 import CustomerPublicInformation from '../../../models/customer/customerPublicInformation'
 
 export default async function updateCustomerSchedule(req, res){
-    const customerId = req.query.customerId;
-    const schedule = req.query.schedule
+    const { customerId } = req.body;
+    const { schedule } = req.body;
+    const filter = { customerId: customerId }
+    const update = { schedule: schedule }
     await connectDB()
 
     try{
-        CustomerPublicInformation.find({"customerId":customerId}, (err, data)=>{
-            if(err) console.log(err);
-            data.schedule = schedule;
-            data.save()
-            res.status(200).json({ success:true })
+        CustomerPublicInformation.findOneAndUpdate(filter, update,{
+            new:true
+        },(err, data)=>{
+            if(err) console.log(err)
+            res.status(200).json(data)
         })
     }catch(err){
         res.status(400).json({ success: false })
