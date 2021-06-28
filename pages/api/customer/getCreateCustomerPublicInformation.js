@@ -9,8 +9,45 @@ export default async function handler(req, res) {
         {
             image:"",
             name:"No has establecido el nombre de tu negocio",
-            workdays:[],
-            schedule:[],
+            workdays:{
+                monday:false,
+                tuesday:false,
+                wednesday:false,
+                thursday:false,
+                friday:false,
+                saturday:false,
+                sunday:false
+            },
+            schedule:{
+                monday:{
+                    opening:"",
+                    closing:""
+                },
+                tuesday:{
+                    opening:"",
+                    closing:""
+                },
+                wednesday:{
+                    opening:"",
+                    closing:""
+                },
+                thursday:{
+                    opening:"",
+                    closing:""
+                },
+                friday:{
+                    opening:"",
+                    closing:""
+                },
+                saturday:{
+                    opening:"",
+                    closing:""
+                },
+                saturday:{
+                    opening:"",
+                    closing:""
+                },
+            },
             shortDescription:"Escribe una descripcion corta de tu negocio",
             rating:"",
         
