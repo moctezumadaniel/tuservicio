@@ -220,9 +220,10 @@
 .ServiceItemContainer{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
     background-color: white;
     width: 500px;
-    max-height: 200px;
     padding: 10px;
     border-radius: 10px;
     margin: 5px;
@@ -244,6 +245,39 @@
 
 .ServiceComplementInfo{
     width: 65%;
+}
+.ServiceButtonsContainer{
+    width: 100%;
+    display: flex;
+    padding-top: 5px;
+    justify-content: space-around;
+}
+.EditServiceButton{
+    font-size:small;
+    display: flex;
+    width: fit-content;
+    align-self: flex-end;
+    color: #026ED2;
+    background-color: white;
+    outline: none;
+    border: none;
+}
+.EditServiceButton:hover{
+    cursor: pointer;
+}
+.DeleteServiceButton{
+    font-size:small;
+    display: flex;
+    width: fit-content;
+    align-self: flex-end;
+    color: #f40000;
+    background-color: white;
+    outline: none;
+    border: none;
+}
+.DeleteServiceButton:hover{
+    cursor: pointer;
+
 }
 /*RESERVATIONS TAB*/
 .ServiceReservationsContainer{
