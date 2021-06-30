@@ -43,6 +43,11 @@ export const customerPublicInformationReducer = (state="", action)=>{
                 workdays:action.workdays    
                 
             }
+        case 'ADD_SERVICE_TO_CUSTOMER_PUBLIC_INFORMATION':
+            return{
+                ...state,
+                listOfServices: action.services
+            }
         default:
             return state
     }

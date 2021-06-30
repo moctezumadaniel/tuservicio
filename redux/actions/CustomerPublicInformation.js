@@ -53,3 +53,10 @@ export const changeCustomerPublicInformationMoreInformation = (moreInformation) 
         moreInformation
     }
 }
+
+export const addServiceToCustomerPublicInformation = (services) =>{
+    return{
+        type: 'ADD_SERVICE_TO_CUSTOMER_PUBLIC_INFORMATION',
+        services
+    }
+}
