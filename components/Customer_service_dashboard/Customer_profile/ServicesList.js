@@ -1,20 +1,35 @@
 import styles from '../../../styles/CustomerServiceDashboard.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import {changeCustomerProfileFormToAddService} from '../../../redux/actions/CustomerProfileForms'
-
+import axios from 'axios'
+import { addServiceToCustomerPublicInformation } from '../../../redux/actions/CustomerPublicInformation'
 function ListOfServices(){
+    const customerInformation = useSelector(state => state.customerPublicInformation)
     const customerPublicServices = useSelector(state => state.customerPublicInformation.listOfServices)
-    const image = "Imagen del servicio";{/*imagen del servicio en caso de que no se establezca una para el servicio */}
-    const price = "Precio del servicio";
-    const title = "Titulo del servicio";
-    const description = "Este es un ejemplo de la descripcion corta de un servicio que no deberá exedor de 140 caracteres"
+    const dispatch = useDispatch()
     const deleteButton = "ELIMINAR"
     const editButton = "EDITAR"
     console.log(customerPublicServices)
+    function updateCustomerListOfServices(customerId, id){
+        axios.delete(`api/customer/deleteCustomerService`,{
+            params:{
+                customerId,
+                id
+            }
+        })
+        .then(response => {
+            if(response.data){
+                dispatch(addServiceToCustomerPublicInformation(response.data.listOfServices))
+                console.log(response)
+            }
+        })
+        .catch(err => console.log(err))
+    }
     return(
         <div className={styles.ServicesMainContainer}>
         {/*SERICE ITEM */}
-            {customerPublicServices.map(service => (
+            {customerPublicServices ?
+            customerPublicServices.map(service => (
             <div className={styles.ServiceItemContainer} key={service._id}>
                 <div className={styles.ServiceMainInfo}>
                     <image>{service.image}</image>
@@ -25,12 +40,17 @@ function ListOfServices(){
                     <div>{service.description}</div>
                 </div>
                 <div className={styles.ServiceButtonsContainer}>
-                    <button className={styles.EditServiceButton}>{editButton}</button>
-                    <button className={styles.DeleteServiceButton}>{deleteButton}</button>
+                    <button className={styles.EditServiceButton}>
+                        {editButton}
+                    </button>
+                    <button className={styles.DeleteServiceButton}
+                    onClick={()=>updateCustomerListOfServices(customerInformation.customerId, service._id)}>
+                        {deleteButton}
+                    </button>
                 </div>
             </div>
             ))
-            }
+            :""}
         </div>
     )
 }
