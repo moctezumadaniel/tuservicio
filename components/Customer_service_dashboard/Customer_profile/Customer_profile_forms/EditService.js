@@ -30,13 +30,14 @@ function EditService (){
     function updateTemporalDescription(event){
         setTemporalEditingService({...temporalEditingService, description:event.target.value})
     }
-    function addCustomerService(customerId, newService){
-        axios.post(`api/customer/addCustomerService`,{
-            customerId,
-            title: newService.title,
-            image: newService.image,
-            price: newService.price,
-            description: newService.description
+    function updateEditingService(customerId, newService){
+        axios.patch(`api/customer/updateCustomerEditingService`,{
+                customerId,
+                id:newService._id,
+                title: newService.title,
+                image: newService.image,
+                price: newService.price,
+                description: newService.description
         })
         .then(response => {
             if(response.data){
@@ -90,7 +91,7 @@ function EditService (){
 
                 <div className={styles.ServiceFormContainer}>
                     <button className={styles.ConfirmButton}
-                    onClick={()=>addCustomerService(customerInformation.customerId, temporalEditingService)}>
+                    onClick={()=>updateEditingService(customerInformation.customerId, temporalEditingService)}>
                         {confirmButton}
                     </button>
                 </div>
