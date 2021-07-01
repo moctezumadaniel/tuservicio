@@ -20,6 +20,8 @@ export const customerProfileFormsReducer = (state='None', action)=>{
             return 'ServiceImages';
         case 'CHANGE_CUSTOMER_PROFILE_FORM_TO_ADD_SERVICE':
             return 'AddService';
+        case 'CHANGE_CUSTOMER_PROFILE_FORM_TO_EDIT_SERVICE':
+            return 'EditService';
         default:
             return state;
     }

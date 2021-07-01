@@ -32,6 +32,7 @@ import { userInformationReducer } from '../reducers/userInformation'
 import { customerPublicInformationReducer } from './customerPublicInformation'
 import { customerInformationReducer } from './customerInformation'
 import { userPreferencesFormsReducer } from './userPreferencesForms'
+import { customerEditingServiceReducer } from './customerEditingService'
 const rootReducer = combineReducers({
     platformType: platformTypeReducer,
     userLogin: userLoginReducer,
@@ -59,7 +60,8 @@ const rootReducer = combineReducers({
     userInformation: userInformationReducer,
     customerPublicInformation: customerPublicInformationReducer,
     customerInformation: customerInformationReducer,
-    userPreferencesForms: userPreferencesFormsReducer
+    userPreferencesForms: userPreferencesFormsReducer,
+    customerEditingService:customerEditingServiceReducer
 })
 
 export default rootReducer

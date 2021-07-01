@@ -57,3 +57,9 @@ export const changeCustomerProfileFormToAddService =()=>{
         type:'CHANGE_CUSTOMER_PROFILE_FORM_TO_ADD_SERVICE'
     }
 }
+
+export const changeCustomerProfileFormToEditService = () =>{
+    return{
+        type:'CHANGE_CUSTOMER_PROFILE_FORM_TO_EDIT_SERVICE'
+    }
+}

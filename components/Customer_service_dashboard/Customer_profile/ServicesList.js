@@ -1,8 +1,9 @@
 import styles from '../../../styles/CustomerServiceDashboard.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import {changeCustomerProfileFormToAddService} from '../../../redux/actions/CustomerProfileForms'
+import {changeCustomerProfileFormToAddService, changeCustomerProfileFormToEditService} from '../../../redux/actions/CustomerProfileForms'
 import axios from 'axios'
 import { addServiceToCustomerPublicInformation } from '../../../redux/actions/CustomerPublicInformation'
+import { loadCustomerEditingService } from '../../../redux/actions/CustomerEditingService'
 function ListOfServices(){
     const customerInformation = useSelector(state => state.customerPublicInformation)
     const customerPublicServices = useSelector(state => state.customerPublicInformation.listOfServices)
@@ -10,6 +11,10 @@ function ListOfServices(){
     const deleteButton = "ELIMINAR"
     const editButton = "EDITAR"
     console.log(customerPublicServices)
+    function editService (service){
+        dispatch(loadCustomerEditingService(service),
+        dispatch(changeCustomerProfileFormToEditService()))
+    }
     function updateCustomerListOfServices(customerId, id){
         axios.delete(`api/customer/deleteCustomerService`,{
             params:{
@@ -40,7 +45,8 @@ function ListOfServices(){
                     <div>{service.description}</div>
                 </div>
                 <div className={styles.ServiceButtonsContainer}>
-                    <button className={styles.EditServiceButton}>
+                    <button className={styles.EditServiceButton}
+                    onClick={()=>editService(service)}>
                         {editButton}
                     </button>
                     <button className={styles.DeleteServiceButton}

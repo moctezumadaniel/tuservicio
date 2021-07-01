@@ -8,6 +8,7 @@ import MoreInformation from './MoreInformation'
 import ServiceImages from './ServiceImages'
 import AddService from './AddService'
 import {useSelector} from 'react-redux'
+import EditService from './EditService'
 function CustomerProfileForms (){
     const currentForm = useSelector(state=>state.customerProfileForms)
     switch(currentForm){
@@ -31,6 +32,8 @@ function CustomerProfileForms (){
             return <ServiceImages/>;
         case 'AddService':
             return <AddService/>;
+        case 'EditService':
+            return <EditService/>
         default:
             return "";
     }
