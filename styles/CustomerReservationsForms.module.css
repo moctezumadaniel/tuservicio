@@ -101,7 +101,7 @@
     width: 99vw;
     justify-content: center;
 }
-@media (min-width:1000px) {
+@media (min-width:1300px) {
     .ConfirmReservationContainer{
         width: fit-content;
     }
