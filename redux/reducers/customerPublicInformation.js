@@ -48,6 +48,11 @@ export const customerPublicInformationReducer = (state="", action)=>{
                 ...state,
                 listOfServices: action.services
             }
+        case 'UPDATE_CUSTOMER_PUBLIC_INFORMATION_LIST_OF_RESERVATIONS':
+            return{
+                ...state,
+                listOfReservations: action.reservations
+            }
         default:
             return state
     }

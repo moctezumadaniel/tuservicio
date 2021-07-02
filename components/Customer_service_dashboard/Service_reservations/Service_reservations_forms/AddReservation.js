@@ -1,8 +1,11 @@
 import styles from '../../../../styles/CustomerReservationsForms.module.css'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {changeCustomerReservationsFormToNone} from '../../../../redux/actions/CustomerReservationsForms'
 import { useState } from 'react'
+import axios from 'axios'
+import { updateCustomerPublicInformationListOfReservations } from '../../../../redux/actions/CustomerPublicInformation'
 function AddReservation (){
+    const customerId = useSelector(state => state.customerPublicInformation.customerId)
     const [temporalNewReservation, setTemporalNewReservation] = useState({
         date:"",
         start:"",
@@ -24,6 +27,33 @@ function AddReservation (){
         const input = event.target.name
         const change = event.target.value
         setTemporalNewReservation({...temporalNewReservation, [input]: change})
+    }
+    function restartNewReservation (){
+        setTemporalNewReservation({
+            date:"",
+            start:"",
+            end:"",
+            name:"",
+            description:""
+        })
+    }
+    function addReservation (customerId, newReservation){
+        axios.post(`api/customer/addCustomerReservation`,{
+            customerId,
+            date:newReservation.date,
+            start:newReservation.start,
+            end:newReservation.end,
+            name:newReservation.name,
+            description:newReservation.description
+        })
+        .then(response =>{
+            if(response.data){
+                dispatch(updateCustomerPublicInformationListOfReservations(response.data.listOfReservations),
+                restartNewReservation())
+                console.log(response)
+            }
+        })
+        .catch(error => console.log(error))
     }
     return(
         <div className={styles.MainContainer}>
@@ -69,7 +99,8 @@ function AddReservation (){
                 </div>
 
                 <div className={styles.ConfirmReservationContainer}>
-                    <button className={styles.ConfirmButton}>{confirmButton}</button>
+                    <button className={styles.ConfirmButton}
+                    onClick={()=>addReservation(customerId, temporalNewReservation)}>{confirmButton}</button>
                 </div>
             </div>
 

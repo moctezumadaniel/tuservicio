@@ -60,3 +60,10 @@ export const addServiceToCustomerPublicInformation = (services) =>{
         services
     }
 }
+
+export const updateCustomerPublicInformationListOfReservations = (reservations) =>{
+    return{
+        type: 'UPDATE_CUSTOMER_PUBLIC_INFORMATION_LIST_OF_RESERVATIONS',
+        reservations
+    }
+}

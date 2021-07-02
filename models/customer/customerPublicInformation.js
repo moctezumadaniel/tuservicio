@@ -27,6 +27,9 @@ const customerPublicInformationSchema = mongoose.Schema({
 
     listOfReservations:[{
         date:Date,
+        start:String,
+        end:String,
+        name:String,
         customerId:String,
         userId:String,
         description:String,
