@@ -7,7 +7,7 @@ export default async function deleteCustomerService(req, res){
     const filter = { customerId: customerId }
     await connectDB();
         try{
-            const user = CustomerPublicProfileInformation.findOneAndUpdate(filter,{
+            CustomerPublicProfileInformation.findOneAndUpdate(filter,{
                 $pull: {listOfServices:{_id:id}}
             },{
                 new:true
