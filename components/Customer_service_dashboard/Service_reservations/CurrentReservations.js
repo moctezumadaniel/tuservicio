@@ -1,8 +1,9 @@
 import styles from '../../../styles/CustomerPendingReservations.module.css'
 import {useDispatch, useSelector} from 'react-redux'
-import {changeCustomerReservationsFormToAddReservation} from '../../../redux/actions/CustomerReservationsForms'
+import {changeCustomerReservationsFormToAddReservation, changeCustomerReservationsFormToEditReservation} from '../../../redux/actions/CustomerReservationsForms'
 import axios from 'axios'
 import { updateCustomerPublicInformationListOfReservations } from '../../../redux/actions/CustomerPublicInformation'
+import { loadCustomerEditingReservation } from '../../../redux/actions/CustomerEditingReservation'
 function ListOfReservations(){
     const listOfReservations = useSelector(state => state.customerPublicInformation.listOfReservations)
     const customerId = useSelector(state => state.customerPublicInformation.customerId)
@@ -10,6 +11,11 @@ function ListOfReservations(){
     const configureButton = 'EDITAR'
     const doneButton = 'ATENDIDA'
     console.log(useSelector(state => state.customerPublicInformation.listOfReservations))
+    
+    function openEditReservationForm (reservation){
+        dispatch(loadCustomerEditingReservation(reservation),
+        dispatch(changeCustomerReservationsFormToEditReservation()))
+    }
     
     function deleteReservation(customerId, id){
         axios.delete(`api/customer/deleteCustomerReservation`,{
@@ -34,15 +40,23 @@ function ListOfReservations(){
             <div className={styles.ReservationItem} key={reservation._id}>
 
                 <div className={styles.ItemSchedule}>
-                    {`${reservation.date} de ${reservation.start} a ${reservation.end}`}
+                    {`${reservation.date.slice(0,10)} de ${reservation.start} a ${reservation.end}`}
                 </div>
                 <div className={styles.ItemCustomerName}>{reservation.name}</div>
                 <div className={styles.ItemDescription}>{reservation.description}</div>
 
                 <div className={styles.ReservationItemButtonsContainer}>
-                    <button className={styles.EditReservationButton}>{configureButton}</button>
+
+                    <button className={styles.EditReservationButton}
+                    onClick={()=>openEditReservationForm(reservation)}>
+                        {configureButton}
+                    </button>
+
                     <button className={styles.AttendedReservationButton}
-                    onClick={()=>deleteReservation(customerId, reservation._id)}>{doneButton}</button>
+                    onClick={()=>deleteReservation(customerId, reservation._id)}>
+                        {doneButton}
+                    </button>
+
                 </div>
 
             </div>
