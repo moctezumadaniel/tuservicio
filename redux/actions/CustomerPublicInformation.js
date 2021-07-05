@@ -67,3 +67,10 @@ export const updateCustomerPublicInformationListOfReservations = (reservations) 
         reservations
     }
 }
+
+export const updateCustomerPublicInformationListOfSchedules = (schedules) =>{
+    return{
+        type: 'UPDATE_CUSTOMER_PUBLIC_INFORMATION_LIST_OF_SCHEDULES',
+        schedules
+    }
+}

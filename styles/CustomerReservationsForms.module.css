@@ -111,9 +111,11 @@
     font-size: medium;
     outline: none;
     border: none;
+    height: min-content;
+    align-self: center;
     background-color: white;
     padding: 10px;
-    width: 300px;
+    width: 200px;
     border-radius: 10px;
     text-align: center;
     justify-content: center;
@@ -125,22 +127,48 @@
     text-align: center;
     font-size: large;
 }
+.ScheduleInputContainer{
+    align-self: center;
+    align-content: center;
+}
 .ScheduleTimeInput{
     outline: none;
     border: none;
     padding: 5px;
+    margin: 10px;
     background-color: white;
     border-radius: 10px;
     text-align: center;
     font-family: sans-serif;
     box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 }
+.ScheduleDescriptionContainer{
+    align-self: center;
+    align-content: center;
+}
+.ScheduleDescriptionTitle{
+    text-align: center;
+    font-size: large;
+}
+.ScheduleDescriptionInput{
+    font-size: medium;
+    outline: none;
+    border: none;
+    margin: 10px;
+    padding: 10px;
+    width: 400px;
+    max-width: 95vw;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
+
+}
 .ConfirmScheduleContainer{
     display: flex;
     justify-content: center;
     width: 95vw;
 }
-@media (min-width:700px) {
+@media (min-width:1000px) {
     .ConfirmScheduleContainer{
         width: fit-content;
     }

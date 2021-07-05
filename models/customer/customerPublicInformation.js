@@ -26,7 +26,7 @@ const customerPublicInformationSchema = mongoose.Schema({
     }],
 
     listOfReservations:[{
-        date:Date,
+        day:String,
         start:String,
         end:String,
         name:String,

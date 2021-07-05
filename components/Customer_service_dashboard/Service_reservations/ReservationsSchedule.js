@@ -1,6 +1,32 @@
 import styles from '../../../styles/CustomerReservationsSchedule.module.css'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {changeCustomerReservationsFormToAddSchedule} from '../../../redux/actions/CustomerReservationsForms'
+
+function ScheduleList (){
+    const customerSchedules = useSelector(state => state.customerPublicInformation.listOfSchedules)
+    const editItem = 'EDITAR';
+    const deleteItem = 'ELIMINAR'
+    return(
+        <div className={styles.ScheduleListContainer}>
+        {
+        customerSchedules ?
+        customerSchedules.map(schedule => (
+            <div className={styles.ScheduleItem}>
+                    <div className={styles.ScheduleTimeContainer}>{`${schedule.start} a ${schedule.end}`}</div>
+                    <div className={styles.ScheduleDescription}>{schedule.description}</div>
+                    
+                    <div className={styles.ScheduleButtonsContainer}>
+                        <button className={styles.EditItemSchedule}>{editItem}</button>
+                        <button className={styles.DeleteSchedule}>{deleteItem}</button>
+                    </div>
+
+                </div>
+        ))
+        :""}
+        </div>
+    )
+}
+
 function ReservationsSchedule (){
     const dispatch = useDispatch()
     const title = 'Lista de horarios';
@@ -15,8 +41,6 @@ function ReservationsSchedule (){
     const sunday = 'Domingo';
     const schedule = '16:00 a 16:30'
     const description = 'Descripcion corta del motivo de la reservacion';
-    const editItem = 'EDITAR';
-    const deleteItem = 'ELIMINAR'
     function handleAddAchedule(){
         dispatch(changeCustomerReservationsFormToAddSchedule())
     }
@@ -45,79 +69,7 @@ function ReservationsSchedule (){
             </div>
 
 {/*SCHEDULE LIST */}
-            <div className={styles.ScheduleListContainer}>
-            {/*SCHEDULE ITEM */}
-                <div className={styles.ScheduleItem}>
-                    <div className={styles.ScheduleTimeContainer}>{schedule}</div>
-                    <div className={styles.ScheduleDescription}>{description}</div>
-                    
-                    <div className={styles.ScheduleButtonsContainer}>
-                        <button className={styles.EditItemSchedule}>{editItem}</button>
-                        <button className={styles.DeleteSchedule}>{deleteItem}</button>
-                    </div>
-
-                </div>
-
-                {/*SCHEDULE ITEM */}
-                <div className={styles.ScheduleItem}>
-                    <div className={styles.ScheduleTimeContainer}>{schedule}</div>
-                    <div className={styles.ScheduleDescription}>{description}</div>
-                    
-                    <div className={styles.ScheduleButtonsContainer}>
-                        <button className={styles.EditItemSchedule}>{editItem}</button>
-                        <button className={styles.DeleteSchedule}>{deleteItem}</button>
-                    </div>
-
-                </div>
-
-                {/*SCHEDULE ITEM */}
-                <div className={styles.ScheduleItem}>
-                    <div className={styles.ScheduleTimeContainer}>{schedule}</div>
-                    <div className={styles.ScheduleDescription}>{description}</div>
-                    
-                    <div className={styles.ScheduleButtonsContainer}>
-                        <button className={styles.EditItemSchedule}>{editItem}</button>
-                        <button className={styles.DeleteSchedule}>{deleteItem}</button>
-                    </div>
-
-                </div>
-
-                {/*SCHEDULE ITEM */}
-                <div className={styles.ScheduleItem}>
-                    <div className={styles.ScheduleTimeContainer}>{schedule}</div>
-                    <div className={styles.ScheduleDescription}>{description}</div>
-                    
-                    <div className={styles.ScheduleButtonsContainer}>
-                        <button className={styles.EditItemSchedule}>{editItem}</button>
-                        <button className={styles.DeleteSchedule}>{deleteItem}</button>
-                    </div>
-
-                </div>
-
-                {/*SCHEDULE ITEM */}
-                <div className={styles.ScheduleItem}>
-                    <div className={styles.ScheduleTimeContainer}>{schedule}</div>
-                    <div className={styles.ScheduleDescription}>{description}</div>
-                    
-                    <div className={styles.ScheduleButtonsContainer}>
-                        <button className={styles.EditItemSchedule}>{editItem}</button>
-                        <button className={styles.DeleteSchedule}>{deleteItem}</button>
-                    </div>
-
-                </div>
-
-                {/*SCHEDULE ITEM */}
-                <div className={styles.ScheduleItem}>
-                    <div className={styles.ScheduleTimeContainer}>{schedule}</div>
-                    <div className={styles.ScheduleDescription}>{description}</div>
-                    
-                    <div className={styles.ScheduleButtonsContainer}>
-                        <button className={styles.EditItemSchedule}>{editItem}</button>
-                        <button className={styles.DeleteSchedule}>{deleteItem}</button>
-                    </div>
-
-                </div>
-            </div>
+            <ScheduleList/>
         </div>
     )
 }
