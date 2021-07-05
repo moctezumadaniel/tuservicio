@@ -8,7 +8,7 @@ function AddSchedule (){
     const customerInformation = useSelector(state => state.customerPublicInformation)
     const currentPeriod = useSelector(state => state.customerSchedulePeriod)
     const [temporalNewSchedule, setTemporalNewSchedule] = useState({
-        day:"",
+        day:'Dias laborales',
         start:"",
         end:"",
         description:""
@@ -46,7 +46,8 @@ function AddSchedule (){
         })
         .then(response => {
             if(response.data){
-                dispatch(updateCustomerPublicInformationListOfSchedules(response.data.listOfSchedules))
+                dispatch(updateCustomerPublicInformationListOfSchedules(response.data.listOfSchedules),
+                setTemporalNewSchedule({...temporalNewSchedule, start:"", end:"", description:""}))
                 console.log(response)
             }
         })

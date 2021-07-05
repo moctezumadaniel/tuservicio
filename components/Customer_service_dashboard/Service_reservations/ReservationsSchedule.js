@@ -13,7 +13,7 @@ function ScheduleList (){
         {
         customerSchedules && currentPeriod === 'Dias laborales'?
         customerSchedules.map(schedule => (
-            <div className={styles.ScheduleItem}>
+            <div className={styles.ScheduleItem} key={schedule._id}>
                     <div className={styles.ScheduleTimeContainer}>{`${schedule.start} a ${schedule.end}`}</div>
                     <div className={styles.ScheduleDescription}>{schedule.description}</div>
                     
@@ -28,7 +28,7 @@ function ScheduleList (){
         customerSchedules.map(schedule => {
             if(schedule.day === currentPeriod || schedule.day === 'Dias laborales'){
                 return(
-                <div className={styles.ScheduleItem}>
+                <div className={styles.ScheduleItem} key={schedule._id}>
                         <div className={styles.ScheduleTimeContainer}>{`${schedule.start} a ${schedule.end}`}</div>
                         <div className={styles.ScheduleDescription}>{schedule.description}</div>
                         
@@ -52,10 +52,10 @@ function ReservationsSchedule (){
     const workdays = 'Dias laborales'; /*GET THEM FROM THE USER INFORMATION*/ 
     const monday = 'Lunes';
     const tuesday = 'Martes';
-    const wednesday = 'Miercoles';
+    const wednesday = 'Miércoles';
     const thursday = 'Jueves';
     const friday = 'Viernes';
-    const saturday = 'Sabado';
+    const saturday = 'Sábado';
     const sunday = 'Domingo';
     const schedule = '16:00 a 16:30'
     const description = 'Descripcion corta del motivo de la reservacion';
