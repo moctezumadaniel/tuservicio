@@ -1,15 +1,17 @@
 import styles from '../../../styles/CustomerReservationsSchedule.module.css'
 import {useDispatch, useSelector} from 'react-redux'
 import {changeCustomerReservationsFormToAddSchedule} from '../../../redux/actions/CustomerReservationsForms'
+import { changeCustomerSchedulePeriodSelected } from '../../../redux/actions/CustomerSchedulePeriod'
 
 function ScheduleList (){
+    const currentPeriod = useSelector(state => state.customerSchedulePeriod)
     const customerSchedules = useSelector(state => state.customerPublicInformation.listOfSchedules)
     const editItem = 'EDITAR';
     const deleteItem = 'ELIMINAR'
     return(
         <div className={styles.ScheduleListContainer}>
         {
-        customerSchedules ?
+        customerSchedules && currentPeriod === 'Dias laborales'?
         customerSchedules.map(schedule => (
             <div className={styles.ScheduleItem}>
                     <div className={styles.ScheduleTimeContainer}>{`${schedule.start} a ${schedule.end}`}</div>
@@ -22,6 +24,22 @@ function ScheduleList (){
 
                 </div>
         ))
+        :customerSchedules && currentPeriod !== 'Dias laborales' ?
+        customerSchedules.map(schedule => {
+            if(schedule.day === currentPeriod || schedule.day === 'Dias laborales'){
+                return(
+                <div className={styles.ScheduleItem}>
+                        <div className={styles.ScheduleTimeContainer}>{`${schedule.start} a ${schedule.end}`}</div>
+                        <div className={styles.ScheduleDescription}>{schedule.description}</div>
+                        
+                        <div className={styles.ScheduleButtonsContainer}>
+                            <button className={styles.EditItemSchedule}>{editItem}</button>
+                            <button className={styles.DeleteSchedule}>{deleteItem}</button>
+                        </div>
+
+                    </div>
+                )}
+            })
         :""}
         </div>
     )
@@ -44,6 +62,10 @@ function ReservationsSchedule (){
     function handleAddAchedule(){
         dispatch(changeCustomerReservationsFormToAddSchedule())
     }
+    function handlePeriodChange(event){
+        const period = event.target.value
+        dispatch(changeCustomerSchedulePeriodSelected(period))
+    }
     return(
         <div className={styles.MainContainer}>
 {/*SCHEDULE TITLE */}
@@ -55,7 +77,8 @@ function ReservationsSchedule (){
 
 {/*DAY/S SELECTION */}
             <div className={styles.DaysSelectionContainer}>
-                <select className={styles.DaysSelection}>
+                <select className={styles.DaysSelection}
+                onClick={(event)=>handlePeriodChange(event)}>
                     <option value={workdays}>{workdays}</option>
                     <option value={monday}>{monday}</option>
                     <option value={tuesday}>{tuesday}</option>

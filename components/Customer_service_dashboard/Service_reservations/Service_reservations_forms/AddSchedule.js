@@ -6,6 +6,7 @@ import axios from 'axios'
 import { updateCustomerPublicInformationListOfSchedules } from '../../../../redux/actions/CustomerPublicInformation'
 function AddSchedule (){
     const customerInformation = useSelector(state => state.customerPublicInformation)
+    const currentPeriod = useSelector(state => state.customerSchedulePeriod)
     const [temporalNewSchedule, setTemporalNewSchedule] = useState({
         day:"",
         start:"",
@@ -57,6 +58,7 @@ function AddSchedule (){
             onClick={handleCloseForm}></div>
             <div className={styles.ModalContainer}>
                 <select className={styles.ListOfDaysContainer} name="day"
+                value={temporalNewSchedule.day}
                 onChange={(event)=>handleInputUpdate(event)}>
                     <option value={workdays}>{workdays}</option>
                     <option value={monday}>{monday}</option>
