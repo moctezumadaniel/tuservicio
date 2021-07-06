@@ -1,126 +1,92 @@
 import styles from '../../styles/OrdersTool.module.css'
-import {useDispatch} from 'react-redux';
-import {changeOrdersToolToOrder} from '../../redux/actions/OrdersTool'
-function OrdersDashboard (){
+import { useDispatch, useSelector } from 'react-redux';
+import { changeOrdersToolToOrder } from '../../redux/actions/OrdersTool'
+
+function PendingOrders() {
+    const customerInformation = useSelector(state => state.customerInformation)
+    const orders = customerInformation.orders
+    const pendingOrders = orders.filter(order => order.fullfiled === false)
+    const pendingTitle = 'Pendientes'
+    const seeEditButton = 'Ver o editar'
+    const doneOrderButton = 'Orden atendida'
+
+    if (pendingOrders.length > 0) {
+        return(
+            <>
+            <div className={styles.Titles}>{pendingTitle}</div>
+            <div className={styles.PendingItemContainer}>
+            {
+            pendingOrders.map(order => (                  
+                <div className={styles.ItemPendingContainer}>
+                    <div className={styles.OrderIdentifier}>{order.number}{order.date}</div>
+                    <div>{order.description}</div>
+                    <div className={styles.ButtonsContainer}>
+                        <button className={styles.SeeOrEditButton}>{seeEditButton}</button>
+                        <button className={styles.OrderDoneButton}>{doneOrderButton}</button>
+                    </div>
+                </div>
+            ))
+            }
+            </div>
+            </>
+        )
+    }
+
+    else return ""
+}
+
+function FullfiledOrders() {
+    const customerInformation = useSelector(state => state.customerInformation)
+    const orders = customerInformation.orders
+    const fullfiledOrders = orders.filter(order => order.fullfiled === true)
+    const ordersFullfiled = 'Atendidas'
+    const seeEditButton = 'Ver o editar'
+    const deleteEditing = 'Eliminar'
+
+    if (fullfiledOrders.length > 0) {
+        return(
+            <>
+            <div className={styles.Titles}>{ordersFullfiled}</div>
+            <div className={styles.EditingItemContainer}>
+            {
+            fullfiledOrders.map(order => (                  
+                <div className={styles.ItemPendingContainer}>
+                    <div className={styles.OrderIdentifier}>{order.number}{order.date}</div>
+                    <div>{order.description}</div>
+                    <div className={styles.ButtonsContainer}>
+                        <button className={styles.ContinueEditiingButton}>{seeEditButton}</button>
+                        <button className={styles.DeleteEditingItem}>{deleteEditing}</button>
+                    </div>
+                </div>
+            ))
+            }
+            </div>
+            </>
+        )
+    }
+
+    else return ""
+}
+
+function OrdersDashboard() {
     const dispatch = useDispatch()
-    function handleNewOrderPress(){
+    function handleNewOrderPress() {
         dispatch(changeOrdersToolToOrder())
     }
 
     const addButton = '+ Crear nueva orden'
-    const editionTitle = 'En edición'
-    const pendingTitle = 'Pendientes'
-    const edititingOrderNumber = '37'
-    const editingOrderDate = ' - 09-03-2019'
-    const editingOrderDescription = 'Descripcion corta de la orden'
-    const continueEditingButton = 'Continuar edición'
-    const deleteEditing = 'Eliminar'
-    
-    const pendingOrderNumber = '35'
-    const pendingOrderDate = ' - 09-03-2019'
-    const pendingOrderDescription = 'Descripcion corta de la orden'
-    const seeEditButton = 'Ver o editar'
-    const doneOrderButton = 'Orden atendida'
 
+    return (
+        <div className={styles.ordersMainContainer}>
+            <button className={styles.NewOrderButton}
+                onClick={handleNewOrderPress}>{addButton}
+            </button>
 
-    return(
-    <div className={styles.ordersMainContainer}>
-        <button className={styles.NewOrderButton}
-        onClick={handleNewOrderPress}>{addButton}</button>
-{/*LISTA DE ORDENES EN EDICIÓN*/}
-        <div className={styles.Titles}>{editionTitle}</div>
-        <div className={styles.EditingItemContainer}>
+            <PendingOrders/>
+            <FullfiledOrders/>
 
-            <div className={styles.ItemEditingContainer}>
-                <div className={styles.OrderIdentifier}>{edititingOrderNumber}{editingOrderDate}</div>
-                <div>{editingOrderDescription}</div>
-                <div className={styles.ButtonsContainer}>
-                    <button className={styles.ContinueEditiingButton}>{continueEditingButton}</button>
-                    <button className={styles.DeleteEditingItem}>{deleteEditing}</button>
-                </div>
-            </div>
-
-            <div className={styles.ItemEditingContainer}>
-                <div className={styles.OrderIdentifier}>{edititingOrderNumber}{editingOrderDate}</div>
-                <div>{editingOrderDescription}</div>
-                <div className={styles.ButtonsContainer}>
-                    <button className={styles.ContinueEditiingButton}>{continueEditingButton}</button>
-                    <button className={styles.DeleteEditingItem}>{deleteEditing}</button>
-                </div>
-            </div>
 
         </div>
-{/*LISTA DE ORDENES PENDIENTES*/}
-        <div className={styles.Titles}>{pendingTitle}</div>
-
-        <div className={styles.PendingItemContainer}>
-
-            <div className={styles.ItemPendingContainer}>
-                <div className={styles.OrderIdentifier}>{pendingOrderNumber}{pendingOrderDate}</div>
-                <div>{pendingOrderDescription}</div>
-                <div className={styles.ButtonsContainer}>
-                    <button className={styles.SeeOrEditButton}>{seeEditButton}</button>
-                    <button className={styles.OrderDoneButton}>{doneOrderButton}</button>
-                </div>
-            </div>
-
-            <div className={styles.ItemPendingContainer}>
-                <div className={styles.OrderIdentifier}>{pendingOrderNumber}{pendingOrderDate}</div>
-                <div>{pendingOrderDescription}</div>
-                <div className={styles.ButtonsContainer}>
-                    <button className={styles.SeeOrEditButton}>{seeEditButton}</button>
-                    <button className={styles.OrderDoneButton}>{doneOrderButton}</button>
-                </div>
-            </div>
-
-            <div className={styles.ItemPendingContainer}>
-                <div className={styles.OrderIdentifier}>{pendingOrderNumber}{pendingOrderDate}</div>
-                <div>{pendingOrderDescription}</div>
-                <div className={styles.ButtonsContainer}>
-                    <button className={styles.SeeOrEditButton}>{seeEditButton}</button>
-                    <button className={styles.OrderDoneButton}>{doneOrderButton}</button>
-                </div>
-            </div>
-
-            <div className={styles.ItemPendingContainer}>
-                <div className={styles.OrderIdentifier}>{pendingOrderNumber}{pendingOrderDate}</div>
-                <div>{pendingOrderDescription}</div>
-                <div className={styles.ButtonsContainer}>
-                    <button className={styles.SeeOrEditButton}>{seeEditButton}</button>
-                    <button className={styles.OrderDoneButton}>{doneOrderButton}</button>
-                </div>
-            </div>
-
-            <div className={styles.ItemPendingContainer}>
-                <div className={styles.OrderIdentifier}>{pendingOrderNumber}{pendingOrderDate}</div>
-                <div>{pendingOrderDescription}</div>
-                <div className={styles.ButtonsContainer}>
-                    <button className={styles.SeeOrEditButton}>{seeEditButton}</button>
-                    <button className={styles.OrderDoneButton}>{doneOrderButton}</button>
-                </div>
-            </div>
-
-            <div className={styles.ItemPendingContainer}>
-                <div className={styles.OrderIdentifier}>{pendingOrderNumber}{pendingOrderDate}</div>
-                <div>{pendingOrderDescription}</div>
-                <div className={styles.ButtonsContainer}>
-                    <button className={styles.SeeOrEditButton}>{seeEditButton}</button>
-                    <button className={styles.OrderDoneButton}>{doneOrderButton}</button>
-                </div>
-            </div>
-
-            <div className={styles.ItemPendingContainer}>
-                <div className={styles.OrderIdentifier}>{pendingOrderNumber}{pendingOrderDate}</div>
-                <div>{pendingOrderDescription}</div>
-                <div className={styles.ButtonsContainer}>
-                    <button className={styles.SeeOrEditButton}>{seeEditButton}</button>
-                    <button className={styles.OrderDoneButton}>{doneOrderButton}</button>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
     )
 }
 export default OrdersDashboard

@@ -5,9 +5,10 @@ const customerInformationSchema = mongoose.Schema({
     //ORDERS TOOL
     customerId:String,
     orders:[{
-        ticketNumber:String,
+        number:String,
         date:Date,
         description:String,
+        fullfiled:Boolean,
         items:[{
             id:String,
             description:String,
