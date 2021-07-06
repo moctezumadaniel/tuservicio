@@ -21,3 +21,9 @@ export const changeCustomerReservationsFormToEditReservation = () =>{
         type: 'CHANGE_CUSTOMER_RESERVATIONS_FORM_TO_EDIT_RESERVATION'
     }
 }
+
+export const changeCustomerReservationsFormToEditSchedule = () =>{
+    return{
+        type: 'CHANGE_CUSTOMER_RESERVATIONS_FORM_TO_EDIT_SCHEDULE'
+    }
+}

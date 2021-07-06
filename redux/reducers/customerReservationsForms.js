@@ -8,6 +8,8 @@ export const customerReservationsFormsReducer = (state='None', action)=>{
             return 'AddSchedule';
         case 'CHANGE_CUSTOMER_RESERVATIONS_FORM_TO_EDIT_RESERVATION':
             return 'EditReservation';
+        case 'CHANGE_CUSTOMER_RESERVATIONS_FORM_TO_EDIT_SCHEDULE':
+            return 'EditSchedule';
         default:
             return state;
     }

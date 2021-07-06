@@ -1,9 +1,10 @@
 import styles from '../../../styles/CustomerReservationsSchedule.module.css'
 import {useDispatch, useSelector} from 'react-redux'
-import {changeCustomerReservationsFormToAddSchedule} from '../../../redux/actions/CustomerReservationsForms'
+import {changeCustomerReservationsFormToAddSchedule, changeCustomerReservationsFormToEditSchedule} from '../../../redux/actions/CustomerReservationsForms'
 import { changeCustomerSchedulePeriodSelected } from '../../../redux/actions/CustomerSchedulePeriod'
 import axios from 'axios'
 import { updateCustomerPublicInformationListOfSchedules } from '../../../redux/actions/CustomerPublicInformation'
+import { loadCustomerEditingSchedule } from '../../../redux/actions/CustomerEditingSchedule'
 
 function ScheduleList (){
     const customerId = useSelector(state => state.customerPublicInformation.customerId)
@@ -12,7 +13,11 @@ function ScheduleList (){
     const dispatch = useDispatch()
     const editItem = 'EDITAR';
     const deleteItem = 'ELIMINAR'
-
+    function editSchedule (schedule){
+        dispatch(loadCustomerEditingSchedule(schedule),
+        dispatch(changeCustomerReservationsFormToEditSchedule()))
+        
+    }
     function deleteSchedule(customerId, id){
         axios.delete(`api/customer/deleteCustomerSchedule`,{
             params:{
@@ -38,7 +43,11 @@ function ScheduleList (){
                     <div className={styles.ScheduleDescription}>{schedule.description}</div>
                     
                     <div className={styles.ScheduleButtonsContainer}>
-                        <button className={styles.EditItemSchedule}>{editItem}</button>
+                        <button className={styles.EditItemSchedule}
+                        onClick={()=>editSchedule(schedule)}>
+                            {editItem}
+                        </button>
+
                         <button className={styles.DeleteSchedule}
                         onClick={()=>deleteSchedule(customerId,schedule._id)}>
                             {deleteItem}
@@ -56,7 +65,10 @@ function ScheduleList (){
                         <div className={styles.ScheduleDescription}>{schedule.description}</div>
                         
                         <div className={styles.ScheduleButtonsContainer}>
-                            <button className={styles.EditItemSchedule}>{editItem}</button>
+                            <button className={styles.EditItemSchedule}
+                            onClick={()=>editSchedule(schedule)}>
+                                {editItem}
+                            </button>
                             <button className={styles.DeleteSchedule}
                             onClick={()=>deleteSchedule(customerId,schedule._id)}>
                                 {deleteItem}
