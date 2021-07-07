@@ -9,9 +9,11 @@ changeCustomerOrderFormNewItemAmounth,
 addItemToCustomerOrderForm,
 removeItemFromOrderForm,
 changeCustomerOrderFormItemAmounth,
-changeCustomerOrderFormItemDescription
+changeCustomerOrderFormItemDescription,
+restartCustomerOrderForm
 } from '../../redux/actions/OrdersTool'
-
+import axios from 'axios'
+import { updateCustomerInformationOrders } from '../../redux/actions/CustomerInformation'
 function ListOfItems (){
     const deleteItem = 'Eliminar'
     const orderItems = useSelector(state=>state.customerOrderToolForm.items)
@@ -65,11 +67,25 @@ function ListOfItems (){
 }
 
 function Order(){
+    const customerInformation = useSelector(state => state.customerInformation)
+    const customerId = customerInformation.customerId
+    const orders = customerInformation.orders
+    const currentOrder = useSelector(state => state.customerOrderToolForm)
     const orderDate = useSelector(state=>state.customerOrderToolForm.date)
     const orderDescription = useSelector(state=>state.customerOrderToolForm.description)
     const newItemDescription = useSelector(state=>state.customerOrderToolForm.newItemDescription)
     const newItemAmounth = useSelector(state=>state.customerOrderToolForm.newItemAmounth)
-    const orderNumber = '38-19/03/2019'
+    const orderNumber = (orders, date) =>{
+        const numbersFromOrderWithSelectedDate = orders.map(
+            order =>{
+                if(order.date == date.slice(0,10)){
+                    return order.number
+                }
+            }
+        )
+        const lastOrderNumber = Math.max(numbersFromOrderWithSelectedDate) || 0;
+        return lastOrderNumber + 1
+    }
     const descriptionPlaceholder = 'Escribe la descripción'
     const saveOrderButton = 'GUARDAR'
     const inputPlaceholder = 'Escribe aqui el nuevo concepto' 
@@ -94,13 +110,35 @@ function Order(){
     }
     function handleAddItemPress(){
         dispatch(addItemToCustomerOrderForm())
-    } 
+    }
+    function addCustomerOrder(customerId, newOrder){
+        axios.post(`api/customer/addCustomerOrder`,{
+            customerId,
+            number:newOrder.number,
+            date:newOrder.date,
+            description:newOrder.description,
+            fullfiled:newOrder.fullfiled,
+            items:newOrder.items
+
+        })
+        .then(response => {
+            if(response.data){
+                dispatch(updateCustomerInformationOrders(response.data.orders),
+                dispatch(restartCustomerOrderForm()))
+                console.log(response)
+            }
+        })
+        .catch(error => console.log(error))
+    }
     return(
        <div className={styles.OrderFormMainContainer}>
            {/*TITLE AND SAVE BUTTON */}
-           <div className={styles.OrderFormTitle}>{orderNumber}</div>
+           <div className={styles.OrderFormTitle}>{`${orderNumber(orders, orderDate)}-${orderDate}`}</div>
             <div className={styles.SaveOrderButtonContainer}>
-                <button className={styles.SaveOrderButton}>{saveOrderButton}</button>
+                <button className={styles.SaveOrderButton}
+                onClick={()=>addCustomerOrder(customerId, currentOrder)}>
+                    {saveOrderButton}
+                </button>
             </div>
 {/*DATE AND NAME OF THE CUSTOMER */}
             <div className={styles.OrderDateDescriptionContainer}>
@@ -108,7 +146,7 @@ function Order(){
                 onChange={handleDateChange}
                 value={orderDate}/>
                 <input type='text' className={styles.OrderDescriptionInput}
-                placeholder={orderDescription}
+                value={orderDescription}
                 onChange={handleDescriptionChange}
                 placeholder={descriptionPlaceholder}/>
             </div>

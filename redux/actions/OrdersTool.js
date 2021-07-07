@@ -65,3 +65,9 @@ export const changeCustomerOrderFormItemDescription = (id,description)=>{
         description
     }
 }
+
+export const restartCustomerOrderForm = () =>{
+    return{
+        type: 'RESTART_CUSTOMER_ORDER_FORM'
+    }
+}

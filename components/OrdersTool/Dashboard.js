@@ -18,7 +18,7 @@ function PendingOrders() {
             {
             pendingOrders.map(order => (                  
                 <div className={styles.ItemPendingContainer}>
-                    <div className={styles.OrderIdentifier}>{order.number}{order.date}</div>
+                    <div className={styles.OrderIdentifier}>{order.number}{order.date.slice(0,10)}</div>
                     <div>{order.description}</div>
                     <div className={styles.ButtonsContainer}>
                         <button className={styles.SeeOrEditButton}>{seeEditButton}</button>

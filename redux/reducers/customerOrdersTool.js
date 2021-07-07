@@ -1,9 +1,11 @@
 const initialForm = 
 {
+number:'',
 date:'',
 description:'',
 newItemDescription:'',
 newItemAmounth:'',
+fullfiled:false,
 items:[]
 }
 export const customerOrderToolFormReducer = (state = initialForm, action)=>{
@@ -11,7 +13,7 @@ export const customerOrderToolFormReducer = (state = initialForm, action)=>{
         case 'CHANGE_CUSTOMER_ORDER_FORM_DATE':
             return {...state,date:action.date}
         case 'CHANGE_CUSTOMER_ORDER_FORM_DESCRIPTION':
-            return {...state,description:action.name}
+            return {...state,description:action.description}
         case 'CHANGE_CUSTOMER_ORDER_FORM_NEW_ITEM_DESCRIPTION':
             return {...state,newItemDescription:action.description};
         case 'CHANGE_CUSTOMER_ORDER_FORM_NEW_ITEM_AMOUNTH':
@@ -54,7 +56,8 @@ export const customerOrderToolFormReducer = (state = initialForm, action)=>{
                     .filter((item)=>item.id!==action.id)]
                 
             }
-
+        case 'RESTART_CUSTOMER_ORDER_FORM':
+            return initialForm;
         default:
             return state;
     }

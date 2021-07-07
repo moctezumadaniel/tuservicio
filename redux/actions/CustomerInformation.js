@@ -4,3 +4,10 @@ export const loadCustomerInformation = (data) =>{
         data
     }
 }
+
+export const updateCustomerInformationOrders = (orders) =>{
+    return{
+        type:'UPDATE_CUSTOMER_INFORMATION_ORDERS',
+        orders
+    }
+}
