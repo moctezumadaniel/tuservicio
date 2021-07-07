@@ -17,9 +17,15 @@ function PendingOrders() {
             <div className={styles.PendingItemContainer}>
             {
             pendingOrders.map(order => (                  
-                <div className={styles.ItemPendingContainer}>
+                <div className={styles.ItemPendingContainer} key={order._id}>
                     <div className={styles.OrderIdentifier}>{order.number}{order.date.slice(0,10)}</div>
-                    <div>{order.description}</div>
+                    <div>
+                        {order.description && order.description.length > 140? 
+                        order.description.slice(0,141) + "..."
+                        :order.description ?
+                        order.description
+                        :""}
+                    </div>
                     <div className={styles.ButtonsContainer}>
                         <button className={styles.SeeOrEditButton}>{seeEditButton}</button>
                         <button className={styles.OrderDoneButton}>{doneOrderButton}</button>
@@ -50,9 +56,15 @@ function FullfiledOrders() {
             <div className={styles.EditingItemContainer}>
             {
             fullfiledOrders.map(order => (                  
-                <div className={styles.ItemPendingContainer}>
+                <div className={styles.ItemPendingContainer} key={order._id}>
                     <div className={styles.OrderIdentifier}>{order.number}{order.date}</div>
-                    <div>{order.description}</div>
+                    <div>
+                        {order.description && order.description.length > 140? 
+                        order.description.slice(0,141) + "..."
+                        :order.description ?
+                        order.description
+                        :""}
+                    </div>
                     <div className={styles.ButtonsContainer}>
                         <button className={styles.ContinueEditiingButton}>{seeEditButton}</button>
                         <button className={styles.DeleteEditingItem}>{deleteEditing}</button>

@@ -1,3 +1,9 @@
+export const changeCustomerOrderFormNumber = (number) =>{
+    return{
+        type:'CHANGE_CUSTOMER_ORDER_FORM_NUMBER',
+        number
+    }
+}
 export const changeOrdersToolToDashboard = ()=>{
     return{
         type:'CHANGE_ORDERS_TOOL_TO_DASHBOARD'

@@ -10,6 +10,8 @@ items:[]
 }
 export const customerOrderToolFormReducer = (state = initialForm, action)=>{
     switch(action.type){
+        case 'CHANGE_CUSTOMER_ORDER_FORM_NUMBER':
+            return {...state, number:action.number}
         case 'CHANGE_CUSTOMER_ORDER_FORM_DATE':
             return {...state,date:action.date}
         case 'CHANGE_CUSTOMER_ORDER_FORM_DESCRIPTION':
