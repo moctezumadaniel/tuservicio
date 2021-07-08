@@ -62,12 +62,28 @@ function PendingOrders() {
 
 function FullfiledOrders() {
     const customerInformation = useSelector(state => state.customerInformation)
+    const customerId = customerInformation.customerId
     const orders = customerInformation.orders
     const fullfiledOrders = orders.filter(order => order.fullfiled === true)
     const ordersFullfiled = 'Atendidas'
     const seeEditButton = 'Ver o editar'
     const deleteEditing = 'Eliminar'
-
+    const dispatch = useDispatch()
+    function deleteCustomerOrder(customerId, id){
+        axios.delete(`api/customer/deleteCustomerOrder`,{
+            params:{
+                customerId,
+                id
+            }
+        })
+        .then(response =>{
+            if(response.data){
+                dispatch(updateCustomerInformationOrders(response.data.orders))
+                console.log(response)
+            }
+        })
+        .catch(error => console.log(error))
+    }
     if (fullfiledOrders.length > 0) {
         return(
             <>
@@ -86,7 +102,10 @@ function FullfiledOrders() {
                     </div>
                     <div className={styles.ButtonsContainer}>
                         <button className={styles.ContinueEditiingButton}>{seeEditButton}</button>
-                        <button className={styles.DeleteEditingItem}>{deleteEditing}</button>
+                        <button className={styles.DeleteEditingItem}
+                        onClick={()=>deleteCustomerOrder(customerId, order._id)}>
+                            {deleteEditing}
+                        </button>
                     </div>
                 </div>
             ))

@@ -1,23 +1,23 @@
 import connectDB from '../../../middleware/mongodb'
-import CustomerInformation from '../../../models/customer/customerInformation'
+import CustomerInformation from '../../../models/customer/customerInformation';
 
-export default async function deleteCustomerOrder(req, res){
-    const { method } = req
-    const customerId = req.body.customerId
-    const orderId = req.body.orderId
+export default async function deleteCustomerOrder (req, res){
+    const { customerId } = req.query;
+    const { id } = req.query;
+    const filter = { customerId: customerId }
     await connectDB()
-    if(method === "DELETE"){
-        try{
-            CustomerInformation.find({"customerId":customerId}, (err, data)=>{
-                if(err) console.log(err);
-                data.orders.filter(
-                    i => i._id !== orderId
-                )
-                data.save()
-                res.status(200)
-            })
-        }catch(err){
-            res.status(200).json({succes: false})
-        }
+    try{
+        CustomerInformation.findOneAndUpdate(filter,{
+            $pull:{orders:{ _id: id}}
+        },{
+            new:true
+        },(err, data)=>{
+            if(err) console.log(err)
+            res.status(200).json(data)
+        })
     }
+    catch(err){
+        res.status(400)
+    }
+
 }

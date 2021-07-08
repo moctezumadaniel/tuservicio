@@ -1,7 +1,7 @@
 import connectDB from '../../../middleware/mongodb'
 import CustomerInformation from '../../../models/customer/customerInformation'
 
-export default async function updateCustomerEditingService(req, res){
+export default async function updateFullfiledCustomerOrder(req, res){
     const { customerId } = req.body;
     const { id } = req.body;
     await connectDB()
