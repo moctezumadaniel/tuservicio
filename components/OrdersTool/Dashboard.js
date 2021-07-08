@@ -1,14 +1,30 @@
 import styles from '../../styles/OrdersTool.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { changeOrdersToolToOrder } from '../../redux/actions/OrdersTool'
+import axios from 'axios';
+import { updateCustomerInformationOrders } from '../../redux/actions/CustomerInformation';
 
 function PendingOrders() {
     const customerInformation = useSelector(state => state.customerInformation)
+    const customerId = customerInformation.customerId
     const orders = customerInformation.orders
     const pendingOrders = orders.filter(order => order.fullfiled === false)
     const pendingTitle = 'Pendientes'
     const seeEditButton = 'Ver o editar'
     const doneOrderButton = 'Orden atendida'
+    const dispatch = useDispatch()
+    function setFullfiledOrder(customerId, id){
+        axios.patch(`api/customer/updateFullfiledCustomerOrder`,{
+            customerId,
+            id
+        })
+        .then(response => {
+            if(response.data){
+                dispatch(updateCustomerInformationOrders(response.data.orders))
+            }
+        })
+        .catch(error => console.log(error))
+    }
 
     if (pendingOrders.length > 0) {
         return(
@@ -28,7 +44,10 @@ function PendingOrders() {
                     </div>
                     <div className={styles.ButtonsContainer}>
                         <button className={styles.SeeOrEditButton}>{seeEditButton}</button>
-                        <button className={styles.OrderDoneButton}>{doneOrderButton}</button>
+                        <button className={styles.OrderDoneButton}
+                        onClick={()=>setFullfiledOrder(customerId,order._id)}>
+                            {doneOrderButton}
+                        </button>
                     </div>
                 </div>
             ))
@@ -57,9 +76,9 @@ function FullfiledOrders() {
             {
             fullfiledOrders.map(order => (                  
                 <div className={styles.ItemPendingContainer} key={order._id}>
-                    <div className={styles.OrderIdentifier}>{order.number}{order.date}</div>
+                    <div className={styles.OrderIdentifier}>{`${order.number}-${order.date.slice(0,10)}`}</div>
                     <div>
-                        {order.description && order.description.length > 140? 
+                        {order.description && order.description.length > 140 ? 
                         order.description.slice(0,141) + "..."
                         :order.description ?
                         order.description

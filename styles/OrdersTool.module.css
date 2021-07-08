@@ -111,10 +111,10 @@
 }
 .ItemPendingContainer{
     display: flex;
+    height:100%;
     flex-direction: column;
     width: 400px;
     justify-content: center;
-    align-self: center;
     background-color: white;
     border: none;
     outline: none;
