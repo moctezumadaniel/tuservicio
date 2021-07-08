@@ -1,7 +1,7 @@
 import connectDB from '../../../middleware/mongodb'
 import UserPublicInformation from '../../../models/user/userPublicInformation';
 
-export default async function getUserReservations(res, res){
+export default async function getUserReservations(req, res){
     const { method } = req;
     const userId = req.body.userId;
     await connectDB()

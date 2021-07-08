@@ -1,7 +1,7 @@
 import connectDB from '../../../middleware/mongodb'
 import CustomerInformation from '../../../models/customer/customerInformation'
 
-export default function getCustomerExpenses(req, res){
+export default async function getCustomerExpenses(req, res){
     const { method } = req
     const customerId = req.body.customerId
     await connectDB()
