@@ -16,6 +16,11 @@ export const changeOrdersToolToOrder = ()=>{
     }
 }
 
+export const changeOrdersToolToEditingOrder = () =>{
+    return{
+        type: 'CHANGE_ORDERS_TOOL_TO_EDITING_ORDER'
+    }
+}
 export const changeCustomerOrderFormDate=(date)=>{
     return{
         type:'CHANGE_CUSTOMER_ORDER_FORM_DATE',

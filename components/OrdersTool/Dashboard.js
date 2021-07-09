@@ -1,8 +1,9 @@
 import styles from '../../styles/OrdersTool.module.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { changeOrdersToolToOrder } from '../../redux/actions/OrdersTool'
+import { changeOrdersToolToEditingOrder, changeOrdersToolToOrder } from '../../redux/actions/OrdersTool'
 import axios from 'axios';
 import { updateCustomerInformationOrders } from '../../redux/actions/CustomerInformation';
+import { loadCustomerEditingOrder } from '../../redux/actions/CustomerEditingOrder';
 
 function PendingOrders() {
     const customerInformation = useSelector(state => state.customerInformation)
@@ -13,6 +14,10 @@ function PendingOrders() {
     const seeEditButton = 'Ver o editar'
     const doneOrderButton = 'Orden atendida'
     const dispatch = useDispatch()
+    function editOrder(order){
+        dispatch(loadCustomerEditingOrder(order),
+        dispatch(changeOrdersToolToEditingOrder()))
+    }
     function setFullfiledOrder(customerId, id){
         axios.patch(`api/customer/updateFullfiledCustomerOrder`,{
             customerId,
@@ -43,7 +48,10 @@ function PendingOrders() {
                         :""}
                     </div>
                     <div className={styles.ButtonsContainer}>
-                        <button className={styles.SeeOrEditButton}>{seeEditButton}</button>
+                        <button className={styles.SeeOrEditButton}
+                        onClick={()=>editOrder(order)}>
+                            {seeEditButton}
+                        </button>
                         <button className={styles.OrderDoneButton}
                         onClick={()=>setFullfiledOrder(customerId,order._id)}>
                             {doneOrderButton}
@@ -69,6 +77,10 @@ function FullfiledOrders() {
     const seeEditButton = 'Ver o editar'
     const deleteEditing = 'Eliminar'
     const dispatch = useDispatch()
+    function editOrder(order){
+        dispatch(loadCustomerEditingOrder(order),
+        dispatch(changeOrdersToolToEditingOrder()))
+    }
     function deleteCustomerOrder(customerId, id){
         axios.delete(`api/customer/deleteCustomerOrder`,{
             params:{
@@ -101,7 +113,11 @@ function FullfiledOrders() {
                         :""}
                     </div>
                     <div className={styles.ButtonsContainer}>
-                        <button className={styles.ContinueEditiingButton}>{seeEditButton}</button>
+                        <button className={styles.ContinueEditiingButton}
+                        onClick={()=>editOrder(order)}>
+                            {seeEditButton}
+                        </button>
+
                         <button className={styles.DeleteEditingItem}
                         onClick={()=>deleteCustomerOrder(customerId, order._id)}>
                             {deleteEditing}

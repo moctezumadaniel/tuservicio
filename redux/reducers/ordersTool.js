@@ -4,6 +4,8 @@ export const ordersToolReducer = (state = 'Dashboard', action)=>{
             return 'Dashboard';
         case 'CHANGE_ORDERS_TOOL_TO_ORDER':
             return 'Order';
+        case 'CHANGE_ORDERS_TOOL_TO_EDITING_ORDER':
+            return 'EditingOrder';
         case 'CUSTOMER_LOGOUT':
             return 'Dashboard';
         default:

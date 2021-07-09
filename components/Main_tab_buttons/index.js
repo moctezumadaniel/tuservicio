@@ -80,7 +80,7 @@ function MainTabButtons (){
             onClick={handleCloseReservationsForm}>
                 {closeForm}
             </button>
-            :(currentTab === 'Services' && currentServiceDashboardTab === 'Tools' && currentOrdersToolTab === 'Order' && currentCustomerTool !== 'None')?
+            :(currentTab === 'Services' && currentServiceDashboardTab === 'Tools' && currentOrdersToolTab !== 'Dashboard' && currentCustomerTool !== 'None')?
             <button className={styles.MainCloseChat}
             onClick={handleGoBackToOrders}>
                 {goBackDescription}
