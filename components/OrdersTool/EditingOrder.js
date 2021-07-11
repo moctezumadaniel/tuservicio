@@ -87,6 +87,10 @@ function Order(){
     function getOrderNumber (orders, date){
         console.log(orders)
         console.log(date.toString())
+        const previosOrder = orders.filter(
+            order => order._id === currentOrder._id
+        )
+        console.log(previosOrder[0])
         const numbersFromOrderWithSelectedDate = orders.map(
             order =>{
                 if(order.date.slice(0,10) == date && order.number){
@@ -98,8 +102,14 @@ function Order(){
         const lastOrderNumber = Math.max(...numbersFromOrderWithSelectedDate) || 0;
         console.log(lastOrderNumber)
         const orderNumber = lastOrderNumber + 1
-        dispatch(changeCustomerEditingOrderFormNumber(orderNumber))
-        return orderNumber
+        if(previosOrder[0].date.slice(0,10) === date){
+            dispatch(changeCustomerEditingOrderFormNumber(previosOrder[0].number))
+            return(previosOrder[0].number)
+        }else{
+            dispatch(changeCustomerEditingOrderFormNumber(orderNumber))
+            return orderNumber
+        }
+        
     }
     
     const handleDateChange = event=>{
