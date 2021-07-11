@@ -1,3 +1,13 @@
+const initialForm = 
+{
+number:'',
+date:'',
+description:'',
+newItemDescription:'',
+newItemAmounth:'',
+fullfiled:false,
+items:[]
+}
 export const customerEditingOrderReducer = (state={}, action)=>{
     switch(action.type){
         case 'LOAD_CUSTOMER_EDITING_ORDER':

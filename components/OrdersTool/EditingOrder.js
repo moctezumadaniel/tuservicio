@@ -12,6 +12,7 @@ import { addItemToCustomerEditingOrderForm,
     changeCustomerEditingOrderFormNumber, 
     removeItemFromEditingOrderForm, 
     restartCustomerEditingOrderForm } from '../../redux/actions/CustomerEditingOrder'
+import { changeOrdersToolToDashboard } from '../../redux/actions/OrdersTool'
 function ListOfItems (){
     const deleteItem = 'Eliminar'
     const orderItems = useSelector(state=>state.customerEditingOrder.items)
@@ -81,6 +82,7 @@ function Order(){
     const newDescriptionPlaceholder = 'Escribe la descripción'
     const newAmounthPlaceholder = 'Escribe la cantidad'
     const addItemButton = 'AGREGAR'
+    const editingTitle = '(Editando)'
     const dispatch = useDispatch()
     function getOrderNumber (orders, date){
         console.log(orders)
@@ -116,20 +118,22 @@ function Order(){
     function handleAddItemPress(){
         dispatch(addItemToCustomerEditingOrderForm())
     }
-    function addCustomerOrder(customerId, newOrder){
-        axios.post(`api/customer/addCustomerOrder`,{
+    function saveEditingOrder(customerId, editingOrder){
+        axios.patch(`api/customer/updateCustomerOrder`,{
             customerId,
-            number:newOrder.number,
-            date:newOrder.date,
-            description:newOrder.description,
-            fullfiled:newOrder.fullfiled,
-            items:newOrder.items
+            id:editingOrder._id,
+            number:editingOrder.number,
+            date:editingOrder.date,
+            description:editingOrder.description,
+            fullfiled:editingOrder.fullfiled,
+            items:editingOrder.items
 
         })
         .then(response => {
             if(response.data){
                 dispatch(updateCustomerInformationOrders(response.data.orders),
-                dispatch(restartCustomerEditingOrderForm()))
+                dispatch(restartCustomerEditingOrderForm()),
+                dispatch(changeOrdersToolToDashboard()))
                 console.log(response)
             }
         })
@@ -138,10 +142,10 @@ function Order(){
     return(
        <div className={styles.OrderFormMainContainer}>
            {/*TITLE AND SAVE BUTTON */}
-           <div className={styles.OrderFormTitle}>{`${orderNumber}-${orderDate}`}</div>
+           <div className={styles.OrderFormTitle}>{`${orderNumber}-${orderDate} ${editingTitle}`}</div>
             <div className={styles.SaveOrderButtonContainer}>
                 <button className={styles.SaveOrderButton}
-                onClick={()=>addCustomerOrder(customerId, currentOrder)}>
+                onClick={()=>saveEditingOrder(customerId, currentOrder)}>
                     {saveOrderButton}
                 </button>
             </div>

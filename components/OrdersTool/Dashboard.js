@@ -39,7 +39,7 @@ function PendingOrders() {
             {
             pendingOrders.map(order => (                  
                 <div className={styles.ItemPendingContainer} key={order._id}>
-                    <div className={styles.OrderIdentifier}>{order.number}{order.date.slice(0,10)}</div>
+                    <div className={styles.OrderIdentifier}>{`${order.number}-${order.date.slice(0,10)}`}</div>
                     <div>
                         {order.description && order.description.length > 140? 
                         order.description.slice(0,141) + "..."

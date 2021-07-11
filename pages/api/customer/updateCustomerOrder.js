@@ -2,23 +2,33 @@ import connectDB from '../../../middleware/mongodb'
 import CustomerInformation from '../../../models/customer/customerInformation'
 
 export default async function updateCustomerOrder(req, res){
-    const { method } = req
-    const customerId = req.body.customerId
-    const order = req.body.expense
+    const { customerId } = req.body
+    const { id } = req.body
+    const { number } = req.body
+    const { date } = req.body
+    const { description } = req.body
+    const { fullfiled } = req.body
+    const { items } = req.body
     await connectDB()
-    if(method === "PATCH"){
-        try{
-            CustomerInformation.find({"customerId":customerId}, (err, data)=>{
-                if(err) console.log(err);
-                data.expenses.filter(
-                    i => i._id !== order._id
-                )
-                data.expenses.push(order)
-                data.save()
-                res.status(200)
-            })
-        }catch(err){
-            res.status(200).json({succes: false})
+    try{
+        CustomerInformation.findOneAndUpdate({ 
+            'customerId': customerId,
+            'orders._id':id
+        },{
+            $set : {
+                'orders.$.number':number,
+                'orders.$.date':date,
+                'orders.$.description':description,
+                'orders.$.fullfiled':fullfiled,
+                'orders.$.items':items,
+        }},{
+            new:true
+        },(err,data) => {
+            if(err) console.log(err)
+            res.status(200).json(data)
         }
+    )
+    }catch(err){
+        res.status(200)
     }
 }

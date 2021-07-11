@@ -40,7 +40,7 @@ function ListOfReservations(){
             <div className={styles.ReservationItem} key={reservation._id}>
 
                 <div className={styles.ItemSchedule}>
-                    {`${reservation.date.slice(0,10)} de ${reservation.start} a ${reservation.end}`}
+                    {`${reservation.date} de ${reservation.start} a ${reservation.end}`}
                 </div>
                 <div className={styles.ItemCustomerName}>{reservation.name}</div>
                 <div className={styles.ItemDescription}>{reservation.description}</div>
