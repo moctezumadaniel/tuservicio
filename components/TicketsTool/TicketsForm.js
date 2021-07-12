@@ -10,7 +10,8 @@ removeItemFromTicketForm,
 changeTicketItemDescription,
 changeTicketItemAmounth
 } from '../../redux/actions/CustomerTicketsTool'
-
+import axios from 'axios'
+import { updateCustomerInformationTickets } from '../../redux/actions/CustomerInformation'
 function ListOfConcepts(){
     const deleteItemButton = 'Eliminar'
     const ticketItems = useSelector(state=>state.customerTicketsToolForm.items)
@@ -64,7 +65,6 @@ function TicketForm(){
     const addConceptButton = 'AGREGAR'
     const namePlaceholder = 'Escribe el nombre del cliente'
     const grandTotalTitle = 'Total'
-    const grandTotal = '$25,000'
 
     const dispatch = useDispatch()
     const handleTicketDateChange = event =>{
@@ -83,6 +83,8 @@ function TicketForm(){
         dispatch(addItemToCustomerTicketForm())
     }
 
+    const customerInformation = useSelector(state => state.customerInformation)
+    const currentTicket = useSelector(state => state.customerTicketsToolForm)
     const ticketDate = useSelector(state=>state.customerTicketsToolForm.date)
     const ticketName = useSelector(state=>state.customerTicketsToolForm.name)
     const newItemDescription = useSelector(state=>state.customerTicketsToolForm.newItemDescription)
@@ -94,13 +96,32 @@ function TicketForm(){
         .reduce((acumulator, currentValue) => acumulator + parseFloat(currentValue.amounth || 0), 0)
         .toFixed(2)
 
+    function addTicket(customerId, newTicket){
+        axios.post(`api/customer/addCustomerTicket`,{
+            customerId,
+            number: newTicket.number,
+            date: newTicket.date,
+            name: newTicket.name,
+            items:newTicket.items,
+
+        })
+        .then(response => {
+            if(response.data){
+                dispatch(updateCustomerInformationTickets(response.data.tickets))
+            }
+        })
+        .catch(error => console.log(error))
+    }
     return(
         <div className={styles.TicketsToolMainContainer}>
             <div className={styles.TicketTitle}>
                 {ticketTitle}{ticketNumber}
             </div>
             <div className={styles.TicketSaveButtonContainer}>
-                <button className={styles.SaveTicketButton}>{saveTicketButton}</button>
+                <button className={styles.SaveTicketButton}
+                onClick={()=>addTicket(customerInformation.customerId, currentTicket)}>
+                    {saveTicketButton}
+                </button>
             </div>
 {/*DATE AND NAME OF THE CUSTOMER */}
             <div className={styles.TicketDateCustomerContainer}>

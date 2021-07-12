@@ -11,3 +11,10 @@ export const updateCustomerInformationOrders = (orders) =>{
         orders
     }
 }
+
+export const updateCustomerInformationTickets = (tickets) =>{
+    return{
+        type:'UPDATE_CUSTOMER_INFORMATION_TICKETS',
+        tickets
+    }
+}

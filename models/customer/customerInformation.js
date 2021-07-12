@@ -18,9 +18,9 @@ const customerInformationSchema = mongoose.Schema({
 
     //TICKETS TOOL
     tickets:[{
-        ticketNumber:String,
+        number:String,
         date:Date,
-        description:String,
+        name:String,
         items:[{
             id:String,
             description:String,

@@ -99,9 +99,10 @@ function Order(){
             }
         )
         console.log(numbersFromOrderWithSelectedDate)
+        
         const lastOrderNumber = Math.max(...numbersFromOrderWithSelectedDate) || 0;
-        console.log(lastOrderNumber)
         const orderNumber = lastOrderNumber + 1
+
         if(previosOrder[0].date.slice(0,10) === date){
             dispatch(changeCustomerEditingOrderFormNumber(previosOrder[0].number))
             return(previosOrder[0].number)
