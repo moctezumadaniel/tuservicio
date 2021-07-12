@@ -8,3 +8,9 @@ export const changeTicketsToolToTicket = ()=>{
         type:'CHANGE_TICKETS_TOOL_TO_TICKET'
     }
 }
+
+export const changeTicketsToolToEditingTicket = () =>{
+    return{
+        type: 'CHANGE_TICKETS_TOOL_TO_EDITING_TICKET'
+    }
+}

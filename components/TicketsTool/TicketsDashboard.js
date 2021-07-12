@@ -1,8 +1,9 @@
 import styles from '../../styles/TicketsTool.module.css'
 import {useDispatch, useSelector} from 'react-redux'
-import {changeTicketsToolToTicket} from '../../redux/actions/TicketsTool'
+import {changeTicketsToolToEditingTicket, changeTicketsToolToTicket} from '../../redux/actions/TicketsTool'
 import axios from 'axios'
 import { updateCustomerInformationTickets } from '../../redux/actions/CustomerInformation'
+import { loadCustomerEditingTicket } from '../../redux/actions/CustomerEditingTicket'
 function TicketsList(){
     
     const customerInformation = useSelector(state => state.customerInformation)
@@ -19,6 +20,10 @@ function TicketsList(){
     function generateDescription(items){
         return items
         .reduce((acumulator, item) => acumulator + " " + item.description, "")
+    }
+    function editTicket(ticket){
+        dispatch(changeTicketsToolToEditingTicket(),
+        dispatch(loadCustomerEditingTicket(ticket)))
     }
     function deleteItem(customerId, id){
         axios.delete(`api/customer/deleteCustomerTicket`,{
@@ -52,7 +57,8 @@ function TicketsList(){
                             {generateDescription(ticket.items)}
                         </div>
                         <div className={styles.OpenEditTicketContainer}>
-                            <button className={styles.OpenEditTicket}>
+                            <button className={styles.OpenEditTicket}
+                            onClick={()=>editTicket(ticket)}>
                                 {openEditTicketDescription}
                             </button>
                             <button className={styles.DeleteTicket}
