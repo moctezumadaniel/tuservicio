@@ -1,11 +1,16 @@
 import styles from '../../styles/TicketsTool.module.css'
 import {useDispatch, useSelector} from 'react-redux'
 import {changeTicketsToolToTicket} from '../../redux/actions/TicketsTool'
+import axios from 'axios'
+import { updateCustomerInformationTickets } from '../../redux/actions/CustomerInformation'
 function TicketsList(){
+    
     const customerInformation = useSelector(state => state.customerInformation)
     const allTickets = customerInformation.tickets;
-    const openEditTicket = 'VER O EDITAR'
+    const openEditTicketDescription = 'VER O EDITAR'
+    const deleteTicketDescription = 'ELIMINAR'
     const ticketsTitle = 'Notas de venta'
+    const dispatch = useDispatch()
     function calculateGrandTotal(items){
         return items
         .reduce((acumulator, currentValue) => acumulator + parseFloat(currentValue.amounth || 0), 0)
@@ -14,6 +19,20 @@ function TicketsList(){
     function generateDescription(items){
         return items
         .reduce((acumulator, item) => acumulator + " " + item.description, "")
+    }
+    function deleteItem(customerId, id){
+        axios.delete(`api/customer/deleteCustomerTicket`,{
+            params:{
+                customerId,
+                id
+            }
+        })
+        .then(response => {
+            if(response.data){
+                dispatch(updateCustomerInformationTickets(response.data.tickets))
+            }
+        })
+        .catch(error => console.log(error))
     }
     if(allTickets.length > 0){
         return(
@@ -33,7 +52,13 @@ function TicketsList(){
                             {generateDescription(ticket.items)}
                         </div>
                         <div className={styles.OpenEditTicketContainer}>
-                            <button className={styles.OpenEditTicket}>{openEditTicket}</button>
+                            <button className={styles.OpenEditTicket}>
+                                {openEditTicketDescription}
+                            </button>
+                            <button className={styles.DeleteTicket}
+                            onClick={()=>deleteItem(customerInformation.customerId, ticket._id)}>
+                                {deleteTicketDescription}
+                            </button>
                         </div>
                     </div>
                 ))

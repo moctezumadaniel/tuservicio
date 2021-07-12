@@ -78,16 +78,25 @@
 }
 .OpenEditTicketContainer{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     margin-top: 10px;
 }
 .OpenEditTicket{
-    font-size: medium;
+    font-size: small;
     font-family: sans-serif;
     outline: none;
     border:none;
     background-color: white;
     color: #026ED2;
+}
+.DeleteTicket{
+    font-size: small;
+    font-family: sans-serif;
+    outline: none;
+    border:none;
+    background-color: white;
+    color: #f40000;
+    cursor: pointer;
 }
 .OpenEditTicket{
     cursor: pointer;
