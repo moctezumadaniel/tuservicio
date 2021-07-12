@@ -1,29 +1,27 @@
 import styles from '../../styles/TicketsTool.module.css'
 import {useDispatch, useSelector} from 'react-redux'
-import {
-changeCustomerTicketFormDate,
-changeCustomerTicketFormName,
-changeCustomerTicketFormNewItemDescription,
-changeCustomerTicketFormNewItemAmounth,
-addItemToCustomerTicketForm,
-removeItemFromTicketForm,
-changeTicketItemDescription,
-changeTicketItemAmounth
-} from '../../redux/actions/CustomerTicketsTool'
 import axios from 'axios'
 import { updateCustomerInformationTickets } from '../../redux/actions/CustomerInformation'
+import { addItemToCustomerEditingTicketForm, 
+    changeCustomerEditingTicketFormDate, 
+    changeCustomerEditingTicketFormName, 
+    changeCustomerEditingTicketFormNewItemAmounth, 
+    changeCustomerEditingTicketFormNewItemDescription, 
+    changeEditingTicketItemAmounth, 
+    changeEditingTicketItemDescription, 
+    removeItemFromEditingTicketForm } from '../../redux/actions/CustomerEditingTicket'
 function ListOfConcepts(){
     const deleteItemButton = 'Eliminar'
-    const ticketItems = useSelector(state=>state.customerTicketsToolForm.items)
+    const ticketItems = useSelector(state=>state.customerEditingTicket.items)
     const dispatch = useDispatch()
     function handleDeleteItemPress(id){
-        dispatch(removeItemFromTicketForm(id))
+        dispatch(removeItemFromEditingTicketForm(id))
     }
     const handleChangeTicketItemDescription= (id) => (event)=>{
-        dispatch(changeTicketItemDescription(id,event.target.value))
+        dispatch(changeEditingTicketItemDescription(id,event.target.value))
     }
     const handleChangeTicketItemAmounth = (id) => (event) =>{
-        dispatch(changeTicketItemAmounth(id,event.target.value))
+        dispatch(changeEditingTicketItemAmounth(id,event.target.value))
     }
     return(
         <>
@@ -65,49 +63,52 @@ function EditingTicket(){
     const addConceptButton = 'AGREGAR'
     const namePlaceholder = 'Escribe el nombre del cliente'
     const grandTotalTitle = 'Total'
+    const editingTitle = '(Edición)'
 
     const dispatch = useDispatch()
     const handleTicketDateChange = event =>{
-        dispatch(changeCustomerTicketFormDate(event.target.value))
+        dispatch(changeCustomerEditingTicketFormDate(event.target.value))
     }
     const handleCustomerNameChange = event =>{
-        dispatch(changeCustomerTicketFormName(event.target.value))
+        dispatch(changeCustomerEditingTicketFormName(event.target.value))
     }
     const handleNewDescriptionChange = event =>{
-        dispatch(changeCustomerTicketFormNewItemDescription(event.target.value))
+        dispatch(changeCustomerEditingTicketFormNewItemDescription(event.target.value))
     }
     const handleNewAmounthChange = event =>{
-        dispatch(changeCustomerTicketFormNewItemAmounth(event.target.value))
+        dispatch(changeCustomerEditingTicketFormNewItemAmounth(event.target.value))
     }
     function handleAddItemPress (){
-        dispatch(addItemToCustomerTicketForm())
+        dispatch(addItemToCustomerEditingTicketForm())
     }
 
     const customerInformation = useSelector(state => state.customerInformation)
-    const currentTicket = useSelector(state => state.customerTicketsToolForm)
-    const ticketDate = useSelector(state=>state.customerTicketsToolForm.date)
-    const ticketName = useSelector(state=>state.customerTicketsToolForm.name)
-    const newItemDescription = useSelector(state=>state.customerTicketsToolForm.newItemDescription)
-    const newItemAmounth = useSelector(state=>state.customerTicketsToolForm.newItemAmounth)
+    const currentTicket = useSelector(state => state.customerEditingTicket)
+    const ticketDate = currentTicket.date.slice(0,10)
+    const ticketName = currentTicket.name
+    const newItemDescription = currentTicket.newItemDescription
+    const newItemAmounth = currentTicket.newItemAmounth
 /*DATA AND LOGIC TO CALCULATE THE TICKET GRAND TOTAL*/
-    const ticketItems = useSelector(state=>state.customerTicketsToolForm.items)
+    const ticketItems = currentTicket.items
     const ticketGrandTotal = 
         ticketItems
         .reduce((acumulator, currentValue) => acumulator + parseFloat(currentValue.amounth || 0), 0)
         .toFixed(2)
 
-    function addTicket(customerId, newTicket){
-        axios.post(`api/customer/addCustomerTicket`,{
+    function editTicket(customerId, editingTicket){
+        axios.patch(`api/customer/updateCustomerTicket`,{
             customerId,
-            number: newTicket.number,
-            date: newTicket.date,
-            name: newTicket.name,
-            items:newTicket.items,
+            id:editingTicket._id,
+            number: editingTicket.number,
+            date: editingTicket.date,
+            name: editingTicket.name,
+            items:editingTicket.items,
 
         })
         .then(response => {
             if(response.data){
                 dispatch(updateCustomerInformationTickets(response.data.tickets))
+                console.log(response)
             }
         })
         .catch(error => console.log(error))
@@ -115,11 +116,11 @@ function EditingTicket(){
     return(
         <div className={styles.TicketsToolMainContainer}>
             <div className={styles.TicketTitle}>
-                {ticketTitle}{ticketNumber}
+                {`${ticketTitle}${ticketNumber} ${editingTitle}`}
             </div>
             <div className={styles.TicketSaveButtonContainer}>
                 <button className={styles.SaveTicketButton}
-                onClick={()=>addTicket(customerInformation.customerId, currentTicket)}>
+                onClick={()=>editTicket(customerInformation.customerId, currentTicket)}>
                     {saveTicketButton}
                 </button>
             </div>
@@ -150,7 +151,7 @@ function EditingTicket(){
                 onChange={handleNewAmounthChange}
                 value={newItemAmounth}/>
 
-                {newItemDescription !== '' && newItemAmounth !== '' ?
+                {newItemDescription && newItemAmounth ?
                 <button className={styles.AddItemButton}
                 onClick={handleAddItemPress}>{addConceptButton}</button>
                 :""}
