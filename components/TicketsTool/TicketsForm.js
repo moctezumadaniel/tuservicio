@@ -8,10 +8,12 @@ changeCustomerTicketFormNewItemAmounth,
 addItemToCustomerTicketForm,
 removeItemFromTicketForm,
 changeTicketItemDescription,
-changeTicketItemAmounth
+changeTicketItemAmounth,
+changeCustomerTicketFormNumber
 } from '../../redux/actions/CustomerTicketsTool'
 import axios from 'axios'
 import { updateCustomerInformationTickets } from '../../redux/actions/CustomerInformation'
+import { changeTicketsToolToDashboard } from '../../redux/actions/TicketsTool'
 function ListOfConcepts(){
     const deleteItemButton = 'Eliminar'
     const ticketItems = useSelector(state=>state.customerTicketsToolForm.items)
@@ -56,8 +58,7 @@ function ListOfConcepts(){
 }
 
 function TicketForm(){
-    const ticketTitle = 'Nota '
-    const ticketNumber = '38-19032021'
+    const ticketTitle = 'Nota'
     const saveTicketButton = 'GUARDAR'
     const newItemTitle = 'Nuevo concepto'
     const newDescriptionPlaceholder = 'Escribe la descripción del nuevo concepto';
@@ -66,9 +67,21 @@ function TicketForm(){
     const namePlaceholder = 'Escribe el nombre del cliente'
     const grandTotalTitle = 'Total'
 
+    const customerInformation = useSelector(state => state.customerInformation)
+    const currentTickets = customerInformation.tickets
+    const currentTicket = useSelector(state => state.customerTicketsToolForm)
+    const ticketDate = useSelector(state=>state.customerTicketsToolForm.date)
+    const ticketNumber = currentTicket.number
+    const ticketName = useSelector(state=>state.customerTicketsToolForm.name)
+    const newItemDescription = useSelector(state=>state.customerTicketsToolForm.newItemDescription)
+    const newItemAmounth = useSelector(state=>state.customerTicketsToolForm.newItemAmounth)
+
     const dispatch = useDispatch()
     const handleTicketDateChange = event =>{
-        dispatch(changeCustomerTicketFormDate(event.target.value))
+        dispatch(changeCustomerTicketFormDate(event.target.value),
+        dispatch(changeCustomerTicketFormNumber(
+            calculateTicketNumber(event.target.value, currentTickets)
+        )))
     }
     const handleCustomerNameChange = event =>{
         dispatch(changeCustomerTicketFormName(event.target.value))
@@ -83,19 +96,32 @@ function TicketForm(){
         dispatch(addItemToCustomerTicketForm())
     }
 
-    const customerInformation = useSelector(state => state.customerInformation)
-    const currentTicket = useSelector(state => state.customerTicketsToolForm)
-    const ticketDate = useSelector(state=>state.customerTicketsToolForm.date)
-    const ticketName = useSelector(state=>state.customerTicketsToolForm.name)
-    const newItemDescription = useSelector(state=>state.customerTicketsToolForm.newItemDescription)
-    const newItemAmounth = useSelector(state=>state.customerTicketsToolForm.newItemAmounth)
+    
 /*DATA AND LOGIC TO CALCULATE THE TICKET GRAND TOTAL*/
     const ticketItems = useSelector(state=>state.customerTicketsToolForm.items)
     const ticketGrandTotal = 
         ticketItems
         .reduce((acumulator, currentValue) => acumulator + parseFloat(currentValue.amounth || 0), 0)
-        .toFixed(2)
-
+        .toFixed(2);
+        
+    function calculateTicketNumber(date, tickets){
+        console.log(tickets)
+        console.log(date.toString())
+        const numbersFromTicketsWithSelectedDate = tickets.map(
+            ticket =>{
+                if(ticket.date.slice(0,10) == date && ticket.number){
+                    return parseInt(ticket.number)
+                } else return 0
+            }
+        )
+        console.log(numbersFromTicketsWithSelectedDate)
+        const lastTicketNumber = numbersFromTicketsWithSelectedDate.length > 0? 
+            Math.max(...numbersFromTicketsWithSelectedDate)
+            :0;
+        console.log(lastTicketNumber)
+        const ticketNumber = lastTicketNumber + 1
+        return ticketNumber
+    }
     function addTicket(customerId, newTicket){
         axios.post(`api/customer/addCustomerTicket`,{
             customerId,
@@ -107,7 +133,9 @@ function TicketForm(){
         })
         .then(response => {
             if(response.data){
-                dispatch(updateCustomerInformationTickets(response.data.tickets))
+                dispatch(updateCustomerInformationTickets(response.data.tickets),
+                dispatch(changeTicketsToolToDashboard()))
+                console.log(response.data)
             }
         })
         .catch(error => console.log(error))
@@ -115,7 +143,7 @@ function TicketForm(){
     return(
         <div className={styles.TicketsToolMainContainer}>
             <div className={styles.TicketTitle}>
-                {ticketTitle}{ticketNumber}
+                {`${ticketTitle} ${ticketNumber}-${ticketDate}`}
             </div>
             <div className={styles.TicketSaveButtonContainer}>
                 <button className={styles.SaveTicketButton}

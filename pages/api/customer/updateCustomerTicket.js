@@ -8,7 +8,6 @@ export default async function updateCustomerTicket(req, res){
     const { date } = req.body
     const { name } = req.body
     const { items } = req.body
-    console.log(req.body)
 
     await connectDB()
     try{

@@ -4,6 +4,8 @@ export const customerEditingTicketReducer = (state={}, action) =>{
             return action.ticket;
         case 'CHANGE_CUSTOMER_EDITING_TICKET_FORM_DATE':
             return {...state,date:action.date}
+        case 'CHANGE_CUSTOMER_EDITING_TICKET_FORM_NUMBER':
+            return {...state, number:action.number}
         case 'CHANGE_CUSTOMER_EDITING_TICKET_FORM_NAME':
             return {...state,name:action.name}
         case 'CHANGE_CUSTOMER_EDITING_TICKET_FORM_NEW_ITEM_DESCRIPTION':

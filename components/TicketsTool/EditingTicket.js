@@ -10,6 +10,7 @@ import { addItemToCustomerEditingTicketForm,
     changeEditingTicketItemAmounth, 
     changeEditingTicketItemDescription, 
     removeItemFromEditingTicketForm } from '../../redux/actions/CustomerEditingTicket'
+import { changeTicketsToolToDashboard } from '../../redux/actions/TicketsTool'
 function ListOfConcepts(){
     const deleteItemButton = 'Eliminar'
     const ticketItems = useSelector(state=>state.customerEditingTicket.items)
@@ -55,7 +56,6 @@ function ListOfConcepts(){
 
 function EditingTicket(){
     const ticketTitle = 'Nota '
-    const ticketNumber = '38-19032021'
     const saveTicketButton = 'GUARDAR'
     const newItemTitle = 'Nuevo concepto'
     const newDescriptionPlaceholder = 'Escribe la descripción del nuevo concepto';
@@ -83,9 +83,11 @@ function EditingTicket(){
     }
 
     const customerInformation = useSelector(state => state.customerInformation)
+    const previousTickets = customerInformation.tickets
     const currentTicket = useSelector(state => state.customerEditingTicket)
     const ticketDate = currentTicket.date.slice(0,10)
     const ticketName = currentTicket.name
+    const ticketNumber = currentTicket.number
     const newItemDescription = currentTicket.newItemDescription
     const newItemAmounth = currentTicket.newItemAmounth
 /*DATA AND LOGIC TO CALCULATE THE TICKET GRAND TOTAL*/
@@ -93,8 +95,30 @@ function EditingTicket(){
     const ticketGrandTotal = 
         ticketItems
         .reduce((acumulator, currentValue) => acumulator + parseFloat(currentValue.amounth || 0), 0)
-        .toFixed(2)
-
+        .toFixed(2);
+    function calculateTicketNumber(date, tickets){
+        console.log(tickets)
+        console.log(date.toString())
+        const previousTicket = previousTickets.filter(
+            ticket => ticket._id == currentTicket._id
+        )
+        const numbersFromTicketsWithSelectedDate = tickets.map(
+            ticket =>{
+                if(ticket.date.slice(0,10) == date && ticket.number){
+                    return parseInt(ticket.number)
+                } else return 0
+            }
+        )
+        console.log(numbersFromTicketsWithSelectedDate)
+        const lastTicketNumber = numbersFromTicketsWithSelectedDate.length > 0? 
+            Math.max(...numbersFromTicketsWithSelectedDate)
+            :0;
+        console.log(lastTicketNumber)
+        const ticketNumber = lastTicketNumber + 1
+        if(previousTicket[0].date.slice(0,10) === date){
+            return(previousTicket[0].date.slice(0,10))
+        }else return ticketNumber
+    }
     function editTicket(customerId, editingTicket){
         axios.patch(`api/customer/updateCustomerTicket`,{
             customerId,
@@ -107,7 +131,8 @@ function EditingTicket(){
         })
         .then(response => {
             if(response.data){
-                dispatch(updateCustomerInformationTickets(response.data.tickets))
+                dispatch(updateCustomerInformationTickets(response.data.tickets),
+                dispatch(changeTicketsToolToDashboard()))
                 console.log(response)
             }
         })
@@ -116,7 +141,7 @@ function EditingTicket(){
     return(
         <div className={styles.TicketsToolMainContainer}>
             <div className={styles.TicketTitle}>
-                {`${ticketTitle}${ticketNumber} ${editingTitle}`}
+                {`${ticketTitle}${ticketNumber}-${ticketDate} ${editingTitle}`}
             </div>
             <div className={styles.TicketSaveButtonContainer}>
                 <button className={styles.SaveTicketButton}

@@ -5,6 +5,12 @@ export const changeCustomerTicketFormDate = (date)=>{
     }
 }
 
+export const changeCustomerTicketFormNumber = (number) =>{
+    return{
+        type: 'CHANGE_CUSTOMER_TICKET_FORM_NUMBER',
+        number
+    }
+}
 export const changeCustomerTicketFormName = (name)=>{
     return{
         type:'CHANGE_CUSTOMER_TICKET_FORM_NAME',
