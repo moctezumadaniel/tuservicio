@@ -154,6 +154,11 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+
+
+    animation-name: renderExpense;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
 }
 
 .DateAmounthContainer{
@@ -237,6 +242,12 @@
     border-radius: 10px;
     box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
 
+}
+
+@keyframes renderExpense {
+    from{
+        margin-top: -500px;
+    }
 }
 @keyframes renderItem {
     from{

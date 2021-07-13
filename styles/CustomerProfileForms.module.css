@@ -12,6 +12,9 @@
     flex: 1;
     background-color: black;
     opacity: 0.60;
+
+    animation-name: shadeBackground;
+    animation-duration: 500ms;
 }
 .ModalContainer{
     display: flex;
@@ -27,6 +30,10 @@
     border-top-right-radius: 20px;
     justify-content: space-evenly;
     box-shadow: 10px 0px 7px rgba(0, 0, 0, 0.25);
+
+    animation-name: renderModal;
+    animation-duration: 500ms;
+
 
 }
 @media (max-height:500px) {
@@ -368,5 +375,17 @@
     }
     .ServiceDescription{
         width: 400px;
+    }
+}
+
+@keyframes renderModal {
+    from{
+        bottom: -100px;
+    }
+}
+
+@keyframes shadeBackground {
+    from{
+        opacity: 0.0;
     }
 }

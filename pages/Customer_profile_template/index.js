@@ -7,7 +7,6 @@ import BookingTab from './BookingTab'
 import CloseButton from './CloseButton'
 import axios from 'axios'
 function CustomerProfileTemplate (){
-    console.log(customerPublicInformation)
     return(
         <div>
             <TopBar/>

@@ -106,6 +106,10 @@
     width: 100vw;
     min-height: 100vh;
     padding-bottom: 150px;
+
+    animation-name: renderTicket;
+    animation-timing-function: ease-in-out;
+    animation-duration: 500ms;
 }
 .TicketTitle{
     font-size: xx-large;
@@ -326,7 +330,11 @@
     font-size: x-large;
     font-weight: 600;
 }
-
+@keyframes renderTicket {
+    from{
+        margin-top: -50px;
+    }
+}
 @keyframes renderItem {
     from{
         opacity: 0.7;
