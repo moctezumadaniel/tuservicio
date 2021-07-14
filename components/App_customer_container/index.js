@@ -1,13 +1,20 @@
 import CustomerServiceDashboard from "../Customer_service_dashboard";
 import PreferencesTab from "../Preferences_tab";
 import UserMessagesTab from "../User_messages_tab";
-
+import styles from "../../styles/LoadingScreens.module.css"
 import { useEffect } from "react";
 import { useAuth0 } from '@auth0/auth0-react'
 import axios from 'axios'
 import { useDispatch, useSelector } from "react-redux";
 import { loadCustomerPublicInformation } from '../../redux/actions/CustomerPublicInformation'
 import { loadCustomerInformation } from "../../redux/actions/CustomerInformation";
+
+function LoadingScreen(){
+    const loadingMessage = 'Cargando...'
+    return(
+        <div className={styles.LoadingMessage}>{loadingMessage}</div>
+    )
+}
 function AppCustomerContainer(){
     const dispatch = useDispatch()
     const customerData = useSelector(state => state.customerPublicInformation)
@@ -48,11 +55,7 @@ function AppCustomerContainer(){
             <PreferencesTab/>
         </div>
     )}else{
-        return(
-            <div>
-                CARGANDO
-            </div>
-        )
+        return <LoadingScreen/>
     }
 }
 export default AppCustomerContainer
