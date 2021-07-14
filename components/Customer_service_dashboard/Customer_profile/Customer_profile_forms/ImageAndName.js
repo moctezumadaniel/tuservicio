@@ -14,16 +14,19 @@ function ImageAndName (){
     const confirmButton = 'ACEPTAR'
     const dispatch = useDispatch()
     
-    function updateCustomerName(newName){
-        axios.patch(`api/customer/updateCustomerName.js`,{
-            params:{
-                userId:customerInformation.userId,
-                newName
-            }
+    function changeTemporalCustomerName(event){
+        setTemporalCustomerName(event.target.value)
+    }
+    function updateCustomerName(customerId,newName){
+        axios.patch(`api/customer/updateCustomerName`,{
+            customerId,
+            newName
         })
         .then(response => {
-            if(response.success){
-                dispatch(changeCustomerPublicInformationName(temporalCustomerName))
+            if(response.data){
+                dispatch(changeCustomerPublicInformationName(temporalCustomerName),
+                dispatch(changeCustomerProfileFormToNone()))
+                console.log(response)
             }
         })
         .catch(err => console.log(err))
@@ -45,10 +48,15 @@ function ImageAndName (){
                     </div>
                 </div>
                 <div className={styles.ProfileNameContainer}>
-                    <input type='text' className={styles.ProfileName} placeholder={serviceName}/>
+                    <input type='text' className={styles.ProfileName} placeholder={serviceName}
+                    value={temporalCustomerName}
+                    onChange={(event)=>changeTemporalCustomerName(event)}/>
                 </div>
                 <div className={styles.ConformButtonContainer}>
-                    <button className={styles.ConfirmButton}>{confirmButton}</button>
+                    <button className={styles.ConfirmButton}
+                    onClick={()=>updateCustomerName(customerInformation.customerId, temporalCustomerName)}>
+                        {confirmButton}
+                    </button>
                 </div>
             </div>
         </div>
