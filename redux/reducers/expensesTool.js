@@ -4,6 +4,8 @@ export const expensesToolReducer = (state='Dashboard', action)=>{
             return 'Dashboard';
         case 'CHANGE_EXPENSE_TOOL_TO_EXPENSE':
             return 'Expense'
+        case 'CHANGE_EXPENSE_TOOL_TO_EDITING_EXPENSE':
+            return 'EditingExpense'
         case 'CUSTOMER_LOGOUT':
             return 'Dashboard'
         default:

@@ -38,6 +38,7 @@ import { customerSchedulePeriodReducer } from './customerSchedulePeriod'
 import { customerEditingScheduleReducer } from './customerEditingSchedule'
 import { customerEditingOrderReducer } from './customerEditingOrder'
 import { customerEditingTicketReducer } from './customerEditingTicket'
+import { expensesToolEditingFormReducer } from './customerEditingExpense'
 const rootReducer = combineReducers({
     platformType: platformTypeReducer,
     userLogin: userLoginReducer,
@@ -72,6 +73,7 @@ const rootReducer = combineReducers({
     customerEditingSchedule:customerEditingScheduleReducer,
     customerEditingOrder:customerEditingOrderReducer,
     customerEditingTicket:customerEditingTicketReducer,
+    expensesToolEditingForm:expensesToolEditingFormReducer,
 })
 
 export default rootReducer

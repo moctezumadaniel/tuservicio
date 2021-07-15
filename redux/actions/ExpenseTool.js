@@ -10,6 +10,12 @@ export const changeExpenseToolToExpense = ()=>{
     }
 }
 
+export const changeExpenseToolToEditingExpense = () =>{
+    return{
+        type: 'CHANGE_EXPENSE_TOOL_TO_EDITING_EXPENSE'
+    }
+}
+
 /*EXPENSE FORM*/
 export const changeExpensesToolFormDate = (date)=>{
     return{

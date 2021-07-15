@@ -1,25 +1,60 @@
 import styles from '../../styles/ExpensesTool.module.css'
 import {useDispatch, useSelector} from 'react-redux'
-import {changeExpenseToolToExpense} from '../../redux/actions/ExpenseTool'
+import {changeExpenseToolToEditingExpense, changeExpenseToolToExpense} from '../../redux/actions/ExpenseTool'
+import axios from 'axios'
+import { updateCustomerInformationExpenses } from '../../redux/actions/CustomerInformation'
+import { loadExpensesToolEditingFormDate } from '../../redux/actions/CustomerEditingExpense'
 
 function ExpensesList(){
     const customerInformation = useSelector(state => state.customerInformation)
     const expenses = customerInformation.expenses
 
-    const openEditItemButton = 'VER O EDITAR'
+    const openEditItemButton = 'Ver o editar'
+    const deleteButton = 'Eliminar'
+
+    const dispatch = useDispatch()
+    function editForm(expense){
+        dispatch(loadExpensesToolEditingFormDate(expense),
+        dispatch(changeExpenseToolToEditingExpense()))
+    }
+    function deleteExpense(customerId, id){
+        axios.delete(`api/customer/deleteCustomerExpense`,{
+            params:{
+                customerId,
+                id
+            }
+        })
+        .then(response => {
+            if(response.data){
+                dispatch(updateCustomerInformationExpenses(response.data.expenses),
+                console.log(response))
+            }
+        })
+        .catch( error => console.log(error))
+    }
     if(expenses.length > 0){
         return(
         <div className={styles.ListOfExpensesContainer}>
 
         {expenses.map( expense =>(
 
-        <div className={styles.ExpenseItemContainer}>
+        <div className={styles.ExpenseItemContainer} key={expense._id}>
             <div className={styles.ExpenseMainInformation}>
                 <div>{expense.date.slice(0,10)}</div>
                 <div>{`$${expense.amounth}`}</div>
             </div>
             <div className={styles.ExpenseDescription}>{expense.description.slice(0,141)}</div>
-            <button className={styles.OpenEditItemButton}>{openEditItemButton}</button>
+
+            <div className={styles.ExpenseButtonsContainer}>
+            <button className={styles.OpenEditItemButton}
+            onClick={()=>editForm(expense)}>
+                {openEditItemButton}
+            </button>
+            <button className={styles.DeleteItemButton}
+            onClick={()=>deleteExpense(customerInformation.customerId, expense._id)}>
+                {deleteButton}
+            </button>
+            </div>
         </div>
         
         ))
@@ -40,7 +75,6 @@ function OrdersDashboard (){
     const dateRangeTotalDescription = 'Gastos totales:'
     const dateRangeTotal = () =>{
         const total = expenses.reduce((acumulator, expense) => acumulator + (expense.amounth || 0), 0)
-        console.log(total)
         return total
        
     }

@@ -90,7 +90,7 @@ function MainTabButtons (){
             onClick={handleGoBackToProviders}>
                 {goBackDescription}
             </button>
-            :(currentTab === 'Services' && currentServiceDashboardTab === 'Tools' && currentExpensesToolTab === 'Expense' && currentCustomerTool !== 'None')?
+            :(currentTab === 'Services' && currentServiceDashboardTab === 'Tools' && currentExpensesToolTab !== 'Dashboard' && currentCustomerTool !== 'None')?
             <button className={styles.MainCloseChat}
             onClick={handleGoBackToExpenses}>
                 {goBackDescription}
