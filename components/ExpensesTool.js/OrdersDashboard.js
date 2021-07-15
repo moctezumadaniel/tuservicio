@@ -1,18 +1,51 @@
 import styles from '../../styles/ExpensesTool.module.css'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {changeExpenseToolToExpense} from '../../redux/actions/ExpenseTool'
+
+function ExpensesList(){
+    const customerInformation = useSelector(state => state.customerInformation)
+    const expenses = customerInformation.expenses
+
+    const openEditItemButton = 'VER O EDITAR'
+    if(expenses.length > 0){
+        return(
+        <div className={styles.ListOfExpensesContainer}>
+
+        {expenses.map( expense =>(
+
+        <div className={styles.ExpenseItemContainer}>
+            <div className={styles.ExpenseMainInformation}>
+                <div>{expense.date.slice(0,10)}</div>
+                <div>{`$${expense.amounth}`}</div>
+            </div>
+            <div className={styles.ExpenseDescription}>{expense.description.slice(0,141)}</div>
+            <button className={styles.OpenEditItemButton}>{openEditItemButton}</button>
+        </div>
+        
+        ))
+        }
+
+        </div>
+        )}
+    else return ""
+}
 function OrdersDashboard (){
+
+    const customerInformation = useSelector(state => state.customerInformation)
+    const expenses = customerInformation.expenses
     const dispatch = useDispatch()
     const registerExpenseButton = '+ Registrar nuevo gasto'
     const customExpensesRange = 'Seleccionar periodo personalizado'
     const dateRangeSelected = 'Marzo 2021'
     const dateRangeTotalDescription = 'Gastos totales:'
-    const dateRangeTotal = '$25,000'
+    const dateRangeTotal = () =>{
+        const total = expenses.reduce((acumulator, expense) => acumulator + (expense.amounth || 0), 0)
+        console.log(total)
+        return total
+       
+    }
     const shareReportButton = 'Descargar / Compartir reporte de gastos'
-    const expenseItemDate = '23 de Marzo'
-    const expenseItemAmounth = '$12,500'
-    const expenseItemDescription = 'Ejemplo de descripcion del servicio Ejemplo de descripcion del servicio Ejemplo de descripcion del servicio'
-    const openEditItemButton = 'VER O EDITAR'
+    
 
     function handleNewExpensePress(){
         dispatch(changeExpenseToolToExpense())
@@ -28,62 +61,12 @@ function OrdersDashboard (){
             
             <div className={styles.GrandTotalContainer}>
                 <div className={styles.GrandTotalDescription}>{dateRangeTotalDescription}</div>
-                <div className={styles.GrandTotal}>{dateRangeTotal}</div>
+                <div className={styles.GrandTotal}>{`$${dateRangeTotal()}`}</div>
             </div>
 
             <button className={styles.ShareReportButton}>{shareReportButton}</button>
             
-{/*LIST OF EXPENSES*/}
-            <div className={styles.ListOfExpensesContainer}>
-              
-                <div className={styles.ExpenseItemContainer}>
-                    <div className={styles.ExpenseMainInformation}>
-                        <div>{expenseItemDate}</div>
-                        <div>{expenseItemAmounth}</div>
-                    </div>
-                    <div className={styles.ExpenseDescription}>{expenseItemDescription}</div>
-                    <button className={styles.OpenEditItemButton}>{openEditItemButton}</button>
-                </div>
-
-                <div className={styles.ExpenseItemContainer}>
-                    <div className={styles.ExpenseMainInformation}>
-                        <div>{expenseItemDate}</div>
-                        <div>{expenseItemAmounth}</div>
-                    </div>
-                    <div className={styles.ExpenseDescription}>{expenseItemDescription}</div>
-                    <button className={styles.OpenEditItemButton}>{openEditItemButton}</button>
-                </div>
-
-                <div className={styles.ExpenseItemContainer}>
-                    <div className={styles.ExpenseMainInformation}>
-                        <div>{expenseItemDate}</div>
-                        <div>{expenseItemAmounth}</div>
-                    </div>
-                    <div className={styles.ExpenseDescription}>{expenseItemDescription}</div>
-                    <button className={styles.OpenEditItemButton}>{openEditItemButton}</button>
-                </div>
-
-                <div className={styles.ExpenseItemContainer}>
-                    <div className={styles.ExpenseMainInformation}>
-                        <div>{expenseItemDate}</div>
-                        <div>{expenseItemAmounth}</div>
-                    </div>
-                    <div className={styles.ExpenseDescription}>{expenseItemDescription}</div>
-                    <button className={styles.OpenEditItemButton}>{openEditItemButton}</button>
-                </div>
-
-                <div className={styles.ExpenseItemContainer}>
-                    <div className={styles.ExpenseMainInformation}>
-                        <div>{expenseItemDate}</div>
-                        <div>{expenseItemAmounth}</div>
-                    </div>
-                    <div className={styles.ExpenseDescription}>{expenseItemDescription}</div>
-                    <button className={styles.OpenEditItemButton}>{openEditItemButton}</button>
-                </div>
-
-                
-                
-            </div>
+            <ExpensesList/>
             
 
         </div>
