@@ -25,7 +25,8 @@ function PhoneNumber(){
         })
         .then(response => {
             if(response.data){
-                dispatch(changeCustomerPublicInformationPhoneNumber(response.data.phoneNumber))
+                dispatch(changeCustomerPublicInformationPhoneNumber(response.data.phoneNumber),
+                dispatch(changeCustomerProfileFormToNone()))
                 console.log(response)
             }
         })

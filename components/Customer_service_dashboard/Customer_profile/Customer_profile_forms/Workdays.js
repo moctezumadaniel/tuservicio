@@ -20,7 +20,8 @@ function Workdays (){
         })
         .then(response =>{
             if(response.data){
-                dispatch(changeCustomerPublicInformationWorkdays(response.data.workdays))
+                dispatch(changeCustomerPublicInformationWorkdays(response.data.workdays),
+                dispatch(changeCustomerProfileFormToNone()))
                 console.log(response)
             }
         })

@@ -25,7 +25,8 @@ function ShortDescription (){
         })
         .then(response => {
             if(response){
-                dispatch(changeCustomerPublicInformationShortDesciption(response.data.shortDescription))
+                dispatch(changeCustomerPublicInformationShortDesciption(response.data.shortDescription),
+                dispatch(changeCustomerProfileFormToNone()))
                 console.log(response)
             }
         })

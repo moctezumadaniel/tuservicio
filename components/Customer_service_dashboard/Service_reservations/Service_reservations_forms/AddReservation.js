@@ -49,7 +49,8 @@ function AddReservation (){
         .then(response =>{
             if(response.data){
                 dispatch(updateCustomerPublicInformationListOfReservations(response.data.listOfReservations),
-                restartNewReservation())
+                restartNewReservation(),
+                dispatch(changeCustomerReservationsFormToNone()))
                 console.log(response)
             }
         })

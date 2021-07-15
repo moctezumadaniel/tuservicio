@@ -31,7 +31,8 @@ function EmailForm(){
         })
         .then(response => {
             if(response.data){
-                dispatch(changeUserInformationEmail(response.data.email))
+                dispatch(changeUserInformationEmail(response.data.email),
+                dispatch(changeUserPreferencesFormToNone()))
                 console.log(response)
             }
         })

@@ -30,7 +30,8 @@ function PhoneNumberForm(){
         })
         .then(response => {
             if(response.data){
-                dispatch(changeUserInformationPhoneNumber(response.data.phoneNumber))
+                dispatch(changeUserInformationPhoneNumber(response.data.phoneNumber),
+                dispatch(changeUserPreferencesFormToNone()))
                 console.log(response)
             }
         })

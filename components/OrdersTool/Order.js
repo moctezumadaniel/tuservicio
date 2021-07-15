@@ -11,7 +11,8 @@ removeItemFromOrderForm,
 changeCustomerOrderFormItemAmounth,
 changeCustomerOrderFormItemDescription,
 restartCustomerOrderForm,
-changeCustomerOrderFormNumber
+changeCustomerOrderFormNumber,
+changeOrdersToolToDashboard
 } from '../../redux/actions/OrdersTool'
 import axios from 'axios'
 import { updateCustomerInformationOrders } from '../../redux/actions/CustomerInformation'
@@ -133,7 +134,8 @@ function Order(){
         .then(response => {
             if(response.data){
                 dispatch(updateCustomerInformationOrders(response.data.orders),
-                dispatch(restartCustomerOrderForm()))
+                dispatch(restartCustomerOrderForm()),
+                dispatch(changeOrdersToolToDashboard()))
                 console.log(response)
             }
         })

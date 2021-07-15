@@ -42,7 +42,8 @@ function EditSchedule (){
         })
         .then(response => {
             if(response.data){
-                dispatch(updateCustomerPublicInformationListOfSchedules(response.data.listOfSchedules))
+                dispatch(updateCustomerPublicInformationListOfSchedules(response.data.listOfSchedules),
+                dispatch(changeCustomerReservationsFormToNone()))
                 console.log(response)
             }
         })

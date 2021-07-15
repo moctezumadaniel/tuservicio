@@ -30,7 +30,8 @@ function Schedule (){
         })
         .then(response => {
             if(response.data){
-                dispatch(changeCustomerPublicInformationSchedule(response.data.schedule))
+                dispatch(changeCustomerPublicInformationSchedule(response.data.schedule),
+                dispatch(changeCustomerProfileFormToNone()))
                 console.log(response)
             }
         })

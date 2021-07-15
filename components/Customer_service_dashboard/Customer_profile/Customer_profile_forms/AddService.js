@@ -44,7 +44,8 @@ function AddService (){
         })
         .then(response => {
             if(response.data){
-                dispatch(addServiceToCustomerPublicInformation(response.data.listOfServices))
+                dispatch(addServiceToCustomerPublicInformation(response.data.listOfServices),
+                dispatch(changeCustomerProfileFormToNone()))
                 console.log(response)
             }
         })

@@ -47,7 +47,8 @@ function AddSchedule (){
         .then(response => {
             if(response.data){
                 dispatch(updateCustomerPublicInformationListOfSchedules(response.data.listOfSchedules),
-                setTemporalNewSchedule({...temporalNewSchedule, start:"", end:"", description:""}))
+                setTemporalNewSchedule({...temporalNewSchedule, start:"", end:"", description:""}),
+                dispatch(changeCustomerReservationsFormToNone()))
                 console.log(response)
             }
         })

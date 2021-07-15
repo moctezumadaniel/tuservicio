@@ -29,7 +29,8 @@ function UserNameForm(){
         })
         .then(response => {
             if(response.data){
-                dispatch(changeUserInformationName(response.data.name))
+                dispatch(changeUserInformationName(response.data.name),
+                dispatch(changeUserPreferencesFormToNone()))
                 console.log(response)
             }
         })

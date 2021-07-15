@@ -26,7 +26,8 @@ function MoreInformation (){
         })
         .then(response =>{
             if(response.data){
-                dispatch(changeCustomerPublicInformationMoreInformation(response.data.moreInformation))
+                dispatch(changeCustomerPublicInformationMoreInformation(response.data.moreInformation),
+                dispatch(changeCustomerProfileFormToNone()))
                 console.log(response)
             }
         })

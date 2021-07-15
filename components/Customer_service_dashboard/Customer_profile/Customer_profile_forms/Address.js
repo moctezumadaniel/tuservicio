@@ -25,7 +25,8 @@ function Address (){
         })
         .then(response =>{
             if(response.data){
-                dispatch(changeCustomerPublicInformationAddress(response.data.address))
+                dispatch(changeCustomerPublicInformationAddress(response.data.address),
+                dispatch(changeCustomerProfileFormToNone()))
                 console.log(response)
             }
         })
