@@ -12,6 +12,11 @@ export const customerInformationReducer = (state={}, action) =>{
                 ...state,
                 tickets:action.tickets
             }
+        case 'UPDATE_CUSTOMER_INFORMATION_EXPENSES':
+            return{
+                ...state,
+                expenses:action.expenses
+            }
         default:
             return state
     }

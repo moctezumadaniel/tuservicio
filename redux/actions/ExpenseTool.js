@@ -31,3 +31,9 @@ export const changeExpensesToolFormDescription = (description)=>{
         description
     }
 }
+
+export const restartExpensesToolForm = () =>{
+    return{
+        type:'RESTART_EXPENSES_TOOL_FORM'
+    }
+}

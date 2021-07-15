@@ -34,6 +34,8 @@ export const expensesToolFormReducer = (state=initialExpenseForm, action) =>{
                 ...state,
                 description:action.description
             }
+        case 'RESTART_EXPENSES_TOOL_FORM':
+            return initialExpenseForm;
         default:
             return state;
     }

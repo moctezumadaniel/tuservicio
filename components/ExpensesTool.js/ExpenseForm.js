@@ -4,10 +4,13 @@ import {
     changeExpenseToolToDashboard,
     changeExpensesToolFormDate,
     changeExpensesToolFormAmounth,
-    changeExpensesToolFormDescription 
+    changeExpensesToolFormDescription, 
+    restartExpensesToolForm
 } from '../../redux/actions/ExpenseTool'
+import axios from 'axios'
+import { updateCustomerInformationExpenses } from '../../redux/actions/CustomerInformation';
 function ExpenseForm() {
-    
+    const customerInformation = useSelector(state => state.customerInformation)
     const selectDateButton = 'Seleccionar fecha';
     const amounthInput = 'Escribir monto'
     const saveOrderButton = 'GUARDAR'
@@ -15,9 +18,7 @@ function ExpenseForm() {
 /*FORM STATE */
     const formState = useSelector(state=>state.expensesToolForm)
     const dispatch = useDispatch()
-    function handleSavePress() {
-        dispatch(changeExpenseToolToDashboard())
-    }
+
     const handleDateChange = (event)=>{
         dispatch(changeExpensesToolFormDate(event.target.value))
     }
@@ -26,6 +27,24 @@ function ExpenseForm() {
     }
     const handleDescriptionChange = (event)=>{
         dispatch(changeExpensesToolFormDescription(event.target.value))
+    }
+
+    function addExpense (customerId, newExpense){
+        axios.post(`api/customer/addCustomerExpense`,{
+            customerId,
+            date: newExpense.date,
+            amounth: newExpense.amounth,
+            description: newExpense.description
+        })
+        .then(response =>{
+            if(response.data){
+                dispatch(updateCustomerInformationExpenses(response.data.expenses),
+                dispatch(restartExpensesToolForm()),
+                dispatch(changeExpenseToolToDashboard()))
+                console.log(response)
+            }
+        })
+        .catch(error => console.log(error))
     }
     return (
         <div className={styles.ExpenseFormMainContainer}>
@@ -45,8 +64,8 @@ function ExpenseForm() {
 
             <div className={styles.ExpenseFormButtonsContainer}>
                 <button
-                    onClick={handleSavePress}
-                    className={styles.SaveButton}>{saveOrderButton}</button>
+                    className={styles.SaveButton}
+                    onClick={()=>addExpense(customerInformation.customerId, formState)}>{saveOrderButton}</button>
                 <button className={styles.ShareButton}>{shareOrderButton}</button>
             </div>
             <textarea className={styles.ExpenseTextArea} 

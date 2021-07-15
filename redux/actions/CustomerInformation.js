@@ -18,3 +18,10 @@ export const updateCustomerInformationTickets = (tickets) =>{
         tickets
     }
 }
+
+export const updateCustomerInformationExpenses = (expenses) =>{
+    return{
+        type: 'UPDATE_CUSTOMER_INFORMATION_EXPENSES',
+        expenses
+    }
+}
