@@ -37,10 +37,11 @@ const customerInformationSchema = mongoose.Schema({
 
     //CUSTOMERS TOOL
     customers:[{
-        itemType:String,
+        name:String,
         date:Date,
         amounth:Number,
-        description:String
+        description:String,
+        operation:String,
     }],
     //PROVIDERS TOOL
     providers:[{

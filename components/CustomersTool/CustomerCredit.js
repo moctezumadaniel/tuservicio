@@ -4,14 +4,18 @@ import{
     changeCustomersToolCreditFormName,
     changeCustomersToolCreditFormDate,
     changeCustomersToolCreditFormAmounth,
-    changeCustomersToolCreditFormDescription
+    changeCustomersToolCreditFormDescription,
+    restartCustomersToolCreditForm
 }from '../../redux/actions/CustomersTool'
+import axios from 'axios'
+import { updateCustomerInformationCustomers } from '../../redux/actions/CustomerInformation';
 function CustomerCredit (){
     const nameInput = 'Escribe el nombre del cliente';
     const amounthInput = 'Escribe el monto del crédito'
     const save = 'GUARDAR CRÉDITO';
     const share = 'COMPARTIR / GUARDAR'
 /*COMPONENT STATE */
+    const customerId = useSelector(state => state.customerInformation.customerId)
     const formState = useSelector(state=>state.customersToolCreditForm)
     const dispatch = useDispatch()
     const handleCustomerNameChange = (event) =>{
@@ -26,6 +30,24 @@ function CustomerCredit (){
     const handleDescriptionChange = (event) =>{
         dispatch(changeCustomersToolCreditFormDescription(event.target.value))
     }
+    function saveCustomerCredit(customerId, newCredit){
+        axios.post(`api/customer/addCustomerCredit`,{
+            customerId,
+            name:newCredit.customerName,
+            date: newCredit.date,
+            amounth: newCredit.amounth,
+            description: newCredit.description,
+            operation:newCredit.type
+        })
+        .then(response => {
+            if(response.data){
+                dispatch(updateCustomerInformationCustomers(response.data.customers),
+                dispatch(restartCustomersToolCreditForm()))
+                console.log(response)
+            }
+        })
+        .catch(error => console.log(error))
+    }
     console.log(formState)
     return(
         <div className={styles.CreditFormContainer}>
@@ -33,6 +55,7 @@ function CustomerCredit (){
             placeholder={nameInput}
             value={formState.customerName}
             onChange={handleCustomerNameChange}/>
+
             <div className={styles.SecondaryInputsContainer}>
                 <input type='date' className={styles.DateInput}
                 value={formState.date}
@@ -42,10 +65,17 @@ function CustomerCredit (){
                 value={formState.amounth}
                 onChange={handleAmounthChange}/>
             </div>
+
             <div className={styles.SecondaryButtonsContainer}>
-                <button className={styles.SaveCreditButton}>{save}</button>
-                <button className={styles.ShareButton}>{share}</button>
+                <button className={styles.SaveCreditButton}
+                onClick={()=>saveCustomerCredit(customerId, formState)}>
+                    {save}
+                </button>
+                <button className={styles.ShareButton}>
+                    {share}
+                </button>
             </div>
+
             <textarea className={styles.TextAreaForm}
             value={formState.description}
             onChange={handleDescriptionChange}/>

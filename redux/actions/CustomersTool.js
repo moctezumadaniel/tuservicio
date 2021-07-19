@@ -43,6 +43,13 @@ export const changeCustomersToolPaymentFormDescription = (description) =>{
         description
     }
 }
+
+export const restartCustomersToolPaymentForm = () =>{
+    return{
+        type:'RESTART_CUSTOMERS_TOOL_PAYMENT_FORM'
+    }
+}
+
 /*CREDIT FORM */
 export const changeCustomersToolCreditFormName = (name) =>{
     return{
@@ -69,5 +76,11 @@ export const changeCustomersToolCreditFormDescription = (description) =>{
     return{
         type:'CHANGE_CUSTOMERS_TOOL_CREDIT_FORM_DESCRIPTION',
         description
+    }
+}
+
+export const restartCustomersToolCreditForm = () =>{
+    return{
+        type:'RESTART_CUSTOMERS_TOOL_CREDIT_FORM'
     }
 }
