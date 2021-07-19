@@ -31,7 +31,7 @@ function CustomerCredit (){
         dispatch(changeCustomersToolCreditFormDescription(event.target.value))
     }
     function saveCustomerCredit(customerId, newCredit){
-        axios.post(`api/customer/addCustomerCredit`,{
+        axios.post(`api/customer/addCustomerOperation`,{
             customerId,
             name:newCredit.customerName,
             date: newCredit.date,
@@ -48,7 +48,6 @@ function CustomerCredit (){
         })
         .catch(error => console.log(error))
     }
-    console.log(formState)
     return(
         <div className={styles.CreditFormContainer}>
             <input type='text' className={styles.CustomerNameInput}

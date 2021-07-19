@@ -7,7 +7,7 @@ export default async function addCustomerClientOperation(req, res){
     const { date } = req.body;
     const { amounth } = req.body;
     const { description } = req.body;
-    const operation = req.body.type;
+    const { operation } = req.body;
     
     await connectDB()
     try{
