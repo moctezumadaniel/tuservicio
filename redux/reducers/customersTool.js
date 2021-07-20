@@ -6,6 +6,10 @@ export const customersToolReducer =(state='Dashboard', action)=>{
             return 'Payment';
         case 'CHANGE_CUSTOMERS_TOOL_TO_CREDIT':
             return 'Credit';
+        case 'CHANGE_CUSTOMERS_TOOL_TO_EDITING_CREDIT':
+            return 'EditingCredit';
+        case 'CHANGE_CUSTOMERS_TOOL_TO_EDITING_PAYMENT':
+            return 'EditingPayment';
         case 'CUSTOMER_LOGOUT':
             return 'Dashboard';
         default:

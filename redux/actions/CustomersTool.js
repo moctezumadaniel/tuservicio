@@ -15,6 +15,19 @@ export const changeCustomersToolToCredit = () => {
         type:'CHANGE_CUSTOMERS_TOOL_TO_CREDIT'
     }
 }
+
+export const changeCustomersToolToEditingCredit = () => {
+    return{
+        type:'CHANGE_CUSTOMERS_TOOL_TO_EDITING_CREDIT'
+    }
+}
+
+export const changeCustomersToolToEditingPayment = () => {
+    return{
+        type:'CHANGE_CUSTOMERS_TOOL_TO_EDITING_PAYMENT'
+    }
+}
+
 /*PAYMENT FORM */
 export const changeCustomersToolPaymentFormName = (name) =>{
     return{
