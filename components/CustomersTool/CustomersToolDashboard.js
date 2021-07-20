@@ -1,6 +1,10 @@
 import styles from '../../styles/CustomersTool.module.css'
 import {useDispatch, useSelector} from 'react-redux'
-import {changeCustomersToolToCredit, changeCustomersToolToEditingCredit, changeCustomersToolToEditingPayment, changeCustomersToolToPayment} from '../../redux/actions/CustomersTool'
+import {changeCustomersToolToCredit, 
+    changeCustomersToolToEditingCredit, 
+    changeCustomersToolToEditingPayment, 
+    changeCustomersToolToPayment, 
+    loadCustomersToolEditingPaymentForm} from '../../redux/actions/CustomersTool'
 import axios from 'axios';
 import { updateCustomerInformationCustomers } from '../../redux/actions/CustomerInformation';
 function CustomersList(){
@@ -27,11 +31,13 @@ function CustomersList(){
             return obj
         }
     ,[])}
-    function editPayment(){
+    function editCredit(){
         dispatch(changeCustomersToolToEditingPayment())
     }
-    function editCredit(){
-        dispatch(changeCustomersToolToEditingCredit())
+    function editPayment(form){
+        dispatch(loadCustomersToolEditingPaymentForm(form),
+        dispatch(changeCustomersToolToEditingPayment()))
+        
     }
     function deleteCustomerOperation(customerId, id){
         axios.delete(`api/customer/deleteCustomerOperation`,{
@@ -71,7 +77,7 @@ function CustomersList(){
                             <div>{operation.description}</div>
                             <div className={styles.OpenEditButtonContainer}>
                                 <button className={styles.OpenEditButton}
-                                onClick={()=>editPayment()}>
+                                onClick={()=>editPayment(operation)}>
                                     {openAndEdit}
                                 </button>
                                 <button className={styles.DeleteButton}
@@ -91,7 +97,7 @@ function CustomersList(){
                         <div>{operation.description}</div>
                         <div className={styles.OpenEditButtonContainer}>
                             <button className={styles.OpenEditButton}
-                            onClick={()=>editCredit()}>
+                            onClick={()=>editCredit(operation)}>
                                 {openAndEdit}
                             </button>
                             <button className={styles.DeleteButton}

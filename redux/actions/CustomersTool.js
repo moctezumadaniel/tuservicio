@@ -97,3 +97,46 @@ export const restartCustomersToolCreditForm = () =>{
         type:'RESTART_CUSTOMERS_TOOL_CREDIT_FORM'
     }
 }
+
+/*PAYMENT EDITING FORM */
+
+export const loadCustomersToolEditingPaymentForm = (form) =>{
+    return{
+        type: 'LOAD_CUSTOMERS_TOOL_EDITING_PAYMENT_FORM',
+        form
+    }
+}
+
+export const changeCustomersToolEditingPaymentFormName = (name) =>{
+    return{
+        type:'CHANGE_CUSTOMERS_TOOL_EDITING_PAYMENT_FORM_NAME',
+        name
+    }
+}
+
+export const changeCustomersToolEditingPaymentFormDate = (date) =>{
+    return{
+        type:'CHANGE_CUSTOMERS_TOOL_EDITING_PAYMENT_FORM_DATE',
+        date
+    }
+}
+
+export const changeCustomersToolEditingPaymentFormAmounth = (amounth) =>{
+    return{
+        type:'CHANGE_CUSTOMERS_TOOL_EDITING_PAYMENT_FORM_AMOUNTH',
+        amounth
+    }
+}
+
+export const changeCustomersToolEditingPaymentFormDescription = (description) =>{
+    return{
+        type:'CHANGE_CUSTOMERS_TOOL_EDITING_PAYMENT_FORM_DESCRIPTION',
+        description
+    }
+}
+
+export const restartCustomersToolEditingPaymentForm = () =>{
+    return{
+        type:'RESTART_CUSTOMERS_TOOL_EDITING_PAYMENT_FORM'
+    }
+}

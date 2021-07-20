@@ -1,11 +1,12 @@
 import styles from '../../styles/CustomersTool.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import {
-    changeCustomersToolPaymentFormName,
-    changeCustomersToolPaymentFormDate,
-    changeCustomersToolPaymentFormAmounth,
-    changeCustomersToolPaymentFormDescription,
-    restartCustomersToolPaymentForm
+    changeCustomersToolEditingPaymentFormName,
+    changeCustomersToolEditingPaymentFormDate,
+    changeCustomersToolEditingPaymentFormAmounth,
+    changeCustomersToolEditingPaymentFormDescription,
+    restartCustomersToolEditingPaymentForm,
+    changeCustomersToolToDashboard
 } from '../../redux/actions/CustomersTool'
 import axios from 'axios';
 import { updateCustomerInformationCustomers } from '../../redux/actions/CustomerInformation';
@@ -16,48 +17,50 @@ function CustomerEditingPayment (){
     const share = 'COMPARTIR / GUARDAR'
 /*COMPONENT STATE */
     const customerId = useSelector(state => state.customerInformation.customerId)
-    const formState = useSelector(state=>state.customersToolPaymentForm)
+    const formState = useSelector(state=>state.customersToolEditingPaymentForm)
     const dispatch = useDispatch()
     const handleCustomerNameChange = (event) =>{
-        dispatch(changeCustomersToolPaymentFormName(event.target.value))
+        dispatch(changeCustomersToolEditingPaymentFormName(event.target.value))
     }
     const handleDateChange = (event) =>{
-        dispatch(changeCustomersToolPaymentFormDate(event.target.value))
+        dispatch(changeCustomersToolEditingPaymentFormDate(event.target.value))
     }
     const handleAmounthChange = (event) =>{
-        dispatch(changeCustomersToolPaymentFormAmounth(event.target.value))
+        dispatch(changeCustomersToolEditingPaymentFormAmounth(event.target.value))
     }
     const handleDescriptionChange = (event) =>{
-        dispatch(changeCustomersToolPaymentFormDescription(event.target.value))
+        dispatch(changeCustomersToolEditingPaymentFormDescription(event.target.value))
     }
-    function saveCustomerPayment(customerId, newCredit){
-        axios.post(`api/customer/addCustomerOperation`,{
+    function saveCustomerPayment(customerId, editingPayment){
+        axios.patch(`api/customer/updateCustomerClientOperation`,{
             customerId,
-            name:newCredit.customerName,
-            date: newCredit.date,
-            amounth: newCredit.amounth,
-            description: newCredit.description,
-            operation:newCredit.type
+            name:editingPayment.name,
+            date: editingPayment.date,
+            amounth: editingPayment.amounth,
+            description: editingPayment.description,
+            id:editingPayment._id
         })
         .then(response => {
             if(response.data){
                 dispatch(updateCustomerInformationCustomers(response.data.customers),
-                dispatch(restartCustomersToolPaymentForm()))
+                dispatch(restartCustomersToolEditingPaymentForm(),
+                dispatch(changeCustomersToolToDashboard())))
                 console.log(response)
             }
         })
         .catch(error => console.log(error))
     }
+    console.log(formState)
     return(
         <div className={styles.CreditFormContainer}>
             <input type='text' className={styles.CustomerNameInput}
             placeholder={nameInput}
-            value={formState.customerName}
+            value={formState.name}
             onChange={handleCustomerNameChange}/>
 
             <div className={styles.SecondaryInputsContainer}>
                 <input type='date' className={styles.DateInput}
-                value={formState.date}
+                value={formState.date ? formState.date.slice(0,10): ""}
                 onChange={handleDateChange}/>
                 <input type='number' className={styles.AmounthInput}
                 placeholder={amounthInput}
