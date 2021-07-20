@@ -138,7 +138,7 @@
 
 .OpenEditButtonContainer{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     margin-top: 10px;
 }
 
@@ -152,7 +152,20 @@
     color: #026ED2;
     align-self: center;
 }
+.DeleteButton{
+    font-size: medium;
+    font-family: sans-serif;
+    display: flex;
+    outline: none;
+    border: none;
+    background-color: white;
+    color: #f40000;
+    align-self: center;
+}
 .OpenEditButton:hover{
+    cursor: pointer;
+}
+.DeleteButton:hover{
     cursor: pointer;
 }
 
@@ -239,18 +252,22 @@
     outline: none;
     background: none;
     color: #C67802;
+    cursor: pointer;
 }
 .SavePaymentButton{
     border: none;
     outline: none;
     background: none;
     color: #00BB1E;
+    cursor: pointer;
 }
 .ShareButton{
     border: none;
     outline: none;
     background: none;
     color: #026ED2;
+    cursor: pointer;
+
 }
 @keyframes renderForm {
     from{

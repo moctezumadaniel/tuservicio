@@ -1,13 +1,17 @@
 import styles from '../../styles/CustomersTool.module.css'
 import {useDispatch, useSelector} from 'react-redux'
 import {changeCustomersToolToCredit, changeCustomersToolToPayment} from '../../redux/actions/CustomersTool'
+import axios from 'axios';
+import { updateCustomerInformationCustomers } from '../../redux/actions/CustomerInformation';
 function CustomersList(){
+    const customerId = useSelector(state => state.customerInformation.customerId)
     const grandTotalCreditDescription = 'Cobros pendientes:';
     const grandTotalCredit = '$25,000';
-    const openAndEdit = 'VER O EDITAR';
+    const openAndEdit = 'Ver o editar';
+    const buttonDelete = 'Eliminar'
     const customersList = useSelector(state => state.customerInformation.customers)
+    const dispatch = useDispatch()
     const calculateGrandTotalCredit = (operations) =>{
-        console.log(operations)
         return operations.reduce((acumulator, i)=>{
             if(i.operation == 'credit'){
             return acumulator + i.amounth
@@ -23,6 +27,22 @@ function CustomersList(){
             return obj
         }
     ,[])}
+
+    function deleteCustomerOperation(customerId, id){
+        axios.delete(`api/customer/deleteCustomerOperation`,{
+            params:{
+                customerId,
+                id     
+            }
+        })
+        .then(response =>{
+            if(response.data){
+                dispatch(updateCustomerInformationCustomers(response.data.customers))
+                console.log(response)
+            }
+        })
+        .catch(error => console.log(error))
+    }
     console.log(groupedCustomers)
     return(
         <div>
@@ -38,7 +58,6 @@ function CustomersList(){
             {groupedCustomers[customer].map(operation =>{
                 if(operation.operation == 'payment'){
                     return(
-                    <div className={styles.CustomerItemsContainer}>
                         <div className={styles.CustomerPaymentItemContainer}>
                             <div className={styles.ItemTitleContainer}>
                                 <div>{operation.date ? operation.date.slice(0,10): ""}</div>
@@ -47,9 +66,12 @@ function CustomersList(){
                             <div>{operation.description}</div>
                             <div className={styles.OpenEditButtonContainer}>
                                 <button className={styles.OpenEditButton}>{openAndEdit}</button>
+                                <button className={styles.DeleteButton}
+                                onClick={()=>deleteCustomerOperation(customerId, operation._id)}>
+                                    {buttonDelete}
+                                </button>
                             </div>
                         </div>
-                    </div>
                     )
                 }
                 else return (
@@ -61,6 +83,10 @@ function CustomersList(){
                         <div>{operation.description}</div>
                         <div className={styles.OpenEditButtonContainer}>
                             <button className={styles.OpenEditButton}>{openAndEdit}</button>
+                            <button className={styles.DeleteButton}
+                            onClick={()=>deleteCustomerOperation(customerId, operation._id)}>
+                                {buttonDelete}
+                            </button>
                         </div>
                     </div>
                 )
