@@ -5,7 +5,8 @@ import {
     changeCustomersToolPaymentFormDate,
     changeCustomersToolPaymentFormAmounth,
     changeCustomersToolPaymentFormDescription,
-    restartCustomersToolPaymentForm
+    restartCustomersToolPaymentForm,
+    changeCustomersToolToDashboard
 } from '../../redux/actions/CustomersTool'
 import axios from 'axios';
 import { updateCustomerInformationCustomers } from '../../redux/actions/CustomerInformation';
@@ -42,7 +43,8 @@ function CustomerPayment (){
         .then(response => {
             if(response.data){
                 dispatch(updateCustomerInformationCustomers(response.data.customers),
-                dispatch(restartCustomersToolPaymentForm()))
+                dispatch(restartCustomersToolPaymentForm()),
+                dispatch(changeCustomersToolToDashboard()))
                 console.log(response)
             }
         })

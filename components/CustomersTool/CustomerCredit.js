@@ -5,7 +5,8 @@ import{
     changeCustomersToolCreditFormDate,
     changeCustomersToolCreditFormAmounth,
     changeCustomersToolCreditFormDescription,
-    restartCustomersToolCreditForm
+    restartCustomersToolCreditForm,
+    changeCustomersToolToDashboard
 }from '../../redux/actions/CustomersTool'
 import axios from 'axios'
 import { updateCustomerInformationCustomers } from '../../redux/actions/CustomerInformation';
@@ -42,7 +43,8 @@ function CustomerCredit (){
         .then(response => {
             if(response.data){
                 dispatch(updateCustomerInformationCustomers(response.data.customers),
-                dispatch(restartCustomersToolCreditForm()))
+                dispatch(restartCustomersToolCreditForm()),
+                dispatch(changeCustomersToolToDashboard()))
                 console.log(response)
             }
         })
