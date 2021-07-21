@@ -4,14 +4,19 @@ import{
     changeProvidersToolPaymentFormName,
     changeProvidersToolPaymentFormDate,
     changeProvidersToolPaymentFormAmounth,
-    changeProvidersToolPaymentFormDescription
+    changeProvidersToolPaymentFormDescription,
+    restartProvidersToolPaymentForm,
+    changeProvidersToolToDashboard
 }from '../../redux/actions/ProvidersTool'
+import axios from 'axios';
+import { updateCustomerInformationProviders } from '../../redux/actions/CustomerInformation';
 function ProviderPayment (){
     const nameInput = 'Escribe el nombre del proveedor';
     const amounthInput = 'Escribe el monto del pago'
     const save = 'GUARDAR PAGO';
     const share = 'COMPARTIR / GUARDAR'
 /*FORM STATE */
+    const customerId = useSelector(state => state.customerInformation.customerId)
     const formState = useSelector(state=>state.providersToolPaymentForm)
     const dispatch = useDispatch();
     const handleProviderNameChange = event =>{
@@ -26,12 +31,31 @@ function ProviderPayment (){
     const handleDescriptionChange = event =>{
         dispatch(changeProvidersToolPaymentFormDescription(event.target.value))
     }
+    function addPayment(customerId, newPayment){
+        axios.post(`api/customer/addProviderOperation`,{
+            customerId,
+            name:newPayment.name,
+            date:newPayment.date,
+            amounth:newPayment.amounth,
+            description: newPayment.description,
+            operation:newPayment.operation
+        })
+        .then(response => {
+            if(response.data){
+                dispatch(updateCustomerInformationProviders(response.data.providers),
+                dispatch(restartProvidersToolPaymentForm(),
+                dispatch(changeProvidersToolToDashboard())))
+                console.log(response)
+            }
+        })
+        .catch(error => console.log(error))
+    }
     console.log(formState)
     return(
         <div className={styles.CreditFormContainer}>
             <input type='text' className={styles.CustomerNameInput}
             placeholder={nameInput}
-            value={formState.providerName}
+            value={formState.name}
             onChange={handleProviderNameChange}/>
             <div className={styles.SecondaryInputsContainer}>
                 <input type='date' className={styles.DateInput}
@@ -43,7 +67,10 @@ function ProviderPayment (){
                 onChange={handleAmounthChange}/>
             </div>
             <div className={styles.SecondaryButtonsContainer}>
-                <button className={styles.SavePaymentButton}>{save}</button>
+                <button className={styles.SavePaymentButton}
+                onClick={()=>addPayment(customerId, formState)}>
+                    {save}
+                </button>
                 <button className={styles.ShareButton}>{share}</button>
             </div>
             <textarea className={styles.TextAreaForm}
