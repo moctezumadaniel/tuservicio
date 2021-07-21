@@ -1,6 +1,86 @@
 import styles from '../../styles/ProvidersTool.module.css'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {changeProvidersToolToCredit, changeProvidersToolToPayment} from '../../redux/actions/ProvidersTool'
+function ProvidersList(){
+    const grandTotalCreditDescription = 'Deuda pendiente:';
+    const openAndEdit = 'Ver o editar';
+    const buttonDelete = 'Eliminar'
+
+    const providersList = useSelector(state => state.customerInformation.providers)
+    const groupedProviders = {...providersList.reduce(
+        function(obj, value){
+            var key = value.name;
+            if(obj[key] == null) obj[key] = [];
+            obj[key].push(value)
+            return obj
+        }
+    ,[])}
+    const calculateGrandTotalCredit = (operations) =>{
+        return operations.reduce((acumulator, i)=>{
+            if(i.operation == 'credit'){
+            return acumulator + i.amounth
+            }
+            else return acumulator - i.amounth
+        },0)
+    }
+    return(
+        <div>
+        {Object.keys(groupedProviders).map(provider => (
+            <div key={provider}>
+                <div className={styles.CustomerName}>{provider}</div>
+
+                <div className={styles.CustomerCreditContainer}>
+                    <div className={styles.CustomerCreditDescription}>{grandTotalCreditDescription}</div>
+                    <div>{`${calculateGrandTotalCredit(groupedProviders[provider])}`}</div>
+                </div>
+
+                <div className={styles.CustomerItemsContainer}>
+                {groupedProviders[provider].map(operation =>{
+                    if(operation.operation == 'payment'){
+                        return(
+                        <div className={styles.CustomerPaymentItemContainer}>
+                            <div className={styles.ItemTitleContainer}>
+                                <div>{operation.date ? operation.date.slice(0,10): ""}</div>
+                                <div className={styles.PaymentAmounth}>{`$${operation.amounth || 0}`}</div>
+                            </div>
+                            <div>{operation.description}</div>
+                            <div className={styles.OpenEditButtonContainer}>
+                                <button className={styles.OpenEditButton}>{openAndEdit}</button>
+                                <button className={styles.DeleteButton}>
+                                {buttonDelete}
+                                </button>
+                            </div>
+                        </div>
+                        )
+                    }
+                    else return(
+                        <div className={styles.CustomerCreditItemContainer}>
+                        <div className={styles.ItemTitleContainer}>
+                            <div>{operation.date ? operation.date.slice(0,10): ""}</div>
+                            <div className={styles.CreditAmounth}>{`$${operation.amounth || 0}`}</div>
+                        </div>
+                        <div>{operation.description}</div>
+                        <div className={styles.OpenEditButtonContainer}>
+                            <button className={styles.OpenEditButton}>{openAndEdit}</button>
+                            <button className={styles.DeleteButton}>
+                                {buttonDelete}
+                            </button>
+                        </div>
+                    </div>
+                    )
+                })
+                    
+                }
+                </div>
+            </div>
+
+            
+        ))
+
+        }
+        </div>
+    )
+}
 function ProvidersDashboard(){
     const dispatch = useDispatch()
     function handleNewCreditPress(){
@@ -24,7 +104,6 @@ function ProvidersDashboard(){
     const totalCredit = '$12,500';
     const CreditDescription = 'Descripción del pago de la deuda Descripción del pago de la deuda Descripción del pago de la deuda';
 
-    const openAndEdit = 'VER O EDITAR';
 
     return(
         <div className={styles.MainDashboardContainer}>
@@ -41,43 +120,7 @@ function ProvidersDashboard(){
                 
             </div>
 {/*LIST OF CUSTOMERS OR CUSTOMER*/}
-            <div>
-                <div className={styles.CustomerName}>{providerName}</div>
-
-                <div className={styles.CustomerCreditContainer}>
-                    <div className={styles.CustomerCreditDescription}>{grandTotalCreditDescription}</div>
-                    <div>{grandTotalCredit}</div>
-                </div>
-{/*CONTAINER OF THE CLIENTS PAYMENTS AND CREDITS */}
-                <div className={styles.CustomerItemsContainer}>
-
-{/*CUSTOMER PAYMENT TEMPLATE */}
-                    <div className={styles.CustomerPaymentItemContainer}>
-                        <div className={styles.ItemTitleContainer}>
-                            <div>{paymentDate}</div>
-                            <div className={styles.PaymentAmounth}>{totalPayment}</div>
-                        </div>
-                        <div>{paymentDescription}</div>
-                        <div className={styles.OpenEditButtonContainer}>
-                            <button className={styles.OpenEditButton}>{openAndEdit}</button>
-                        </div>
-                    </div>
-
-{/*CUSTOMER CREDIT TEMPLATE */}
-                    <div className={styles.CustomerCreditItemContainer}>
-                        <div className={styles.ItemTitleContainer}>
-                            <div>{creditDate}</div>
-                            <div className={styles.CreditAmounth}>{totalCredit}</div>
-                        </div>
-                        <div>{CreditDescription}</div>
-                        <div className={styles.OpenEditButtonContainer}>
-                            <button className={styles.OpenEditButton}>{openAndEdit}</button>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
+            <ProvidersList/>
         </div>
     )
 }
