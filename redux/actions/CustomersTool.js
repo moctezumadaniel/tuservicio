@@ -140,3 +140,44 @@ export const restartCustomersToolEditingPaymentForm = () =>{
         type:'RESTART_CUSTOMERS_TOOL_EDITING_PAYMENT_FORM'
     }
 }
+
+/*CREDIT EDITING FORM */
+export const loadCustomersToolEditingCreditForm = (form) =>{
+    return{
+        type:'LOAD_CUSTOMERS_TOOL_EDITING_CREDIT_FORM',
+        form
+    }
+}
+export const changeCustomersToolEditingCreditFormName = (name) =>{
+    return{
+        type:'CHANGE_CUSTOMERS_TOOL_EDITING_CREDIT_FORM_NAME',
+        name
+    }
+}
+
+export const changeCustomersToolEditingCreditFormDate = (date) =>{
+    return{
+        type:'CHANGE_CUSTOMERS_TOOL_EDITING_CREDIT_FORM_DATE',
+        date
+    }
+}
+
+export const changeCustomersToolEditingCreditFormAmounth = (amounth) =>{
+    return{
+        type:'CHANGE_CUSTOMERS_TOOL_EDITING_CREDIT_FORM_AMOUNTH',
+        amounth
+    }
+}
+
+export const changeCustomersToolEditingCreditFormDescription = (description) =>{
+    return{
+        type:'CHANGE_CUSTOMERS_TOOL_EDITING_CREDIT_FORM_DESCRIPTION',
+        description
+    }
+}
+
+export const restartCustomersToolEditingCreditForm = () =>{
+    return{
+        type:'RESTART_CUSTOMERS_TOOL_EDITING_CREDIT_FORM'
+    }
+}

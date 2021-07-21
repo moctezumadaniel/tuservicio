@@ -132,3 +132,42 @@ export const customersToolEditingPaymentFormReducer = (state=initialCustomerEdit
             return state
     }
 }
+
+const initialCustomerEditingCreditForm = 
+{
+    name:'',
+    date: '',
+    amounth:'',
+    description:'',
+    type:'credit'
+}
+export const customersToolEditingCreditFormReducer = (state=initialCustomerEditingCreditForm, action) =>{
+    switch(action.type){
+        case 'LOAD_CUSTOMERS_TOOL_EDITING_CREDIT_FORM':
+            return action.form
+        case 'CHANGE_CUSTOMERS_TOOL_EDITING_CREDIT_FORM_NAME':
+            return{
+                ...state,
+                name:action.name
+            }
+        case 'CHANGE_CUSTOMERS_TOOL_EDITING_CREDIT_FORM_DATE':
+            return{
+                ...state,
+                date:action.date
+            }
+        case 'CHANGE_CUSTOMERS_TOOL_EDITING_CREDIT_FORM_AMOUNTH':
+            return{
+                ...state,
+                amounth:action.amounth
+            }
+        case 'CHANGE_CUSTOMERS_TOOL_EDITING_CREDIT_FORM_DESCRIPTION':
+            return{
+                ...state,
+                description:action.description
+            }
+        case 'RESTART_CUSTOMERS_TOOL_EDITING_CREDIT_FORM':
+            return initialCustomerEditingCreditForm
+        default:
+            return state
+    }
+}

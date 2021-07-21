@@ -4,6 +4,7 @@ import {changeCustomersToolToCredit,
     changeCustomersToolToEditingCredit, 
     changeCustomersToolToEditingPayment, 
     changeCustomersToolToPayment, 
+    loadCustomersToolEditingCreditForm, 
     loadCustomersToolEditingPaymentForm} from '../../redux/actions/CustomersTool'
 import axios from 'axios';
 import { updateCustomerInformationCustomers } from '../../redux/actions/CustomerInformation';
@@ -31,8 +32,10 @@ function CustomersList(){
             return obj
         }
     ,[])}
-    function editCredit(){
-        dispatch(changeCustomersToolToEditingPayment())
+    function editCredit(form){
+        dispatch(loadCustomersToolEditingCreditForm(form),
+        dispatch(changeCustomersToolToEditingCredit()))
+        
     }
     function editPayment(form){
         dispatch(loadCustomersToolEditingPaymentForm(form),

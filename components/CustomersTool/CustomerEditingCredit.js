@@ -5,7 +5,13 @@ import{
     changeCustomersToolCreditFormDate,
     changeCustomersToolCreditFormAmounth,
     changeCustomersToolCreditFormDescription,
-    restartCustomersToolCreditForm
+    restartCustomersToolCreditForm,
+    changeCustomersToolEditingCreditFormName,
+    changeCustomersToolEditingCreditFormDate,
+    changeCustomersToolEditingCreditFormAmounth,
+    changeCustomersToolEditingCreditFormDescription,
+    restartCustomersToolEditingCreditForm,
+    changeCustomersToolToDashboard
 }from '../../redux/actions/CustomersTool'
 import axios from 'axios'
 import { updateCustomerInformationCustomers } from '../../redux/actions/CustomerInformation';
@@ -16,33 +22,34 @@ function CustomerEditingCredit (){
     const share = 'COMPARTIR / GUARDAR'
 /*COMPONENT STATE */
     const customerId = useSelector(state => state.customerInformation.customerId)
-    const formState = useSelector(state=>state.customersToolCreditForm)
+    const formState = useSelector(state=>state.customersToolEditingCreditForm)
     const dispatch = useDispatch()
     const handleCustomerNameChange = (event) =>{
-        dispatch(changeCustomersToolCreditFormName(event.target.value))
+        dispatch(changeCustomersToolEditingCreditFormName(event.target.value))
     }
     const handleDateChange = (event) =>{
-        dispatch(changeCustomersToolCreditFormDate(event.target.value))
+        dispatch(changeCustomersToolEditingCreditFormDate(event.target.value))
     }
     const handleAmounthChange = (event) =>{
-        dispatch(changeCustomersToolCreditFormAmounth(event.target.value))
+        dispatch(changeCustomersToolEditingCreditFormAmounth(event.target.value))
     }
     const handleDescriptionChange = (event) =>{
-        dispatch(changeCustomersToolCreditFormDescription(event.target.value))
+        dispatch(changeCustomersToolEditingCreditFormDescription(event.target.value))
     }
-    function saveCustomerCredit(customerId, newCredit){
-        axios.post(`api/customer/addCustomerOperation`,{
+    function saveCustomerCredit(customerId, editingCredit){
+        axios.post(`api/customer/updateCustomerClientOperation`,{
             customerId,
-            name:newCredit.customerName,
-            date: newCredit.date,
-            amounth: newCredit.amounth,
-            description: newCredit.description,
-            operation:newCredit.type
+            name:editingCredit.name,
+            date: editingCredit.date,
+            amounth: editingCredit.amounth,
+            description: editingCredit.description,
+            id:editingCredit._id
         })
         .then(response => {
             if(response.data){
                 dispatch(updateCustomerInformationCustomers(response.data.customers),
-                dispatch(restartCustomersToolCreditForm()))
+                dispatch(restartCustomersToolEditingCreditForm()),
+                dispatch(changeCustomersToolToDashboard()))
                 console.log(response)
             }
         })
@@ -52,12 +59,12 @@ function CustomerEditingCredit (){
         <div className={styles.CreditFormContainer}>
             <input type='text' className={styles.CustomerNameInput}
             placeholder={nameInput}
-            value={formState.customerName}
+            value={formState.name}
             onChange={handleCustomerNameChange}/>
 
             <div className={styles.SecondaryInputsContainer}>
                 <input type='date' className={styles.DateInput}
-                value={formState.date}
+                value={formState.date ? formState.date.slice(0,10) : ""}
                 onChange={handleDateChange}/>
                 <input type='number' className={styles.AmounthInput}
                 placeholder={amounthInput}
