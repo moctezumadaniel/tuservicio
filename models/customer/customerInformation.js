@@ -45,10 +45,11 @@ const customerInformationSchema = mongoose.Schema({
     }],
     //PROVIDERS TOOL
     providers:[{
-        itemType:String,
+        name:String,
         date:Date,
         amounth:Number,
-        description:String
+        description:String,
+        operation:String,
     }]
 })
 customerInformationSchema.plugin(findOrCreate)

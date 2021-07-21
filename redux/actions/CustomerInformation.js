@@ -32,3 +32,10 @@ export const updateCustomerInformationCustomers = (customers) =>{
         customers
     }
 }
+
+export const updateCustomerInformationProviders = (providers) =>{
+    return{
+        type: 'UPDATE_CUSTOMER_INFORMATION_PROVIDERS',
+        providers
+    }
+}

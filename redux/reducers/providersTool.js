@@ -13,20 +13,21 @@ export const providersToolReducer = (state = 'Dashboard', action)=>{
     }
 }
 
-const initialProviderForm = 
+const initialProviderPaymentForm = 
 {
-    providerName:'',
+    name:'',
     date: '',
     amounth:'',
-    description:''
+    description:'',
+    operation:'payment'
 }
 
-export const providersToolPaymentFormReducer = (state=initialProviderForm, action) =>{
+export const providersToolPaymentFormReducer = (state=initialProviderPaymentForm, action) =>{
     switch(action.type){
         case 'CHANGE_PROVIDERS_TOOL_PAYMENT_FORM_NAME':
             return{
                 ...state,
-                providerName:action.name
+                name:action.name
             }
         case 'CHANGE_PROVIDERS_TOOL_PAYMENT_FORM_DATE':
             return{
@@ -43,17 +44,28 @@ export const providersToolPaymentFormReducer = (state=initialProviderForm, actio
                 ...state,
                 description:action.description
             }
+        case 'RESTART_PROVIDERS_TOOL_PAYMENT_FORM':
+            return initialProviderPaymentForm
         default:
             return state
     }
 }
 
-export const providersToolCreditFormReducer = (state=initialProviderForm, action) =>{
+const initialProviderCreditForm = 
+{
+    name:'',
+    date: '',
+    amounth:'',
+    description:'',
+    operation:'credit'
+}
+
+export const providersToolCreditFormReducer = (state=initialProviderCreditForm, action) =>{
     switch(action.type){
         case 'CHANGE_PROVIDERS_TOOL_CREDIT_FORM_NAME':
             return{
                 ...state,
-                providerName:action.name
+                name:action.name
             }
         case 'CHANGE_PROVIDERS_TOOL_CREDIT_FORM_DATE':
             return{
@@ -70,6 +82,8 @@ export const providersToolCreditFormReducer = (state=initialProviderForm, action
                 ...state,
                 description:action.description
             }
+        case 'RESTART_PROVIDERS_TOOL_CREDIT_FORM':
+            return initialProviderCreditForm
         default:
             return state
     }
