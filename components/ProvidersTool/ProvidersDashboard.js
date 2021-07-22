@@ -1,6 +1,11 @@
 import styles from '../../styles/ProvidersTool.module.css'
 import {useDispatch, useSelector} from 'react-redux'
-import {changeProvidersToolToCredit, changeProvidersToolToPayment} from '../../redux/actions/ProvidersTool'
+import {changeProvidersToolToCredit, 
+    changeProvidersToolToEditingCredit, 
+    changeProvidersToolToEditingPayment, 
+    changeProvidersToolToPayment, 
+    loadProvidersToolEditingCreditForm,
+    loadProvidersToolEditingPaymentForm} from '../../redux/actions/ProvidersTool'
 import { updateCustomerInformationProviders } from '../../redux/actions/CustomerInformation';
 import axios from 'axios';
 function ProvidersList(){
@@ -26,7 +31,15 @@ function ProvidersList(){
             else return acumulator - i.amounth
         },0)
     }
+    function editCredit(form){
+        dispatch(changeProvidersToolToEditingCredit(),
+        dispatch(loadProvidersToolEditingCreditForm(form)))
+    }
 
+    function editPayment(form){
+        dispatch(changeProvidersToolToEditingPayment(),
+        dispatch(loadProvidersToolEditingPaymentForm(form)))
+    }
     function deleteCustomerOperation(customerId, id){
         axios.delete(`api/customer/deleteProviderOperation`,{
             params:{
@@ -64,7 +77,10 @@ function ProvidersList(){
                             </div>
                             <div>{operation.description}</div>
                             <div className={styles.OpenEditButtonContainer}>
-                                <button className={styles.OpenEditButton}>{openAndEdit}</button>
+                                <button className={styles.OpenEditButton}
+                                onClick={()=>editPayment(operation)}>
+                                    {openAndEdit}
+                                </button>
                                 <button className={styles.DeleteButton}
                                 onClick={()=>deleteCustomerOperation(customerId, operation._id)}>
                                 {buttonDelete}
@@ -81,7 +97,10 @@ function ProvidersList(){
                         </div>
                         <div>{operation.description}</div>
                         <div className={styles.OpenEditButtonContainer}>
-                            <button className={styles.OpenEditButton}>{openAndEdit}</button>
+                            <button className={styles.OpenEditButton}
+                            onClick={()=>editCredit(operation)}>
+                                {openAndEdit}
+                            </button>
                             <button className={styles.DeleteButton}
                             onClick={()=>deleteCustomerOperation(customerId, operation._id)}>
                                 {buttonDelete}
