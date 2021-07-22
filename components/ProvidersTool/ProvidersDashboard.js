@@ -1,12 +1,15 @@
 import styles from '../../styles/ProvidersTool.module.css'
 import {useDispatch, useSelector} from 'react-redux'
 import {changeProvidersToolToCredit, changeProvidersToolToPayment} from '../../redux/actions/ProvidersTool'
+import { updateCustomerInformationProviders } from '../../redux/actions/CustomerInformation';
+import axios from 'axios';
 function ProvidersList(){
     const grandTotalCreditDescription = 'Deuda pendiente:';
     const openAndEdit = 'Ver o editar';
     const buttonDelete = 'Eliminar'
-
+    const customerId = useSelector(state => state.customerInformation.customerId)
     const providersList = useSelector(state => state.customerInformation.providers)
+    const dispatch = useDispatch()
     const groupedProviders = {...providersList.reduce(
         function(obj, value){
             var key = value.name;
@@ -23,6 +26,22 @@ function ProvidersList(){
             else return acumulator - i.amounth
         },0)
     }
+
+    function deleteCustomerOperation(customerId, id){
+        axios.delete(`api/customer/deleteProviderOperation`,{
+            params:{
+                customerId,
+                id     
+            }
+        })
+        .then(response =>{
+            if(response.data){
+                dispatch(updateCustomerInformationProviders(response.data.providers))
+                console.log(response)
+            }
+        })
+        .catch(error => console.log(error))
+    }
     return(
         <div>
         {Object.keys(groupedProviders).map(provider => (
@@ -38,7 +57,7 @@ function ProvidersList(){
                 {groupedProviders[provider].map(operation =>{
                     if(operation.operation == 'payment'){
                         return(
-                        <div className={styles.CustomerPaymentItemContainer}>
+                        <div className={styles.CustomerPaymentItemContainer} key={operation._id}>
                             <div className={styles.ItemTitleContainer}>
                                 <div>{operation.date ? operation.date.slice(0,10): ""}</div>
                                 <div className={styles.PaymentAmounth}>{`$${operation.amounth || 0}`}</div>
@@ -46,7 +65,8 @@ function ProvidersList(){
                             <div>{operation.description}</div>
                             <div className={styles.OpenEditButtonContainer}>
                                 <button className={styles.OpenEditButton}>{openAndEdit}</button>
-                                <button className={styles.DeleteButton}>
+                                <button className={styles.DeleteButton}
+                                onClick={()=>deleteCustomerOperation(customerId, operation._id)}>
                                 {buttonDelete}
                                 </button>
                             </div>
@@ -54,7 +74,7 @@ function ProvidersList(){
                         )
                     }
                     else return(
-                        <div className={styles.CustomerCreditItemContainer}>
+                    <div className={styles.CustomerCreditItemContainer} key={operation._id}>
                         <div className={styles.ItemTitleContainer}>
                             <div>{operation.date ? operation.date.slice(0,10): ""}</div>
                             <div className={styles.CreditAmounth}>{`$${operation.amounth || 0}`}</div>
@@ -62,7 +82,8 @@ function ProvidersList(){
                         <div>{operation.description}</div>
                         <div className={styles.OpenEditButtonContainer}>
                             <button className={styles.OpenEditButton}>{openAndEdit}</button>
-                            <button className={styles.DeleteButton}>
+                            <button className={styles.DeleteButton}
+                            onClick={()=>deleteCustomerOperation(customerId, operation._id)}>
                                 {buttonDelete}
                             </button>
                         </div>
