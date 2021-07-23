@@ -40,6 +40,11 @@ export const changeToolToProviders = ()=>{
     }
 }
 
+export const changeToolToFinances = () =>{
+    return{
+        type: 'CHANGE_TOOL_TO_FINANCES'
+    }
+}
 export const changeToolToCharge = ()=>{
     return{
         type: 'CHANGE_TOOL_TO_CHARGE'
