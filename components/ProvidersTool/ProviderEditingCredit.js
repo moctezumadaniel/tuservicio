@@ -32,14 +32,15 @@ function ProviderEditingCredit (){
     const handleDescriptionChange = event =>{
         dispatch(changeProvidersToolEditingCreditFormDescription(event.target.value))
     }
-    function addCredit(customerId, newCredit){
-        axios.post(`api/customer/addProviderOperation`,{
+    function editCredit(customerId, editingCredit){
+        axios.post(`api/customer/updateCustomerProviderOperation`,{
             customerId,
-            name:newCredit.name,
-            date:newCredit.date,
-            amounth:newCredit.amounth,
-            description: newCredit.description,
-            operation:newCredit.operation
+            name:editingCredit.name,
+            date:editingCredit.date,
+            amounth:editingCredit.amounth,
+            description: editingCredit.description,
+            operation:editingCredit.operation,
+            id:editingCredit._id
         })
         .then(response => {
             if(response.data){
@@ -69,7 +70,7 @@ function ProviderEditingCredit (){
             </div>
             <div className={styles.SecondaryButtonsContainer}>
                 <button className={styles.SaveCreditButton}
-                onClick={()=>addCredit(customerId, formState)}>
+                onClick={()=>editCredit(customerId, formState)}>
                     {save}
                 </button>
                 <button className={styles.ShareButton}>{share}</button>

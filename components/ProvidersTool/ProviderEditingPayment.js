@@ -31,14 +31,15 @@ function ProviderEditingPayment (){
     const handleDescriptionChange = event =>{
         dispatch(changeProvidersToolEditingPaymentFormDescription(event.target.value))
     }
-    function addPayment(customerId, newPayment){
-        axios.post(`api/customer/addProviderOperation`,{
+    function editPayment(customerId, editingPayment){
+        axios.post(`api/customer/updateCustomerProviderOperation`,{
             customerId,
-            name:newPayment.name,
-            date:newPayment.date,
-            amounth:newPayment.amounth,
-            description: newPayment.description,
-            operation:newPayment.operation
+            name:editingPayment.name,
+            date:editingPayment.date,
+            amounth:editingPayment.amounth,
+            description: editingPayment.description,
+            operation:editingPayment.operation,
+            id:editingPayment._id
         })
         .then(response => {
             if(response.data){
@@ -68,7 +69,7 @@ function ProviderEditingPayment (){
             </div>
             <div className={styles.SecondaryButtonsContainer}>
                 <button className={styles.SavePaymentButton}
-                onClick={()=>addPayment(customerId, formState)}>
+                onClick={()=>editPayment(customerId, formState)}>
                     {save}
                 </button>
                 <button className={styles.ShareButton}>{share}</button>
