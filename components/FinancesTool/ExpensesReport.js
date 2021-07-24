@@ -5,6 +5,7 @@ function ExpensesReport (){
     return(
         <div className={styles.FinanceComponentContainer}>
             <div className={styles.Title}>{expensesTitle}</div>
+            <div className={styles.ChartContainer}>
             <Line
                 className={styles.SalesChart}
                 data={{
@@ -36,6 +37,7 @@ function ExpensesReport (){
                 height={400}
                 width={400}
             />
+            </div>
         </div>
     )
 }

@@ -1,5 +1,9 @@
 .FinancesContainer{
+    display: flex;
+    flex-wrap: wrap;
     padding-bottom: 50px;
+    justify-content:center;
+    align-content: center;
 }
 .FinanceComponentContainer{
     margin: 10px;
@@ -18,7 +22,17 @@
     align-content: center;
     justify-content: center;   
 }
-.SalesChart{
-    width: 400px;
-    height: 400px;
+.ChartContainer{
+    width:91vw;
+}
+@media (min-width:860px) {
+    .ChartContainer{
+        width: 45vw;
+    }
+}
+
+@media (min-width:1310px) {
+    .ChartContainer{
+        width: 400px;
+    }
 }

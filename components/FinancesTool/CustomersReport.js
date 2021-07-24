@@ -5,6 +5,7 @@ function CustomersReport (){
     return(
         <div className={styles.FinanceComponentContainer}>
             <div className={styles.Title}>{customersTitle}</div>
+            <div className={styles.ChartContainer}>
             <Doughnut
                 className={styles.SalesChart}
                 data={{
@@ -36,6 +37,7 @@ function CustomersReport (){
                 height={400}
                 width={400}
             />
+            </div>
         </div>
     )
 }
