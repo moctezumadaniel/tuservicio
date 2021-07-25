@@ -1,11 +1,34 @@
 import styles from '../../styles/FinancesTool.module.css'
 import { Bar, Line } from 'react-chartjs-2'
+import { useSelector } from 'react-redux'
 function SalesReport() {
     const salesTitle = 'Ventas'
-    const salesData = {
-        labels: ['daniel', 'david']
-
+    const tickets = useSelector(state => state.customerInformation.tickets)
+    const ticketsGrupedPerDay = () => {
+        return tickets.reduce((obj, ticket)=>{
+            const key = ticket.date.slice(0,10)
+            if(obj[key]== null) obj[key] = [];
+            obj[key].push(ticket)
+            return obj
+        },{})
     }
+    function getTicketGrandTotal(ticket){
+        return ticket.items.reduce((acum, item) => 
+        acum + (item.amounth || 0), 0
+        )
+        
+    }
+    function totalSalesPerDay(){
+        const keys = Object.keys(ticketsGrupedPerDay())
+        return keys.map(key => {
+            return ticketsGrupedPerDay()[key].reduce((acum, ticket) =>
+            acum + getTicketGrandTotal(ticket),0
+            )
+        })
+    }
+    console.log(ticketsGrupedPerDay())
+    console.log(ticketsGrupedPerDay())
+    console.log(totalSalesPerDay())
     return (
         <div className={styles.FinanceComponentContainer}>
             <div className={styles.Title}>{salesTitle}</div>
@@ -13,10 +36,10 @@ function SalesReport() {
                 <Line
                     className={styles.SalesChart}
                     data={{
-                        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                        labels: Object.keys(ticketsGrupedPerDay()),
                         datasets: [{
                             label: '',
-                            data: [1200, 1900, 300, 500, 200, 300],
+                            data: totalSalesPerDay(),
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
                                 'rgba(54, 162, 235, 0.2)',
