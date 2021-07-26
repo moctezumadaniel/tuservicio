@@ -36,3 +36,25 @@
         width: 400px;
     }
 }
+
+.ConceptStatementContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 5px;
+    font-size: x-large;
+    border-bottom-width: 3px;
+    border-bottom-color: black;
+    
+}
+
+.ConceptDescription{
+    font-size: x-large;
+    margin-right: 10px;
+    align-content: flex-end;
+}
+
+.ConceptAmouth{
+    justify-self: flex-end;
+}
+
