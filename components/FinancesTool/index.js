@@ -3,7 +3,6 @@ import ExpensesReport from "./ExpensesReport";
 import ProvidersReport from "./ProvidersReport";
 import SalesReport from "./SalesReport";
 import styles from '../../styles/FinancesTool.module.css'
-import { style } from "@material-ui/system";
 import IncomeStatement from "./IncomeStatement";
 import BalanceSheet from "./BalanceSheet";
 function FinancesTool (){
