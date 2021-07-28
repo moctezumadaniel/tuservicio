@@ -80,5 +80,7 @@ export const  financesToolReducer = (state, action) =>{
                 ...state,
                 expensesAmounths:action.amounths
             }
+        default:
+            return initialFinances
     }
 }

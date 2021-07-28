@@ -3,25 +3,8 @@ import { Bar, Line } from 'react-chartjs-2'
 import { useSelector } from 'react-redux'
 function ExpensesReport (){
     const expensesTitle = 'Gastos'
-    const expenses = useSelector(state => state.customerInformation.expenses)
-    const groupedExpenses = () =>{
-        return expenses.reduce((obj,expense)=>{
-            const key = expense.date.slice(0,10)
-            if(obj[key] == null) obj[key] = [];
-            obj[key].push(expense)
-            return obj
-        },{})
-    }
-    const totalExpensesPerDay = () =>{
-        const keys = Object.keys(groupedExpenses())
-        return keys.map(key => {
-            return groupedExpenses()[key].reduce((acum, expense) =>
-            acum + (expense.amounth || 0), 0
-            )
-        })
-    }
-    console.log(groupedExpenses())
-    console.log(totalExpensesPerDay())
+    const financesTool = useSelector(state => state.financesTool)
+    
     return(
         <div className={styles.FinanceComponentContainer}>
             <div className={styles.Title}>{expensesTitle}</div>
@@ -29,10 +12,10 @@ function ExpensesReport (){
             <Line
                 className={styles.SalesChart}
                 data={{
-                    labels: Object.keys(groupedExpenses()),
+                    labels: financesTool.expensesKeys,
                     datasets: [{
                         label: '',
-                        data: totalExpensesPerDay(),
+                        data: financesTool.expensesAmounths,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',

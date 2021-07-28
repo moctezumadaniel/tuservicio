@@ -5,7 +5,7 @@ import SalesReport from "./SalesReport";
 import styles from '../../styles/FinancesTool.module.css'
 import IncomeStatement from "./IncomeStatement";
 import BalanceSheet from "./BalanceSheet";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateFinancesToolCustomersAmounths, 
     updateFinancesToolCustomersGrandTotal, 
     updateFinancesToolCustomersKeys, 
@@ -18,14 +18,22 @@ import { updateFinancesToolCustomersAmounths,
     updateFinancesToolProvidersAmounths, 
     updateFinancesToolProvidersGrandTotal, 
     updateFinancesToolProvidersKeys } from "../../redux/actions/FinancesTool";
+import { useEffect, useState } from "react";
 
 function FinancesTool (){
+    const [selectedDate, setSelectedDate] = useState('')
     const customers = useSelector(state => state.customerInformation.customers)
     const providers = useSelector(state => state.customerInformation.providers)
     const tickets = useSelector(state => state.customerInformation.tickets)
     const expenses = useSelector(state => state.customerInformation.expenses)
-
+    const financesTool = useSelector(state => state.financesTool)
     const dispatch = useDispatch()
+
+
+    /*DATE */
+    function changeDate(event){
+        setSelectedDate(event.target.value)
+    }
     /*CUSTOMERS */
     const groupedCustomers = () =>{
         return customers.reduce((obj, operation) =>{
@@ -152,8 +160,13 @@ function FinancesTool (){
         dispatch(updateFinancesToolExpensesKeys(Object.keys(groupedExpenses())))
         dispatch(updateFinancesToolExpensesAmounths(totalExpensesPerDay()))
     }
+    useEffect(()=>
+        setFinanceToolState(), [selectedDate]
+    )
+    console.log(financesTool)
     return(
         <div className={styles.FinancesContainer}>
+        <input type='date' onChange={(e)=>changeDate(e)}/>
         <SalesReport/>
         <ExpensesReport/>
         <CustomersReport/>

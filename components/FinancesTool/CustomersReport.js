@@ -3,29 +3,8 @@ import { Doughnut, Line } from 'react-chartjs-2'
 import { useSelector } from 'react-redux'
 function CustomersReport (){
     const customersTitle = 'Clientes'
-    const providers = useSelector(state => state.customerInformation.customers)
-    const groupedCustomers = () =>{
-        return providers.reduce((obj, operation) =>{
-            const key = operation.name
-            if(obj[key] == null) obj[key] = [];
-            obj[key].push(operation)
-            return obj
-        },{})
-    }
-    function getOperationDebt(operation){
-        if(operation.operation == 'payment'){
-            return -operation.amounth
-        }else return operation.amounth
-    }
-    const totalDebtPerProvider = () =>{
-        const keys = Object.keys(groupedCustomers())
-        return keys.map(key => {
-            return groupedCustomers()[key].reduce((acum, operation) => 
-            acum + getOperationDebt(operation), 0
-            )
-        })
-        
-    }
+    const financesTool = useSelector(state => state.financesTool)
+    
 
     return(
         <div className={styles.FinanceComponentContainer}>
@@ -34,10 +13,10 @@ function CustomersReport (){
             <Doughnut
                 className={styles.SalesChart}
                 data={{
-                    labels: Object.keys(groupedCustomers()),
+                    labels: financesTool.customersKeys,
                     datasets: [{
                         label: '',
-                        data: totalDebtPerProvider(),
+                        data: financesTool.customersAmounths,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',

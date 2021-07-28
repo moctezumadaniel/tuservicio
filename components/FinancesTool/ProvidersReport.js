@@ -3,31 +3,9 @@ import { Doughnut, Line } from 'react-chartjs-2'
 import { useSelector } from 'react-redux'
 function ProvidersReport (){
     const providersTitle = 'Proveedores'
-    const providers = useSelector(state => state.customerInformation.providers)
-    const groupedProviders = () =>{
-        return providers.reduce((obj, operation) =>{
-            const key = operation.name
-            if(obj[key] == null) obj[key] = [];
-            obj[key].push(operation)
-            return obj
-        },{})
-    }
-    function getOperationDebt(operation){
-        if(operation.operation == 'payment'){
-            return -operation.amounth
-        }else return operation.amounth
-    }
-    const totalDebtPerProvider = () =>{
-        const keys = Object.keys(groupedProviders())
-        return keys.map(key => {
-            return groupedProviders()[key].reduce((acum, operation) => 
-            acum + getOperationDebt(operation), 0
-            )
-        })
-        
-    }
-    console.log(groupedProviders())
-    console.log(totalDebtPerProvider())
+    const financesTool = useSelector(state => state.financesTool)
+    
+    console.log(financesTool)
     return(
         <div className={styles.FinanceComponentContainer}>
             <div className={styles.Title}>{providersTitle}</div>
@@ -35,10 +13,10 @@ function ProvidersReport (){
             <Doughnut
                 className={styles.SalesChart}
                 data={{
-                    labels: Object.keys(groupedProviders()),
+                    labels: financesTool.providersKeys,
                     datasets: [{
                         label: '',
-                        data: totalDebtPerProvider(),
+                        data: financesTool.providersAmounths,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
