@@ -26,7 +26,13 @@ function AddService (){
         setTemporalService({...temporalService, title:event.target.value})
     }
     function updateTemporalImage(event){
-        setTemporalService({...temporalService, image:event.target.value})
+        if(event.target.files && event.target.files[0]){
+            setTemporalService({
+                ...temporalService, 
+                image:URL.createObjectURL(event.target.files[0])
+            })
+        }
+        
     }
     function updateTemporalPrice(event){
         setTemporalService({...temporalService, price:event.target.value})
@@ -60,19 +66,24 @@ function AddService (){
             </div>
 
             <div className={styles.ModalContainer}>
-                
-                {/*IMAGE INPUT */}
-                <input type='file' accept='image/*' 
-                name="serviceImage"
-                id="serviceImage"
-                className={styles.ServiceImageInput} /*HIDDENT TO AVOID DEFAULT UGLY LABELS */
-                onChange={(event)=>updateTemporalImage(event)}
-                />
-                <label for="serviceImage"
-                className={styles.ServiceImage}>
-                    <div className={styles.ServiceImageLabel}>{addImageLabel}</div>
-                </label>
-
+                <div>
+                <img
+                src={temporalService.image}
+                className={styles.ServiceImage}/>
+                    <div className={styles.ServiceImageLabelContainer}>
+                    {/*IMAGE INPUT */}
+                    <input type='file' accept='image/*' 
+                    name="serviceImage"
+                    id="serviceImage"
+                    className={styles.ServiceImageInput} /*HIDDENT TO AVOID DEFAULT UGLY LABELS */
+                    onChange={(event)=>updateTemporalImage(event)}
+                    />
+                    <label for="serviceImage"
+                    className={styles.ServiceImageLabel}>
+                    {addImageLabel}
+                    </label>
+                    </div>
+                </div>
                 {/*NAME AND PRICE INPUTS */}
                 <div className={styles.ServiceNamePriceDescription}>
                     <input type='text' className={styles.ServiceNamePriceDescriptionInput}

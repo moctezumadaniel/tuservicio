@@ -8,6 +8,7 @@ import { useState } from 'react'
 function ImageAndName (){
     const customerInformation = useSelector(state => state.customerPublicInformation)
     const [temporalCustomerName, setTemporalCustomerName] = useState(customerInformation.name)
+    const [temporalCustomerImage, setTemporalCustomerImage ] = useState()
     const profileImage = 'IMAGEN DE PERFIL';
     const changeImageButton = 'Cambiar imágen'
     const serviceName = 'Escribe el nombre de tu servicio'
@@ -16,6 +17,13 @@ function ImageAndName (){
     
     function changeTemporalCustomerName(event){
         setTemporalCustomerName(event.target.value)
+    }
+    function changeTemporalCustomerImage(event){
+        if(event.target.files && event.target.files[0]){
+            setTemporalCustomerImage(
+                URL.createObjectURL(event.target.files[0])
+            )
+        }
     }
     function updateCustomerName(customerId,newName){
         axios.patch(`api/customer/updateCustomerName`,{
@@ -41,23 +49,36 @@ function ImageAndName (){
             onClick={handleCloseForm}>
             </div>
             <div className={styles.ModalContainer}>
+
                 <div className={styles.ProfileImageFormContainer}>
-                    <div className={styles.ProfileImage}></div>
+                    <img className={styles.ProfileImage}
+                    src={temporalCustomerImage}/>
                     <div className={styles.ProfileImageButtonContainer}>
-                        <button className={styles.ProfileImageButton}>{changeImageButton}</button>
+                        <input type='file' accept='image/*'
+                        name='customerImage'
+                        id='customerImage'
+                        className={styles.CustomerImageInput}
+                        onChange={(event)=>changeTemporalCustomerImage(event)}/>
+                        <label for='customerImage'
+                        className={styles.ProfileImageButton}>
+                            {changeImageButton}
+                        </label>
                     </div>
                 </div>
+
                 <div className={styles.ProfileNameContainer}>
                     <input type='text' className={styles.ProfileName} placeholder={serviceName}
                     value={temporalCustomerName}
                     onChange={(event)=>changeTemporalCustomerName(event)}/>
                 </div>
+
                 <div className={styles.ConformButtonContainer}>
                     <button className={styles.ConfirmButton}
                     onClick={()=>updateCustomerName(customerInformation.customerId, temporalCustomerName)}>
                         {confirmButton}
                     </button>
                 </div>
+
             </div>
         </div>
     )
