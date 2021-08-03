@@ -17,7 +17,16 @@ import {
     const descriptionTitle = 'Descripción corta'
     const serviceDescription = "Descripcion corta del servicio Descripcion corta del servicio Descripcion corta del servicio Descripcion corta del servicio Descripcion corta del ServiceInformation"
     const workdaysTitle = "Dias de atención"
-    const workdays = "Lunes, Martes, Miercoles, Viernes, Sabado"
+    const workdays = (workdays) =>{
+        const keys = Object.keys(workdays)
+        const result = keys.reduce((result, day)=>{
+            if(workdays[day]==true){
+                return result + `${day}, `
+            }
+            return result
+        },"")
+        return result.slice(0, result.length- 2) || 'No has establecido ningún día de atención'
+    }
     const editItemButton = 'Cambiar'
     const userInformation = useSelector(state => state.customerPublicInformation)
     function handleOpenNameAndImageForm(){
@@ -65,7 +74,7 @@ import {
 
             <div className={styles.InformationContainer}>
                     <div className={styles.InformationItemTitle}>{workdaysTitle}</div>
-                    <div>{currentWorkdays()}</div>
+                    <div>{workdays(userInformation.workdays)}</div>
                     <button className={styles.editItemButton}
                     onClick={handleOpenWorkdaysForm}>{editItemButton}</button>
             </div>
