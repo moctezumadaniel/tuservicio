@@ -27,6 +27,18 @@ import {
         },"")
         return result.slice(0, result.length- 2) || 'No has establecido ningún día de atención'
     }
+
+    const currentSchedule = (schedule, workdays) => {
+        const keys = Object.keys(schedule)
+        const result = keys.reduce((string, day) =>{
+            if(schedule[day].opening && schedule[day].closing && workdays[day]){
+            return string + `${day} de ${schedule[day].opening} a ${schedule[day].closing}, `
+            }
+            return string
+        },"")
+        console.log(result)
+        return result.slice(0, result.length- 2)
+    } 
     const editItemButton = 'Cambiar'
     const userInformation = useSelector(state => state.customerPublicInformation)
     function handleOpenNameAndImageForm(){
@@ -43,22 +55,8 @@ import {
     function handleOpenShortDescriptionForm(){
         dispatch(changeCustomerProfileFormToShortDescription())
     }
-    const currentWorkdays = () =>{
-        let textToDisplay = ""
-        if(userInformation.workdays){
-            Object.keys(userInformation.workdays)
-            .forEach(i => {
-                if(userInformation.workdays.i){
-                    textToDisplay += i + ", "
-                }
-            })
-        }
-        if(!textToDisplay){
-            return "No has establecido ningún día de atención"
-        }else return textToDisplay
-        
-    }
-    const currentSchedule = () => "Función pendiente"
+    
+    
     
     return(
         <div className={styles.ServiceInformationContainer}>
@@ -81,7 +79,7 @@ import {
             
             <div className={styles.InformationContainer}>
                     <div className={styles.InformationItemTitle}>{scheduleTitle}</div>
-                    <div className={styles.Schedule}>{currentSchedule()}</div>
+                    <div className={styles.Schedule}>{currentSchedule(userInformation.schedule, userInformation.workdays)}</div>
                     <button className={styles.editItemButton}
                     onClick={handleOpenScheduleForm}>{editItemButton}</button>
             </div>
