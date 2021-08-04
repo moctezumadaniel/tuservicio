@@ -44,6 +44,7 @@ import { customerEditingOrderReducer } from './customerEditingOrder'
 import { customerEditingTicketReducer } from './customerEditingTicket'
 import { expensesToolEditingFormReducer } from './customerEditingExpense'
 import { financesToolReducer } from './financesTool'
+import { userDisplayedServicesReducer } from './userDisplayedServices'
 const rootReducer = combineReducers({
     platformType: platformTypeReducer,
     userLogin: userLoginReducer,
@@ -84,6 +85,7 @@ const rootReducer = combineReducers({
     providersToolEditingPaymentForm:providersToolEditingPaymentFormReducer,
     providersToolEditingCreditForm:providersToolEditingCreditFormReducer,
     financesTool:financesToolReducer,
+    userDisplayedServices:userDisplayedServicesReducer,
 })
 
 export default rootReducer

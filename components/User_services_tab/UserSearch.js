@@ -3,6 +3,7 @@ import {useDispatch} from 'react-redux'
 import {changeToSearch} from '../../redux/actions/UserServicesTab'
 import { useState } from 'react'
 import axios from 'axios'
+import { loadUserDisplayedServices } from '../../redux/actions/UserDisplayedServices'
 function UserSearch(){
     const [search, setSearch] = useState('')
     const dispatch = useDispatch()
@@ -12,12 +13,18 @@ function UserSearch(){
         setSearch(event.target.value)
     }
     function searchServices(search){
+        dispatch(changeToSearch())
         axios.get(`api/user/searchServices`,{
             params:{
                 search
             }
         })
-        .then(response => console.log(response))
+        .then(response => {
+            if(response.data){
+                dispatch(loadUserDisplayedServices(response.data))
+                console.log(response.data)
+            }
+        })
         .catch(error => console.log(error))
     }
     return(

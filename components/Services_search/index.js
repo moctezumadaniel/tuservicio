@@ -1,4 +1,4 @@
-import ServicesSearch from '../../pages/User_services_tab/ServicesSearch'
+import ServicesSearch from './ServicesSearch'
 import CustomerProfileTemplate from '../../pages/Customer_profile_template'
 import {useSelector} from 'react-redux'
 function UserServiceSearch (){
