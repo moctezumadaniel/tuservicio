@@ -49,6 +49,12 @@ const customerPublicInformationSchema = mongoose.Schema({
 })
 
 customerPublicInformationSchema.plugin(findOrCreate);
+customerPublicInformationSchema.index({
+    name: 'text', 
+    shortDescription: 'text', 
+    moreInformation: 'text',
+    address:'text'
+})
 const CustomerPublicProfileInformation = mongoose.models.CustomerPublicProfileInformation
     || mongoose.model('CustomerPublicProfileInformation',customerPublicInformationSchema)
 module.exports = CustomerPublicProfileInformation
