@@ -2,6 +2,7 @@ import styles from '../../../styles/UserFavouriteServices.module.css'
 import Image from 'next/image'
 import { UserLogin } from '../../User_login'
 import { useAuth0 } from '@auth0/auth0-react'
+import { useSelector } from 'react-redux'
 
 function UserFavouriteServices(){
     const {isAuthenticated, isLoading} = useAuth0()
@@ -15,91 +16,44 @@ function UserFavouriteServices(){
     return(
         <>
         {!isAuthenticated && !isLoading?
-        <UserLogin/>:
-        <div className={styles.ServiceSearchMainContainer}>
-            {/*<div>{defaultPage}</div>*/}
-            {/*PREVIOUS SERVICE */}
-            <div className={styles.PreviewMainContainer}>
-                <div className={styles.ImageAndScoreContainer}>
-                    <Image src='/celerPerfil.png' width={80} height={80}/>
-                    <div>{score}</div>
-                </div>
-                <div className={styles.ServiceInformation}>
-                    <div className={styles.ServiceName}>{name}</div>
-                    <div className={styles.ServiceTodaySchedule}>{todaySchedule}</div>
-                    <div className={styles.ServiceDescription}>{description}</div>
-                </div>
-            </div>
-
-            {/*PREVIOUS SERVICE */}
-            <div className={styles.PreviewMainContainer}>
-                <div className={styles.ImageAndScoreContainer}>
-                    <Image src='/celerPerfil.png' width={80} height={80}/>
-                    <div>{score}</div>
-                </div>
-                <div className={styles.ServiceInformation}>
-                    <div className={styles.ServiceName}>{name}</div>
-                    <div className={styles.ServiceTodaySchedule}>{todaySchedule}</div>
-                    <div className={styles.ServiceDescription}>{description}</div>
-                </div>
-            </div>
-
-            {/*PREVIOUS SERVICE */}
-            <div className={styles.PreviewMainContainer}>
-                <div className={styles.ImageAndScoreContainer}>
-                    <Image src='/celerPerfil.png' width={80} height={80}/>
-                    <div>{score}</div>
-                </div>
-                <div className={styles.ServiceInformation}>
-                    <div className={styles.ServiceName}>{name}</div>
-                    <div className={styles.ServiceTodaySchedule}>{todaySchedule}</div>
-                    <div className={styles.ServiceDescription}>{description}</div>
-                </div>
-            </div>
-
-            {/*PREVIOUS SERVICE */}
-            <div className={styles.PreviewMainContainer}>
-                <div className={styles.ImageAndScoreContainer}>
-                    <Image src='/celerPerfil.png' width={80} height={80}/>
-                    <div>{score}</div>
-                </div>
-                <div className={styles.ServiceInformation}>
-                    <div className={styles.ServiceName}>{name}</div>
-                    <div className={styles.ServiceTodaySchedule}>{todaySchedule}</div>
-                    <div className={styles.ServiceDescription}>{description}</div>
-                </div>
-            </div>
-
-            {/*PREVIOUS SERVICE */}
-            <div className={styles.PreviewMainContainer}>
-                <div className={styles.ImageAndScoreContainer}>
-                    <Image src='/celerPerfil.png' width={80} height={80}/>
-                    <div>{score}</div>
-                </div>
-                <div className={styles.ServiceInformation}>
-                    <div className={styles.ServiceName}>{name}</div>
-                    <div className={styles.ServiceTodaySchedule}>{todaySchedule}</div>
-                    <div className={styles.ServiceDescription}>{description}</div>
-                </div>
-            </div>
-
-            {/*PREVIOUS SERVICE */}
-            <div className={styles.PreviewMainContainer}>
-                <div className={styles.ImageAndScoreContainer}>
-                    <Image src='/celerPerfil.png' width={80} height={80}/>
-                    <div>{score}</div>
-                </div>
-                <div className={styles.ServiceInformation}>
-                    <div className={styles.ServiceName}>{name}</div>
-                    <div className={styles.ServiceTodaySchedule}>{todaySchedule}</div>
-                    <div className={styles.ServiceDescription}>{description}</div>
-                </div>
-            </div>
-
-            
-        </div>
+        <UserLogin/>
+        :
+        <ListOfFavoriteServices/>
         }
         </>
     )
 }
 export default UserFavouriteServices
+
+function ListOfFavoriteServices (){
+    const favoriteServices = useSelector(state => state.userInformation.favoriteServices)
+    if(favoriteServices.length > 0){
+        return(
+            <div className={styles.ServiceSearchMainContainer}>
+                {favoriteServices.map(service => (
+                <div className={styles.PreviewMainContainer}>
+
+                    <div className={styles.ImageAndScoreContainer}>
+                        <Image src='/celerPerfil.png' width={80} height={80}/>
+                        <div>{service.score}</div>
+                    </div>
+
+                    <div className={styles.ServiceInformation}>
+                        <div className={styles.ServiceName}>{service.name}</div>
+                        <div className={styles.ServiceTodaySchedule}>{service.schedule}</div>
+                        <div className={styles.ServiceDescription}>{service.description}</div>
+                    </div>
+
+                </div>
+                ))
+
+                }
+            </div>
+        )
+    }
+    else return(
+        <div className={styles.ServiceSearchMainContainer}>
+            Aún no has agregado servicios favoritos
+        </div>
+    )
+}

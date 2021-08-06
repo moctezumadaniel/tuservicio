@@ -18,7 +18,7 @@ function UserReservations(){
 export default UserReservations
 
 function ListOfReservations (){
-    const userReservations = useSelector(state => state.customerInformation.reservations)
+    const userReservations = useSelector(state => state.userInformation.reservations)
 
     const configureButton = 'CANCELAR'
     const contactButton = 'CONTACTAR'
@@ -46,4 +46,9 @@ function ListOfReservations (){
             </div>
         )
     }
+    else return (
+        <div className={styles.ListOfReservationsContainer}>
+            Aún no tienes reservaciones
+        </div>
+    )
 }
