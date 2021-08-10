@@ -25,8 +25,8 @@ export default ServicesSearch
 
 function UserServicesPreview(){
     const currentServices = useSelector(state => state.userDisplayedServices)
+    const searchStatus = useSelector(state => state.userServiceSearch)
     const stars = "estrellas";
-    const todaySchedule = "8:00 a 16:00" /*Green when is open at the moment of the search*/
     const currentDay = () =>{
         const dayDictionary = {
             '0':'sunday',
@@ -48,9 +48,9 @@ function UserServicesPreview(){
     }
     console.log(currentServices)
     console.log(currentDay())
-    if(currentServices.length > 0){
+    if(currentServices.length > 0 && searchStatus === 'Done'){
         return currentServices.map(service => (
-            <div className={styles.PreviewMainContainer}>
+            <div className={styles.PreviewMainContainer} key={service._id}>
                 <div className={styles.ImageAndScoreContainer}>
                     <Image src='/celerPerfil.png' width={80} height={80}/>
                     <div>{service.rating ? `${service.rating} ${stars}`: ""}</div>
@@ -63,7 +63,14 @@ function UserServicesPreview(){
             </div>
         ))
     }
-    return (
+    else if (searchStatus === 'Searching'){
+        return (
+            <div>
+                BUSCANDO
+            </div>
+        )
+    }
+    else return(
         <div>
             SIN SERVICIOS ENCONTRADOS
         </div>

@@ -4,3 +4,9 @@ export const loadUserDisplayedServices = (services) =>{
         services
     }
 }
+
+export const deleteUserDisplayedServices = () =>{
+    return {
+        type:'DELETE_USER_DISPLAYED_SERVICES',
+    }
+}
