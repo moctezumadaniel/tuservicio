@@ -47,7 +47,7 @@ function ListOfReservations (){
         )
     }
     else return (
-        <div className={styles.ListOfReservationsContainer}>
+        <div className={styles.ErrorMessage}>
             Aún no tienes reservaciones
         </div>
     )

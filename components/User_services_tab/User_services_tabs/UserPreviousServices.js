@@ -43,7 +43,7 @@ function ListOfPreviousServices (){
         )
     }
     else return (
-        <div className={styles.ServiceSearchMainContainer}>
+        <div className={styles.ErrorMessage}>
             Aún no se ha registrado ninguna asistencia a una cita
         </div>
     )

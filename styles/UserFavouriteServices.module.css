@@ -13,6 +13,17 @@
     font-size: xx-large;
     font-weight: 600;
 }
+
+.ErrorMessage{
+    padding: 10px;
+    padding-top: 100px;
+    font-size: xx-large;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+    justify-content: center;
+}
+
 /*ITEM PREVIEW*/
 
 .PreviewMainContainer{

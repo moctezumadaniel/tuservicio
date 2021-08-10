@@ -52,7 +52,7 @@ function ListOfFavoriteServices (){
         )
     }
     else return(
-        <div className={styles.ServiceSearchMainContainer}>
+        <div className={styles.ErrorMessage}>
             Aún no has agregado servicios favoritos
         </div>
     )

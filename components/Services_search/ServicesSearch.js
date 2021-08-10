@@ -65,14 +65,17 @@ function UserServicesPreview(){
     }
     else if (searchStatus === 'Searching'){
         return (
-            <div>
-                BUSCANDO
+            <div className={styles.SearchingMessage}>
+                Buscando...
             </div>
         )
     }
-    else return(
-        <div>
-            SIN SERVICIOS ENCONTRADOS
-        </div>
-    )
+    else if (searchStatus === 'Done' ){
+        return(
+            <div className={styles.ErrorMessage}>
+                Sin servicios encontrados
+            </div>
+        )
+    }
+    return ""
 }
