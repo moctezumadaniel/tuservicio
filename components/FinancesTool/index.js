@@ -17,11 +17,13 @@ import { updateFinancesToolCustomersAmounths,
     updateFinancesToolIncomeKeys, 
     updateFinancesToolProvidersAmounths, 
     updateFinancesToolProvidersGrandTotal, 
-    updateFinancesToolProvidersKeys } from "../../redux/actions/FinancesTool";
+    updateFinancesToolProvidersKeys, 
+    updateFinancesToolReportsBetweenDates, 
+    updateFinancesToolReportsEnd, 
+    updateFinancesToolReportsStart} from "../../redux/actions/FinancesTool";
 import { useEffect, useState } from "react";
 
 function FinancesTool (){
-    const [selectedDate, setSelectedDate] = useState({})
     const customers = useSelector(state => state.customerInformation.customers)
     const providers = useSelector(state => state.customerInformation.providers)
     const tickets = useSelector(state => state.customerInformation.tickets)
@@ -33,12 +35,41 @@ function FinancesTool (){
 
 
     /*DATE */
+
     function changeDate(event){
-        var type = event.target.name
-        if(type === 'start')
-        setSelectedDate({...selectedDate, start:event.target.value})
-        else if(type === 'end')
-        setSelectedDate({...selectedDate, end:event.target.value})
+        const type = event.target.name
+        const value = event.target.value
+        let { start } = financesTool
+        let { end } = financesTool
+        if(type === 'start' && (value < end || !end)){
+            dispatch(updateFinancesToolReportsStart(event.target.value))
+        }
+        else if(type === 'end' && (value > start || !start)){
+            dispatch(updateFinancesToolReportsEnd(event.target.value))
+        }
+
+        
+    }
+
+    function getBetweenDates(){
+        let betweenDates = []
+        let start = new Date(financesTool.start)
+        let end = new Date(financesTool.end)
+
+        console.log(start + end)
+        
+
+        //  while(start <= end){
+        //     betweenDates.push(start)
+        //     start = new Date(
+        //          start.getFullYear(),
+        //          start.getMonth(),
+        //          start.getDay() +1
+        //      )
+        // }
+        console.log(betweenDates)
+        return betweenDates
+
     }
     /*CUSTOMERS */
     const groupedCustomers = () =>{
@@ -150,6 +181,10 @@ function FinancesTool (){
     }
     /*SET FINANCE TOOL STATE */
     function setFinanceToolState(){
+        if(financesTool.start && financesTool.end){
+            dispatch(updateFinancesToolReportsBetweenDates(getBetweenDates()))
+        }
+
         dispatch(updateFinancesToolCustomersGrandTotal(grandTotalCustomersDebt()))
         dispatch(updateFinancesToolCustomersKeys(Object.keys(groupedCustomers())))
         dispatch(updateFinancesToolCustomersAmounths(totalDebtPerCustomer()))
@@ -167,16 +202,16 @@ function FinancesTool (){
         dispatch(updateFinancesToolExpensesAmounths(totalExpensesPerDay()))
     }
     useEffect(()=>
-        setFinanceToolState(), [selectedDate]
+        setFinanceToolState(), [financesTool.start, financesTool.end]
     )
     console.log(financesTool)
-    console.log(selectedDate)
     return(
         <>
         <div className={styles.DateInputsContainer}>
             <div>
                 <span className={styles.DateConectors}>{initialDateTitle}</span>
-                <input type='date' name="start" 
+                <input type='date' name="start"
+                value={financesTool.start} 
                 onChange={(e)=>changeDate(e)}
                 className={styles.Datenput}/>
             </div>
@@ -184,6 +219,7 @@ function FinancesTool (){
             <div>
                 <span className={styles.DateConectors}>{endDateTitle}</span>
                 <input type='date' name="end" 
+                value={financesTool.end}
                 onChange={(e)=>changeDate(e)}
                 className={styles.Datenput}/>
             </div>

@@ -1,4 +1,8 @@
 const initialFinances = {
+    start:'',
+    end:'',
+    betweenDates:[],
+
     customersGrandTotal:'',
     customersKeys:[],
     customersAmounths:[],
@@ -17,6 +21,21 @@ const initialFinances = {
 }
 export const  financesToolReducer = (state, action) =>{
     switch(action.type){
+        case 'UPDATE_FINANCES_TOOL_REPORTS_START':
+            return{
+                ...state,
+                start:action.start
+            }
+        case 'UPDATE_FINANCES_TOOL_REPORTS_END':
+            return{
+                ...state,
+                end:action.end
+            }
+        case 'UPDATE_FINANCES_TOOL_REPORTS_BETWEEN_DATES':
+            return{
+                ...state,
+                betweenDates:action.dates
+            }
         case 'UPDATE_FINANCES_TOOL_CUSTOMERS_GRAND_TOTAL':
             return{
                 ...state,

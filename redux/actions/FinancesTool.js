@@ -1,3 +1,26 @@
+/*DATES */
+export const updateFinancesToolReportsStart = (start) =>{
+    return{
+        type:'UPDATE_FINANCES_TOOL_REPORTS_START',
+        start
+    }
+}
+
+export const updateFinancesToolReportsEnd = (end) =>{
+    return{
+        type:'UPDATE_FINANCES_TOOL_REPORTS_END',
+        end
+    }
+}
+
+export const updateFinancesToolReportsBetweenDates = (dates) =>{
+    return{
+        type:'UPDATE_FINANCES_TOOL_REPORTS_BETWEEN_DATES',
+        dates
+    }
+}
+
+/*INFORMATION */
 export const updateFinancesToolCustomersGrandTotal = (grandTotal) =>{
     return{
         type:'UPDATE_FINANCES_TOOL_CUSTOMERS_GRAND_TOTAL',
