@@ -21,18 +21,24 @@ import { updateFinancesToolCustomersAmounths,
 import { useEffect, useState } from "react";
 
 function FinancesTool (){
-    const [selectedDate, setSelectedDate] = useState('')
+    const [selectedDate, setSelectedDate] = useState({})
     const customers = useSelector(state => state.customerInformation.customers)
     const providers = useSelector(state => state.customerInformation.providers)
     const tickets = useSelector(state => state.customerInformation.tickets)
     const expenses = useSelector(state => state.customerInformation.expenses)
     const financesTool = useSelector(state => state.financesTool)
+    const initialDateTitle = 'Fecha inicial de los reportes'
+    const endDateTitle = 'Fecha final de los reportes'
     const dispatch = useDispatch()
 
 
     /*DATE */
     function changeDate(event){
-        setSelectedDate(event.target.value)
+        var type = event.target.name
+        if(type === 'start')
+        setSelectedDate({...selectedDate, start:event.target.value})
+        else if(type === 'end')
+        setSelectedDate({...selectedDate, end:event.target.value})
     }
     /*CUSTOMERS */
     const groupedCustomers = () =>{
@@ -164,16 +170,34 @@ function FinancesTool (){
         setFinanceToolState(), [selectedDate]
     )
     console.log(financesTool)
+    console.log(selectedDate)
     return(
-        <div className={styles.FinancesContainer}>
-        <input type='date' onChange={(e)=>changeDate(e)}/>
-        <SalesReport/>
-        <ExpensesReport/>
-        <CustomersReport/>
-        <ProvidersReport/>
-        <IncomeStatement/>
-        <BalanceSheet/>
+        <>
+        <div className={styles.DateInputsContainer}>
+            <div>
+                <span className={styles.DateConectors}>{initialDateTitle}</span>
+                <input type='date' name="start" 
+                onChange={(e)=>changeDate(e)}
+                className={styles.Datenput}/>
+            </div>
+
+            <div>
+                <span className={styles.DateConectors}>{endDateTitle}</span>
+                <input type='date' name="end" 
+                onChange={(e)=>changeDate(e)}
+                className={styles.Datenput}/>
+            </div>
         </div>
+
+        <div className={styles.FinancesContainer}>
+            <SalesReport/>
+            <ExpensesReport/>
+            <CustomersReport/>
+            <ProvidersReport/>
+            <IncomeStatement/>
+            <BalanceSheet/>
+        </div>
+        </>
     )
 }
 export default FinancesTool
