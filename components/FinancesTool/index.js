@@ -52,24 +52,21 @@ function FinancesTool (){
     }
 
     function getBetweenDates(){
-        let betweenDates = []
-        let start = new Date(financesTool.start)
-        let end = new Date(financesTool.end)
+        const startWithTime = financesTool.start + 'T00:00'
+        const endWithTime = financesTool.end + 'T00:00'
 
-        console.log(start + end)
-        
+        var between = new Array()
+        var current = new Date(startWithTime.valueOf())
+        var formatedEnd = new Date(endWithTime.valueOf())
 
-        //  while(start <= end){
-        //     betweenDates.push(start)
-        //     start = new Date(
-        //          start.getFullYear(),
-        //          start.getMonth(),
-        //          start.getDay() +1
-        //      )
-        // }
-        console.log(betweenDates)
-        return betweenDates
+        while(current <= formatedEnd){
 
+            const formatedDate = current.toISOString().slice(0,10)
+            between.push(formatedDate)
+            current.setDate(current.getDate() + 1)
+    
+        }
+        return between
     }
     /*CUSTOMERS */
     const groupedCustomers = () =>{
