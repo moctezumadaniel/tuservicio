@@ -5,7 +5,6 @@ function ProvidersReport (){
     const providersTitle = 'Proveedores'
     const financesTool = useSelector(state => state.financesTool)
     
-    console.log(financesTool)
     return(
         <div className={styles.FinanceComponentContainer}>
             <div className={styles.Title}>{providersTitle}</div>

@@ -21,7 +21,7 @@ import { updateFinancesToolCustomersAmounths,
     updateFinancesToolReportsBetweenDates, 
     updateFinancesToolReportsEnd, 
     updateFinancesToolReportsStart} from "../../redux/actions/FinancesTool";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 function FinancesTool (){
     const financesTool = useSelector(state => state.financesTool)
@@ -42,10 +42,12 @@ function FinancesTool (){
         let { start } = financesTool
         let { end } = financesTool
         if(type === 'start' && (value < end || !end)){
-            dispatch(updateFinancesToolReportsStart(event.target.value))
+            dispatch(updateFinancesToolReportsStart(event.target.value),
+            setFinanceToolState())
         }
         else if(type === 'end' && (value > start || !start)){
-            dispatch(updateFinancesToolReportsEnd(event.target.value))
+            dispatch(updateFinancesToolReportsEnd(event.target.value),
+            setFinanceToolState())
         }
         
     }
@@ -191,7 +193,7 @@ function FinancesTool (){
     /*SET FINANCE TOOL STATE */
     
 
-    async function setFinanceToolState(){
+    function setFinanceToolState(){
         if(financesTool.start && financesTool.end){
             dispatch(updateFinancesToolReportsBetweenDates(getBetweenDates()))
         }
@@ -210,11 +212,13 @@ function FinancesTool (){
         dispatch(updateFinancesToolExpensesGrandTotal(totalExpenses()))
         dispatch(updateFinancesToolExpensesKeys(Object.keys(groupedExpenses())))
         dispatch(updateFinancesToolExpensesAmounths(totalExpensesPerDay()))
+
+        console.log(financesTool)
+
     }
     useEffect(()=>
-        setFinanceToolState(), [financesTool.start, financesTool.end]
+        setFinanceToolState(), []
     )
-    console.log(financesTool)
     return(
         <>
         <div className={styles.DateInputsContainer}>
