@@ -19,14 +19,45 @@ const initialFinances = {
     expensesKeys:[],
     expensesAmounths:[],
 }
+function getBetweenDates(start, end){
+    const startWithTime = start + 'T00:00'
+    const endWithTime = end + 'T00:00'
+
+    var between = new Array()
+    var current = new Date(startWithTime.valueOf())
+    var formatedEnd = new Date(endWithTime.valueOf())
+
+    while(current <= formatedEnd){
+
+        const formatedDate = current.toISOString().slice(0,10)
+        between.push(formatedDate)
+        current.setDate(current.getDate() + 1)
+
+    }
+    return between
+}
 export const  financesToolReducer = (state, action) =>{
     switch(action.type){
         case 'UPDATE_FINANCES_TOOL_REPORTS_START':
+            if(state.end){
+                return{
+                    ...state,
+                    start:action.start,
+                    betweenDates:getBetweenDates(action.start, state.end)
+                }
+            }
             return{
                 ...state,
                 start:action.start
             }
         case 'UPDATE_FINANCES_TOOL_REPORTS_END':
+            if(state.start){
+                return{
+                    ...state,
+                    end:action.end,
+                    betweenDates:getBetweenDates(state.start, action.end)
+                }
+            }
             return{
                 ...state,
                 end:action.end

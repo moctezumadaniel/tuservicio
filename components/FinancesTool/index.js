@@ -18,13 +18,13 @@ import { updateFinancesToolCustomersAmounths,
     updateFinancesToolProvidersAmounths, 
     updateFinancesToolProvidersGrandTotal, 
     updateFinancesToolProvidersKeys, 
-    updateFinancesToolReportsBetweenDates, 
     updateFinancesToolReportsEnd, 
     updateFinancesToolReportsStart} from "../../redux/actions/FinancesTool";
 import { useEffect } from "react";
 
 function FinancesTool (){
     const financesTool = useSelector(state => state.financesTool)
+    const betweenDates = financesTool.betweenDates
     const customers = useSelector(state => state.customerInformation.customers)
     const providers = useSelector(state => state.customerInformation.providers)
     const tickets = useSelector(state => state.customerInformation.tickets)
@@ -42,32 +42,13 @@ function FinancesTool (){
         let { start } = financesTool
         let { end } = financesTool
         if(type === 'start' && (value < end || !end)){
-            dispatch(updateFinancesToolReportsStart(event.target.value),
-            setFinanceToolState())
+            dispatch(updateFinancesToolReportsStart(event.target.value))
+            
         }
         else if(type === 'end' && (value > start || !start)){
-            dispatch(updateFinancesToolReportsEnd(event.target.value),
-            setFinanceToolState())
+            dispatch(updateFinancesToolReportsEnd(event.target.value))
         }
         
-    }
-
-    function getBetweenDates(){
-        const startWithTime = financesTool.start + 'T00:00'
-        const endWithTime = financesTool.end + 'T00:00'
-
-        var between = new Array()
-        var current = new Date(startWithTime.valueOf())
-        var formatedEnd = new Date(endWithTime.valueOf())
-
-        while(current <= formatedEnd){
-
-            const formatedDate = current.toISOString().slice(0,10)
-            between.push(formatedDate)
-            current.setDate(current.getDate() + 1)
-    
-        }
-        return between
     }
 
     function filterOperationsByDate(operations){ 
@@ -81,7 +62,7 @@ function FinancesTool (){
     /*CUSTOMERS */
     const groupedCustomers = () =>{
         const filteredCustomers = 
-            financesTool.start && financesTool.end ?
+            betweenDates.length > 1 ?
             filterOperationsByDate(customers)
             :customers
         return filteredCustomers.reduce((obj, operation) =>{
@@ -112,7 +93,11 @@ function FinancesTool (){
     }
     /*PROVIDERS */
     const groupedProviders = () =>{
-        return providers.reduce((obj, operation) =>{
+        const filterdProviders = 
+            betweenDates.length > 1 ?
+            filterOperationsByDate(providers)
+            :providers
+        return filterdProviders.reduce((obj, operation) =>{
             const key = operation.name
             if(obj[key] == null) obj[key] = [];
             obj[key].push(operation)
@@ -139,8 +124,13 @@ function FinancesTool (){
         )
     }
     /*TICKETS */
+    
     const ticketsGrupedPerDay = () => {
-        return tickets.reduce((obj, ticket)=>{
+        const filteredTickets = 
+            betweenDates.length > 1 ?
+            filterOperationsByDate(tickets)
+            :tickets
+        return filteredTickets.reduce((obj, ticket)=>{
             const key = ticket.date.slice(0,10)
             if(obj[key]== null) obj[key] = [];
             obj[key].push(ticket)
@@ -169,7 +159,11 @@ function FinancesTool (){
     }
     /*EXPENSES */
     const groupedExpenses = () =>{
-        return expenses.reduce((obj,expense)=>{
+        const filteredExpenses = 
+            betweenDates.length > 1 ?
+            filterOperationsByDate(expenses)
+            :expenses
+        return filteredExpenses.reduce((obj,expense)=>{
             const key = expense.date.slice(0,10)
             if(obj[key] == null) obj[key] = [];
             obj[key].push(expense)
@@ -194,9 +188,7 @@ function FinancesTool (){
     
 
     function setFinanceToolState(){
-        if(financesTool.start && financesTool.end){
-            dispatch(updateFinancesToolReportsBetweenDates(getBetweenDates()))
-        }
+
         dispatch(updateFinancesToolCustomersGrandTotal(grandTotalCustomersDebt()))
         dispatch(updateFinancesToolCustomersKeys(Object.keys(groupedCustomers())))
         dispatch(updateFinancesToolCustomersAmounths(totalDebtPerCustomer()))
@@ -217,7 +209,7 @@ function FinancesTool (){
 
     }
     useEffect(()=>
-        setFinanceToolState(), []
+        setFinanceToolState(), [financesTool.start, financesTool.end]
     )
     return(
         <>
