@@ -51,14 +51,32 @@
 }
 .ChartContainer{
     width:91vw;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+    .ErrorMessage{
+        margin: 10px;
+        font-size: larger;
+        justify-self: center;
+        align-self: center;
+    }
+.ReportContainer{
+    width:91vw;
 }
 @media (min-width:860px) {
+    .ReportContainer{
+        width: 45vw;
+    }
     .ChartContainer{
         width: 45vw;
     }
 }
 
 @media (min-width:1310px) {
+    .ReportContainer{
+        width: 400px;
+    }
     .ChartContainer{
         width: 400px;
     }

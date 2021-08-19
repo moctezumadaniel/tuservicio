@@ -4,12 +4,15 @@ import { useSelector } from 'react-redux'
 function CustomersReport (){
     const customersTitle = 'Clientes'
     const financesTool = useSelector(state => state.financesTool)
+    const noOperationsMessage = 'Sin operaciones en el periodo seleccionado'
     
 
     return(
         <div className={styles.FinanceComponentContainer}>
             <div className={styles.Title}>{customersTitle}</div>
+            
             <div className={styles.ChartContainer}>
+            {financesTool.customersKeys.length > 0 && financesTool.customersAmounths.length > 0 ?
             <Doughnut
                 className={styles.SalesChart}
                 data={{
@@ -41,6 +44,11 @@ function CustomersReport (){
                 height={400}
                 width={400}
             />
+            :
+            <span className={styles.ErrorMessage}>
+                {noOperationsMessage}
+            </span>
+            }
             </div>
         </div>
     )

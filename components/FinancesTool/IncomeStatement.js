@@ -13,11 +13,15 @@ function IncomeStatement() {
     const Sales = financesTool.incomeGrandTotal
     const Expenses = financesTool.expensesGrandTotal
     const ProfitOrLost = Sales - Expenses
-    const ProfitPorcentage = `${Math.abs((ProfitOrLost/Sales)*100).toFixed(2)}%`
+    const ProfitPorcentage = 
+        ProfitOrLost ?
+        `${Math.abs((ProfitOrLost/Sales)*100).toFixed(2)}%`
+        :`NA`
+
     return (
         <div className={styles.FinanceComponentContainer}>
             <div className={styles.Title}>{incomeStatementTitle}</div>
-            <div className={styles.ChartContainer}>
+            <div className={styles.ReportContainer}>
 
                 <div className={styles.ConceptStatementContainer}>
                     <div className={styles.ConceptDescription}>{totalSalesTitle}</div>

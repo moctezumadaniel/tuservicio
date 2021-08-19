@@ -4,11 +4,12 @@ import { useSelector } from 'react-redux'
 function ExpensesReport (){
     const expensesTitle = 'Gastos'
     const financesTool = useSelector(state => state.financesTool)
-    
+    const noOperationsMessage = 'Sin gastos en el periodo seleccionado'
     return(
         <div className={styles.FinanceComponentContainer}>
             <div className={styles.Title}>{expensesTitle}</div>
             <div className={styles.ChartContainer}>
+            {financesTool.expensesKeys.length > 0 && financesTool.expensesAmounths.length > 0 ?
             <Line
                 className={styles.SalesChart}
                 data={{
@@ -40,6 +41,11 @@ function ExpensesReport (){
                 height={400}
                 width={400}
             />
+            :
+            <span className={styles.ErrorMessage}>
+                    {noOperationsMessage}
+            </span>
+            }
             </div>
         </div>
     )

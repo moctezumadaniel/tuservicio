@@ -56,7 +56,7 @@ function BalanceSheet() {
     return (
         <div className={styles.FinanceComponentContainer}>
             <div className={styles.Title}>{balanceSheetTitle}</div>
-            <div className={styles.ChartContainer}>
+            <div className={styles.ReportContainer}>
 
 
                 <div className={styles.ConceptStatementContainer}>
