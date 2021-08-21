@@ -40,6 +40,8 @@ function Schedule (){
     function handleChangeOpening(event){
         const newDate = event.target.value
         const day = event.target.name
+        const closing = temporalSchedule[day].closing
+        if(closing > newDate || !closing)
         setTemporalSchedule({...temporalSchedule, 
             [day]:{...temporalSchedule[day], opening:newDate}
         })
@@ -47,6 +49,8 @@ function Schedule (){
     function handleChangeClosing(event){
         const newDate = event.target.value
         const day = event.target.name
+        const opening = temporalSchedule[day].opening
+        if(opening < newDate || !opening)
         setTemporalSchedule({...temporalSchedule, 
             [day]:{...temporalSchedule[day], closing:newDate}
         })

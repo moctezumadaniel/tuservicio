@@ -28,6 +28,16 @@ function EditSchedule (){
     function handleInputUpdate (event){
        const input = event.target.name;
        const newValue = event.target.value
+       if(input == 'start' && (change < temporalNewReservation.end || !temporalNewReservation.end)){
+        setTemporalNewReservation({...temporalNewReservation, [input]: change})
+        }
+        else if(input == 'end' && (change > temporalNewReservation.start || !temporalNewReservation.start)){
+            setTemporalNewReservation({...temporalNewReservation, [input]: change})
+        }
+        else if(input == 'start' || input == 'end'){
+            return
+        }
+        else
        setTemporalEditingSchedule({...temporalEditingSchedule, [input]:newValue})
 
     }

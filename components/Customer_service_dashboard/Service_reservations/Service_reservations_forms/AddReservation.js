@@ -26,6 +26,16 @@ function AddReservation (){
     function handleInputChange(event){
         const input = event.target.name
         const change = event.target.value
+        if(input == 'start' && (change < temporalNewReservation.end || !temporalNewReservation.end)){
+            setTemporalNewReservation({...temporalNewReservation, [input]: change})
+        }
+        else if(input == 'end' && (change > temporalNewReservation.start || !temporalNewReservation.start)){
+            setTemporalNewReservation({...temporalNewReservation, [input]: change})
+        }
+        else if(input == 'start' || input == 'end'){
+            return
+        }
+        else
         setTemporalNewReservation({...temporalNewReservation, [input]: change})
     }
     function restartNewReservation (){
@@ -56,6 +66,7 @@ function AddReservation (){
         })
         .catch(error => console.log(error))
     }
+    console.log(temporalNewReservation)
     return(
         <div className={styles.MainContainer}>
             <div className={styles.ModalBackground}

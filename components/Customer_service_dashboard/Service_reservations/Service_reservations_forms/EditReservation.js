@@ -22,6 +22,16 @@ function EditReservation (){
     function handleInputChange(event){
         const input = event.target.name
         const change = event.target.value
+        if(input == 'start' && (change < temporalNewReservation.end || !temporalNewReservation.end)){
+        setTemporalNewReservation({...temporalNewReservation, [input]: change})
+        }
+        else if(input == 'end' && (change > temporalNewReservation.start || !temporalNewReservation.start)){
+            setTemporalNewReservation({...temporalNewReservation, [input]: change})
+        }
+        else if(input == 'start' || input == 'end'){
+            return
+        }
+        else
         setTemporalEditingReservation({...temporalEditingReservation, [input]: change})
     }
     function restartNewReservation (){
@@ -32,6 +42,7 @@ function EditReservation (){
             name:"",
             description:""
         })
+        
     }
     function addReservation (customerId, reservation){
         axios.patch(`api/customer/updateCustomerEditingReservation`,{
