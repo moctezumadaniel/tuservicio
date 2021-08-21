@@ -8,8 +8,24 @@ import { loadCustomerEditingOrder } from '../../redux/actions/CustomerEditingOrd
 function PendingOrders() {
     const customerInformation = useSelector(state => state.customerInformation)
     const customerId = customerInformation.customerId
-    const orders = customerInformation.orders
-    const pendingOrders = orders.filter(order => order.fullfiled === false)
+    const orders = customerInformation.orders.sort((a, b)=> {
+        if(a.date > b.date){
+            return 1
+        }
+        if(a.date < b.date){
+            return -1
+        }
+        return 0
+    })
+    const pendingOrders = orders.filter(order => order.fullfiled === false).sort((a, b)=> {
+        if(a.date > b.date){
+            return 1
+        }
+        if(a.date < b.date){
+            return -1
+        }
+        return 0
+    })
     const pendingTitle = 'Pendientes'
     const seeEditButton = 'Ver o editar'
     const doneOrderButton = 'Orden atendida'

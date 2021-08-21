@@ -7,7 +7,15 @@ import { loadExpensesToolEditingFormDate } from '../../redux/actions/CustomerEdi
 
 function ExpensesList(){
     const customerInformation = useSelector(state => state.customerInformation)
-    const expenses = customerInformation.expenses
+    const expenses = customerInformation.expenses.sort((a, b) =>{
+        if(a.date > b.date){
+            return 1
+        }
+        if(a.date < b.date){
+            return -1
+        }
+        return 0
+    })
 
     const openEditItemButton = 'Ver o editar'
     const deleteButton = 'Eliminar'

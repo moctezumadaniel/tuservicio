@@ -60,7 +60,9 @@ function CustomersList(){
     console.log(groupedCustomers)
     return(
         <div>
-        {Object.keys(groupedCustomers).map(customer => (
+        {Object.keys(groupedCustomers)
+        .sort()
+        .map(customer => (
         <div key={customer}>
             <div className={styles.CustomerName}>{customer || 'Sin Nombre'}</div>
 

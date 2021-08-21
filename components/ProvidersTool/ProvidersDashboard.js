@@ -57,7 +57,9 @@ function ProvidersList(){
     }
     return(
         <div>
-        {Object.keys(groupedProviders).map(provider => (
+        {Object.keys(groupedProviders)
+        .sort()
+        .map(provider => (
             <div key={provider}>
                 <div className={styles.CustomerName}>{provider}</div>
 

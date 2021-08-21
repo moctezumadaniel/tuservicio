@@ -7,7 +7,15 @@ import { loadCustomerEditingTicket } from '../../redux/actions/CustomerEditingTi
 function TicketsList(){
     
     const customerInformation = useSelector(state => state.customerInformation)
-    const allTickets = customerInformation.tickets;
+    const allTickets = customerInformation.tickets.sort((a, b) =>{
+        if(a.date > b.date){
+            return 1
+        }
+        if(a.date < b.date){
+            return -1
+        }
+        return 0
+    });
     const openEditTicketDescription = 'VER O EDITAR'
     const deleteTicketDescription = 'ELIMINAR'
     const ticketsTitle = 'Notas de venta'
