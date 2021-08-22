@@ -20,7 +20,7 @@ export default function Home() {
       <Provider store={store}>
         <div scroll="no" className={styles.container}>
           <Head>
-            <title>Celer</title>
+            <title>TuServicio</title>
             <link rel="icon" href="/celer.png" />
           </Head>
           {/*<CustomerProfileTemplate/>*/}
