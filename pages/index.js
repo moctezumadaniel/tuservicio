@@ -9,12 +9,14 @@ import AppMainContainer from "../components/App_main_container";
 import { Auth0Provider } from "@auth0/auth0-react";
 
 const store = createStore(rootReducer);
+
 export default function Home() {
+  console.log(globalThis.location);
   return (
     <Auth0Provider
       domain="dev-006imb0h.us.auth0.com"
       clientId="g6P2mkVcDFDJpEy1L8pguWxkDOUHuqiK"
-      redirectUri="http://localhost:3000/"
+      redirectUri={globalThis.location ? globalThis.location.href : ""}
     >
       <Provider store={store}>
         <div scroll="no" className={styles.container}>
