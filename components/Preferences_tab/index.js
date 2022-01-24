@@ -1,133 +1,160 @@
-import styles from '../../styles/Preferences.module.css'
-import {useSelector, useDispatch} from 'react-redux'
-import {changePlatformToCustomer, changePlatformToUser} from '../../redux/actions/PlatformType'
+import styles from "../../styles/Preferences.module.css";
+import { useSelector, useDispatch } from "react-redux";
 import {
-    changeUserPreferencesFormToName,
-    changeUserPreferencesFormToPhoneNumber,
-    changeUserPreferencesFormToEmailForm,
-    changeUserPreferencesFormToPassword
-} from '../../redux/actions/UserPreferencesForms'
-import {customerLogout} from '../../redux/actions/LoginsAndLogouts'
-import { UserLogin } from '../../components/User_login'
-import { useAuth0 } from '@auth0/auth0-react'
-import PreferencesForms from './Preferences_forms'
+  changePlatformToCustomer,
+  changePlatformToUser,
+} from "../../redux/actions/PlatformType";
+import {
+  changeUserPreferencesFormToName,
+  changeUserPreferencesFormToPhoneNumber,
+  changeUserPreferencesFormToEmailForm,
+  changeUserPreferencesFormToPassword,
+} from "../../redux/actions/UserPreferencesForms";
+import { customerLogout } from "../../redux/actions/LoginsAndLogouts";
+import { UserLogin } from "../../components/User_login";
+import { useAuth0 } from "@auth0/auth0-react";
+import PreferencesForms from "./Preferences_forms";
 
-function PreferencesTab (){
-    const currentGlobalTab = useSelector(state=>state.globalTab)
-    const currentPlatform = useSelector(state=>state.platformType)
-    const userPreferences = useSelector(state => state.userInformation)
-    const dispatch = useDispatch()
-    const nameDescription = 'Nombre';
-    const name = 'Nombre Completo del Usuario';
-    const nameButton = 'CAMBIAR NOMBRE'
-    const phoneNumberDescription = 'Telefono';
-    const phoneNumber = '7712345678';
-    const phoneNumberButton = 'CAMBIAR TELEFONO'
-    const emailDesciption = 'Correo electrónico';
-    const email = 'ejemplocorreo@ejemplo.com';
-    const emailButton = 'CAMBIAR CORREO'
-    const passwordDescription = 'Contraseña';
-    const password = '*********************';
-    const paswordButton = 'CAMBIAR CONTRASEÑA';
-    const reviewsTitle = 'Reseñas';
-    const reviewsDescription = 'Aqui estan las reseñas que has compartido';
-    const reviewsButton = 'ABRIR RESEÑAS';
-    const feedbackTitle = 'Problemas y comentarios';
-    const feedbackDescription = 'Aqui estan los comentarios y problemas sobre Celer.mx que nos has enviado';
-    const feedbackButton = 'ABRIR PROBLEMAS Y COMENTARIOS';
-    const changeToCustomerDescription = 'Cambiar a proveedor de servicios';
-    const changeToUserDescription = 'Cambiar a cliente de servicios'
-    const LogoutDescription = "Cerrar sesión"
-    const { logout } = useAuth0()
-    const { isAuthenticated, isLoading } = useAuth0()
-    function handleChangeToCustomerPress(){
-        dispatch(changePlatformToCustomer())
-    }
-    function handleChangeToUserPress(){
-        dispatch(changePlatformToUser(),
-        dispatch(customerLogout()))
-    }
+function PreferencesTab() {
+  const currentGlobalTab = useSelector((state) => state.globalTab);
+  const currentPlatform = useSelector((state) => state.platformType);
+  const userPreferences = useSelector((state) => state.userInformation);
+  const dispatch = useDispatch();
+  const nameDescription = "Nombre";
+  const name = "Nombre Completo del Usuario";
+  const nameButton = "CAMBIAR NOMBRE";
+  const phoneNumberDescription = "Telefono";
+  const phoneNumber = "7712345678";
+  const phoneNumberButton = "CAMBIAR TELEFONO";
+  const emailDesciption = "Correo electrónico";
+  const email = "ejemplocorreo@ejemplo.com";
+  const emailButton = "CAMBIAR CORREO";
+  const passwordDescription = "Contraseña";
+  const password = "*********************";
+  const paswordButton = "CAMBIAR CONTRASEÑA";
+  const reviewsTitle = "Reseñas";
+  const reviewsDescription = "Aqui estan las reseñas que has compartido";
+  const reviewsButton = "ABRIR RESEÑAS";
+  const feedbackTitle = "Problemas y comentarios";
+  const feedbackDescription =
+    "Aqui estan los comentarios y problemas que nos has enviado";
+  const feedbackButton = "ABRIR PROBLEMAS Y COMENTARIOS";
+  const changeToCustomerDescription = "Cambiar a proveedor de servicios";
+  const changeToUserDescription = "Cambiar a cliente de servicios";
+  const LogoutDescription = "Cerrar sesión";
+  const { logout } = useAuth0();
+  const { isAuthenticated, isLoading } = useAuth0();
+  function handleChangeToCustomerPress() {
+    dispatch(changePlatformToCustomer());
+  }
+  function handleChangeToUserPress() {
+    dispatch(changePlatformToUser(), dispatch(customerLogout()));
+  }
 
-    function openUserNameForm (){
-        dispatch(changeUserPreferencesFormToName())
-    }
-    function openPhoneNumberForm (){
-        dispatch(changeUserPreferencesFormToPhoneNumber())
-    }
-    function openEmailForm (){
-        dispatch(changeUserPreferencesFormToEmailForm())
-    }
-    function openPasswordForm (){
-        dispatch(changeUserPreferencesFormToPassword())
-    }
+  function openUserNameForm() {
+    dispatch(changeUserPreferencesFormToName());
+  }
+  function openPhoneNumberForm() {
+    dispatch(changeUserPreferencesFormToPhoneNumber());
+  }
+  function openEmailForm() {
+    dispatch(changeUserPreferencesFormToEmailForm());
+  }
+  function openPasswordForm() {
+    dispatch(changeUserPreferencesFormToPassword());
+  }
 
-    return(
-        currentGlobalTab === 'Preferences' && isAuthenticated && !isLoading?
-        <>
-        <div className={styles.PreferencesMainContaner}>
-            {
-            currentPlatform === 'User'?
-            <div className={styles.ChangePlatformToCustomer}
-            onClick={handleChangeToCustomerPress}>
-                {changeToCustomerDescription}
-            </div>
-            :
-            <div className={styles.ChangePlatformToUser}
-            onClick={handleChangeToUserPress}>
-                {changeToUserDescription}
-            </div>
-            }
-            
-            <div className={styles.PreferenceItem}>
-                <div className={styles.ItemHeader}>{nameDescription}</div>
-                <div className={styles.ItemDescription}>{userPreferences.name}</div>
-                <button className={styles.ItemButton}
-                onClick={()=>openUserNameForm()}>{nameButton}</button>
-            </div>
+  return currentGlobalTab === "Preferences" && isAuthenticated && !isLoading ? (
+    <>
+      <div className={styles.PreferencesMainContaner}>
+        {currentPlatform === "User" ? (
+          <div
+            className={styles.ChangePlatformToCustomer}
+            onClick={handleChangeToCustomerPress}
+          >
+            {changeToCustomerDescription}
+          </div>
+        ) : (
+          <div
+            className={styles.ChangePlatformToUser}
+            onClick={handleChangeToUserPress}
+          >
+            {changeToUserDescription}
+          </div>
+        )}
 
-            <div className={styles.PreferenceItem}>
-                <div className={styles.ItemHeader}>{phoneNumberDescription}</div>
-                <div className={styles.ItemDescription}>{userPreferences.phoneNumber}</div>
-                <button className={styles.ItemButton}
-                onClick={()=>openPhoneNumberForm()}>{phoneNumberButton}</button>
-            </div>
-
-            <div className={styles.PreferenceItem}>
-                <div className={styles.ItemHeader}>{emailDesciption}</div>
-                <div className={styles.ItemDescription}>{userPreferences.email}</div>
-                <button className={styles.ItemButton}
-                onClick={()=>openEmailForm()}>{emailButton}</button>
-            </div>
-
-            <div className={styles.PreferenceItem}>
-                <div className={styles.ItemHeader}>{passwordDescription}</div>
-                <div className={styles.ItemDescription}>{password}</div>
-                <button className={styles.ItemButton}
-                onClick={()=>openPasswordForm()}>{paswordButton}</button>
-            </div>
-
-            <div className={styles.PreferenceItem}>
-                <div className={styles.ItemHeader}>{reviewsTitle}</div>
-                <div className={styles.ItemDescription}>{reviewsDescription}</div>
-                <button className={styles.ItemButton}>{reviewsButton}</button>
-            </div>
-
-            <div className={styles.PreferenceItem}>
-                <div className={styles.ItemHeader}>{feedbackTitle}</div>
-                <div className={styles.ItemDescription}>{feedbackDescription}</div>
-                <button className={styles.ItemButton}>{feedbackButton}</button>
-            </div>
-
-            <div className={styles.LogoutButton}
-            onClick={()=>logout()}>
-                {LogoutDescription}
-            </div>
+        <div className={styles.PreferenceItem}>
+          <div className={styles.ItemHeader}>{nameDescription}</div>
+          <div className={styles.ItemDescription}>{userPreferences.name}</div>
+          <button
+            className={styles.ItemButton}
+            onClick={() => openUserNameForm()}
+          >
+            {nameButton}
+          </button>
         </div>
-        <PreferencesForms/>
-        </>
-        :currentGlobalTab === 'Preferences'?
-        <UserLogin/>
-        :""
-    )
+
+        <div className={styles.PreferenceItem}>
+          <div className={styles.ItemHeader}>{phoneNumberDescription}</div>
+          <div className={styles.ItemDescription}>
+            {userPreferences.phoneNumber}
+          </div>
+          <button
+            className={styles.ItemButton}
+            onClick={() => openPhoneNumberForm()}
+          >
+            {phoneNumberButton}
+          </button>
+        </div>
+
+        <div className={styles.PreferenceItem}>
+          <div className={styles.ItemHeader}>{emailDesciption}</div>
+          <div className={styles.ItemDescription}>{userPreferences.email}</div>
+          <button className={styles.ItemButton} onClick={() => openEmailForm()}>
+            {emailButton}
+          </button>
+        </div>
+
+        <div className={styles.PreferenceItem}>
+          <div className={styles.ItemHeader}>{passwordDescription}</div>
+          <div className={styles.ItemDescription}>{password}</div>
+          <button
+            className={styles.ItemButton}
+            onClick={() => openPasswordForm()}
+          >
+            {paswordButton}
+          </button>
+        </div>
+
+        <div className={styles.PreferenceItem}>
+          <div className={styles.ItemHeader}>{reviewsTitle}</div>
+          <div className={styles.ItemDescription}>{reviewsDescription}</div>
+          <button className={styles.ItemButton}>{reviewsButton}</button>
+        </div>
+
+        <div className={styles.PreferenceItem}>
+          <div className={styles.ItemHeader}>{feedbackTitle}</div>
+          <div className={styles.ItemDescription}>{feedbackDescription}</div>
+          <button className={styles.ItemButton}>{feedbackButton}</button>
+        </div>
+
+        <div
+          className={styles.LogoutButton}
+          onClick={() =>
+            logout({
+              returnTo: globalThis.location.href,
+            })
+          }
+        >
+          {LogoutDescription}
+        </div>
+      </div>
+      <PreferencesForms />
+    </>
+  ) : currentGlobalTab === "Preferences" ? (
+    <UserLogin />
+  ) : (
+    ""
+  );
 }
-export default PreferencesTab
+export default PreferencesTab;
