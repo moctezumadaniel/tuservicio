@@ -1,366 +1,355 @@
 /*TAB BUTTONS*/
-.TabButtonsCantainer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-top: 10px;
-    background-color: #FAFAFA;
+.TabButtonsCantainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 10px;
+  background-color: #fafafa;
 }
 
-.TabButton{
-    color: #026ED2;
-    background-color: white;
-    min-width: 20%;
-    font-size:medium;
-    padding-top: 0.5vh;
-    padding-bottom: 0.5vh;
-    border-radius: 100px;
-    outline: none;
-    border-style: solid;
-    border-color: #026ED2;
+.TabButton {
+  color: #026ed2;
+  background-color: white;
+  min-width: 20%;
+  font-size: medium;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+  border-radius: 100px;
+  outline: none;
+  border-style: solid;
+  border-color: #026ed2;
 }
 
-.TabButton:hover{
-    cursor: pointer;
+.TabButton:hover {
+  cursor: pointer;
 }
 
-.TabButtonActive{
-    color: white;
-    background-color: #026ED2;
-    min-width: 20%;
-    font-size:medium;
-    padding-top: 0.5vh;
-    padding-bottom: 0.5vh;
-    border-radius: 100px;
-    outline: none;
-    border-style: solid;
-    border-color: #026ED2;
+.TabButtonActive {
+  color: white;
+  background-color: #026ed2;
+  min-width: 20%;
+  font-size: medium;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+  border-radius: 100px;
+  outline: none;
+  border-style: solid;
+  border-color: #026ed2;
 }
 /*MAIN CONTAINER OF THE PROFILE DASHBOARD TAB*/
 
-.ServiceInformationTabContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: flex-start;
-    min-height: 100vh;
-    margin-bottom: 150px;
+.ServiceInformationTabContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  min-height: 100vh;
+  margin-bottom: 150px;
 }
 /*SERVICE INFORMATION PREVIEW*/
-.ServiceInformationContainer{
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-    margin: 5px;
-    margin-top: 10px;
+.ServiceInformationContainer {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 5px;
+  margin-top: 10px;
 }
 
-
-.informationTitle{
-    font-size: x-large;
-    font-weight: 600;
-    margin-bottom: 10px;
-    margin-left: 10px;
+.informationTitle {
+  font-size: x-large;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-left: 10px;
 }
 
-.InformationItemTitle{
-    font-size: larger;
-    font-weight: 600;
-    margin-bottom: 10px;
+.InformationItemTitle {
+  font-size: larger;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
-.InformationContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-content: space-around;
-    align-content: center;
-    border-radius: 10px;
-    background-color: white;
-    padding: 10px;
-    margin: 5px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-    animation-name: renderItem;
-    animation-timing-function: ease-in-out;
-    animation-duration: 500ms;
-
+.InformationContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: space-around;
+  align-content: center;
+  border-radius: 10px;
+  background-color: white;
+  padding: 10px;
+  margin: 5px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  animation-name: renderItem;
+  animation-timing-function: ease-in-out;
+  animation-duration: 500ms;
 }
-.InformationContainer:hover{
-    cursor: pointer;
-}
-
-.ImageInformation{
-    width: 30%;
-}
-.Information{
-    width: 65%;
-}
-.ServiceName{
-    font-size: larger;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-.PhoneNumber{
-    margin-bottom: 5px;   
-}
-.Schedule{
-    margin-bottom: 5px;
-}
-.editItemButton{
-    font-size: medium;
-    display: flex;
-    width: fit-content;
-    align-self: flex-end;
-    color: #026ED2;
-    background-color: white;
-    outline: none;
-    border: none;
-}
-.editItemButton:hover{
-    cursor: pointer;
+.InformationContainer:hover {
+  cursor: pointer;
 }
 
+.ImageInformation {
+  width: 30%;
+}
+.Information {
+  width: 65%;
+}
+.ServiceName {
+  font-size: larger;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.PhoneNumber {
+  margin-bottom: 5px;
+}
+.Schedule {
+  margin-bottom: 5px;
+}
+.editItemButton {
+  font-size: medium;
+  display: flex;
+  width: fit-content;
+  align-self: flex-end;
+  color: #026ed2;
+  background-color: white;
+  outline: none;
+  border: none;
+}
+.editItemButton:hover {
+  cursor: pointer;
+}
 
 /*SERVICE CONTACT AND MORE PREVIEW*/
 
-.ContactAndMoreContainer{
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-    margin: 5px;
-    margin-top: 10px;
+.ContactAndMoreContainer {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 5px;
+  margin-top: 10px;
 }
 
-.ContactAndMoreTitle{
-    font-size: x-large;
-    font-weight: 600;
-    margin-bottom: 10px;
-    margin-left: 10px;}
-
-.ContactAndMoreItemTitle{
-    font-size: larger;
-    font-weight: 600;
-    margin-bottom: 10px;
+.ContactAndMoreTitle {
+  font-size: x-large;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-left: 10px;
 }
 
-.ContactAndMoreContent{
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    background-color: white;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-    padding: 10px;
-    margin: 5px;
-    animation-name: renderItem;
-    animation-timing-function: ease-in-out;
-    animation-duration: 500ms;
-
-}
-.ContactAndMoreContent:hover{
-    cursor: pointer;
+.ContactAndMoreItemTitle {
+  font-size: larger;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
-.PhoneNumber{
-    margin-bottom: 5px;
-    font-size: larger;
+.ContactAndMoreContent {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  margin: 5px;
+  animation-name: renderItem;
+  animation-timing-function: ease-in-out;
+  animation-duration: 500ms;
+}
+.ContactAndMoreContent:hover {
+  cursor: pointer;
 }
 
-.Address{
-    margin-bottom: 10px;
+.PhoneNumber {
+  margin-bottom: 5px;
 }
 
-.MoreInfo{
-    margin-bottom: 10px;
+.Address {
+  margin-bottom: 10px;
+}
 
+.MoreInfo {
+  margin-bottom: 10px;
 }
 
 /*LIST OF SERVICES*/
-.ListOfServicesContainer{
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
+.ListOfServicesContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
 }
-.ServicesMainContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: space-around;
-    width: 100vw;
-    padding-bottom: 150px;
-
+.ServicesMainContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  width: 100vw;
+  padding-bottom: 150px;
 }
-.AddServiceButton{
-    margin-top: 15px;
-    margin-bottom: 5px;
-    align-self: center;
-    background-color: #FAFAFA;
-    color: #026ED2;
-    outline: none;
-    border: none;
-    width:auto;
-    font-size: medium;
+.AddServiceButton {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  align-self: center;
+  background-color: #fafafa;
+  color: #026ed2;
+  outline: none;
+  border: none;
+  width: auto;
+  font-size: medium;
 }
-.AddServiceButton:hover{
-    cursor: pointer;
+.AddServiceButton:hover {
+  cursor: pointer;
 }
-.ServicesTitle{
-    align-self: center;
-    font-size: x-large;
-    font-weight: 600;
+.ServicesTitle {
+  align-self: center;
+  font-size: x-large;
+  font-weight: 600;
 }
-.ServicesMainContainer{
-    display: flex;
-    flex-wrap: wrap;
-    align-content: space-around;
-    justify-content: center;
-    padding: 5px;
-    padding-bottom: 150px;
-
+.ServicesMainContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: center;
+  padding: 5px;
+  padding-bottom: 150px;
 }
 
-.ServiceItemContainer{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    background-color: white;
-    width: 500px;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 5px;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
-    animation-name: renderItem;
-    animation-timing-function: ease-in-out;
-    animation-duration: 500ms;
-    
+.ServiceItemContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: white;
+  width: 500px;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  animation-name: renderItem;
+  animation-timing-function: ease-in-out;
+  animation-duration: 500ms;
 }
 
-.ServiceMainInfo{
-    width: 30%;
-    margin-right: 10px;
+.ServiceMainInfo {
+  width: 30%;
+  margin-right: 10px;
 }
-.ServiceTitle{
-    font-weight: 600;
-    margin-bottom: 10px;
+.ServiceTitle {
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
-.ServiceComplementInfo{
-    width: 65%;
+.ServiceComplementInfo {
+  width: 65%;
 }
-.ServiceButtonsContainer{
-    width: 100%;
-    display: flex;
-    padding-top: 5px;
-    justify-content: space-around;
+.ServiceButtonsContainer {
+  width: 100%;
+  display: flex;
+  padding-top: 5px;
+  justify-content: space-around;
 }
-.EditServiceButton{
-    font-size:small;
-    display: flex;
-    width: fit-content;
-    align-self: flex-end;
-    color: #026ED2;
-    background-color: white;
-    outline: none;
-    border: none;
+.EditServiceButton {
+  font-size: small;
+  display: flex;
+  width: fit-content;
+  align-self: flex-end;
+  color: #026ed2;
+  background-color: white;
+  outline: none;
+  border: none;
 }
-.EditServiceButton:hover{
-    cursor: pointer;
+.EditServiceButton:hover {
+  cursor: pointer;
 }
-.DeleteServiceButton{
-    font-size:small;
-    display: flex;
-    width: fit-content;
-    align-self: flex-end;
-    color: #f40000;
-    background-color: white;
-    outline: none;
-    border: none;
+.DeleteServiceButton {
+  font-size: small;
+  display: flex;
+  width: fit-content;
+  align-self: flex-end;
+  color: #f40000;
+  background-color: white;
+  outline: none;
+  border: none;
 }
-.DeleteServiceButton:hover{
-    cursor: pointer;
-
+.DeleteServiceButton:hover {
+  cursor: pointer;
 }
 /*RESERVATIONS TAB*/
-.ServiceReservationsContainer{
-    padding-bottom:150px ;
-    min-height: 100vh;
+.ServiceReservationsContainer {
+  padding-bottom: 150px;
+  min-height: 100vh;
 }
 /*TOOL BAR*/
 
-.ToolBarContainer{
-    display: flex;
-    flex-wrap: wrap;
-    min-height: 100vh;
-    justify-content: center;
-    align-content:flex-start;
-    margin-top: 10px;
-    padding-bottom: 150px;
+.ToolBarContainer {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  justify-content: center;
+  align-content: flex-start;
+  margin-top: 10px;
+  padding-bottom: 150px;
 }
-@media (max-width:494px) {
-   .ToolBarContainer{
-        justify-content: space-evenly;
-   }
+@media (max-width: 494px) {
+  .ToolBarContainer {
+    justify-content: space-evenly;
+  }
 }
 
-.ToolItem{
-    display: flex;
-    flex-direction: column;
-    width: 140px;
-    height: 140px;
-    margin:10px;
-    padding: 5px;
-    border: solid;
-    border-width: 1px;
-    justify-content: space-around;
-    align-content: center;
-    text-align: center;
-    border-radius: 20px;
-    border-color: #026ED2;
-    background-color: white;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    animation-name: renderToolButton;
-    animation-timing-function: ease-in-out;
-    animation-duration: 500ms;
+.ToolItem {
+  display: flex;
+  flex-direction: column;
+  width: 140px;
+  height: 140px;
+  margin: 10px;
+  padding: 5px;
+  border: solid;
+  border-width: 1px;
+  justify-content: space-around;
+  align-content: center;
+  text-align: center;
+  border-radius: 20px;
+  border-color: #026ed2;
+  background-color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  animation-name: renderToolButton;
+  animation-timing-function: ease-in-out;
+  animation-duration: 500ms;
 }
-.ToolItem:hover{
-    cursor: pointer;
+.ToolItem:hover {
+  cursor: pointer;
 }
-.ToolIcon{
-    width: 100px;
-    height: 100px;
-    justify-self: center;
-    align-self: center;
+.ToolIcon {
+  width: 100px;
+  height: 100px;
+  justify-self: center;
+  align-self: center;
 }
-.ToolIconExpenses{
-    width: 90px;
-    height: 90px;
-    justify-self: center;
-    align-self: center;
+.ToolIconExpenses {
+  width: 90px;
+  height: 90px;
+  justify-self: center;
+  align-self: center;
 }
-.ToolDescription{
-    font-size: small;
-    color: #026ED2;
+.ToolDescription {
+  font-size: small;
+  color: #026ed2;
 }
 
 @keyframes renderItem {
-    from{
-        opacity: 0.7;
-        margin-top: 10px;
-    }
-
+  from {
+    opacity: 0.7;
+    margin-top: 10px;
+  }
 }
 
 @keyframes renderToolButton {
-    from{
-        opacity: 0.7;
-        margin-top: 15px;
-    }
-
+  from {
+    opacity: 0.7;
+    margin-top: 15px;
+  }
 }
-@media (max-width:319px) {
-    .TabButton{
-        font-size: small;
-    }
-    .TabButtonActive{
-        font-size: small;
-    }
+@media (max-width: 319px) {
+  .TabButton {
+    font-size: small;
+  }
+  .TabButtonActive {
+    font-size: small;
+  }
 }

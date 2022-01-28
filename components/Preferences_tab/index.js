@@ -16,18 +16,21 @@ import { useAuth0 } from "@auth0/auth0-react";
 import PreferencesForms from "./Preferences_forms";
 
 function PreferencesTab() {
+  const titles = {
+    //NULL INFO
+    NullName: "Escribe tu nombre",
+    NullPhoneNumber: "Escribe tu número de teléfono",
+    NullEmail: "Escribe tu correo electrónico",
+  };
   const currentGlobalTab = useSelector((state) => state.globalTab);
   const currentPlatform = useSelector((state) => state.platformType);
   const userPreferences = useSelector((state) => state.userInformation);
   const dispatch = useDispatch();
   const nameDescription = "Nombre";
-  const name = "Nombre Completo del Usuario";
   const nameButton = "CAMBIAR NOMBRE";
   const phoneNumberDescription = "Telefono";
-  const phoneNumber = "7712345678";
   const phoneNumberButton = "CAMBIAR TELEFONO";
   const emailDesciption = "Correo electrónico";
-  const email = "ejemplocorreo@ejemplo.com";
   const emailButton = "CAMBIAR CORREO";
   const passwordDescription = "Contraseña";
   const password = "*********************";
@@ -85,7 +88,9 @@ function PreferencesTab() {
 
         <div className={styles.PreferenceItem}>
           <div className={styles.ItemHeader}>{nameDescription}</div>
-          <div className={styles.ItemDescription}>{userPreferences.name}</div>
+          <div className={styles.ItemDescription}>
+            {userPreferences.name || titles.NullName}
+          </div>
           <button
             className={styles.ItemButton}
             onClick={() => openUserNameForm()}
@@ -97,7 +102,7 @@ function PreferencesTab() {
         <div className={styles.PreferenceItem}>
           <div className={styles.ItemHeader}>{phoneNumberDescription}</div>
           <div className={styles.ItemDescription}>
-            {userPreferences.phoneNumber}
+            {userPreferences.phoneNumber || titles.NullPhoneNumber}
           </div>
           <button
             className={styles.ItemButton}
@@ -109,7 +114,9 @@ function PreferencesTab() {
 
         <div className={styles.PreferenceItem}>
           <div className={styles.ItemHeader}>{emailDesciption}</div>
-          <div className={styles.ItemDescription}>{userPreferences.email}</div>
+          <div className={styles.ItemDescription}>
+            {userPreferences.email || titles.NullEmail}
+          </div>
           <button className={styles.ItemButton} onClick={() => openEmailForm()}>
             {emailButton}
           </button>
