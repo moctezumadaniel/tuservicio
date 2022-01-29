@@ -21,12 +21,20 @@ function ServiceInformation() {
     NullScheduleDays: "Establece tus días de atención",
     NullSchedule: "Establece tus horarios de atención",
     NullShortDescription: "Escribe un descrición corta de tu servicio",
+    //DAYS
+    monday: "Lunes",
+    tuesday: "Martes",
+    wednesday: "Miércoles",
+    thursday: "Jueves",
+    friday: "Viernes",
+    saturday: "Sábado",
+    sunday: "Domingo",
   };
   const workdays = (workdays) => {
     const keys = Object.keys(workdays);
     const result = keys.reduce((result, day) => {
       if (workdays[day] == true) {
-        return result + `${day}, `;
+        return result + `${titles[day]}, `;
       }
       return result;
     }, "");
@@ -36,15 +44,20 @@ function ServiceInformation() {
   const currentSchedule = (schedule, workdays) => {
     const keys = Object.keys(schedule);
     const result = keys.reduce((string, day) => {
-      if ((schedule[day].opening || schedule[day].closing) && workdays[day]) {
+      if (schedule[day].opening && schedule[day].closing && workdays[day]) {
         return (
           string +
-          `${day} de ${schedule[day].opening} a ${schedule[day].closing}, `
+          `${titles[day]} de ${schedule[day].opening} a ${schedule[day].closing}, `
         );
+      }
+      if (schedule[day].opening && workdays[day]) {
+        return string + `${titles[day]} desde ${schedule[day].opening}, `;
+      }
+      if (schedule[day].closing && workdays[day]) {
+        return string + ` ${titles[day]} hasta ${schedule[day].closing}, `;
       }
       return string;
     }, "");
-    console.log(result);
     if (result === "") {
       return titles.NullSchedule;
     }
