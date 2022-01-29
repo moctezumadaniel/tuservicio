@@ -55,10 +55,10 @@ function AppCustomerContainer() {
   if (customerData) {
     return (
       <div>
+        <MainTabButtons />
         <CustomerServiceDashboard />
         <UserMessagesTab />
         <PreferencesTab />
-        <MainTabButtons />
       </div>
     );
   } else {

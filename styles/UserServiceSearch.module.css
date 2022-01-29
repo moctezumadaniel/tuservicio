@@ -1,101 +1,108 @@
-.ServiceSearchMainContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: flex-start;
-    min-height: 100vh;
-    padding: 10px;
-    padding-bottom: 150px;
-    
+.ServiceSearchMainContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: flex-start;
+  min-height: 100vh;
+  padding: 10px;
+  padding-bottom: 150px;
 }
 
-.SearchingMessage{
-    padding: 10px;
-    padding-top: 100px;
-    font-size: xx-large;
-    text-align: center;
-    align-items: center;
-    font-weight: bold;
-    justify-content: center;
+.SearchingMessage {
+  padding: 10px;
+  padding-top: 100px;
+  font-size: xx-large;
+  text-align: center;
+  align-items: center;
+  font-weight: bold;
+  justify-content: center;
 
-    animation-name: animateLoading;
-    animation-duration: 3000ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+  animation-name: animateLoading;
+  animation-duration: 3000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
-.ErrorMessage{
-    padding: 10px;
-    padding-top: 100px;
-    font-size: xx-large;
-    text-align: center;
-    align-items: center;
-    font-weight: bold;
-    justify-content: center;
-    max-width: 500px;
+.ErrorMessage {
+  padding: 10px;
+  padding-top: 100px;
+  font-size: xx-large;
+  text-align: center;
+  align-items: center;
+  font-weight: bold;
+  justify-content: center;
+  max-width: 500px;
 }
 /*ITEM PREVIEW*/
 
-.PreviewMainContainer{
-    display: flex;
-    flex-direction: row;
-    background-color: white;
-    width: 500px;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 5px;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
-    user-select: none;
-    animation-name: renderSearch;
-    animation-duration: 500ms;
-    animation-timing-function: ease-in-out;
+.PreviewMainContainer {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  width: 500px;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  user-select: none;
+  animation-name: renderSearch;
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
+  outline-color: black;
 }
-.PreviewMainContainer:hover{
-    cursor: pointer;
+.PreviewMainContainer:hover {
+  cursor: pointer;
 }
 @keyframes renderSearch {
-    from{
-        opacity: 0.7;
-        margin-top: 10px;
-    }
+  from {
+    opacity: 0.7;
+    margin-top: 10px;
+  }
 }
 
-.ImageAndScoreContainer{
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    margin-right: 10px;
-    align-items: center;
-    justify-content: center;
-
+.ImageAndScoreContainer {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin-right: 10px;
+  align-items: center;
+  justify-content: center;
 }
 
-.ServiceInformation{
-    display: flex;
-    flex-direction: column;
-    width: 65%;
+.ServiceInformation {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
 }
 
-.ServiceName{
-    font-size: large;
-    font-weight: 700;
-    user-select: none;
+.ServiceName {
+  font-size: large;
+  font-weight: 700;
+  user-select: none;
 }
 
-.ServiceTodaySchedule{
-    color: #00BB1E;
-    margin-bottom: 5px;
+.ServiceTodaySchedule {
+  color: #00bb1e;
+  margin-bottom: 5px;
 }
 
-.ServiceDescription{
-    font-size:medium;
-    font-weight: 400;
+.ServiceDescription {
+  font-size: medium;
+  font-weight: 400;
 }
 
 @keyframes animateLoading {
-    0%  {opacity: 0}
-    20% {opacity: 0}
-    50% {opacity: 1}
-    100%{opacity: 0}
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

@@ -71,19 +71,20 @@ function PreferencesTab() {
     <>
       <div className={styles.PreferencesMainContaner}>
         {currentPlatform === "User" ? (
-          <div
+          <button
+            type="button"
             className={styles.ChangePlatformToCustomer}
             onClick={handleChangeToCustomerPress}
           >
             {changeToCustomerDescription}
-          </div>
+          </button>
         ) : (
-          <div
+          <button
             className={styles.ChangePlatformToUser}
             onClick={handleChangeToUserPress}
           >
             {changeToUserDescription}
-          </div>
+          </button>
         )}
 
         <div className={styles.PreferenceItem}>
@@ -145,7 +146,8 @@ function PreferencesTab() {
           <button className={styles.ItemButton}>{feedbackButton}</button>
         </div>
 
-        <div
+        <button
+          type="button"
           className={styles.LogoutButton}
           onClick={() =>
             logout({
@@ -154,7 +156,7 @@ function PreferencesTab() {
           }
         >
           {LogoutDescription}
-        </div>
+        </button>
       </div>
       <PreferencesForms />
     </>

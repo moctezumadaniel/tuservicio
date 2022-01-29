@@ -1,171 +1,166 @@
 /*TAB BUTTONS USED TO CHANGE THE CURRENT VIEW IN THE USER SERVICES*/
 
-.TabButtonsContainer{
-    width: 100vw;
-    display: flex;
-    justify-content: space-around;
-    margin-top: 1vh;
+.TabButtonsContainer {
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1vh;
 }
 
-.TabButtons{
-    color: #026ED2;
-    background-color: white;
-    min-width: 20%;
-    font-size:medium;
-    padding-top: 0.5vh;
-    padding-bottom: 0.5vh;
-    border-radius: 100px;
-    outline: none;
-    border-style: solid;
-    border-color: #026ED2;
-}
-.TabButtons:hover{
-    cursor: pointer;
+.TabButtons {
+  color: #026ed2;
+  background-color: white;
+  min-width: 20%;
+  font-size: medium;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+  border-radius: 100px;
+  border-style: solid;
+  border-color: #026ed2;
+  outline-offset: 2px;
+  outline-color: #026ed2;
 }
 
-.TabButtonsActive{
-    color: white;
-    background-color: #026ED2;
-    min-width: 20%;
-    font-size:medium;
-    padding-top: 0.5vh;
-    padding-bottom: 0.5vh;
-    border-radius: 100px;
-    outline: none;
-    border-style: solid;
-    border-color: #026ED2;
+.TabButtons:hover {
+  cursor: pointer;
 }
-.TabButtonsActive:hover{
-    cursor: pointer;
+
+.TabButtonsActive {
+  color: white;
+  background-color: #026ed2;
+  min-width: 20%;
+  font-size: medium;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+  border-radius: 100px;
+  border-style: solid;
+  border-color: #026ed2;
+  outline-offset: 3px;
+  outline-color: #026ed2;
+}
+.TabButtonsActive:hover {
+  cursor: pointer;
 }
 
 /*MAIN SEARCH BAR*/
-.SearchBarMainContainer{
-    display: flex;
-    width: 100vw;
-    justify-content: center;
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-top: 5px;
+.SearchBarMainContainer {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 5px;
 }
-.SearchBarContainer{
-    display: flex;
-    width: 700px;
-    padding: 5px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    background-color: white;
-    justify-content: center;
-    align-self: center;
-    justify-content: space-around;
-    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25);
+.SearchBarContainer {
+  display: flex;
+  width: 700px;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background-color: white;
+  justify-content: center;
+  align-self: center;
+  justify-content: space-around;
+  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25);
+}
+.SearchBar {
+  height: 40px;
+  width: 90%;
+  background-color: transparent;
+  font-size: medium;
+  padding: 5px;
+  padding-right: 5px;
+  padding-left: 15px;
+  outline: none;
+  text-align: left;
+  border: none;
+  font-size: large;
+}
 
+.SearchBar::placeholder {
+  align-self: left;
+  justify-self: left;
 }
-.SearchBar{
-    height: 40px;
-    width: 90%;
-    background-color: transparent;
+
+@media (max-width: 400px) {
+  .SearchBar::placeholder {
     font-size: medium;
-    padding:5px;
-    padding-right:5px;
-    padding-left: 15px;
-    outline: none;
-    text-align: left;
-    border:none;
-    font-size: large;
-
+  }
+}
+@media (max-width: 359px) {
+  .SearchBar::placeholder {
+    font-size: small;
+  }
+}
+.SearchBar:focus::placeholder {
+  color: transparent;
 }
 
-
-.SearchBar::placeholder{
-    align-self: left;
-    justify-self: left;
-    
+.SearchButton {
+  background-color: transparent;
+  border: none;
+  color: #026ed2;
+  width: fit-content;
+  font-size: medium;
+  outline-color: #026ed2;
+  margin-left: 1px;
+  text-align: center;
+  justify-self: left;
+  align-self: center;
+  padding-right: 15px;
 }
-
-@media (max-width:400px) {
-    .SearchBar::placeholder{
-        font-size: medium;
-    }
-}
-@media (max-width:359px) {
-    .SearchBar::placeholder{
-        font-size: small;
-    }
-}
-.SearchBar:focus::placeholder{
-    color: transparent;
-}
-
-.SearchButton{
-    background-color: transparent;
-    border-top-right-radius: 100px;
-    border-bottom-right-radius: 100px;
-    border:none;
-    color: #026ED2;
-    width: fit-content;
-    height: max-content;
-    font-size: medium;
-    outline: none;
-    margin-left: 1px;
-    text-align: center;
-    justify-self: left;
-    align-self: center;
-    padding-right: 15px;
-
-}
-.SearchButton:hover{
-    cursor: pointer;
+.SearchButton:hover {
+  cursor: pointer;
 }
 
 /*USER RESERVATIONS TAB*/
-.UserReservationsContainer{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    font-size: xx-large;
-    font-weight: bolder;
-    justify-content: center;
-    align-content: center;
-    text-align:center;
-    padding: 20px;
-    padding-top: 50px;
+.UserReservationsContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  font-size: xx-large;
+  font-weight: bolder;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  padding: 20px;
+  padding-top: 50px;
 }
 /*USER PREVIOUS SERVICES TAB*/
-.UserPreviousContainer{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    font-size: xx-large;
-    font-weight: bolder;
-    justify-content: center;
-    align-content: center;
-    text-align:center;
-    padding: 20px;
-    padding-top: 50px;
+.UserPreviousContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  font-size: xx-large;
+  font-weight: bolder;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  padding: 20px;
+  padding-top: 50px;
 }
 /*USER FAVOURITES TAB*/
-.UserFavouritesContainer{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    font-size: xx-large;
-    font-weight: bolder;
-    justify-content: center;
-    align-content: center;
-    text-align:center;
-    padding: 20px;
-    padding-top: 50px;
+.UserFavouritesContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  font-size: xx-large;
+  font-weight: bolder;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  padding: 20px;
+  padding-top: 50px;
 }
-@media (max-width:319px) {
-    .TabButtons{
-        font-size: small;
-    }
-    .TabButtonsActive{
-        font-size: small;
-    }
-    .SearchButton{
-        font-size: small;
-    }
+@media (max-width: 319px) {
+  .TabButtons {
+    font-size: small;
+  }
+  .TabButtonsActive {
+    font-size: small;
+  }
+  .SearchButton {
+    font-size: small;
+  }
 }

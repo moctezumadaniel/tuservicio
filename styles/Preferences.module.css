@@ -1,122 +1,129 @@
-.PreferencesMainContaner{
-    min-height: 100vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: flex-start;
-    padding: 5px;
-    padding-bottom: 150px;
+.PreferencesMainContaner {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  padding: 5px;
+  padding-bottom: 150px;
 }
 
-.PreferenceItem{
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    background-color: white;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-    margin: 5px;
-    border-radius: 10px;
-    padding: 10px;
-    animation-name: renderPreference;
-    animation-duration: 500ms;
-    animation-timing-function: ease-in-out;
+.PreferenceItem {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  background-color: white;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  margin: 5px;
+  border-radius: 10px;
+  padding: 10px;
+  animation-name: renderPreference;
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
 }
 
-.ChangePlatformToCustomer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 400px;
-    background-color: white;
-    margin: 5px;
-    border-radius: 10px;
-    padding: 10px;
-    color: #00BB1E;
-    border: solid;
-    border-color: #00BB1E;
-    text-align: center;
-    font-size: x-large;
-    user-select: none;
-    animation-name: renderPreference;
-    animation-duration: 500ms;
-    animation-timing-function: ease-in-out;
-
+.ChangePlatformToCustomer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  background-color: white;
+  margin: 5px;
+  border-radius: 10px;
+  padding: 10px;
+  color: #00bb1e;
+  border: solid;
+  border-color: #00bb1e;
+  text-align: center;
+  font-size: x-large;
+  user-select: none;
+  outline-offset: 2px;
+  outline-color: #00bb1e;
+  animation-name: renderPreference;
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
 }
-.ChangePlatformToCustomer:hover{
-    cursor: pointer;
+.ChangePlatformToCustomer:hover {
+  cursor: pointer;
 }
-.ChangePlatformToUser{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 400px;
-    background-color: white;
-    margin: 5px;
-    border-radius: 10px;
-    padding: 10px;
-    color: #026ED2;
-    border: solid;
-    border-color: #026ED2;
-    text-align: center;
-    font-size: x-large;
-    user-select: none;
-    animation-name: renderPreference;
-    animation-duration: 500ms;
-    animation-timing-function: ease-in-out;
-
+.ChangePlatformToUser {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  background-color: white;
+  margin: 5px;
+  border-radius: 10px;
+  padding: 10px;
+  color: #026ed2;
+  border: solid;
+  border-color: #026ed2;
+  text-align: center;
+  font-size: x-large;
+  user-select: none;
+  outline-color: #026ed2;
+  outline-offset: 2px;
+  animation-name: renderPreference;
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
 }
-.ChangePlatformToUser:hover{
-    cursor: pointer;
+.ChangePlatformToUser:hover {
+  cursor: pointer;
 }
-
-.LogoutButton{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 400px;
-    background-color: white;
-    margin: 5px;
-    border-radius: 10px;
-    padding: 10px;
-    color: #F40000;
-    border: solid;
-    border-color: #F40000;
-    text-align: center;
-    font-size: x-large;
-    user-select: none;
-    animation-name: renderPreference;
-    animation-duration: 500ms;
-    animation-timing-function: ease-in-out;
+.LogoutButton {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  outline-offset: 2px;
+  outline-color: #f40000;
+  justify-content: center;
+  width: 400px;
+  background-color: white;
+  margin: 5px;
+  border-radius: 10px;
+  padding: 10px;
+  color: #f40000;
+  border: solid;
+  border-color: #f40000;
+  text-align: center;
+  font-size: x-large;
+  user-select: none;
+  animation-name: renderPreference;
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
 }
-.LogoutButton:hover{
-    cursor: pointer;
+.LogoutButton:hover {
+  cursor: pointer;
 }
-.ItemHeader{
-    font-size: x-large;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.ItemDescription{
-    font-size: larger;
-    font-weight: 300;
-    margin-bottom: 10px;
-}
-
-.ItemButton{
-    outline: none;
-    border:none;
-    background-color: white;
-    color: #026ED2;
-    align-self: flex-end;
+.ItemHeader {
+  font-size: x-large;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.ItemButton:hover{
-    cursor: pointer;
+.ItemDescription {
+  font-size: larger;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.ItemButton {
+  border: none;
+  background-color: white;
+  color: #026ed2;
+  outline-color: #026ed2;
+  align-self: flex-end;
+}
+
+.ItemButton:hover {
+  cursor: pointer;
 }
 @keyframes renderPreference {
-    from{
-        opacity: 0.7;
-        margin-top: 10px;
-    }
+  from {
+    opacity: 0.7;
+    margin-top: 10px;
+  }
 }

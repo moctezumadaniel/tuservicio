@@ -33,10 +33,10 @@ function AppUserContainer() {
   console.log(userInformation);
   return (
     <div>
+      <MainTabButtons />
       <UserServicesTab />
       <PreferencesTab />
       <UserMessagesTab />
-      <MainTabButtons />
     </div>
   );
 }
