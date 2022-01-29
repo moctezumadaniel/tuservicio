@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadCustomerPublicInformation } from "../../redux/actions/CustomerPublicInformation";
 import { loadCustomerInformation } from "../../redux/actions/CustomerInformation";
 import dynamic from "next/dynamic";
+import MainTabButtons from "../Main_tab_buttons";
 
 const CustomerServiceDashboard = dynamic(() =>
   import("../Customer_service_dashboard")
@@ -57,6 +58,7 @@ function AppCustomerContainer() {
         <CustomerServiceDashboard />
         <UserMessagesTab />
         <PreferencesTab />
+        <MainTabButtons />
       </div>
     );
   } else {

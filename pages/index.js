@@ -3,8 +3,6 @@ import { createStore } from "redux";
 import rootReducer from "../redux/reducers";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import MainTabButtons from "../components/Main_tab_buttons";
-import CustomerProfileTemplate from "./Customer_profile_template";
 import AppMainContainer from "../components/App_main_container";
 import { Auth0Provider } from "@auth0/auth0-react";
 
@@ -24,9 +22,7 @@ export default function Home() {
             <title>TuServicio</title>
             <link rel="icon" href="/celer.png" />
           </Head>
-          {/*<CustomerProfileTemplate/>*/}
           <AppMainContainer />
-          <MainTabButtons />
         </div>
       </Provider>
     </Auth0Provider>

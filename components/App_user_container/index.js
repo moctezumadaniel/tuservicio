@@ -4,6 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect } from "react";
 import { loadAllUserInformation } from "../../redux/actions/UserInformation";
 import axios from "axios";
+import MainTabButtons from "../Main_tab_buttons";
 
 const UserMessagesTab = dynamic(() => import("../User_messages_tab"));
 const UserServicesTab = dynamic(() => import("../User_services_tab"));
@@ -35,6 +36,7 @@ function AppUserContainer() {
       <UserServicesTab />
       <PreferencesTab />
       <UserMessagesTab />
+      <MainTabButtons />
     </div>
   );
 }
