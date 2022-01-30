@@ -1,103 +1,101 @@
 /*GLOBAL*/
-.MainContainer{
-    width: 100vw;
-    padding: 10px;
-    margin-top: 10px;
-
+.MainContainer {
+  width: 100vw;
+  padding: 10px;
+  margin-top: 10px;
 }
 /*TITLE*/
-.TitleContainer{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    font-size: x-large;
-    font-weight: 600;
+.TitleContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: x-large;
+  font-weight: 600;
 }
-.AddReservationContainer{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.AddReservationContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
-.AddReservationButton{
-    font-family: sans-serif;
-    font-size: medium;
-    border: none;
-    outline: none;
-    background-color: #FAFAFA;
-    color: #026ED2;
-    margin-top: 5px;
+.AddReservationButton {
+  font-family: sans-serif;
+  font-size: medium;
+  border: none;
+  outline-color: #026ed2;
+  background-color: #fafafa;
+  color: #026ed2;
+  margin-top: 5px;
 }
-.AddReservationButton{
-    cursor: pointer;
+.AddReservationButton {
+  cursor: pointer;
 }
 /*LIST OF RESERVATIONS*/
-.ListOfReservationsContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-top: 10px;
+.ListOfReservationsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 10px;
 }
 
-.ReservationItem{
-    width: 400px;
-    background-color: white;
-    border-color: gray;
-    border-radius: 10px;
-    padding: 10px;
-    margin:5px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-    animation-name: renderItem;
-    animation-timing-function: ease-in-out;
-    animation-duration: 500ms;
+.ReservationItem {
+  width: 400px;
+  background-color: white;
+  border-color: gray;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  animation-name: renderItem;
+  animation-timing-function: ease-in-out;
+  animation-duration: 500ms;
 }
 
-.ItemSchedule{
-    display: flex;
-    justify-content: center;
-    font-size: medium;
-    font-weight: 600;
+.ItemSchedule {
+  display: flex;
+  justify-content: center;
+  font-size: medium;
+  font-weight: 600;
 }
-.ItemCustomerName{
-    margin-top: 5px;
-    display: flex;
-    justify-content: center;
-    
+.ItemCustomerName {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
 }
-.ItemDescription{
-    margin-top: 5px;
-    display: flex;
-    justify-content: center;
-    text-align:center;
+.ItemDescription {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
-.ReservationItemButtonsContainer{
-    margin-top: 5px;
-    display: flex;
-    justify-content: space-around;
-    align-content: space-around;
+.ReservationItemButtonsContainer {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-content: space-around;
 }
-.EditReservationButton{
-    border: none;
-    outline: none;
-    background-color: white;
-    color: #C67802;
-    margin-top: 5px;
+.EditReservationButton {
+  border: none;
+  outline: none;
+  background-color: white;
+  color: #c67802;
+  margin-top: 5px;
 }
-.EditReservationButton:hover{
-    cursor: pointer;
+.EditReservationButton:hover {
+  cursor: pointer;
 }
-.AttendedReservationButton{
-    border: none;
-    outline: none;
-    background-color: white;
-    color: #026ED2;
-    margin-top: 5px;
+.AttendedReservationButton {
+  border: none;
+  outline: none;
+  background-color: white;
+  color: #026ed2;
+  margin-top: 5px;
 }
-.AttendedReservationButton{
-    cursor: pointer;
+.AttendedReservationButton {
+  cursor: pointer;
 }
 @keyframes renderItem {
-    from{
-        opacity: 0.7;
-        margin-top: 10px;
-    }
+  from {
+    opacity: 0.7;
+    margin-top: 10px;
+  }
 }
