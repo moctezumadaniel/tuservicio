@@ -125,6 +125,7 @@ function TicketForm() {
     console.log(tickets);
     console.log(date.toString());
     const numbersFromTicketsWithSelectedDate = tickets.map((ticket) => {
+      if (!ticket.date) return 0;
       if (ticket.date.slice(0, 10) == date && ticket.number) {
         return parseInt(ticket.number);
       } else return 0;
