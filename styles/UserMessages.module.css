@@ -1,268 +1,266 @@
-.ChatsMainContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: flex-start;
-    align-items: center;
-    min-height: 100vh;
-    padding-bottom: 150px;
+.ChatsMainContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  padding-bottom: 150px;
 }
 /*LIST OF CHATS CONTAINER*/
-.ListOfChatsContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100vw;
-    padding: 5px;
+.ListOfChatsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100vw;
+  padding: 5px;
 }
 /*CHAT CONTAINER PREVIEW*/
-.ChatSearchContainer{
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
+.ChatSearchContainer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
 }
-.ChatSearch{
-    font-size: large;
-    font-family: sans-serif;
-    outline: none;
-    border:none;
-    width: 95vw;
-    height: 50px;
-    background-color: white;
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25);
-    text-align: center;
-
-}
-
-@media (max-width:299px) {
-    .ChatSearch{
-        font-size: medium;
-    }
-}
-@media (max-width:270px) {
-    .ChatSearch{
-        font-size: small;
-    }
-}
-@media (min-width:501px) {
-    .ChatSearch{
-        width: 500px;
-    }
-}
-.ChatSearch:focus::placeholder{
-    color: transparent;
-}
-.ChatContainer{
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
-    width: 400px;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 100px;
-    background-color: white;
-    border-radius: 10px;
-    margin: 5px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-    user-select: none;
-    animation-name: renderMessages;
-    animation-duration: 500ms;
-    animation-timing-function: ease-in-out;
+.ChatSearch {
+  font-size: large;
+  font-family: sans-serif;
+  outline: none;
+  border: none;
+  width: 95vw;
+  height: 50px;
+  background-color: white;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25);
+  text-align: center;
 }
 
-.ChatContainer:hover{
-    cursor: pointer;
+@media (max-width: 299px) {
+  .ChatSearch {
+    font-size: medium;
+  }
+}
+@media (max-width: 270px) {
+  .ChatSearch {
+    font-size: small;
+  }
+}
+@media (min-width: 501px) {
+  .ChatSearch {
+    width: 500px;
+  }
+}
+.ChatSearch:focus::placeholder {
+  color: transparent;
+}
+.ChatContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  width: 400px;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 100px;
+  background-color: white;
+  border-radius: 10px;
+  margin: 5px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  user-select: none;
+  animation-name: renderMessages;
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
+  outline-color: black;
+}
+
+.ChatContainer:hover {
+  cursor: pointer;
 }
 @keyframes renderMessages {
-    from{
-        opacity: 0.7;
-        margin-top: 10px;
-    }
+  from {
+    opacity: 0.7;
+    margin-top: 10px;
+  }
 }
-.ChatImage{
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-}
-
-.ChatDescription{
-    display: flex;
-    flex-direction: column;
-    width: 60%;
+.ChatImage {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
 }
 
-.ChatName{
-    font-size: large;
-    font-weight: 700;
-    margin-bottom: 10px;
+.ChatDescription {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
 }
 
-.ChatSchedule{
-    color: #00BB1E;
+.ChatName {
+  font-size: large;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.ChatSchedule {
+  color: #00bb1e;
 }
 
 /*USER CHAT*/
-.ChatMainContainer{
-    width: 100vw;
-    top: 0;
-    bottom: 100px;
-    position: absolute;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
+.ChatMainContainer {
+  width: 100vw;
+  top: 0;
+  bottom: 100px;
+  position: absolute;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }
-.ChatHeader{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    top: 0;
-    position: fixed;
-    width: 100vw;
-    background-color: white;
-
+.ChatHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  top: 0;
+  position: fixed;
+  width: 100vw;
+  background-color: white;
 }
-.ChatImageAndButtonsContainer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    top: 0;
-    width: 100vw;
-    background-color: white;
-}
-
-.ChatHeaderImage{
-    min-width: 80px;
-    margin-left: 10px;
-    margin-right: 10px;
-    background-color: white;
-}
-.ChatName{
-    display: flex;
-    font-family: sans-serif;
-    font-size: medium;
-    color: black;
-    text-align: center;
-
+.ChatImageAndButtonsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  top: 0;
+  width: 100vw;
+  background-color: white;
 }
 
-.FavouriteButton{
-    font-size: medium;
-    outline: none;
-    border: none;
-    background-color: white;
-    color: #00BB1E;
+.ChatHeaderImage {
+  min-width: 80px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: white;
 }
-.FavouriteButton:hover{
-    cursor: pointer;
-}
-.ReportButton{
-    font-size: medium;
-    outline: none;
-    border: none;
-    background-color: white;
-    color: #f40000;
-}
-.ReportButton:hover{
-    cursor: pointer;
+.ChatName {
+  display: flex;
+  font-family: sans-serif;
+  font-size: medium;
+  color: black;
+  text-align: center;
 }
 
-.MessagesMainContainer{
-    flex-grow: 1;
-    background-color: white;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 85px;
-    padding-bottom: 90px;
+.FavouriteButton {
+  font-size: medium;
+  outline-color: #00bb1e;
+  border: none;
+  background-color: white;
+  color: #00bb1e;
+}
+.FavouriteButton:hover {
+  cursor: pointer;
+}
+.ReportButton {
+  font-size: medium;
+  outline-color: #f40000;
+  border: none;
+  background-color: white;
+  color: #f40000;
+}
+.ReportButton:hover {
+  cursor: pointer;
 }
 
-.BottomContainer{
-    background-color: #FAFAFA;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-content: center;
-    width: 100vw;
-    bottom: 35px;
-    position:fixed;
-    height: 50px;
+.MessagesMainContainer {
+  flex-grow: 1;
+  background-color: white;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 85px;
+  padding-bottom: 90px;
 }
 
-.MessageInput{
-    background-color: #FAFAFA;
-    height: 100%;
-    width: 90%;
-    align-self: center;
-    border: none;
-    outline: none;
-    border-top: solid;
-    border-top-color: gray;
-    border-top-width: 1px;
+.BottomContainer {
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+  width: 100vw;
+  bottom: 35px;
+  position: fixed;
+  height: 50px;
+}
+
+.MessageInput {
+  background-color: #fafafa;
+  height: 100%;
+  width: 90%;
+  align-self: center;
+  border: none;
+  outline: none;
+  border-top: solid;
+  border-top-color: gray;
+  border-top-width: 1px;
 }
 
 /*CUSTOMER MESSAGE TEMPLATE*/
-.CustomerMessageContainer{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.CustomerMessageContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-.CustomerMessage{
-    content: '';
-    min-width: 200px;
-    max-width: 80%;
-    border-radius: 10px;
-    background-color: #EAEAEA;
-    padding: 10px;
-    margin-top: 10px;
+.CustomerMessage {
+  content: "";
+  min-width: 200px;
+  max-width: 80%;
+  border-radius: 10px;
+  background-color: #eaeaea;
+  padding: 10px;
+  margin-top: 10px;
 }
 
-.CustomerMessageComplement{
-    width: 0; 
-  height: 0; 
+.CustomerMessageComplement {
+  width: 0;
+  height: 0;
   border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent; 
-  border-right:10px solid #EAEAEA; 
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #eaeaea;
 }
 
 /*USER MESSAGE TEMPLATE*/
-.UserMessageContainer{
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
+.UserMessageContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
 }
-.UserMessage{
-    content: '';
-    min-width: 200px;
-    max-width: 80%;
-    border-radius: 10px;
-    background-color: black;
-    padding: 10px;
+.UserMessage {
+  content: "";
+  min-width: 200px;
+  max-width: 80%;
+  border-radius: 10px;
+  background-color: black;
+  padding: 10px;
+  margin-top: 10px;
+  color: white;
+}
+
+.UserMessageComplement {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid black;
+}
+
+@media (max-height: 600px) {
+  .ChatImageAndButtonsContainer {
+    display: none;
+  }
+  .ChatName {
     margin-top: 10px;
-    color: white;
-}
-
-.UserMessageComplement{
-    width: 0; 
-    height: 0; 
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 10px solid black; 
-}
-
-@media (max-height:600px) {
-    .ChatImageAndButtonsContainer{
-        display: none;
-    }
-    .ChatName{
-        margin-top: 10px;
-    }
-    .MessagesMainContainer{
-        padding-top:30px
-    }
+  }
+  .MessagesMainContainer {
+    padding-top: 30px;
+  }
 }
