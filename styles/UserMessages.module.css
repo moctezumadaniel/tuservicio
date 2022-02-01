@@ -24,7 +24,7 @@
 .ChatSearch {
   font-size: large;
   font-family: sans-serif;
-  outline: none;
+  outline-color: #000;
   border: none;
   width: 95vw;
   height: 50px;

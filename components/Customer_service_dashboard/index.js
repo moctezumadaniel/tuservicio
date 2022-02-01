@@ -17,6 +17,7 @@ function CustomerServiceDashboard() {
   useEffect(() => window.scrollTo(0, 0));
   return currentGlobalTab === "Services" ? (
     <div>
+      {currentTab === "Profile" && <ProfileForms />}
       {currentTool === "None" ? <ServiceTabButtons /> : ""}
 
       {currentTab === "Profile" ? (
@@ -24,7 +25,6 @@ function CustomerServiceDashboard() {
           <ServiceInformation />
           <ServiceContactAndMoreInfo />
           <ServicesList />
-          <ProfileForms />
         </div>
       ) : currentTab === "Reservations" ? (
         <ServiceReservations />

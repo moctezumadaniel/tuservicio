@@ -1,282 +1,273 @@
 /*CUSTOMERS DASHBOARD*/
-.MainDashboardContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-content: center;
-    min-height: 100vh;
-    padding-bottom: 150px;
-    
+.MainDashboardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  min-height: 100vh;
+  padding-bottom: 150px;
 }
 
-.CustomersSearch{
-    width: 90%;
-    align-self: center;
-    border: none;
-    outline: none;
-    font-size: large;
-    padding: 15px;
-    margin: 10px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-
+.CustomersSearch {
+  width: 90%;
+  align-self: center;
+  border: none;
+  outline-color: #000;
+  font-size: large;
+  padding: 15px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
 
-.AddButtonsContainer{
-    display:flex;
-    justify-content: space-around;
-    margin-bottom: 10px;
-
+.AddButtonsContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
 }
 
-.AddPaymentButton{
-    display: flex;
-    justify-content: center;
-    outline: none;
-    border: none;
-    background-color: white;
-    color: #00BB1E;
-    font-size: large;
-    width: 135px;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+.AddPaymentButton {
+  display: flex;
+  justify-content: center;
+  outline-color: #00bb1e;
+  border: none;
+  background-color: white;
+  color: #00bb1e;
+  font-size: large;
+  width: 135px;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
-.AddPaymentButton{
-    cursor: pointer;
+.AddPaymentButton {
+  cursor: pointer;
 }
-.AddCreditButton{
-    display: flex;
-    justify-content: center;
-    outline: none;
-    border: none;
-    background-color: white;
-    color: #C67802;
-    font-size: large;
-    width: 135px;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-
+.AddCreditButton {
+  display: flex;
+  justify-content: center;
+  outline-color: #c67802;
+  border: none;
+  background-color: white;
+  color: #c67802;
+  font-size: large;
+  width: 135px;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
-.AddCreditButton:hover{
-    cursor: pointer;
+.AddCreditButton:hover {
+  cursor: pointer;
 }
 
 /*CUSTOMER TEMPLATE*/
 
-.CustomerName{
-    margin: 10px;
-    font-size: x-large;
-    font-weight: 600;
-    text-align: center;
+.CustomerName {
+  margin: 10px;
+  font-size: x-large;
+  font-weight: 600;
+  text-align: center;
 }
 
-.CustomerCreditContainer{
-    display: flex;
-    flex-wrap: wrap;
-    font-size: larger;
-    font-weight: 600;
-    justify-content: center;
-    padding: 10px;
+.CustomerCreditContainer {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: larger;
+  font-weight: 600;
+  justify-content: center;
+  padding: 10px;
 }
 
-.CustomerCreditDescription{
-    margin-right: 10px;
+.CustomerCreditDescription {
+  margin-right: 10px;
 }
 
 /*CUSTOMER PAYMENT TEMPLATE*/
-.CustomerItemsContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 10px;
+.CustomerItemsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
 }
-.CustomerPaymentItemContainer{
-    font-size: large;
-    font-family: sans-serif;
-    width: 400px;
-    padding: 10px;
-    background-color: white;
-    border-radius: 10px;
-    margin: 5px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-    animation-name: renderItem;
-    animation-timing-function: ease-in-out;
-    animation-duration: 500ms;
-}
-
-.CustomerCreditItemContainer{
-    font-size: large;
-    font-family: sans-serif;
-    width: 400px;
-    padding: 10px;
-    background-color: white;
-    border-radius: 10px;
-    margin: 5px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-    animation-name: renderItem;
-    animation-timing-function: ease-in-out;
-    animation-duration: 500ms;
-}
-.ItemTitleContainer{
-    display: flex;
-    justify-content: space-around; 
-    font-size: large;
-    font-weight: 600;
-    margin-bottom: 5px;  
+.CustomerPaymentItemContainer {
+  font-size: large;
+  font-family: sans-serif;
+  width: 400px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  margin: 5px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  animation-name: renderItem;
+  animation-timing-function: ease-in-out;
+  animation-duration: 500ms;
 }
 
-.PaymentAmounth{
-    color: #00BB1E;
+.CustomerCreditItemContainer {
+  font-size: large;
+  font-family: sans-serif;
+  width: 400px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  margin: 5px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  animation-name: renderItem;
+  animation-timing-function: ease-in-out;
+  animation-duration: 500ms;
+}
+.ItemTitleContainer {
+  display: flex;
+  justify-content: space-around;
+  font-size: large;
+  font-weight: 600;
+  margin-bottom: 5px;
 }
 
-.CreditAmounth{
-    color: #C67802;
+.PaymentAmounth {
+  color: #00bb1e;
 }
 
-.OpenEditButtonContainer{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
+.CreditAmounth {
+  color: #c67802;
 }
 
-.OpenEditButton{
-    font-size: medium;
-    font-family: sans-serif;
-    display: flex;
-    outline: none;
-    border: none;
-    background-color: white;
-    color: #026ED2;
-    align-self: center;
+.OpenEditButtonContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
 }
-.DeleteButton{
-    font-size: medium;
-    font-family: sans-serif;
-    display: flex;
-    outline: none;
-    border: none;
-    background-color: white;
-    color: #f40000;
-    align-self: center;
+
+.OpenEditButton {
+  font-size: medium;
+  font-family: sans-serif;
+  display: flex;
+  outline-color: #026ed2;
+  border: none;
+  background-color: white;
+  color: #026ed2;
+  align-self: center;
 }
-.OpenEditButton:hover{
-    cursor: pointer;
+.DeleteButton {
+  font-size: medium;
+  font-family: sans-serif;
+  display: flex;
+  outline-color: #f40000;
+  border: none;
+  background-color: white;
+  color: #f40000;
+  align-self: center;
 }
-.DeleteButton:hover{
-    cursor: pointer;
+.OpenEditButton:hover {
+  cursor: pointer;
+}
+.DeleteButton:hover {
+  cursor: pointer;
 }
 
 /*CREDIT FORM*/
-.CreditFormContainer{
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+.CreditFormContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 
-    animation-name: renderForm;
-    animation-duration: 500ms;
+  animation-name: renderForm;
+  animation-duration: 500ms;
 }
 
-.CustomerNameInput{
-    font-size: large;
-    font-family: sans-serif;
-    width: 95%;
-    align-self: center;
-    outline: none;
-    border: none;
-    background-color: white;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 10px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-
+.CustomerNameInput {
+  font-size: large;
+  font-family: sans-serif;
+  width: 95%;
+  align-self: center;
+  outline-color: #000;
+  border: none;
+  background-color: white;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
 
-.SecondaryInputsContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.SecondaryInputsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
-.DateInput{
-    font-size: large;
-    font-family: sans-serif;
-    width: 300px;
-    margin: 5px;
-    background-color: white;
-    border:none;
-    outline: none;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-
+.DateInput {
+  font-size: large;
+  font-family: sans-serif;
+  width: 300px;
+  margin: 5px;
+  background-color: white;
+  border: none;
+  outline-color: #000;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
-.AmounthInput{
-    font-size: large;
-    font-family: sans-serif;
-    width: 300px;
-    margin: 5px;
-    background-color: white;
-    border:none;
-    outline: none;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-
+.AmounthInput {
+  font-size: large;
+  font-family: sans-serif;
+  width: 300px;
+  margin: 5px;
+  background-color: white;
+  border: none;
+  outline-color: #000;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
-.SecondaryButtonsContainer{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-    margin-bottom: 10px;
+.SecondaryButtonsContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
-.TextAreaForm{
-    font-family: sans-serif;
-    font-size: large;
-    flex: 1;
-    outline: none;
-    border: none;
-    padding: 20px;
-    padding-bottom: 150px;
-    border-radius: 10px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-
+.TextAreaForm {
+  font-family: sans-serif;
+  font-size: large;
+  flex: 1;
+  outline-color: #000;
+  border: none;
+  padding: 20px;
+  padding-bottom: 150px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
 
-.SaveCreditButton{
-    border: none;
-    outline: none;
-    background: none;
-    color: #C67802;
-    cursor: pointer;
+.SaveCreditButton {
+  border: none;
+  outline-color: #c67802;
+  background: none;
+  color: #c67802;
+  cursor: pointer;
 }
-.SavePaymentButton{
-    border: none;
-    outline: none;
-    background: none;
-    color: #00BB1E;
-    cursor: pointer;
+.SavePaymentButton {
+  border: none;
+  outline-color: #00bb1e;
+  background: none;
+  color: #00bb1e;
+  cursor: pointer;
 }
-.ShareButton{
-    border: none;
-    outline: none;
-    background: none;
-    color: #026ED2;
-    cursor: pointer;
-
+.ShareButton {
+  border: none;
+  outline-color: #026ed2;
+  background: none;
+  color: #026ed2;
+  cursor: pointer;
 }
 @keyframes renderForm {
-    from{
-        margin-top: -300px;
-    }
+  from {
+    margin-top: -300px;
+  }
 }
 @keyframes renderItem {
-    from{
-        opacity: 0.7;
-        margin-top: 10px;
-    }
+  from {
+    opacity: 0.7;
+    margin-top: 10px;
+  }
 }

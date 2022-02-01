@@ -1,276 +1,267 @@
 /*EXPENSE DASHBOARD*/
-.ExpensesToolMainContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-content: center;
-    width: 100vw;
-    min-height: 100vh;
-    padding-bottom: 150px;
+.ExpensesToolMainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  width: 100vw;
+  min-height: 100vh;
+  padding-bottom: 150px;
 }
-.RegisterExpenseContainer{
-    display: flex;
-    justify-content: center;
+.RegisterExpenseContainer {
+  display: flex;
+  justify-content: center;
 }
-.RegisterExpenseButton{
-    margin: 10px;
-    margin-bottom: 5px;
-    width: 500px;
-    display: flex;
-    align-self: center;
-    justify-content: center;
-    font-size: larger;
-    padding-right: 40px;
-    padding-left:40px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-right: 20px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    color: #026ED2;
-    background-color: white;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-    user-select: none;
-
-}
-
-.RegisterExpenseButton:hover{
-    cursor: pointer;
+.RegisterExpenseButton {
+  margin: 10px;
+  margin-bottom: 5px;
+  width: 500px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  font-size: larger;
+  padding-right: 40px;
+  padding-left: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-right: 20px;
+  border-radius: 10px;
+  border: none;
+  outline-color: #026ed2;
+  color: #026ed2;
+  background-color: white;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  user-select: none;
 }
 
-.CustomDateRangeButton{
-    font-size: medium;
-    margin: 10px;
-    max-width: 400px;
-    display: flex;
-    align-self: center;
-    justify-content: center;
-    padding-right: 40px;
-    padding-left:40px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-right: 20px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    color: #C67802;
-    background-color: white;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-    user-select: none;
-
+.RegisterExpenseButton:hover {
+  cursor: pointer;
 }
 
-.CustomDateRangeButton:hover{
-    cursor: pointer;
+.CustomDateRangeButton {
+  font-size: medium;
+  margin: 10px;
+  max-width: 400px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  padding-right: 40px;
+  padding-left: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-right: 20px;
+  border-radius: 10px;
+  border: none;
+  outline-color: #c67802;
+  color: #c67802;
+  background-color: white;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  user-select: none;
 }
 
-.DateRangeSelected{
-    align-content: center;
-    font-size: x-large;
-    font-weight: 600;
-    align-self: center;
-}
-.GrandTotalContainer{
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
+.CustomDateRangeButton:hover {
+  cursor: pointer;
 }
 
-.GrandTotalDescription{
-    font-size: larger;
-    font-weight: 600;
-    margin-right: 20px;
+.DateRangeSelected {
+  align-content: center;
+  font-size: x-large;
+  font-weight: 600;
+  align-self: center;
+}
+.GrandTotalContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
-.GrandTotal{
-    font-size: larger;
-    font-weight: 600;
+.GrandTotalDescription {
+  font-size: larger;
+  font-weight: 600;
+  margin-right: 20px;
 }
 
-.ShareReportButton{
-    width: fit-content;
-    align-self: center;
-    color: #026ED2;
-    border: none;
-    outline: none;
-    font-size: medium;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    background-color: #FAFAFA;
+.GrandTotal {
+  font-size: larger;
+  font-weight: 600;
 }
-.ShareReportButton{
-    cursor: pointer;
-}
-.ListOfExpensesContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:center;
-    padding: 10px;
-}
-.ExpenseItemContainer{
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    padding:10px;
-    width: 400px;
-    border-radius: 10px;
-    margin: 5px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-    animation-name: renderItem;
-    animation-timing-function: ease-in-out;
-    animation-duration: 500ms;
 
+.ShareReportButton {
+  width: fit-content;
+  align-self: center;
+  color: #026ed2;
+  border: none;
+  outline-color: #026ed2;
+  font-size: medium;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #fafafa;
 }
-.ExpenseMainInformation{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    font-size: larger;
-    font-weight: 600;
-    margin-bottom: 10px;
+.ShareReportButton {
+  cursor: pointer;
 }
-.ExpenseDescription{
-    font-size: large;
-    font-family: sans-serif;
+.ListOfExpensesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
 }
-.ExpenseButtonsContainer{
-    display: flex;
-    align-content: space-around;
-    justify-content: space-around;
-    
+.ExpenseItemContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 10px;
+  width: 400px;
+  border-radius: 10px;
+  margin: 5px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  animation-name: renderItem;
+  animation-timing-function: ease-in-out;
+  animation-duration: 500ms;
 }
-.OpenEditItemButton{
-    width: fit-content;
-    align-self: center;
-    color: #026ED2;
-    border: none;
-    outline: none;
-    font-size: medium;
-    margin-top: 10px;
-    background-color: white;
+.ExpenseMainInformation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: larger;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
-.DeleteItemButton{
-    width: fit-content;
-    align-self: center;
-    color: #f40000;
-    border: none;
-    outline: none;
-    font-size: medium;
-    margin-top: 10px;
-    background-color: white;
+.ExpenseDescription {
+  font-size: large;
+  font-family: sans-serif;
 }
-.OpenEditItemButton:hover{
-    cursor: pointer;
+.ExpenseButtonsContainer {
+  display: flex;
+  align-content: space-around;
+  justify-content: space-around;
 }
-.DeleteItemButton:hover{
-    cursor: pointer;
+.OpenEditItemButton {
+  width: fit-content;
+  align-self: center;
+  color: #026ed2;
+  border: none;
+  outline-color: #026ed2;
+  font-size: medium;
+  margin-top: 10px;
+  background-color: white;
+}
+.DeleteItemButton {
+  width: fit-content;
+  align-self: center;
+  color: #f40000;
+  border: none;
+  outline-color: #f40000;
+  font-size: medium;
+  margin-top: 10px;
+  background-color: white;
+}
+.OpenEditItemButton:hover {
+  cursor: pointer;
+}
+.DeleteItemButton:hover {
+  cursor: pointer;
 }
 
 /*EXPENSE FORM*/
-.ExpenseFormMainContainer{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+.ExpenseFormMainContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 
-
-    animation-name: renderExpense;
-    animation-duration: 500ms;
-    animation-timing-function: ease-in-out;
+  animation-name: renderExpense;
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
 }
 
-.DateAmounthContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: space-around;
-    padding-left: 10px;
-    padding-right: 10px;
-    
+.DateAmounthContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-.DateExpenseInput{
-    background-color: white;
-    font-size: large;
-    font-family: sans-serif;
-    margin-top: 10px;
-    padding: 10px;
-    width: 400px;
-    height: 40px;
-    outline: none;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-
-
+.DateExpenseInput {
+  background-color: white;
+  font-size: large;
+  font-family: sans-serif;
+  margin-top: 10px;
+  padding: 10px;
+  width: 400px;
+  height: 40px;
+  outline-color: #000;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
 
-.AmounthExpenseInput{
-    background-color: white;
-    font-size: large;
-    font-family: sans-serif;
-    margin-top: 10px;
-    padding: 10px;
-    width: 400px;
-    height: 40px;
-    outline: none;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+.AmounthExpenseInput {
+  background-color: white;
+  font-size: large;
+  font-family: sans-serif;
+  margin-top: 10px;
+  padding: 10px;
+  width: 400px;
+  height: 40px;
+  outline-color: #000;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
 
-.ExpenseFormButtonsContainer{
-    display: flex;
-    margin-top: 20px;
-    justify-content: space-around;
-    padding-left: 10px;
-    padding-right: 10px;
+.ExpenseFormButtonsContainer {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-around;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-.SaveButton{
-    border: none;
-    outline: none;
-    background-color: #FAFAFA;
-    color: #00BB1E;
+.SaveButton {
+  border: none;
+  outline-color: #00bb1e;
+  background-color: #fafafa;
+  color: #00bb1e;
 }
-.SaveButton:hover{
-    cursor: pointer;
+.SaveButton:hover {
+  cursor: pointer;
 }
-.ShareButton{
-    border: none;
-    outline: none;
-    background-color: #FAFAFA;
-    color: #026ED2;
+.ShareButton {
+  border: none;
+  outline-color: #026ed2;
+  background-color: #fafafa;
+  color: #026ed2;
 }
-.ShareButton:hover{
-    cursor: pointer;
+.ShareButton:hover {
+  cursor: pointer;
 }
 
-.ExpenseTextArea{
-    font-family: sans-serif;
-    font-size: large;
-    resize: none;
-    border: none;
-    outline: none;
-    display: flex;
-    flex: 1;
-    margin-top: 20px;
-    padding: 20px;
-    padding-bottom: 60px;
-    border-radius: 10px;
-    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
-
+.ExpenseTextArea {
+  font-family: sans-serif;
+  font-size: large;
+  resize: none;
+  border: none;
+  outline-color: #000;
+  display: flex;
+  flex: 1;
+  margin-top: 20px;
+  padding: 20px;
+  padding-bottom: 60px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
 }
 
 @keyframes renderExpense {
-    from{
-        margin-top: -500px;
-    }
+  from {
+    margin-top: -500px;
+  }
 }
 @keyframes renderItem {
-    from{
-        opacity: 0.5;
-        margin-top: 10px;
-    }
+  from {
+    opacity: 0.5;
+    margin-top: 10px;
+  }
 }

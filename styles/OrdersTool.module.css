@@ -1,404 +1,392 @@
 /*ORDERS DASHBOARD*/
-.ordersMainContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-content: center;
-    width: 100vw;
-    min-height: 100vh;
-    padding-top: 10px;
-    padding-bottom: 150px;
+.ordersMainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  width: 100vw;
+  min-height: 100vh;
+  padding-top: 10px;
+  padding-bottom: 150px;
 }
-.NewOrderButton{
-    width: 95%;
-    justify-content: center;
-    align-self: center;
-    color: #026ED2;
-    background-color: white;
-    border: none;
-    outline: none;
-    padding: 10px;
-    font-size: larger;
-    border-radius: 10px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+.NewOrderButton {
+  width: 95%;
+  justify-content: center;
+  align-self: center;
+  color: #026ed2;
+  background-color: white;
+  border: none;
+  outline-color: #026ed2;
+  padding: 10px;
+  font-size: larger;
+  border-radius: 10px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
-@media (min-width:501px) {
-    .NewOrderButton{
-        width: 500px;
-    }
+@media (min-width: 501px) {
+  .NewOrderButton {
+    width: 500px;
+  }
 }
-.NewOrderButton:hover{
-    cursor: pointer;
-}
-
-.Titles{
-    text-align: center;
-    font-size: x-large;
-    font-weight: 600;
-    margin: 10px;
+.NewOrderButton:hover {
+  cursor: pointer;
 }
 
-.EditingItemContainer{
-    width: 100vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    animation-name: renderItem;
-    animation-timing-function: ease-in-out;
-    animation-duration: 500ms;
-
+.Titles {
+  text-align: center;
+  font-size: x-large;
+  font-weight: 600;
+  margin: 10px;
 }
 
-.ItemEditingContainer{
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    justify-content: center;
-    align-self: center;
-    background-color: white;
-    border: none;
-    outline: none;
-    padding: 10px;
-    margin: 5px;
-    margin-right: 10px;
-    margin-left: 10px;
-    border-radius: 10px;
-    font-size: large;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-}
-.OrderIdentifier{
-    font-weight: 600;
-}
-.ButtonsContainer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-top: 5px;
+.EditingItemContainer {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation-name: renderItem;
+  animation-timing-function: ease-in-out;
+  animation-duration: 500ms;
 }
 
-.ContinueEditiingButton{
-    color: #026ED2;
-    background-color: white;
-    outline: none;
-    border: none;
-    user-select: none;
-
+.ItemEditingContainer {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  justify-content: center;
+  align-self: center;
+  background-color: white;
+  border: none;
+  outline-color: black;
+  padding: 10px;
+  margin: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 10px;
+  font-size: large;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
-.ContinueEditiingButton:hover{
-    cursor: pointer;
+.OrderIdentifier {
+  font-weight: 600;
 }
-
-.DeleteEditingItem{
-    color: #F40000;
-    background-color: white;
-    outline: none;
-    border: none;
-    user-select: none;
-
-}
-.DeleteEditingItem:hover{
-    cursor: pointer;
-}
-.PendingItemContainer{
-    width: 100vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    animation-name: renderItem;
-    animation-timing-function: ease-in-out;
-    animation-duration: 500ms;
-
-}
-.ItemPendingContainer{
-    display: flex;
-    height:100%;
-    flex-direction: column;
-    width: 400px;
-    justify-content: center;
-    background-color: white;
-    border: none;
-    outline: none;
-    padding: 10px;
-    margin: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-radius: 10px;
-    font-size: large;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-}
-.SeeOrEditButton{
-    color: #026ED2;
-    background-color: white;
-    outline: none;
-    border: none;
-    user-select: none;
-}
-.SeeOrEditButton:hover{
-    cursor: pointer;
+.ButtonsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 5px;
 }
 
-.OrderDoneButton{
-    color: #00BB1E;
-    background-color: white;
-    outline: none;
-    border: none;
-    user-select: none;
+.ContinueEditiingButton {
+  color: #026ed2;
+  background-color: white;
+  outline-color: #026ed2;
+  border: none;
+  user-select: none;
+}
+.ContinueEditiingButton:hover {
+  cursor: pointer;
+}
 
+.DeleteEditingItem {
+  color: #f40000;
+  background-color: white;
+  outline-color: #f40000;
+  border: none;
+  user-select: none;
 }
-.OrderDoneButton:hover{
-    cursor: pointer;
+.DeleteEditingItem:hover {
+  cursor: pointer;
 }
-.OrderContainer{
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    padding-top: 10px;
-    padding-bottom: 150px;
+.PendingItemContainer {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation-name: renderItem;
+  animation-timing-function: ease-in-out;
+  animation-duration: 500ms;
+}
+.ItemPendingContainer {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  width: 400px;
+  justify-content: center;
+  background-color: white;
+  border: none;
+  outline-color: black;
+  padding: 10px;
+  margin: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  font-size: large;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+.SeeOrEditButton {
+  color: #026ed2;
+  background-color: white;
+  outline-color: #026ed2;
+  border: none;
+  user-select: none;
+}
+.SeeOrEditButton:hover {
+  cursor: pointer;
+}
+
+.OrderDoneButton {
+  color: #00bb1e;
+  background-color: white;
+  outline-color: #00bb1e;
+  border: none;
+  user-select: none;
+}
+.OrderDoneButton:hover {
+  cursor: pointer;
+}
+.OrderContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  padding-top: 10px;
+  padding-bottom: 150px;
 }
 
 /*ORDER FORM*/
-.OrderFormMainContainer{
-    min-height: 100vh;
-    width: 100vw;
-    padding-bottom: 150px;
+.OrderFormMainContainer {
+  min-height: 100vh;
+  width: 100vw;
+  padding-bottom: 150px;
 
-    animation-name: renderOrder;
-    animation-duration: 500ms;
+  animation-name: renderOrder;
+  animation-duration: 500ms;
 }
-.OrderFormTitle{
-    font-size: x-large;
-    font-weight: 600;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.OrderFormTitle {
+  font-size: x-large;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-.SaveOrderButtonContainer{
-    display: flex;
-    justify-content: center;
+.SaveOrderButtonContainer {
+  display: flex;
+  justify-content: center;
 }
 
-.SaveOrderButton{
-    background-color: #FAFAFA;
-    color:#00BB1E;
-    border: none;
-    outline: none;
-    font-size: large;
-    margin-bottom: 15px;
-    
+.SaveOrderButton {
+  background-color: #fafafa;
+  color: #00bb1e;
+  border: none;
+  outline-color: #00bb1e;
+  font-size: large;
+  margin-bottom: 15px;
 }
-.SaveOrderButton:hover{
-    cursor: pointer;
+.SaveOrderButton:hover {
+  cursor: pointer;
 }
-.OrderDateDescriptionContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 10px;
+.OrderDateDescriptionContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
 }
-.OrderDateInput{
-    font-family: sans-serif;
-    background-color: white;
-    width: 200px;
-    font-size: large;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+.OrderDateInput {
+  font-family: sans-serif;
+  background-color: white;
+  width: 200px;
+  font-size: large;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline-color: black;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 }
-.OrderDescriptionInput{
-    font-family: sans-serif;
-    background-color: white;
+.OrderDescriptionInput {
+  font-family: sans-serif;
+  background-color: white;
+  width: 500px;
+  font-size: large;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline-color: black;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+.OrderDescriptionInput:focus::placeholder {
+  color: transparent;
+}
+@media (max-width: 740px) {
+  .OrderDateInput {
     width: 500px;
-    font-size: large;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    margin-right: 0;
+  }
 }
-.OrderDescriptionInput:focus::placeholder{
-    color: transparent;
+.OrderItemContainer {
+  padding: 10px;
+  animation-name: renderOrderItem;
+  animation-timing-function: ease-in-out;
+  animation-duration: 500ms;
 }
-@media(max-width:740px){
-    .OrderDateInput{
-        width: 500px;
-        margin-right: 0;
-    }
+.OrderItemDescrription {
+  font-family: sans-serif;
+  width: 100%;
+  background-color: white;
+  font-size: large;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  resize: none;
+  border: none;
+  outline-color: black;
 }
-.OrderItemContainer{
-    padding: 10px;
-    animation-name: renderOrderItem;
-    animation-timing-function: ease-in-out;
-    animation-duration: 500ms;
+.ItemAmounthDeleteContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-.OrderItemDescrription{
-    font-family: sans-serif;
+
+.ItemAmounthContainer {
+  width: 350px;
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: large;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 10px;
+}
+.ItemAmounth {
+  font-family: sans-serif;
+  text-align: center;
+  font-size: large;
+  border: none;
+  outline-color: black;
+}
+@media (max-width: 450px) {
+  .ItemAmounthContainer {
     width: 100%;
-    background-color: white;
-    font-size: large;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-    resize: none;
-    border: none;
-    outline: none;
+  }
+  .ItemAmounth {
+    width: 80%;
+  }
+}
+.IncreaseDecreaseButtons {
+  font-size: x-large;
+  border: none;
+  outline-color: black;
+  background: white;
+}
+.IncreaseDecreaseButtons {
+  cursor: pointer;
+}
+.IncreaseDecreaseButtons:hover {
+  cursor: pointer;
+}
+.DeleteItemButton {
+  outline-color: #f40000;
+  border: none;
+  background: #fafafa;
+  color: #f40000;
+  height: fit-content;
+  width: fit-content;
+  align-self: center;
+  font-size: large;
+}
+.DeleteItemButton:hover {
+  cursor: pointer;
+}
 
+.OrderItemForm {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
-.ItemAmounthDeleteContainer{
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.NewItemTitle {
+  font-size: x-large;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-left: 10px;
 }
-
-.ItemAmounthContainer{
-    width: 350px;
-    display: flex;
-    background-color: white;
-    justify-content: space-between;
-    padding: 10px; 
-    border-radius: 10px;
-    font-size: large;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-    margin-bottom: 10px;
-
+.DescriptionOrderInput {
+  border-radius: 10px;
+  padding: 10px;
+  font-size: large;
+  font-family: sans-serif;
+  outline-color: black;
+  margin-bottom: 10px;
+  background-color: white;
+  resize: none;
+  border: none;
+  text-align: center;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
-.ItemAmounth{
-    font-family: sans-serif;
-    text-align: center;
-    font-size: large;
-    border: none;
-    outline: none;
+.DescriptionOrderInput::placeholder {
+  color: #424242;
 }
-@media (max-width:450px) {
-    .ItemAmounthContainer{
-        width: 100%;
-    }
-    .ItemAmounth{
-        width: 80%;
-    }
+.AmounthOrderInput {
+  border-radius: 10px;
+  padding: 10px;
+  font-size: large;
+  font-family: sans-serif;
+  outline-color: black;
+  border: none;
+  margin-bottom: 10px;
+  background-color: white;
+  text-align: center;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
-.IncreaseDecreaseButtons{
-    font-size: x-large;
-    border:none;
-    outline: none;
-    background: white;
+.AmounthOrderInput:focus {
+  border-color: #026ed2;
+  border-width: 3px;
 }
-.IncreaseDecreaseButtons{
-    cursor: pointer;
+.AmounthOrderInput::placeholder {
+  color: #424242;
 }
-.IncreaseDecreaseButtons:hover{
-    cursor: pointer;
+.SaveNewItemButton {
+  border: none;
+  outline-color: #026ed2;
+  background-color: #026ed2;
+  color: white;
+  border-radius: 100px;
+  padding: 5px;
+  font-size: large;
 }
-.DeleteItemButton{
-    outline: none;
-    border: none;
-    background: #FAFAFA;
-    color: #F40000;
-    height: fit-content;
-    width: fit-content;
+.SaveNewItemButton:hover {
+  cursor: pointer;
+}
+.AmounthOrderInput:focus::placeholder {
+  color: transparent;
+}
+.DescriptionOrderInput:focus::placeholder {
+  color: transparent;
+}
+@media (min-width: 550px) {
+  .SaveNewItemButton {
+    width: 500px;
     align-self: center;
-    font-size: large;
-}
-.DeleteItemButton:hover{
-    cursor: pointer;
-}
-
-.OrderItemForm{
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-}
-.NewItemTitle{
-    font-size: x-large;
-    font-weight: 600;
-    margin-bottom: 10px;
-    margin-left: 10px;
-}
-.DescriptionOrderInput{
-    border-radius: 10px;
-    padding: 10px;
-    font-size: large;
-    font-family: sans-serif;
-    outline:none;
-    margin-bottom: 10px;
-    background-color: white;
-    resize: none;
-    border: none;
-    text-align: center;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-
-
-}
-.DescriptionOrderInput::placeholder{
-    color: #424242;
-}
-.AmounthOrderInput{
-    border-radius: 10px;
-    padding: 10px;
-    font-size: large;
-    font-family: sans-serif;
-    outline:none;
-    border: none;
-    margin-bottom: 10px;
-    background-color: white;
-    text-align: center;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-
-}
-.AmounthOrderInput:focus{
-    border-color: #026ED2;
-    border-width: 3px;
-}
-.AmounthOrderInput::placeholder{
-    color: #424242;
-
-}
-.SaveNewItemButton{
-    border: none;
-    outline: none;
-    background-color: #026ED2;
-    color: white;
-    border-radius: 100px;
-    padding: 5px;
-    font-size: large;
-}
-.SaveNewItemButton:hover{
-    cursor: pointer;
-}
-.AmounthOrderInput:focus::placeholder{
-    color: transparent;
-}
-.DescriptionOrderInput:focus::placeholder{
-    color: transparent;
-}
-@media(min-width:550px){
-    .SaveNewItemButton{
-        width: 500px;
-        align-self: center;
-    }
+  }
 }
 
 @keyframes renderOrder {
-    from{
-        margin-top: -50px;
-    }
+  from {
+    margin-top: -50px;
+  }
 }
 @keyframes renderItem {
-    from{
-        opacity: 0.7;
-        margin-top: 5px;
-    }
+  from {
+    opacity: 0.7;
+    margin-top: 5px;
+  }
 }
 
 @keyframes renderOrderItem {
-    from{
-        opacity: 0.5;
-        margin-top: 5px;
-    }
+  from {
+    opacity: 0.5;
+    margin-top: 5px;
+  }
 }

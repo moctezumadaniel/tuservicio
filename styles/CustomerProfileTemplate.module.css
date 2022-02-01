@@ -1,293 +1,291 @@
 /*INFORMATION THAT WILL DISPLAY AT THE TOP OF THE PROFILES*/
 .TopBarContainer {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 120px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 120px;
 }
-.MessageButton{
-    background-color: #FAFAFA;
-    color:#026ED2;
-    outline: none;
-    border: none;
-    font-size:medium;
-    
+.MessageButton {
+  background-color: #fafafa;
+  color: #026ed2;
+  outline-color: #026ed2;
+  border: none;
+  font-size: medium;
 }
-.ProfileImage{
-    width: 120px;
-}
-
-.PhoneCallButton{
-    background-color: #FAFAFA;
-    color:#026ED2;
-    outline: none;
-    border: none;
-    font-size: medium;
+.ProfileImage {
+  width: 120px;
 }
 
-.CustomerName{
-    text-align: center;
-    font-size: large;
+.PhoneCallButton {
+  background-color: #fafafa;
+  color: #026ed2;
+  outline-color: #026ed2;
+  border: none;
+  font-size: medium;
+}
+
+.CustomerName {
+  text-align: center;
+  font-size: large;
 }
 /*SCORE OF THE SERVICES AND BUTTONS TO DISPLAY MORE INFORMATION*/
 
-.MoreInformationContainer{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 40px;
-    margin-bottom: 1.5vh;
-    margin-top: 10px;
+.MoreInformationContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40px;
+  margin-bottom: 1.5vh;
+  margin-top: 10px;
 }
 
-.BriefDescription{
-    margin-right: 10px;
-    margin-left: 10px;
-    justify-content: center;
-    text-align: center;
-    text-justify: center;
-    margin-bottom: 20px;
+.BriefDescription {
+  margin-right: 10px;
+  margin-left: 10px;
+  justify-content: center;
+  text-align: center;
+  text-justify: center;
+  margin-bottom: 20px;
 }
 
-.AddressButton{
-    background-color: #FAFAFA;
-    color: #C67802;
-    outline: none;
-    border: none;
-    font-size: large;
+.AddressButton {
+  background-color: #fafafa;
+  color: #c67802;
+  outline-color: #c67802;
+  border: none;
+  font-size: large;
 }
 
-.MoreInformationButton{
-    background-color: #FAFAFA;
-    color: #C67802;
-    outline: none;
-    border: none;
-    font-size: large;
+.MoreInformationButton {
+  background-color: #fafafa;
+  color: #c67802;
+  outline-color: #c67802;
+  border: none;
+  font-size: large;
 }
 
 /*TAB BUTTONS FOR THE MAIN INFORMATION OF THE SERVICES*/
 
-.TabButtonsContainer{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 40px;
+.TabButtonsContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40px;
 }
 
-.TabButton{
-    color: #026ED2;
-    background-color: white;
-    min-width: 20%;
-    font-size:medium;
-    padding-top: 0.5vh;
-    padding-bottom: 0.5vh;
-    border-radius: 100px;
-    outline: none;
-    border-style: solid;
-    border-color: #026ED2;
+.TabButton {
+  color: #026ed2;
+  background-color: white;
+  min-width: 20%;
+  font-size: medium;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+  border-radius: 100px;
+  outline-color: #026ed2;
+  border-style: solid;
+  border-color: #026ed2;
 }
 
-.TabButtonActive{
-    color: white;
-    background-color: #026ED2;
-    min-width: 20%;
-    font-size:medium;
-    padding-top: 0.5vh;
-    padding-bottom: 0.5vh;
-    border-radius: 100px;
-    outline: none;
-    border-style: solid;
-    border-color: #026ED2;
+.TabButtonActive {
+  color: white;
+  background-color: #026ed2;
+  min-width: 20%;
+  font-size: medium;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+  border-radius: 100px;
+  outline-color: #026ed2;
+  border-style: solid;
+  border-color: #026ed2;
 }
 
-.AddReviewContainer{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 40px;
+.AddReviewContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40px;
 }
 
-.AddReviewButton{
-    color: #026ED2;
-    background-color: #FAFAFA;
-    outline: none;
-    border: none;
-    font-size: large;
+.AddReviewButton {
+  color: #026ed2;
+  background-color: #fafafa;
+  outline-color: #026ed2;
+  border: none;
+  font-size: large;
 }
 /*SERVICES TAB AND ITS CORRESPONDENT ITEMS*/
 
-.ServicesMainContainer{
-    display: flex;
-    flex-wrap: wrap;
-    align-content: space-around;
-    justify-content: space-around;
+.ServicesMainContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: space-around;
 }
 
-.ServiceItemContainer{
-    display: flex;
-    flex-direction: row;
-    background-color: white;
-    width: 500px;
-    max-height: 200px;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 10px;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
-    
+.ServiceItemContainer {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  width: 500px;
+  max-height: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
 }
 
-.ServiceMainInfo{
-    width: 30%;
-    margin-right: 10px;
+.ServiceMainInfo {
+  width: 30%;
+  margin-right: 10px;
 }
 
-.ServiceComplementInfo{
-    width: 65%;
+.ServiceComplementInfo {
+  width: 65%;
 }
 
 /*REVIEWS CONTAINER AND ITEMS*/
-.ReviewsMainContainer{
-    display: flex;
-    flex-wrap: wrap;
-    align-content: space-around;
-    justify-content: space-around;
+.ReviewsMainContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: space-around;
 }
 
-.ReviewItemContainer{
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    width: 500px;
-    max-height: 200px;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 10px;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+.ReviewItemContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 500px;
+  max-height: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
 }
 
-.MainReviewContainer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-bottom: 5px;
-    font-weight: bold;
+.MainReviewContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 /*BOOKING CONTAINER AND ITEMS*/
 
-.BookingMainContainer{
-    margin-top: 1px;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    overflow:auto;
-    padding-bottom: 50px;
+.BookingMainContainer {
+  margin-top: 1px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  overflow: auto;
+  padding-bottom: 50px;
 }
 
-.BookingItemContainer{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-top: 8px;
-    margin-left: 10px;
-    margin-right: 10px;
-    background-color: white;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+.BookingItemContainer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: white;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
 
-.ItemSchedule{
-    width: 35%;
+.ItemSchedule {
+  width: 35%;
 }
 
-.ItemDescription{
-    width: 35%;
-    font-size:medium;
-    color: #2D2D2D;
+.ItemDescription {
+  width: 35%;
+  font-size: medium;
+  color: #2d2d2d;
 }
 
-.BookingButton{
-    min-width: 20%;
-    max-width: 25%;
-    outline: none;
-    color: #026ED2;
-    font-size: medium;
-    border: none;
-    background-color: white;
+.BookingButton {
+  min-width: 20%;
+  max-width: 25%;
+  outline-color: #026ed2;
+  color: #026ed2;
+  font-size: medium;
+  border: none;
+  background-color: white;
 }
 
 /*BUTTON TO CLOSE PROFILE*/
 
-.CloseButton{
-    border-radius: 10px;
-    outline: none;
-    border: none;
-    font-size: larger;
-    position: fixed;
-    bottom: 0;
-    margin-bottom: 1px;
-    margin-left: 5px;
-    background-color: #F40000;
-    color: white;
-    width: 200px;
-    padding:5px;
+.CloseButton {
+  border-radius: 10px;
+  outline-color: #f40000;
+  border: none;
+  font-size: larger;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 1px;
+  margin-left: 5px;
+  background-color: #f40000;
+  color: white;
+  width: 200px;
+  padding: 5px;
 }
 
 /*BOOKING MODAL*/
-.BookingModalMain{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    top:0;
-    left: 0;
-    position: fixed;
+.BookingModalMain {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  position: fixed;
 }
 
-.BookingModal{
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    position: fixed;
-    top: 25vh;
-    right: 25vw;
-    border-radius: 10px;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    padding-bottom: 0;
-    vertical-align: middle;
-    font-size: large;
+.BookingModal {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  position: fixed;
+  top: 25vh;
+  right: 25vw;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  padding-bottom: 0;
+  vertical-align: middle;
+  font-size: large;
 }
 
-.BookingModalButtons{
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+.BookingModalButtons {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
-.BookingModalCancel{
-    width: 50%;
-    padding:5px;
-    font-size: larger;
-    background-color: white;
-    color: #F40000;
-    border: none;
-    outline: none;
-    margin-right: 20px;
+.BookingModalCancel {
+  width: 50%;
+  padding: 5px;
+  font-size: larger;
+  background-color: white;
+  color: #f40000;
+  border: none;
+  outline-color: #f40000;
+  margin-right: 20px;
 }
 
-.BookingModalConfirm{
-    width: 50%;
-    padding:5px;
-    font-size: larger;
-    background-color: white;
-    color: #00BB1E;
-    border: none;
-    outline: none;
+.BookingModalConfirm {
+  width: 50%;
+  padding: 5px;
+  font-size: larger;
+  background-color: white;
+  color: #00bb1e;
+  border: none;
+  outline-color: #00bb1e;
 }

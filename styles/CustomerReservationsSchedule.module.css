@@ -77,7 +77,7 @@
   justify-content: space-around;
 }
 .EditItemSchedule {
-  outline: none;
+  outline-color: #026ed2;
   border: none;
   background-color: white;
   color: #026ed2;
@@ -86,7 +86,7 @@
   cursor: pointer;
 }
 .DeleteSchedule {
-  outline: none;
+  outline-color: #f40000;
   border: none;
   background-color: white;
   color: #f40000;

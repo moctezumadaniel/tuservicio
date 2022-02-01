@@ -1,349 +1,342 @@
-.TicketsDashboardMainContainer{
-    flex-direction: column;
-    width: 100vw;
-    min-height: 100vh;
-    padding: 10px;
-    bottom: 50px;
-    padding-bottom: 150px;
+.TicketsDashboardMainContainer {
+  flex-direction: column;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 10px;
+  bottom: 50px;
+  padding-bottom: 150px;
 }
-.AddTicketButtonContainer{
-    display: flex;
-    justify-content: center;
+.AddTicketButtonContainer {
+  display: flex;
+  justify-content: center;
 }
-.AddTicketButton{
-    width: 500px;
-    align-self: center;
-    font-size: larger;
-    width: 500px;
-    outline: none;
-    border:none;
-    background-color: white;
-    color: #026ED2;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-
+.AddTicketButton {
+  width: 500px;
+  align-self: center;
+  font-size: larger;
+  width: 500px;
+  outline-color: #026ed2;
+  border: none;
+  background-color: white;
+  color: #026ed2;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
-.AddTicketButton:hover{
-    cursor: pointer;
+.AddTicketButton:hover {
+  cursor: pointer;
 }
-.TicketsListTitle{
-    text-align: center;
-    margin-top: 10px;
-    margin-left: 10px;
-    font-size: x-large;
-    font-weight: 600;
+.TicketsListTitle {
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: x-large;
+  font-weight: 600;
 }
-.TicketsListContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-top: 10px;
+.TicketsListContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 10px;
 }
-.TicketPreviewContainer{
-    width: 400px;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 5px;
-    background-color: white;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-    animation-name: renderItem;
-    animation-timing-function: ease-in-out;
-    animation-duration: 500ms;
-
+.TicketPreviewContainer {
+  width: 400px;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px;
+  background-color: white;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  animation-name: renderItem;
+  animation-timing-function: ease-in-out;
+  animation-duration: 500ms;
 }
-.TicketPreviewNumberAmounthContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-bottom: 10px;
+.TicketPreviewNumberAmounthContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 10px;
 }
-.TicketNumberPreview{
-    font-size: large;
-    font-weight: 600;
-    margin-right: 10px;
+.TicketNumberPreview {
+  font-size: large;
+  font-weight: 600;
+  margin-right: 10px;
 }
-.TicketAmounthPreview{
-    font-size: large;
-    font-weight: 600;
+.TicketAmounthPreview {
+  font-size: large;
+  font-weight: 600;
 }
-.TicketNamePreview{
-    font-size: large;
-    font-weight: 600;
-    text-align: center;
+.TicketNamePreview {
+  font-size: large;
+  font-weight: 600;
+  text-align: center;
 }
-.TicketPreviewDescription{
-    font-size: large;
-    font-family: sans-serif;
+.TicketPreviewDescription {
+  font-size: large;
+  font-family: sans-serif;
 }
-.OpenEditTicketContainer{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
+.OpenEditTicketContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
 }
-.OpenEditTicket{
-    font-size: small;
-    font-family: sans-serif;
-    outline: none;
-    border:none;
-    background-color: white;
-    color: #026ED2;
+.OpenEditTicket {
+  font-size: small;
+  font-family: sans-serif;
+  outline-color: #026ed2;
+  border: none;
+  background-color: white;
+  color: #026ed2;
 }
-.DeleteTicket{
-    font-size: small;
-    font-family: sans-serif;
-    outline: none;
-    border:none;
-    background-color: white;
-    color: #f40000;
-    cursor: pointer;
+.DeleteTicket {
+  font-size: small;
+  font-family: sans-serif;
+  outline-color: #f40000;
+  border: none;
+  background-color: white;
+  color: #f40000;
+  cursor: pointer;
 }
-.OpenEditTicket{
-    cursor: pointer;
+.OpenEditTicket {
+  cursor: pointer;
 }
 /*TICKET FORM*/
-.TicketsToolMainContainer{
-    width: 100vw;
-    min-height: 100vh;
-    padding-bottom: 150px;
+.TicketsToolMainContainer {
+  width: 100vw;
+  min-height: 100vh;
+  padding-bottom: 150px;
 
-    animation-name: renderTicket;
-    animation-timing-function: ease-in-out;
-    animation-duration: 500ms;
+  animation-name: renderTicket;
+  animation-timing-function: ease-in-out;
+  animation-duration: 500ms;
 }
-.TicketTitle{
-    font-size: xx-large;
-    font-weight: 600;
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom: 10px;
+.TicketTitle {
+  font-size: xx-large;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
-.TicketSaveButtonContainer{
-    display: flex;
-    justify-content: center;
+.TicketSaveButtonContainer {
+  display: flex;
+  justify-content: center;
 }
-.SaveTicketButton{
-    background-color: transparent;
-    color: #00BB1E;
-    border: none;
-    outline: none;
-    font-size: larger;
+.SaveTicketButton {
+  background-color: transparent;
+  color: #00bb1e;
+  border: none;
+  outline-color: #00bb1e;
+  font-size: larger;
 }
-.SaveTicketButton:hover{
-    cursor: pointer;
+.SaveTicketButton:hover {
+  cursor: pointer;
 }
-.TicketDateCustomerContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 10px;
+.TicketDateCustomerContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
 }
-.TicketDateInput{
-    font-family: sans-serif;
-    background-color: white;
-    width: 200px;
-    font-size: large;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+.TicketDateInput {
+  font-family: sans-serif;
+  background-color: white;
+  width: 200px;
+  font-size: large;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline-color: #000;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 }
-.TicketNameInput{
-    font-family: sans-serif;
-    background-color: white;
+.TicketNameInput {
+  font-family: sans-serif;
+  background-color: white;
+  width: 500px;
+  font-size: large;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline-color: #000;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+.TicketNameInput:focus::placeholder {
+  color: transparent;
+}
+@media (max-width: 740px) {
+  .TicketDateInput {
     width: 500px;
-    font-size: large;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-}
-.TicketNameInput:focus::placeholder{
-    color: transparent;
-}
-@media(max-width:740px){
-    .TicketDateInput{
-        width: 500px;
-        margin-right: 0;
-    }
+    margin-right: 0;
+  }
 }
 
-.TicketItemContainer{
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    padding: 10px;
-    animation-name: renderTicketItem;
-    animation-timing-function: ease-in-out;
-    animation-duration: 500ms;
+.TicketItemContainer {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  padding: 10px;
+  animation-name: renderTicketItem;
+  animation-timing-function: ease-in-out;
+  animation-duration: 500ms;
 }
-.TicketDescription{
-    font-family: sans-serif;
-    padding: 10px;
-    font-size: large;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-    border: none;
-    outline: none;
-    resize: none;
-
+.TicketDescription {
+  font-family: sans-serif;
+  padding: 10px;
+  font-size: large;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  border: none;
+  outline-color: #000;
+  resize: none;
 }
-.ItemAmounthDescription{
-    display:flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.ItemAmounthDescription {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-.TicketAmounth{
-    font-family: sans-serif;
-    width: 300px;
-    justify-items: center;
-    font-size: larger;
-    text-align: center;
-    background-color: white;
-    border-radius: 10px;
-    margin-top: 10px;
-    padding: 10px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-    border: none;
-    outline: none;
-
+.TicketAmounth {
+  font-family: sans-serif;
+  width: 300px;
+  justify-items: center;
+  font-size: larger;
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  border: none;
+  outline-color: #000;
 }
-@media (max-width:450px) {
-    .TicketAmounth{
-        width: 100%;
-    }
-}
-.DeleteItemButton{
-    font-size: large;
-    background-color: transparent;
-    color: #f40000;
-    border: none;
-    outline: none;
-    height: min-content;
-    width: min-content;
-    justify-self:center;
-    align-self: center;
-    margin: 10px;
-
-}
-.DeleteItemButton:hover{
-    cursor: pointer;
-}
-.NewItemTitle{
-    font-size: x-large;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-.InputTicketItemContainer{
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    padding: 10px;
-}
-
-.InputTicketDescription{
-    padding: 10px;
-    font-size: large;
-    font-family: sans-serif;
-    text-align: center;
-    background-color: white;
-    border-radius: 10px;
-    border: none;
-    resize: none;
-    outline:none;
-    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
-}
-
-.InputTicketAmounth{
+@media (max-width: 450px) {
+  .TicketAmounth {
     width: 100%;
-    justify-items: center;
-    font-size: larger;
-    text-align: center;
-    font-family: sans-serif;
-    background-color: white;
-    border-radius: 10px;
-    margin-top: 10px;
-    padding: 10px;
-    align-self:flex-end;
-    border: none;
-    outline: none;
-    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
-
+  }
+}
+.DeleteItemButton {
+  font-size: large;
+  background-color: transparent;
+  color: #f40000;
+  border: none;
+  outline-color: #f40000;
+  height: min-content;
+  width: min-content;
+  justify-self: center;
+  align-self: center;
+  margin: 10px;
+}
+.DeleteItemButton:hover {
+  cursor: pointer;
+}
+.NewItemTitle {
+  font-size: x-large;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.InputTicketItemContainer {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  padding: 10px;
 }
 
-.InputTicketAmounth::placeholder{
-    color: #424242;
+.InputTicketDescription {
+  padding: 10px;
+  font-size: large;
+  font-family: sans-serif;
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  border: none;
+  resize: none;
+  outline-color: #000;
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 }
-.InputTicketDescription::placeholder{
-    color: #424242;
 
+.InputTicketAmounth {
+  width: 100%;
+  justify-items: center;
+  font-size: larger;
+  text-align: center;
+  font-family: sans-serif;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  align-self: flex-end;
+  border: none;
+  outline-color: #000;
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 }
-.AddItemButton{
-    width: 100%;
-    align-self: center;
-    outline: none;
-    border: none;
-    background-color: #026ED2;
-    color: white;
-    font-size: large;
-    margin-top: 10px;
-    padding: 5px;
-    border-radius: 100px;
+
+.InputTicketAmounth::placeholder {
+  color: #424242;
 }
-.AddItemButton:hover{
-    cursor: pointer;
+.InputTicketDescription::placeholder {
+  color: #424242;
 }
-.InputTicketAmounth:focus::placeholder{
-    color: transparent;
+.AddItemButton {
+  width: 100%;
+  align-self: center;
+  outline-color: #026ed2;
+  border: none;
+  background-color: #026ed2;
+  color: white;
+  font-size: large;
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 100px;
 }
-.InputTicketDescription:focus::placeholder{
-    color: transparent;
+.AddItemButton:hover {
+  cursor: pointer;
 }
-@media(min-width:550px){
-    .AddItemButton{
-        width: 500px;
-    }
+.InputTicketAmounth:focus::placeholder {
+  color: transparent;
 }
-.GrandTotalContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 15px;
+.InputTicketDescription:focus::placeholder {
+  color: transparent;
 }
-.GrandTotalTitle{
-    font-size: x-large;
-    font-weight: 600;
-    margin-right: 10px;
+@media (min-width: 550px) {
+  .AddItemButton {
+    width: 500px;
+  }
 }
-.GrandTotal{
-    font-size: x-large;
-    font-weight: 600;
+.GrandTotalContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 15px;
+}
+.GrandTotalTitle {
+  font-size: x-large;
+  font-weight: 600;
+  margin-right: 10px;
+}
+.GrandTotal {
+  font-size: x-large;
+  font-weight: 600;
 }
 @keyframes renderTicket {
-    from{
-        margin-top: -50px;
-    }
+  from {
+    margin-top: -50px;
+  }
 }
 @keyframes renderItem {
-    from{
-        opacity: 0.7;
-        margin-top: 10px;
-    }
+  from {
+    opacity: 0.7;
+    margin-top: 10px;
+  }
 }
 @keyframes renderTicketItem {
-    from{
-        opacity: 0.5;
-        margin-top: 5px;
-    }
+  from {
+    opacity: 0.5;
+    margin-top: 5px;
+  }
 }

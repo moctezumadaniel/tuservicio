@@ -1,401 +1,398 @@
 /*GLOBAL*/
-.MainContainer{
-    display: flex;
-    top:0;
-    left: 0;
-    bottom: 235px;
-    position:fixed;
-    width: 100vw;
-    height: 100vh;
+.MainContainer {
+  display: flex;
+  top: 0;
+  left: 0;
+  bottom: 235px;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
 }
-.ModalBackground{
-    flex: 1;
-    background-color: black;
-    opacity: 0.60;
+.ModalBackground {
+  flex: 1;
+  background-color: black;
+  opacity: 0.6;
 
-    animation-name: shadeBackground;
-    animation-duration: 500ms;
+  animation-name: shadeBackground;
+  animation-duration: 500ms;
 }
-.ModalContainer{
-    display: flex;
-    flex-wrap: wrap;
-    bottom: 35px;
-    position: fixed;
-    width: 100vw;
-    background-color: #FAFAFA;
-    padding: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    justify-content: space-evenly;
-    box-shadow: 10px 0px 7px rgba(0, 0, 0, 0.25);
+.ModalContainer {
+  display: flex;
+  flex-wrap: wrap;
+  bottom: 35px;
+  position: fixed;
+  width: 100vw;
+  background-color: #fafafa;
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  justify-content: space-evenly;
+  box-shadow: 10px 0px 7px rgba(0, 0, 0, 0.25);
 
-    animation-name: renderModal;
-    animation-duration: 500ms;
-
-
+  animation-name: renderModal;
+  animation-duration: 500ms;
 }
-@media (max-height:500px) {
-    .ModalContainer{
-        padding-bottom: 10px;
-    }
+@media (max-height: 500px) {
+  .ModalContainer {
+    padding-bottom: 10px;
+  }
 }
-.FullWidthContainer{
-    width: 99vw;
-    display: flex;
-    justify-content: center;
-    align-content: center;
+.FullWidthContainer {
+  width: 99vw;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
-.ConfirmButton{
-    outline: none;
-    border: none;
-    color: #00BB1E;
-    background-color: transparent;
-    font-size: medium;
-    margin-top: 10px;
+.ConfirmButton {
+  outline-color: #00bb1e;
+  border: none;
+  color: #00bb1e;
+  background-color: transparent;
+  font-size: medium;
+  margin-top: 10px;
 }
-.ConfirmButton:hover{
-    cursor: pointer;
+.ConfirmButton:hover {
+  cursor: pointer;
 }
 /*PROFILE IMAGE AND NAME*/
-.ProfileImageFormContainer{
-    width: 150px;
+.ProfileImageFormContainer {
+  width: 150px;
 }
-.ProfileImage{
-    align-self: center;
-    justify-self: center;
-    height: 150px;
-    width: 150px;
-    background-color: white;
-    border-radius: 10px;
-    margin-bottom: 5px;
-    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
+.ProfileImage {
+  align-self: center;
+  justify-self: center;
+  height: 150px;
+  width: 150px;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 }
-.CustomerImageInput{
-    width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
-
+.CustomerImageInput {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
-.ProfileImageButtonContainer{
-    display: flex;
-    justify-content: center;
+.ProfileImageButtonContainer {
+  display: flex;
+  justify-content: center;
 }
-.ProfileImageButton{
-    outline: none;
-    border:none;
-    background-color: transparent;
-    color: #026ED2;
-    font-size: medium;
+.ProfileImageButton {
+  outline-color: #026ed2;
+  border: none;
+  background-color: transparent;
+  color: #026ed2;
+  font-size: medium;
 }
-.ProfileImageButton:hover{
-    cursor: pointer;
+.ProfileImageButton:hover {
+  cursor: pointer;
 }
-.ProfileNameContainer{
-    display: flex;
-    justify-content: center;
-    align-content: center;
+.ProfileImageButton:focus-within {
+  outline-style: solid;
+  outline-color: #026ed2;
 }
-.ProfileName{
-    outline: none;
-    border: none;
-    font-size: large;
-    font-family: sans-serif;
-    width: 400px;
-    padding: 10px;
-    margin-top: 15px;
-    justify-self: center;
-    align-self: center;
-    text-align: center;
-    border-radius: 100px;
-    background-color: white;
-    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
-    
+.ProfileNameContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
-@media(max-width:700px){
-    .ProfileName{
-        width: 95vw;
-    }
+.ProfileName {
+  outline-color: #000;
+  border: none;
+  font-size: large;
+  font-family: sans-serif;
+  width: 400px;
+  padding: 10px;
+  margin-top: 15px;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  border-radius: 100px;
+  background-color: white;
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 }
-.ProfileName::placeholder{
-    color: #424242;
-    font-size: large;
-    font-family: sans-serif;
-    text-align: center;
+@media (max-width: 700px) {
+  .ProfileName {
+    width: 95vw;
+  }
 }
-.ProfileName:focus::placeholder{
-    color: transparent;
+.ProfileName::placeholder {
+  color: #424242;
+  font-size: large;
+  font-family: sans-serif;
+  text-align: center;
 }
-.ConformButtonContainer{
-    display: flex;
-    justify-content: center;
-    align-content: center;
+.ProfileName:focus::placeholder {
+  color: transparent;
+}
+.ConformButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 /*WORKDAYS FORM*/
-.Instructions{
-    font-size: x-large;
-    font-family: sans-serif;
-    margin-bottom: 10px;
+.Instructions {
+  font-size: x-large;
+  font-family: sans-serif;
+  margin-bottom: 10px;
 }
-.Workday{
-    font-size: x-large;
-    margin: 10px;
+.Workday {
+  font-size: x-large;
+  margin: 10px;
 }
-.WorkdayCheckbox{
-    height: 20px;
-    width: 20px;
+.WorkdayCheckbox {
+  height: 20px;
+  width: 20px;
 }
 /*SCHEDULE FORM*/
-.ScheduleFormsContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+.ScheduleFormsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
-.ScheduleContainer{
-    font-size: medium;
-    text-align: center;
-    font-family: sans-serif;
-    margin: 5px;
+.ScheduleContainer {
+  font-size: medium;
+  text-align: center;
+  font-family: sans-serif;
+  margin: 5px;
 }
-@media (max-height:500px) {
-    .ScheduleContainer{
-        font-size: small;
-        margin: 1px;
-    }
+@media (max-height: 500px) {
+  .ScheduleContainer {
+    font-size: small;
+    margin: 1px;
+  }
 }
-.ScheduleDateInput{
-    outline: none;
-    border: none;
-    background-color: white;
-    font-family: sans-serif;
-    border-radius: 10px;
-    padding: 5px;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+.ScheduleDateInput {
+  outline-color: #000;
+  border: none;
+  background-color: white;
+  font-family: sans-serif;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 }
-@media (max-width:300px) {
-    .ScheduleDateInput{
-        width: 100px;
-        font-size: small;
-
-    }
+@media (max-width: 300px) {
+  .ScheduleDateInput {
+    width: 100px;
+    font-size: small;
+  }
 }
 /*SHORT DESCRIPTION FORM*/
-.ShortDescriptionContainer{
-    font-size: large;
-    font-family: sans-serif;
-    resize: none;
-    width: 95vw;
-    height: 200px;
-    padding: 10px;
-    border:none;
-    outline: none;
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
-
-
+.ShortDescriptionContainer {
+  font-size: large;
+  font-family: sans-serif;
+  resize: none;
+  width: 95vw;
+  height: 200px;
+  padding: 10px;
+  border: none;
+  outline-color: #000;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 }
-.ShortDescriptionContainer::placeholder{
-    color: #424242;
-    font-size: large;
-    font-family: sans-serif;
-    text-align: center;
+.ShortDescriptionContainer::placeholder {
+  color: #424242;
+  font-size: large;
+  font-family: sans-serif;
+  text-align: center;
 }
-.ShortDescriptionContainer:focus::placeholder{
-    color: transparent;
+.ShortDescriptionContainer:focus::placeholder {
+  color: transparent;
 }
 /*PHONE NUMBER FORM*/
-.PhoneNumberInput{
-    outline: none;
-    border: none;
-    padding: 10px;
-    background-color: white;
-    font-size: large;
-    border-radius: 100PX;
-    text-align: center;
-    width: 400px;
-    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
-    
+.PhoneNumberInput {
+  outline-color: #000;
+  border: none;
+  padding: 10px;
+  background-color: white;
+  font-size: large;
+  border-radius: 100px;
+  text-align: center;
+  width: 400px;
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 }
-.PhoneNumberInput::placeholder{
-    color: #424242;
-    font-size: large;
-    font-family: sans-serif;
-    text-align: center;
+.PhoneNumberInput::placeholder {
+  color: #424242;
+  font-size: large;
+  font-family: sans-serif;
+  text-align: center;
 }
-.PhoneNumberInput:focus::placeholder{
-    color: transparent;
+.PhoneNumberInput:focus::placeholder {
+  color: transparent;
 }
 /*ADDRESS NUMBER FORM*/
-.AddresInput{
-    border: none;
-    outline: none;
-    width: 500px;
-    height: 200px;
-    padding: 10px;
-    resize: none;
-    font-family: sans-serif;
-    font-size: large;
-    text-align: center;
-    justify-content: center;
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
-
+.AddresInput {
+  border: none;
+  outline-color: #000;
+  width: 500px;
+  height: 200px;
+  padding: 10px;
+  resize: none;
+  font-family: sans-serif;
+  font-size: large;
+  text-align: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 }
-@media (min-width:500px) {
-    .AddresInput{
-        height: 100px;
-    }
+@media (min-width: 500px) {
+  .AddresInput {
+    height: 100px;
+  }
 }
-.AddresInput::placeholder{
-    color: #424242;
-    font-size: large;
-    font-family: sans-serif;
-    text-align: center;
+.AddresInput::placeholder {
+  color: #424242;
+  font-size: large;
+  font-family: sans-serif;
+  text-align: center;
 }
-.AddresInput:focus::placeholder{
-    color: transparent;
+.AddresInput:focus::placeholder {
+  color: transparent;
 }
 /*MORE INFORMATION FORM*/
-.MoreInformationInput{
-    resize: none;
-    outline: none;
-    border: none;
-    background-color: white;
-    width: 100%;
-    height:300px;
-    padding: 10px;
-    border-radius: 20px;
-    font-size: large;
-    font-family: sans-serif;
-    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
-
+.MoreInformationInput {
+  resize: none;
+  outline-color: #000;
+  border: none;
+  background-color: white;
+  width: 100%;
+  height: 300px;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: large;
+  font-family: sans-serif;
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 }
-.MoreInformationInput::placeholder{
-    color: #424242;
-    font-size: large;
-    font-family: sans-serif;
-    text-align: center;
+.MoreInformationInput::placeholder {
+  color: #424242;
+  font-size: large;
+  font-family: sans-serif;
+  text-align: center;
 }
-.MoreInformationInput:focus::placeholder{
-    color: transparent;
+.MoreInformationInput:focus::placeholder {
+  color: transparent;
 }
 /*ADD SERVICE*/
-.ServiceImageInput{
-    width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
+.ServiceImageInput {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.ServiceImage {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  height: 150px;
+  width: 150px;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  justify-content: center;
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
+}
+.ServiceImageLabelContainer {
+  display: flex;
+  justify-content: center;
+}
+.ServiceImageLabel {
+  color: #026ed2;
+  cursor: pointer;
+}
 
+.ServiceImageLabel:focus-within {
+  outline-style: solid;
+  outline-color: #026ed2;
 }
-.ServiceImage{
-    display: flex;
-    align-self: center;
-    justify-self: center;
-    height: 150px;
-    width: 150px;
-    background-color: white;
-    border-radius: 10px;
-    margin-bottom: 5px;
-    justify-content: center;
-    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
+.ServiceNamePriceDescription {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  justify-content: center;
+  align-content: center;
 }
-.ServiceImageLabelContainer{
-    display: flex;
-    justify-content: center;
+.ServiceNamePriceDescriptionInput {
+  width: 100%;
+  padding: 5px;
+  margin-top: 10px;
+  outline-color: #000;
+  border: none;
+  background-color: white;
+  border-radius: 100px;
+  font-family: sans-serif;
+  font-size: large;
+  text-align: center;
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 }
-.ServiceImageLabel{
+.ServiceNamePriceDescriptionInput::placeholder {
+  text-align: center;
+  vertical-align: middle;
+  color: #424242;
+}
+.ServiceNamePriceDescriptionInput:focus::placeholder {
+  color: transparent;
+}
+.ServiceDescription {
+  background-color: white;
+  outline-color: #000;
+  border: none;
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  border-radius: 20px;
+  height: 220px;
+  font-family: sans-serif;
+  font-size: large;
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
+}
+@media (max-height: 600px) {
+  .ServiceDescription {
+    max-height: 120px;
+  }
+}
 
-    color: #026ED2;
-    cursor: pointer;
+.ServiceDescription::placeholder {
+  text-align: center;
+  vertical-align: middle;
+  color: #424242;
 }
-.ServiceNamePriceDescription{
-    display: flex;
-    flex-direction: column;
+.ServiceDescription:focus::placeholder {
+  color: transparent;
+}
+.ServiceFormContainer {
+  display: flex;
+  width: 100%;
+  align-content: center;
+  justify-content: center;
+}
+@media (min-width: 1000px) {
+  .ServiceFormContainer {
+    width: fit-content;
+  }
+  .ServiceDescription {
     width: 400px;
-    justify-content: center;
-    align-content: center;
-}
-.ServiceNamePriceDescriptionInput{
-    width: 100%;
-    padding: 5px;
-    margin-top: 10px;
-    outline: none;
-    border: none;
-    background-color: white;
-    border-radius: 100px;
-    font-family: sans-serif;
-    font-size: large;
-    text-align: center;
-    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
-}
-.ServiceNamePriceDescriptionInput::placeholder{
-    text-align: center;
-    vertical-align: middle;
-    color: #424242;
-}
-.ServiceNamePriceDescriptionInput:focus::placeholder{
-    color: transparent;
-}
-.ServiceDescription{
-    background-color: white;
-    outline: none;
-    border: none;
-    margin-top: 10px;
-    padding: 10px;
-    width: 100%;
-    border-radius: 20px;
-    height: 220px;
-    font-family: sans-serif;
-    font-size: large;
-    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
-}
-@media (max-height:600px) {
-    .ServiceDescription{
-        max-height: 120px;
-    }
-}
-
-.ServiceDescription::placeholder{
-    text-align: center;
-    vertical-align: middle;
-    color: #424242;
-}
-.ServiceDescription:focus::placeholder{
-    color: transparent;
-}
-.ServiceFormContainer{
-    display: flex;
-    width: 100%;
-    align-content: center;
-    justify-content: center;
-}
-@media(min-width:1000px){
-    .ServiceFormContainer{
-        width: fit-content;
-    }
-    .ServiceDescription{
-        width: 400px;
-    }
+  }
 }
 
 @keyframes renderModal {
-    from{
-        bottom: -100px;
-    }
+  from {
+    bottom: -100px;
+  }
 }
 
 @keyframes shadeBackground {
-    from{
-        opacity: 0.0;
-    }
+  from {
+    opacity: 0;
+  }
 }
