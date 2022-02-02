@@ -140,6 +140,7 @@ function TicketForm() {
     return ticketNumber;
   }
   function addTicket(customerId, newTicket) {
+    if (!newTicket.date || !newTicket.number) return;
     axios
       .post(`api/customer/addCustomerTicket`, {
         customerId,

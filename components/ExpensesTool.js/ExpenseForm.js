@@ -30,6 +30,7 @@ function ExpenseForm() {
   };
 
   function addExpense(customerId, newExpense) {
+    if (!newExpense.date || newExpense.amounth <= 0) return;
     axios
       .post(`api/customer/addCustomerExpense`, {
         customerId,
