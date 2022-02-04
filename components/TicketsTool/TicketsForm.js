@@ -14,6 +14,7 @@ import {
 import axios from "axios";
 import { updateCustomerInformationTickets } from "../../redux/actions/CustomerInformation";
 import { changeTicketsToolToDashboard } from "../../redux/actions/TicketsTool";
+import { useEffect } from "react";
 function ListOfConcepts() {
   const deleteItemButton = "Eliminar";
   const ticketItems = useSelector(
@@ -160,6 +161,13 @@ function TicketForm() {
       })
       .catch((error) => console.log(error));
   }
+  useEffect(() => {
+    dispatch(
+      changeCustomerTicketFormNumber(
+        calculateTicketNumber(ticketDate, currentTickets)
+      )
+    );
+  }, [ticketDate, currentTickets]);
   return (
     <div className={styles.TicketsToolMainContainer}>
       <div className={styles.TicketTitle}>

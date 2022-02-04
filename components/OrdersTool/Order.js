@@ -15,6 +15,7 @@ import {
 } from "../../redux/actions/OrdersTool";
 import axios from "axios";
 import { updateCustomerInformationOrders } from "../../redux/actions/CustomerInformation";
+import { useEffect } from "react";
 function ListOfItems() {
   const deleteItem = "Eliminar";
   const orderItems = useSelector((state) => state.customerOrderToolForm.items);
@@ -66,14 +67,17 @@ function ListOfItems() {
 }
 
 function Order() {
+  const dispatch = useDispatch();
   const customerInformation = useSelector((state) => state.customerInformation);
   const customerId = customerInformation.customerId;
   const orders = customerInformation.orders;
+  const orderDate = useSelector((state) => state.customerOrderToolForm.date);
   const orderNumber = useSelector(
-    (state) => state.customerOrderToolForm.number
+    (state) =>
+      state.customerOrderToolForm.number ||
+      dispatch(changeCustomerOrderFormNumber(getOrderNumber(orders, orderDate)))
   );
   const currentOrder = useSelector((state) => state.customerOrderToolForm);
-  const orderDate = useSelector((state) => state.customerOrderToolForm.date);
   const orderDescription = useSelector(
     (state) => state.customerOrderToolForm.description
   );
@@ -92,7 +96,11 @@ function Order() {
       } else return 0;
     });
     console.log(numbersFromOrderWithSelectedDate);
-    const lastOrderNumber = Math.max(...numbersFromOrderWithSelectedDate) || 0;
+    console.log(numbersFromOrderWithSelectedDate.length > 1);
+    const lastOrderNumber =
+      numbersFromOrderWithSelectedDate.length > 0
+        ? Math.max(...numbersFromOrderWithSelectedDate)
+        : 0;
     console.log(lastOrderNumber);
     const orderNumber = lastOrderNumber + 1;
     dispatch(changeCustomerOrderFormNumber(orderNumber));
@@ -108,7 +116,6 @@ function Order() {
   const newDescriptionPlaceholder = "Escribe la descripción";
   const newAmounthPlaceholder = "Escribe la cantidad";
   const addItemButton = "AGREGAR";
-  const dispatch = useDispatch();
   const handleDateChange = (event) => {
     dispatch(
       changeCustomerOrderFormDate(event.target.value),
@@ -154,6 +161,9 @@ function Order() {
       })
       .catch((error) => console.log(error));
   }
+  useEffect(() => {
+    getOrderNumber(orders, orderDate);
+  }, [orderDate, orders]);
   return (
     <div className={styles.OrderFormMainContainer}>
       {/*TITLE AND SAVE BUTTON */}

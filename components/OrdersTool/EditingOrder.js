@@ -15,6 +15,7 @@ import {
   restartCustomerEditingOrderForm,
 } from "../../redux/actions/CustomerEditingOrder";
 import { changeOrdersToolToDashboard } from "../../redux/actions/OrdersTool";
+import { useEffect } from "react";
 function ListOfItems() {
   const deleteItem = "Eliminar";
   const orderItems = useSelector((state) => state.customerEditingOrder.items);
@@ -168,6 +169,9 @@ function Order() {
       })
       .catch((error) => console.log(error));
   }
+  useEffect(() => {
+    getOrderNumber(orders, orderDate);
+  }, [orders, orderDate]);
   return (
     <div className={styles.OrderFormMainContainer}>
       {/*TITLE AND SAVE BUTTON */}
