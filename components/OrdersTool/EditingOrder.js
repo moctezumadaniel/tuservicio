@@ -146,7 +146,8 @@ function Order() {
     dispatch(addItemToCustomerEditingOrderForm());
   }
   function saveEditingOrder(customerId, editingOrder) {
-    if (!editingOrder.date || !editingOrder.number) return;
+    if (!editingOrder.date || !editingOrder.number)
+      return console.log("ERROOOR");
     axios
       .patch(`api/customer/updateCustomerOrder`, {
         customerId,

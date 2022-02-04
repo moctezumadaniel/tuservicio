@@ -38,7 +38,8 @@ function CustomerEditingPayment() {
     );
   };
   function saveCustomerPayment(customerId, editingPayment) {
-    if (!editingPayment.date || !editingPayment.name) return;
+    if (!editingPayment.date || !editingPayment.name || !editingPayment._id)
+      return console.log("ERROR", editingPayment);
     axios
       .patch(`api/customer/updateCustomerClientOperation`, {
         customerId,

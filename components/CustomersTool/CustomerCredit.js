@@ -34,7 +34,8 @@ function CustomerCredit() {
     dispatch(changeCustomersToolCreditFormDescription(event.target.value));
   };
   function saveCustomerCredit(customerId, newCredit) {
-    if (!newCredit.date || !newCredit.type || !newCredit.name) return;
+    if (!newCredit.date || !newCredit.type || !newCredit.customerName)
+      return console.log("ERRORRR", newCredit);
     axios
       .post(`api/customer/addCustomerOperation`, {
         customerId,

@@ -35,7 +35,7 @@ function ProviderCredit() {
     dispatch(changeProvidersToolCreditFormDescription(event.target.value));
   };
   function addCredit(customerId, newCredit) {
-    if (!newCredit.date || newCredit.operation) return;
+    if (!newCredit.date || !newCredit.operation) return;
     axios
       .post(`api/customer/addProviderOperation`, {
         customerId,

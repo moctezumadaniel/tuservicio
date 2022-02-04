@@ -38,7 +38,11 @@ function ProviderEditingPayment() {
     );
   };
   function editPayment(customerId, editingPayment) {
-    if (!editingPayment.date || !editingPayment.id || !editingPayment.operation)
+    if (
+      !editingPayment.date ||
+      !editingPayment._id ||
+      !editingPayment.operation
+    )
       return;
     axios
       .post(`api/customer/updateCustomerProviderOperation`, {

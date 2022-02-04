@@ -39,8 +39,8 @@ function ProviderEditingCredit() {
     );
   };
   function editCredit(customerId, editingCredit) {
-    if (!editingCredit.date || !editingCredit.id || !editingCredit.operation)
-      return;
+    if (!editingCredit.date || !editingCredit._id || !editingCredit.operation)
+      return console.log("ERRORR", editingCredit);
     axios
       .post(`api/customer/updateCustomerProviderOperation`, {
         customerId,

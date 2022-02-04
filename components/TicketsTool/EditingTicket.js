@@ -129,7 +129,8 @@ function EditingTicket() {
     } else return ticketNumber;
   }
   function editTicket(customerId, editingTicket) {
-    if (!editingTicket.date || !editingTicket.id) return;
+    if (!editingTicket.date || !editingTicket._id)
+      return console.log("ERRORRR", editingTicket);
     axios
       .patch(`api/customer/updateCustomerTicket`, {
         customerId,

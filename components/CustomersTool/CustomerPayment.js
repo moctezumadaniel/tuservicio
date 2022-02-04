@@ -34,7 +34,8 @@ function CustomerPayment() {
     dispatch(changeCustomersToolPaymentFormDescription(event.target.value));
   };
   function saveCustomerPayment(customerId, newCredit) {
-    if (!newCredit.date || !newCredit.name) return;
+    if (!newCredit.date || !newCredit.customerName)
+      return console.log("ERRORRR", newCredit);
     axios
       .post(`api/customer/addCustomerOperation`, {
         customerId,

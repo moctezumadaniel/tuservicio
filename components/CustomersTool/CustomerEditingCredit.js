@@ -43,7 +43,8 @@ function CustomerEditingCredit() {
     );
   };
   function saveCustomerCredit(customerId, editingCredit) {
-    if (!editingCredit.date || !newCredit.name) return;
+    if (!editingCredit.date || !editingCredit.name || !editingCredit._id)
+      return console.log("ERRORR", editingCredit);
     axios
       .post(`api/customer/updateCustomerClientOperation`, {
         customerId,
