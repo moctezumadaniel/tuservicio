@@ -7,8 +7,13 @@ import ServicesList from "./Customer_profile/ServicesList";
 import ProfileForms from "./Customer_profile/Customer_profile_forms";
 import { useEffect } from "react";
 import dynamic from "next/dynamic";
-const ServiceReservations = dynamic(() => import("./Service_reservations"));
-const CustomerTools = dynamic(() => import("./Customer_tools"));
+import { LoadingScreen } from "../App_main_container";
+const ServiceReservations = dynamic(() => import("./Service_reservations"), {
+  loading: () => <LoadingScreen />,
+});
+const CustomerTools = dynamic(() => import("./Customer_tools"), {
+  loading: () => <LoadingScreen />,
+});
 
 function CustomerServiceDashboard() {
   const currentGlobalTab = useSelector((state) => state.globalTab);

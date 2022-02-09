@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 const AppUserContainer = dynamic(() => import("../App_user_container"));
 const AppCustomerContainer = dynamic(() => import("../App_customer_container"));
 
-function LoadingScreen() {
+export function LoadingScreen() {
   const loadingMessage = "Cargando...";
   return <div className={styles.LoadingMessage}>{loadingMessage}</div>;
 }

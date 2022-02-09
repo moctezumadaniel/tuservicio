@@ -1,13 +1,28 @@
 import { useSelector } from "react-redux";
 import dynamic from "next/dynamic";
+import { LoadingScreen } from "../../App_main_container";
 
-const OrdersTool = dynamic(() => import("../../OrdersTool"));
-const ExpensesTool = dynamic(() => import("../../ExpensesTool.js"));
-const CustomersTool = dynamic(() => import("../../CustomersTool"));
-const ProvidersTool = dynamic(() => import("../../ProvidersTool"));
-const CalculatorTool = dynamic(() => import("../../CalculatorTool"));
-const TicketsTool = dynamic(() => import("../../TicketsTool"));
-const FinancesTool = dynamic(() => import("../../FinancesTool"));
+const OrdersTool = dynamic(() => import("../../OrdersTool"), {
+  loading: () => <LoadingScreen />,
+});
+const ExpensesTool = dynamic(() => import("../../ExpensesTool.js"), {
+  loading: () => <LoadingScreen />,
+});
+const CustomersTool = dynamic(() => import("../../CustomersTool"), {
+  loading: () => <LoadingScreen />,
+});
+const ProvidersTool = dynamic(() => import("../../ProvidersTool"), {
+  loading: () => <LoadingScreen />,
+});
+const CalculatorTool = dynamic(() => import("../../CalculatorTool"), {
+  loading: () => <LoadingScreen />,
+});
+const TicketsTool = dynamic(() => import("../../TicketsTool"), {
+  loading: () => <LoadingScreen />,
+});
+const FinancesTool = dynamic(() => import("../../FinancesTool"), {
+  loading: () => <LoadingScreen />,
+});
 
 function Tools() {
   const currentTool = useSelector((state) => state.customerActiveTool);

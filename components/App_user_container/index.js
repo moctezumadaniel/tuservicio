@@ -5,10 +5,17 @@ import { useEffect } from "react";
 import { loadAllUserInformation } from "../../redux/actions/UserInformation";
 import axios from "axios";
 import MainTabButtons from "../Main_tab_buttons";
+import { LoadingScreen } from "../App_main_container";
 
-const UserMessagesTab = dynamic(() => import("../User_messages_tab"));
-const UserServicesTab = dynamic(() => import("../User_services_tab"));
-const PreferencesTab = dynamic(() => import("../Preferences_tab"));
+const UserMessagesTab = dynamic(() => import("../User_messages_tab"), {
+  loading: () => <LoadingScreen />,
+});
+const UserServicesTab = dynamic(() => import("../User_services_tab"), {
+  loading: () => <LoadingScreen />,
+});
+const PreferencesTab = dynamic(() => import("../Preferences_tab"), {
+  loading: () => <LoadingScreen />,
+});
 
 function AppUserContainer() {
   const userInformation = useSelector((state) => state.userInformation);
