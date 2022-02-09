@@ -48,6 +48,7 @@ function PreferencesTab() {
   const { logout } = useAuth0();
   const { isAuthenticated, isLoading } = useAuth0();
   function handleChangeToCustomerPress() {
+    if (userPreferences.userId == "") return;
     dispatch(changePlatformToCustomer());
   }
   function handleChangeToUserPress() {
