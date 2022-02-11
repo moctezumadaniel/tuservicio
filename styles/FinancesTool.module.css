@@ -1,105 +1,101 @@
-.FinancesContainer{
-    display: flex;
-    flex-wrap: wrap;
-    padding-bottom: 50px;
-    justify-content:center;
-    align-content: center;
+.FinancesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 50px;
+  justify-content: center;
+  align-content: center;
 }
-.FinanceComponentContainer{
-    margin: 10px;
-    padding: 5px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
-
+.FinanceComponentContainer {
+  margin: 10px;
+  padding: 5px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
 }
-.DateInputsContainer{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 10px;
-    justify-content: center;
-    align-content: center;
+.DateInputsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  justify-content: center;
+  align-content: center;
 }
-    .DateConectors{
-        font-size: large;
-        font-weight: 600;
-        display: flex;
-        justify-content: center;
-        align-content: center;
-    }
-    .Datenput{
-        font-size: large;
-        font-family: inherit;
-        border: none;
-        width: 300px;
-        max-width: 95vw;
-        padding: 10px;
-        margin: 10px;
-        border-radius: 10px;
-        box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
-
-    }
-
-.Title{
-    margin-bottom: 10px;
-    display: flex;
-    text-align: center;
-    font-size: x-large;
-    font-weight: 600;
-    align-content: center;
-    justify-content: center;   
+.DateConectors {
+  font-size: large;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
-.ChartContainer{
-    width:91vw;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-    .ErrorMessage{
-        margin: 10px;
-        font-size: larger;
-        justify-self: center;
-        align-self: center;
-    }
-.ReportContainer{
-    width:91vw;
-}
-@media (min-width:860px) {
-    .ReportContainer{
-        width: 45vw;
-    }
-    .ChartContainer{
-        width: 45vw;
-    }
+.Datenput {
+  font-size: large;
+  font-family: inherit;
+  border: none;
+  width: 300px;
+  max-width: 95vw;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
 }
 
-@media (min-width:1310px) {
-    .ReportContainer{
-        width: 400px;
-    }
-    .ChartContainer{
-        width: 400px;
-    }
+.Title {
+  margin-bottom: 10px;
+  display: flex;
+  text-align: center;
+  font-size: x-large;
+  font-weight: 600;
+  align-content: center;
+  justify-content: center;
+}
+.ChartContainer {
+  width: 91vw;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.ErrorMessage {
+  margin: 10px;
+  font-size: larger;
+  justify-self: center;
+  align-self: center;
+}
+.ReportContainer {
+  width: 91vw;
+}
+@media (min-width: 860px) {
+  .ReportContainer {
+    width: 45vw;
+  }
+  .ChartContainer {
+    width: 45vw;
+  }
 }
 
-.ConceptStatementContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 5px;
-    font-size: x-large;
-    border-bottom-width: 3px;
-    border-bottom-color: black;
-    
+@media (min-width: 1310px) {
+  .ReportContainer {
+    width: 400px;
+  }
+  .ChartContainer {
+    width: 400px;
+  }
 }
 
-.ConceptDescription{
-    font-size: x-large;
-    margin-right: 10px;
-    align-content: flex-end;
+.ConceptStatementContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 5px;
+  font-size: x-large;
+  border-bottom-width: 3px;
+  border-bottom-color: black;
 }
 
-.ConceptAmouth{
-    justify-self: flex-end;
+.ConceptDescription {
+  font-size: x-large;
+  margin-right: 10px;
+  align-content: flex-end;
 }
 
+.ConceptAmouth {
+  justify-self: flex-end;
+}

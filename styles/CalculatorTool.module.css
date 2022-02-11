@@ -1,11 +1,11 @@
 .MainCalculatorContainer {
   display: flex;
-  height: 100vh;
+  height: 100%;
 }
 /*CALCULATOR BUTTONS*/
 .CalculatorButtonsContainer {
   background-color: white;
-  width: 100vw;
+  width: 100%;
   bottom: 30px;
   position: fixed;
   padding-top: 15px;
@@ -16,14 +16,14 @@
   display: flex;
   justify-content: space-around;
   align-content: space-around;
-  width: 100vw;
+  width: 100%;
   margin-bottom: 20px;
 }
 .ButtonsRow {
   display: flex;
   justify-content: space-around;
   align-content: space-around;
-  width: 100vw;
+  width: 100%;
   margin-bottom: 20px;
   user-select: none;
 }

@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-content: center;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   padding-top: 10px;
   padding-bottom: 150px;
@@ -39,7 +39,7 @@
 }
 
 .EditingItemContainer {
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -97,7 +97,7 @@
   cursor: pointer;
 }
 .PendingItemContainer {
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -146,7 +146,7 @@
 .OrderContainer {
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
   padding-top: 10px;
   padding-bottom: 150px;
 }
@@ -154,7 +154,7 @@
 /*ORDER FORM*/
 .OrderFormMainContainer {
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   padding-bottom: 150px;
 
   animation-name: renderOrder;
