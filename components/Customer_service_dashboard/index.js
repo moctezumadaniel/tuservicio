@@ -21,7 +21,7 @@ function CustomerServiceDashboard() {
   const currentTool = useSelector((state) => state.customerActiveTool);
   useEffect(() => window.scrollTo(0, 0));
   return currentGlobalTab === "Services" ? (
-    <div>
+    <div className={styles.CustomerServiceDashboardContainer}>
       {currentTab === "Profile" && <ProfileForms />}
       {currentTool === "None" ? <ServiceTabButtons /> : ""}
 

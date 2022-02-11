@@ -6,6 +6,7 @@ import { loadAllUserInformation } from "../../redux/actions/UserInformation";
 import axios from "axios";
 import MainTabButtons from "../Main_tab_buttons";
 import { LoadingScreen } from "../App_main_container";
+import styles from "../../styles/LoadingScreens.module.css";
 
 const UserMessagesTab = dynamic(() => import("../User_messages_tab"), {
   loading: () => <LoadingScreen />,
@@ -39,11 +40,13 @@ function AppUserContainer() {
   }, []);
   console.log(userInformation);
   return (
-    <div>
+    <div className={styles.AppMainContainer}>
+      <div className={styles.AppContainer}>
+        <UserServicesTab />
+        <PreferencesTab />
+        <UserMessagesTab />
+      </div>
       <MainTabButtons />
-      <UserServicesTab />
-      <PreferencesTab />
-      <UserMessagesTab />
     </div>
   );
 }

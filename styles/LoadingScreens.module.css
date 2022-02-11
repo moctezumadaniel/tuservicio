@@ -1,21 +1,45 @@
-.LoadingMessage{
-    height: 100vh;
-    display: flex;
-    font-size: xx-large;
-    text-align: center;
-    align-items: center;
-    font-weight: bold;
-    justify-content: center;
+.LoadingMessage {
+  height: 100vh;
+  display: flex;
+  font-size: xx-large;
+  text-align: center;
+  align-items: center;
+  font-weight: bold;
+  justify-content: center;
 
-    animation-name: animateLoading;
-    animation-duration: 3000ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+  animation-name: animateLoading;
+  animation-duration: 3000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
+.AppContainer {
+  height: 100%;
+  flex-grow: 1;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.AppMainContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 @keyframes animateLoading {
-        0%  {opacity: 0}
-        20% {opacity: 0}
-        50% {opacity: 1}
-        100%{opacity: 0}
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

@@ -17,13 +17,17 @@ export default function Home() {
       redirectUri={globalThis.location ? globalThis.location.href : ""}
     >
       <Provider store={store}>
-        <div scroll="no" className={styles.container}>
-          <Head>
-            <title>TuServicio</title>
-            <link rel="icon" href="/celer.png" />
-          </Head>
-          <AppMainContainer />
-        </div>
+        <Head>
+          <title>TuServicio</title>
+          <link rel="icon" href="/celer.png" />
+          <style>{`
+            #__next {
+              height:100%;
+              width:100%;
+            }
+          `}</style>
+        </Head>
+        <AppMainContainer />
       </Provider>
     </Auth0Provider>
   );

@@ -1,6 +1,11 @@
+.CustomerServiceDashboardContainer {
+  width: 100%;
+  height: 100%;
+}
 /*TAB BUTTONS*/
 .TabButtonsCantainer {
   display: flex;
+  width: 100%;
   flex-direction: row;
   justify-content: space-around;
   margin-top: 10px;
@@ -42,11 +47,11 @@
 
 .ServiceInformationTabContainer {
   display: flex;
+  height: 100%;
   flex-wrap: wrap;
   justify-content: center;
   align-content: flex-start;
   min-height: 100vh;
-  margin-bottom: 150px;
 }
 /*SERVICE INFORMATION PREVIEW*/
 .ServiceInformationContainer {
@@ -182,7 +187,6 @@
   justify-content: space-around;
   align-content: space-around;
   width: 100vw;
-  padding-bottom: 150px;
 }
 .AddServiceButton {
   margin-top: 15px;
@@ -286,7 +290,6 @@
   justify-content: center;
   align-content: flex-start;
   margin-top: 10px;
-  padding-bottom: 150px;
 }
 @media (max-width: 494px) {
   .ToolBarContainer {

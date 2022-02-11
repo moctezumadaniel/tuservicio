@@ -54,11 +54,13 @@ function AppCustomerContainer() {
   console.log(customerInformation);
   if (customerData) {
     return (
-      <div>
+      <div className={styles.AppMainContainer}>
+        <div className={styles.AppContainer}>
+          <CustomerServiceDashboard />
+          <UserMessagesTab />
+          <PreferencesTab />
+        </div>
         <MainTabButtons />
-        <CustomerServiceDashboard />
-        <UserMessagesTab />
-        <PreferencesTab />
       </div>
     );
   } else {
