@@ -50,7 +50,7 @@ function AddSchedule() {
       setTemporalNewSchedule({ ...temporalNewSchedule, [input]: newValue });
   }
   function addSchedule(customerId, temporalNewSchedule) {
-    if (!temporalNewSchedule.start || temporalNewSchedule == "") return;
+    if (!temporalNewSchedule.start || temporalNewSchedule.day == "") return;
     axios
       .post(`api/customer/addCustomerSchedule`, {
         customerId,

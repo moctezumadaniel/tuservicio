@@ -75,7 +75,7 @@
 }
 .EditReservationButton {
   border: none;
-  outline: none;
+  outline-color: #c67802;
   background-color: white;
   color: #c67802;
   margin-top: 5px;
@@ -85,7 +85,7 @@
 }
 .AttendedReservationButton {
   border: none;
-  outline: none;
+  outline-color: #026ed2;
   background-color: white;
   color: #026ed2;
   margin-top: 5px;
