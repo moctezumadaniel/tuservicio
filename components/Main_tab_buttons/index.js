@@ -15,6 +15,7 @@ import { changeTicketsToolToDashboard } from "../../redux/actions/TicketsTool";
 import { changeCustomerProfileFormToNone } from "../../redux/actions/CustomerProfileForms";
 import { changeCustomerReservationsFormToNone } from "../../redux/actions/CustomerReservationsForms";
 import { changeUserPreferencesFormToNone } from "../../redux/actions/UserPreferencesForms";
+import { changeToSearch } from "../../redux/actions/UserServicesTab";
 function MainTabButtons() {
   const currentTab = useSelector((state) => state.globalTab);
   const currentCustomerTool = useSelector((state) => state.customerActiveTool);
@@ -23,6 +24,7 @@ function MainTabButtons() {
   const currentCustomersTab = useSelector((state) => state.customersTool);
   const currentProvidersTab = useSelector((state) => state.providersTool);
   const currentTicketsTab = useSelector((state) => state.ticketsTool);
+  const currentUserServicesTab = useSelector((state) => state.userServicesTab);
   const currentServiceDashboardTab = useSelector(
     (state) => state.customerDashboardTab
   );
@@ -77,6 +79,9 @@ function MainTabButtons() {
   }
   function handleClosePreferenceForm() {
     dispatch(changeUserPreferencesFormToNone());
+  }
+  function handleCloseServicePage() {
+    dispatch(changeToSearch());
   }
   return (
     <div className={styles.MainTabButtonsContainer}>
@@ -149,6 +154,14 @@ function MainTabButtons() {
         currentServiceDashboardTab === "Tools" &&
         currentCustomerTool !== "None" ? (
         <button className={styles.MainCloseChat} onClick={handleCloseToolPress}>
+          {closeDescription}
+        </button>
+      ) : currentTab === "Services" &&
+        currentUserServicesTab === "ServicePage" ? (
+        <button
+          className={styles.MainCloseChat}
+          onClick={handleCloseServicePage}
+        >
           {closeDescription}
         </button>
       ) : (

@@ -2,7 +2,9 @@ import styles from "../../styles/UserServiceSearch.module.css";
 import { ButtonUserLogin } from "../User_login";
 import { useAuth0 } from "@auth0/auth0-react";
 import Image from "next/image";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { changeToServicePage } from "../../redux/actions/UserServicesTab";
+import { userServicePageSetInformation } from "../../redux/actions/UserServicePage";
 
 function ServicesSearch() {
   const { isAuthenticated, isLoading } = useAuth0();
@@ -19,6 +21,7 @@ function ServicesSearch() {
 export default ServicesSearch;
 
 function UserServicesPreview() {
+  const dispatch = useDispatch();
   const currentServices = useSelector((state) => state.userDisplayedServices);
   const searchStatus = useSelector((state) => state.userServiceSearch);
   const stars = "estrellas";
@@ -41,6 +44,14 @@ function UserServicesPreview() {
       return `${service.schedule[day].opening} a ${service.schedule[day].closing}`;
     } else return `Cerrado hoy`;
   };
+
+  const openServicePage = (information) => (event) => {
+    event.preventDefault();
+    dispatch(
+      userServicePageSetInformation(information),
+      dispatch(changeToServicePage())
+    );
+  };
   console.log(currentServices);
   console.log(currentDay());
   if (currentServices.length > 0 && searchStatus === "Done") {
@@ -49,6 +60,7 @@ function UserServicesPreview() {
         className={styles.PreviewMainContainer}
         key={service._id}
         href={service.href || ""}
+        onClick={openServicePage(service)}
       >
         <div className={styles.ImageAndScoreContainer}>
           <Image src="/celerPerfil.png" width={80} height={80} />
