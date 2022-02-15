@@ -5,8 +5,10 @@ function TopBar() {
   const pageInformation = useSelector((state) => state.userServicePage);
   const sendMessageDescription = "ENVIAR MENSAJE";
   const profileImage = "IMAGEN DE PERFIL";
-  const phoneCallDescription = `LLAMAR AL ${pageInformation.phoneNumber}`;
-  const CustomerName = pageInformation.name;
+  const phoneCallDescription = pageInformation?.phoneNumber
+    ? `LLAMAR AL ${pageInformation?.phoneNumber}`
+    : "SIN TELÉFONO";
+  const CustomerName = pageInformation?.name;
   return (
     <div>
       <div className={styles.TopBarContainer}>

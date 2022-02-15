@@ -4,9 +4,9 @@ import styles from "../../styles/CustomerProfileTemplate.module.css";
 function MoreInformation() {
   const pageInformation = useSelector((state) => state.userServicePage);
   const directionDescription = "Dirección";
-  const serviceScore = pageInformation.score || "";
+  const serviceScore = pageInformation?.score || "";
   const moreInformationDescription = "+ Información";
-  const briefDescription = pageInformation.shortDescription || "";
+  const briefDescription = pageInformation?.shortDescription || "";
   return (
     <div>
       <div className={styles.MoreInformationContainer}>

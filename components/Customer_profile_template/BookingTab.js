@@ -8,8 +8,8 @@ function BookingTab() {
 
   return (
     <div className={styles.BookingMainContainer}>
-      {pageInformation.listOfSchedules.length > 0
-        ? pageInformation.listOfSchedules.map((schedule) => (
+      {pageInformation?.listOfSchedules.length > 0
+        ? pageInformation?.listOfSchedules.map((schedule) => (
             <BookingItem
               key={schedule._id}
               day={schedule.day}
