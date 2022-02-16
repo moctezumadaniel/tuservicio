@@ -4,21 +4,19 @@ import TabButtons from "./TabButtons";
 import ServicesTab from "./ServicesTab";
 import ReviewsTab from "./ReviewsTab";
 import BookingTab from "./BookingTab";
-import CloseButton from "./CloseButton";
 import axios from "axios";
 import { useSelector } from "react-redux";
 function CustomerProfileTemplate() {
-  const servicePage = useSelector((state) => state.userServicePage);
-  console.log(servicePage);
+  const currentTab = useSelector((state) => state.pageStatus.currentTab);
+  console.log(currentTab);
   return (
     <div>
       <TopBar />
       <MoreInformation />
       <TabButtons />
-      {/*<ServicesTab/>*/}
-      {/*<ReviewsTab/>*/}
-      <BookingTab />
-      <CloseButton />
+      {currentTab === "Services" && <ServicesTab />}
+      {currentTab === "Reviews" && <ReviewsTab />}
+      {currentTab === "Reservations" && <BookingTab />}
     </div>
   );
 }
