@@ -23,7 +23,6 @@ function MoreInformation() {
         return;
     }
   };
-  console.log(moreInfoStatus);
   const directionDescription = "Dirección";
   const serviceScore = pageInformation?.score || "";
   const moreInformationDescription = "+ Información";

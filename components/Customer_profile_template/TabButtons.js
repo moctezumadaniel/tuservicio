@@ -23,7 +23,6 @@ function TabButtons() {
         return;
     }
   };
-  console.log(currentTab);
   const servicesTabDescription = "Servicios";
   const reviewsTabDescription = "Reseñas";
   const reservationsTabDescription = "Reservaciones";

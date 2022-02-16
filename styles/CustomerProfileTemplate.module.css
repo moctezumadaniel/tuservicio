@@ -11,6 +11,7 @@
   outline-color: #026ed2;
   border: none;
   font-size: medium;
+  cursor: pointer;
 }
 .ProfileImage {
   width: 120px;
@@ -22,6 +23,7 @@
   outline-color: #026ed2;
   border: none;
   font-size: medium;
+  cursor: pointer;
 }
 
 .CustomerName {
@@ -54,6 +56,7 @@
   outline-color: #c67802;
   border: none;
   font-size: large;
+  cursor: pointer;
 }
 
 .MoreInformationButton {
@@ -62,6 +65,7 @@
   outline-color: #c67802;
   border: none;
   font-size: large;
+  cursor: pointer;
 }
 
 /*TAB BUTTONS FOR THE MAIN INFORMATION OF THE SERVICES*/
@@ -82,8 +86,10 @@
   padding-bottom: 0.5vh;
   border-radius: 100px;
   outline-color: #026ed2;
+  outline-offset: 1px;
   border-style: solid;
   border-color: #026ed2;
+  cursor: pointer;
 }
 
 .TabButtonActive {
@@ -97,6 +103,8 @@
   outline-color: #026ed2;
   border-style: solid;
   border-color: #026ed2;
+  outline-offset: 1px;
+  cursor: pointer;
 }
 
 .AddReviewContainer {
@@ -112,6 +120,7 @@
   outline-color: #026ed2;
   border: none;
   font-size: large;
+  cursor: pointer;
 }
 /*SERVICES TAB AND ITS CORRESPONDENT ITEMS*/
 

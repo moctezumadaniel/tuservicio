@@ -8,7 +8,6 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 function CustomerProfileTemplate() {
   const currentTab = useSelector((state) => state.pageStatus.currentTab);
-  console.log(currentTab);
   return (
     <div>
       <TopBar />
