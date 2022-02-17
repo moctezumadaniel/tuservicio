@@ -2,6 +2,7 @@ import styles from "../../styles/UserServiceSearch.module.css";
 import { ButtonUserLogin } from "../User_login";
 import { useAuth0 } from "@auth0/auth0-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { changeToServicePage } from "../../redux/actions/UserServicesTab";
 import { userServicePageSetInformation } from "../../redux/actions/UserServicePage";
@@ -47,10 +48,10 @@ function UserServicesPreview() {
 
   const openServicePage = (information) => (event) => {
     event.preventDefault();
-    dispatch(
-      userServicePageSetInformation(information),
-      dispatch(changeToServicePage())
-    );
+    // dispatch(
+    //   userServicePageSetInformation(information),
+    //   dispatch(changeToServicePage())
+    // );
   };
   console.log(currentServices);
   console.log(currentDay());
@@ -59,8 +60,9 @@ function UserServicesPreview() {
       <a
         className={styles.PreviewMainContainer}
         key={service._id}
-        href={service.href || ""}
-        onClick={openServicePage(service)}
+        href={`/servicio/${service._id}`}
+        onClick={openServicePage}
+        target="_blank"
       >
         <div className={styles.ImageAndScoreContainer}>
           <Image src="/celerPerfil.png" width={80} height={80} />

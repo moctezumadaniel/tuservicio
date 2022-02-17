@@ -3,9 +3,12 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import CustomerProfileTemplate from "../../components/Customer_profile_template";
 import rootReducer from "../../redux/reducers/ServicePage";
+import { useRouter } from "next/router";
 
-const store = createStore(rootReducer);
 export default function Service() {
+  const store = createStore(rootReducer);
+  const router = useRouter();
+  console.log(router.query.id);
   return (
     <Auth0Provider
       domain="dev-006imb0h.us.auth0.com"
