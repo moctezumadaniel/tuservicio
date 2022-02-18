@@ -2,10 +2,7 @@ import styles from "../../styles/UserServiceSearch.module.css";
 import { ButtonUserLogin } from "../User_login";
 import { useAuth0 } from "@auth0/auth0-react";
 import Image from "next/image";
-import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
-import { changeToServicePage } from "../../redux/actions/UserServicesTab";
-import { userServicePageSetInformation } from "../../redux/actions/UserServicePage";
 
 function ServicesSearch() {
   const { isAuthenticated, isLoading } = useAuth0();
@@ -48,10 +45,6 @@ function UserServicesPreview() {
 
   const openServicePage = (information) => (event) => {
     event.preventDefault();
-    // dispatch(
-    //   userServicePageSetInformation(information),
-    //   dispatch(changeToServicePage())
-    // );
   };
   console.log(currentServices);
   console.log(currentDay());
@@ -60,7 +53,7 @@ function UserServicesPreview() {
       <a
         className={styles.PreviewMainContainer}
         key={service._id}
-        href={`/servicio/${service._id}`}
+        href={`/servicio/${service.customerId}`}
         onClick={openServicePage}
         target="_blank"
       >
