@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import styles from "../../styles/CustomerProfileTemplate.module.css";
 
 function TopBar() {
-  const pageInformation = useSelector((state) => state.userServicePage);
+  const pageInformation = useSelector((state) => state.customerInformation);
   const sendMessageDescription = "ENVIAR MENSAJE";
   const profileImage = "IMAGEN DE PERFIL";
   const phoneCallDescription = pageInformation?.phoneNumber

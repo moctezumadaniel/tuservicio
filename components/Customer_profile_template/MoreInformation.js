@@ -10,7 +10,7 @@ function MoreInformation() {
   const moreInfoStatus = useSelector(
     (state) => state.pageStatus.moreInformation
   );
-  const pageInformation = useSelector((state) => state.userServicePage);
+  const pageInformation = useSelector((state) => state.customerInformation);
   const handleMoreInfoPress = (event) => {
     switch (event.target.name) {
       case "MoreInformation":
