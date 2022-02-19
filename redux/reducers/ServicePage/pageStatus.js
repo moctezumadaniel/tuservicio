@@ -1,6 +1,7 @@
 const initialState = {
   currentTab: "Reservations",
   moreInformation: "None",
+  modal: "",
 };
 export const pageStatusReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -28,6 +29,11 @@ export const pageStatusReducer = (state = initialState, action) => {
       return {
         ...state,
         moreInformation: "Address",
+      };
+    case "OPEN_NEW_REVIEW_MODAL":
+      return {
+        ...state,
+        modal: "NewReview",
       };
     default:
       return state;

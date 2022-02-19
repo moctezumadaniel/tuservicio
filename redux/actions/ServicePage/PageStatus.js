@@ -27,3 +27,9 @@ export const openAddress = () => {
     type: "OPEN_ADDRESS",
   };
 };
+
+export const openNewReviewModal = () => {
+  return {
+    type: "OPEN_NEW_REVIEW_MODAL",
+  };
+};
