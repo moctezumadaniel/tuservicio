@@ -7,6 +7,7 @@ function BookingItem(props) {
     <div className={styles.BookingItemContainer}>
       <div className={styles.ItemSchedule}>{schedule}</div>
       <div className={styles.ItemDescription}>{props.description}</div>
+
       <button className={styles.BookingButton}>{bookingButton}</button>
     </div>
   );

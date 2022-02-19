@@ -44,6 +44,16 @@ function TabButtons() {
         </button>
         <button
           className={
+            currentTab === "Reviews" ? styles.TabButtonActive : styles.TabButton
+          }
+          name="Reviews"
+          type="button"
+          onClick={handleTabPress}
+        >
+          {reviewsTabDescription}
+        </button>
+        <button
+          className={
             currentTab === "Services"
               ? styles.TabButtonActive
               : styles.TabButton
@@ -53,16 +63,6 @@ function TabButtons() {
           onClick={handleTabPress}
         >
           {servicesTabDescription}
-        </button>
-        <button
-          className={
-            currentTab === "Reviews" ? styles.TabButtonActive : styles.TabButton
-          }
-          name="Reviews"
-          type="button"
-          onClick={handleTabPress}
-        >
-          {reviewsTabDescription}
         </button>
       </div>
     </div>
