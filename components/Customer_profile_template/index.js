@@ -28,14 +28,14 @@ function CustomerProfileTemplate(props) {
   }, [props.id]);
   if (customerInformation.customerId) {
     return (
-      <div>
+      <div style={{ overflowY: "scroll ", height: "100vh" }}>
         <TopBar />
         <MoreInformation />
         <TabButtons />
+        <CustomerProfilModals />
         {currentTab === "Services" && <ServicesTab />}
         {currentTab === "Reviews" && <ReviewsTab />}
         {currentTab === "Reservations" && <BookingTab />}
-        <CustomerProfilModals />
       </div>
     );
   } else return <div>CArgando</div>;

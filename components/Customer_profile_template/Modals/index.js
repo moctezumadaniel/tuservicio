@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import NewRecipeModal from "./NewReviewModal";
+import NewReviewModal from "./NewReviewModal";
 
 const Modals = {
-  NewReview: <NewRecipeModal />,
+  NewReview: <NewReviewModal />,
 };
 
 const CustomerProfilModals = () => {
