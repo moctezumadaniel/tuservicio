@@ -1,27 +1,34 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { openNewReviewModal } from "../../redux/actions/ServicePage/PageStatus";
 import styles from "../../styles/CustomerProfileTemplate.module.css";
+import NewReview from "./Modals/NewReview";
 import ReviewItemTemplate from "./ReviewItemTemplate";
 function ReviewsTab() {
-  const dispatch = useDispatch();
-  const pageInformation = useSelector((state) => state.customerInformation);
+  const [formStatus, setFormStatus] = useState("");
   const handleAddReview = () => {
-    dispatch(openNewReviewModal());
+    setFormStatus("NewReview");
   };
   return (
     <div className={styles.ReviewsMainContainer}>
-      <div>
-        <button onClick={handleAddReview}>AGREGAR RESEÑA</button>
+      <div className={styles.NewReviewContainer}>
+        {formStatus === "NewReview" && <NewReview />}
+        <div className={styles.NewReviewButtonContainer}>
+          <button onClick={handleAddReview} className={styles.NewReviewButton}>
+            AGREGAR RESEÑA
+          </button>
+        </div>
       </div>
-      <ReviewItemTemplate />
-      <ReviewItemTemplate />
-      <ReviewItemTemplate />
-      <ReviewItemTemplate />
-      <ReviewItemTemplate />
-      <ReviewItemTemplate />
-      <ReviewItemTemplate />
-      <ReviewItemTemplate />
-      <ReviewItemTemplate />
+      <div className={styles.ReviewsContainer}>
+        <ReviewItemTemplate />
+        <ReviewItemTemplate />
+        <ReviewItemTemplate />
+        <ReviewItemTemplate />
+        <ReviewItemTemplate />
+        <ReviewItemTemplate />
+        <ReviewItemTemplate />
+        <ReviewItemTemplate />
+        <ReviewItemTemplate />
+      </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./CustomerProfileModals.module.css";
-const NewReviewModal = () => {
+const NewReview = () => {
   const titles = {
     review: "Califíca de 1 a 10",
     title: "Escríbe el título de tu reseña",
@@ -72,4 +72,4 @@ const NewReviewModal = () => {
   );
 };
 
-export default NewReviewModal;
+export default NewReview;

@@ -8,7 +8,6 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { setCustomerInformation } from "../../redux/actions/ServicePage/CustomerInformation";
-import CustomerProfilModals from "./Modals";
 function CustomerProfileTemplate(props) {
   const dispatch = useDispatch();
   const customerInformation = useSelector((state) => state.customerInformation);
@@ -32,7 +31,6 @@ function CustomerProfileTemplate(props) {
         <TopBar />
         <MoreInformation />
         <TabButtons />
-        <CustomerProfilModals />
         {currentTab === "Services" && <ServicesTab />}
         {currentTab === "Reviews" && <ReviewsTab />}
         {currentTab === "Reservations" && <BookingTab />}
