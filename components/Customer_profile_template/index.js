@@ -8,6 +8,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { setCustomerInformation } from "../../redux/actions/ServicePage/CustomerInformation";
+import LoadingScreen from "../LoadingScreen";
 function CustomerProfileTemplate(props) {
   const dispatch = useDispatch();
   const customerInformation = useSelector((state) => state.customerInformation);
@@ -36,7 +37,7 @@ function CustomerProfileTemplate(props) {
         {currentTab === "Reservations" && <BookingTab />}
       </div>
     );
-  } else return <div>CArgando</div>;
+  } else return <LoadingScreen />;
 }
 
 export default CustomerProfileTemplate;
