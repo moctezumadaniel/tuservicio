@@ -21,7 +21,7 @@ export function ButtonUserLogin() {
 export function UserLogin() {
   const { loginWithRedirect } = useAuth0();
   const title =
-    "Accede a tú cuenta o crea una para reservar, contactar y almacenar tus servicios totalmente gratis";
+    "Accede a tú cuenta o crea una para reservar, contactar y almacenar tus servicios";
   const buttonDescription = "Accede a tú cuenta o crea una";
   return (
     <div className={styles.LoginMainContainer}>
